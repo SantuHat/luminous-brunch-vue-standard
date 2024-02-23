@@ -32,14 +32,38 @@ const routes = [
             }
           }
         ]
+      },
+      {
+        path: '/dashboard',
+        // name: 'about',
+        component: () => import('../dashboard/DashBoard.vue'),
+        children: [
+          {
+            path: 'products',
+            component: () => import('../dashboard/ProductsView.vue')
+          },
+          {
+            path: 'order',
+            component: () => import('../dashboard/OrderView.vue')
+          },
+          {
+            path: 'coupon',
+            component: () => import('../dashboard/CouponView.vue')
+          }
+        ]
+      },
+      {
+        path: '/login',
+        // name: 'about',
+        component: () => import('../dashboard/LoginView.vue')
       }
     ]
-  },
-  {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: () => import('../views/dashboard/DashboardView.vue')
   }
+  // {
+  //   path: '/dashboard',
+  //   name: 'Dashboard',
+  //   component: () => import('../views/dashboard/DashboardView.vue')
+  // }
 ]
 
 const router = createRouter({
