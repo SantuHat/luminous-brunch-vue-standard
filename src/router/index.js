@@ -15,6 +15,23 @@ const routes = [
         path: 'about',
         name: 'About',
         component: () => import('../views/AboutView.vue')
+      },
+      {
+        path: 'menuview',
+        name: 'MenuView',
+        component: () => import('../views/MenuView.vue'),
+        children: [
+          {
+            path: 'menulist',
+            name: 'MenuList',
+            component: () => import('../components/MenuList.vue'),
+            props: (route) => {
+              return {
+                categoryTitle: route.params.id
+              }
+            }
+          }
+        ]
       }
     ]
   },

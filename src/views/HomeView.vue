@@ -221,6 +221,7 @@
     <!-- 預約三步驟 end -->
     <!-- 菜單區塊 start -->
     <!-- 做成元件引入 -->
+    <RouterLink to="/menuview/menulist">菜單瀏覽</RouterLink>
     <!-- 菜單區塊 end -->
     <!-- 顧客評論 start-->
     <section class="section" id="section--5">
