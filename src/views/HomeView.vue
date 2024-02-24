@@ -224,74 +224,25 @@
     <RouterLink to="/menuview/menulist">菜單瀏覽</RouterLink>
     <!-- 菜單區塊 end -->
     <!-- 顧客評論 start-->
-    <section class="section" id="section--5">
-      <div class="bg h-100">
-        <div class="container">
-          <div
-            class="row carousel slide py-11"
-            id="carouselExampleControls"
-            data-bs-ride="carousel"
-          >
-            <div
-              class="col-md-2 d-flex align-items-center justify-content-center col-sm-12"
-            >
-              <div class="text">
-                <h3>顧客評論</h3>
-                <div>
-                  <ul class="d-flex justify-content-between">
-                    <li class="arrow-left" id="previous">
-                      <a
-                        href="#"
-                        class=""
-                        type="button"
-                        data-bs-target="#carouselExampleControls"
-                        data-bs-slide="prev"
-                        role="button"
-                      >
-                        <span class="visually-hidden">Previous</span>
-                        <img src="/Vector.png" alt="" />
-                      </a>
-                    </li>
-                    <li class="arrow-right" id="next">
-                      <a
-                        href="#"
-                        class=""
-                        type="button"
-                        data-bs-target="#carouselExampleControls"
-                        data-bs-slide="next"
-                        role="button"
-                      >
-                        <span class="visually-hidden">Next</span>
-                        <img src="/Vector-right.png" alt="" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item d-flex" id="course-section"></div>
-          </div>
-          <div class="d-flex justify-content-center booking pb-10">
-            <a type="button" class="btn btn-primary" href="5-1_booking.html"
-              >立即訂位</a
-            >
-          </div>
-        </div>
-      </div>
-    </section>
+    <GuestReviews></GuestReviews>
     <!-- 顧客頻論 end -->
     <a id="toTOP"
       ><img src="/Back to top-lg.png" alt="backToTopBtn"
     /></a>
   </div>
+  <FooterView/>
 </template>
 
 <script>
 import HeaderView from '@/components/HeaderView.vue'
+import FooterView from '@/components/FooterView.vue'
+import GuestReviews from '@/components/GuestReviews.vue'
 
 export default {
   components: {
-    HeaderView
+    HeaderView,
+    FooterView,
+    GuestReviews
   }
 }
 </script>
