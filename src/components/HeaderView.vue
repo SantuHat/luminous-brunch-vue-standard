@@ -8,10 +8,10 @@
       </a>
       <ul class="list-unstyled d-lg-flex mb-0 align-items-center dropdownNavbar bg-light">
         <li class="nav_item border-bottom-1">
-          <a class="py-4 py-lg-3 px-5 fw-500 d-block" href="2_aboutUs.html">關於我們</a>
+          <RouterLink to="/aboutus"><a class="py-4 py-lg-3 px-5 fw-500 d-block" href="#">關於我們</a></RouterLink>
         </li>
         <li class="nav_item border-bottom-1">
-          <a class="py-4 py-lg-3 px-5 fw-500 d-block" href="3_newsMain.html">最新消息/優惠</a>
+          <RouterLink to="/newsmain"><a class="py-4 py-lg-3 px-5 fw-500 d-block" href="#">最新消息/優惠</a></RouterLink>
         </li>
         <li class="nav_item">
           <a class="py-4 px-5 fw-500 position-relative selectMenu d-block border-bottom-1 d-flex justify-content-between"
@@ -43,17 +43,21 @@
             </li>
           </ul>
         </li>
-        <li class="nav_item border-bottom-1">
-          <a class="py-4 py-lg-3 px-5 fw-500 d-block d-flex" href="5-1_confirmOrder.html">
-            <span class="material-symbols-outlined me-1">
-              shopping_cart
-            </span>
-            <span>購物車</span>
-          </a>
-        </li>
-        <li class="memberLogin">
-          <a class="py-4 py-lg-3 px-5 fw-500 d-block" href="login.html">會員註冊/登入</a>
-        </li>
+        <RouterLink to="/usercart">
+          <li class="nav_item border-bottom-1">
+            <a class="py-4 py-lg-3 px-5 fw-500 d-block d-flex" href="#">
+              <span class="material-symbols-outlined me-1">
+                shopping_cart
+              </span>
+              <span>購物車</span>
+            </a>
+          </li>
+        </RouterLink>
+        <RouterLink to="/userlogin">
+          <li class="memberLogin">
+            <a class="py-4 py-lg-3 px-5 fw-500 d-block" href="#">會員註冊/登入</a>
+          </li>
+        </RouterLink>
         <li class="memberCenterItem">
           <a class="selectMemberCenter py-4 px-5 fw-500 position-relative d-block border-bottom-1 d-flex justify-content-between"
             href="#">會員中心<span class="material-symbols-outlined align-bottom">
