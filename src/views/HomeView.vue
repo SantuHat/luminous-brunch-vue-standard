@@ -226,23 +226,22 @@
     <!-- 顧客評論 start-->
     <GuestReviews></GuestReviews>
     <!-- 顧客頻論 end -->
-    <a id="toTOP"
-      ><img src="/Back to top-lg.png" alt="backToTopBtn"
-    /></a>
+    <BackToTop/>
+    <FooterView/>
   </div>
-  <FooterView/>
 </template>
 
 <script>
 import HeaderView from '@/components/HeaderView.vue'
 import FooterView from '@/components/FooterView.vue'
 import GuestReviews from '@/components/GuestReviews.vue'
-
+import BackToTop from '@/components/BackToTop.vue'
 export default {
   components: {
     HeaderView,
     FooterView,
-    GuestReviews
+    GuestReviews,
+    BackToTop
   }
 }
 </script>
