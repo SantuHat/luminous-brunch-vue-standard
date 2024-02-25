@@ -3,21 +3,27 @@
   <div class="container">
       <div class="row m-3 pb-6 border-bottom">
         <div class="col-lg-6">
-            <img src="https://images.unsplash.com/photo-1627308595216-439c00ade0fe?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=""
-            class="menu-detail-img">
+            <img :src="product.imageUrl" alt=""
+            class="menu-detail-img object-fit-cover">
         </div>
         <div class="col-lg-6 d-flex flex-column justify-content-between">
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">全部餐點</a></li>
-                    <li class="breadcrumb-item"><a href="#">三明治系列</a></li>
-                    <li class="breadcrumb-item" aria-current="page" active><a href="#">燻鮭魚酪梨開放三明治 </a></li>
+                    <li class="breadcrumb-item"><RouterLink to="/index">首頁</RouterLink></li>
+                    <li class="breadcrumb-item">
+                      <RouterLink :to="`/menuview/menulist?category=${product.category}`">
+                        {{ categoryTitle[0]?.name }}系列
+                      </RouterLink>
+                    </li>
+                    <li class="breadcrumb-item" aria-current="page" active>
+                      <RouterLink :to="`/menuDetail/${product.id}`">{{ product.title }}</RouterLink>
+                    </li>
                 </ol>
             </nav>
             <div class="my-3">
-                <h2 class="text-primary fw-bolder  font-NotoSerif my-5">燻鮭魚酪梨開放三明治</h2>
-                <p class="mb-3">經典煙燻鮭魚搭配新鮮、營養的酪梨,同時補充平時生活不易取得的Omega-3脂肪酸以及維生素D,兩種新鮮食材搭配恰到好處,給你精神滿滿的一天</p>
-                <p class="fw-bold fs-3">NT: 80 $</p>
+                <h2 class="text-primary fw-bolder  font-NotoSerif my-5">{{ product.title }}</h2>
+                <p class="mb-3">{{ product.description }}</p>
+                <p class="fw-bold fs-3">NT:$ {{ product.price }} </p>
                 <div class="d-flex justify-content-between mb-3">
                     <p>數量</p>
                     <div class="numberCal">
@@ -28,7 +34,7 @@
                 </div>
                 <div class="d-grid gap-2 mb-3">
                     <button class="btn btn-primary py-3" type="button"
-                      @click.prevent="addCart(item.id, item)"
+                      @click.prevent="addCart(product.id, product)"
                       >加入購物車</button>
                 </div>
                 <div class="mx-auto d-flex">
@@ -70,36 +76,88 @@
     </div>
   </div>
 </div>
+<!-- <AddCartToast ref="AddCartToast"></AddCartToast> -->
 </template>
 <script>
+import { RouterLink } from 'vue-router'
+
+// import AddCartToast from '../components/AddCartToast.vue'
 const { VITE_API, VITE_PATH } = import.meta.env
 export default {
+  // components: { AddCartToast },
   data () {
     return {
       product: {},
-      qty: 1
+      categoryTitle: [],
+      qty: 1,
+      categoryTitleList: [
+        {
+          name: '沙拉',
+          query: 'salad'
+        },
+        {
+          name: '漢堡',
+          query: 'burger'
+        },
+        {
+          name: '三明治',
+          query: 'sandwich'
+        },
+        {
+          name: '早午餐',
+          query: 'brunch'
+        },
+        {
+          name: '義大利麵',
+          query: 'pasta'
+        },
+        {
+          name: '飲品',
+          query: 'drink'
+        }
+      ]
     }
+  },
+  mounted () {
+    console.log(this.$route)
+    // 判斷當前的$route參數
+    const { id } = this.$route.params
+    this.$http.get(`${VITE_API}api/${VITE_PATH}/product/${id}`)
+      .then((res) => {
+        console.log(res)
+        this.product = res.data.product
+        // 找出目前分類的中文渲染畫面
+        this.matchCategory()
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   },
   methods: {
     addCart (id, item) {
       console.log(id)
-      this.productTemp = item
       const url = `${VITE_API}/api/${VITE_PATH}/cart`
       const postData = {
         data: {
           product_id: id,
-          qty: 1
+          qty: this.qty
         }
       }
       this.$http.post(url, postData)
         .then((res) => {
           console.log(res)
-          this.$refs.addCartToast.show()
+          this.$refs.AddCartToast.show()
         })
         .catch((err) => {
           console.log(err)
         })
+    },
+    matchCategory () {
+      this.categoryTitle = this.categoryTitleList.filter((item) => {
+        return item.query === this.product.category
+      })
     }
-  }
+  },
+  components: { RouterLink }
 }
 </script>

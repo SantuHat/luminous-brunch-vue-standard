@@ -12,8 +12,8 @@
           >
               <div class="card-menu">
                   <div class="card-img object-fit">
-                    <RouterLink to="/menuview/menudetail">
-                      <img :src="item.imageUrl" alt="" class="menu-img">
+                    <RouterLink :to="`/menuDetail/${item.id}`">
+                      <img :src="item.imageUrl" alt="" class="menu-img" title="點擊可以查看餐點詳細資訊">
                     </RouterLink>
                   </div>
                   <div class="text-primary d-flex flex-column justify-content-between p-4">
@@ -51,16 +51,21 @@ export default {
   },
   data () {
     return {
-      hexUrl: 'https://ec-course-api.hexschool.io/v2',
-      apiPath: 'luminous',
       apiData: {},
-      productTemp: {},
+      productTemp: {}
       // 用來刪除最新一筆的購物車訂單id
-      cartProductId: ''
     }
   },
   mounted () {
     this.getProducts()
+  },
+  watch: {
+    '$route.query': {
+      handler () {
+        this.getProducts()
+      },
+      deep: true
+    }
   },
   methods: {
     login () {
@@ -93,14 +98,13 @@ export default {
           console.log(err)
         })
     },
-    getProducts () {
-      axios.get(`${this.hexUrl}/api/${this.apiPath}/products/all`)
+    getProducts (category = '') {
+      // const category = this.$route.query.category
+      console.log(category)
+      axios.get(`${VITE_API}/api/${VITE_PATH}/products?category=${this.$route.query.category}`)
         .then((Response) => {
           this.apiData = Response.data.products
-          // this.apiData = this.apiData.filter((item) => {
-          //   return item.category.match(this.categoryTitle)
-          // })
-          console.log(this.apiData)
+          console.log(Response)
         })
         .catch((err) => {
           console.log(err)

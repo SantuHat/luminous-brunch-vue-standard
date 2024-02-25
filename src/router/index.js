@@ -44,14 +44,14 @@ const routes = [
           {
             path: 'menulist',
             name: 'MenuList',
-            component: () => import('../components/MenuList.vue'),
-            props: (route) => {
-              return {
-                categoryTitle: route.params.id
-              }
-            }
+            component: () => import('../components/MenuList.vue')
           }
         ]
+      },
+      {
+        path: 'menuDetail/:id',
+        name: 'MenuDetail',
+        component: () => import('../views/MenuDetail.vue')
       },
       {
         path: '/dashboard',

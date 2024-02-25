@@ -7,52 +7,12 @@
 <div class="container">
   <div class="py-6">
     <ul id="menuList" class="d-flex justify-content-around list-unstyled">
-      <li>
+      <li v-for="item in categoryTitleList"
+          :key="item">
         <RouterLink
-          id="Salad"
-          to="/menuview/menulist"
+          :to="`/menuview/menulist?category=${ item.query }`"
           class="link-primary fs-5 fw-bold font-NotoSerif"
-          >沙拉系列</RouterLink
-        >
-      </li>
-      <li>
-        <RouterLink
-          id="Burger"
-          to="/menuview/menulist"
-          class="link-primary fs-5 fw-bold font-NotoSerif"
-          >漢堡系列</RouterLink
-        >
-      </li>
-      <li>
-        <a
-          id="Sandwich"
-          href="4-1_menu-salad.html?menu=Sandwich"
-          class="link-primary fs-5 fw-bold font-NotoSerif"
-          >三明治系列</a
-        >
-      </li>
-      <li>
-        <a
-          id="Brunch"
-          href="4-1_menu-salad.html?menu=Brunch"
-          class="link-primary fs-5 fw-bold font-NotoSerif"
-          >早午餐系列</a
-        >
-      </li>
-      <li>
-        <a
-          id="Pasta"
-          href="4-1_menu-salad.html?menu=Pasta"
-          class="link-primary fs-5 fw-bold font-NotoSerif"
-          >義大利麵系列</a
-        >
-      </li>
-      <li>
-        <a
-          id="Drink"
-          href="4-1_menu-salad.html?menu=Drink"
-          class="link-primary fs-5 fw-bold font-NotoSerif"
-          >飲品系列</a
+          >{{ item.name }}系列</RouterLink
         >
       </li>
     </ul>
@@ -70,7 +30,32 @@ export default {
   // }
   data () {
     return {
-      categoryTitle: ''
+      categoryTitleList: [
+        {
+          name: '沙拉',
+          query: 'salad'
+        },
+        {
+          name: '漢堡',
+          query: 'burger'
+        },
+        {
+          name: '三明治',
+          query: 'sandwich'
+        },
+        {
+          name: '早午餐',
+          query: 'brunch'
+        },
+        {
+          name: '義大利麵',
+          query: 'pasta'
+        },
+        {
+          name: '飲品',
+          query: 'drink'
+        }
+      ]
     }
   }
 }
