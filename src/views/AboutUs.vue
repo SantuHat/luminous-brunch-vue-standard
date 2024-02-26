@@ -24,7 +24,7 @@
           <div class="col-lg-5 mb-4">
             <img
               class="d-block mx-auto img_h_250"
-              src="/public/2-2.jpg"
+              src="/2-2.jpg"
               alt=""
             />
           </div>
@@ -45,7 +45,7 @@
           <div class="col-lg-5 mb-4">
             <img
               class="w-100 img_h_250 d-block mx-auto"
-              src="/public/2-3.jpg"
+              src="/2-3.jpg"
               alt=""
             />
           </div>
@@ -63,7 +63,7 @@
           <div class="col-lg-5 mb-5">
             <img
               class="d-block mx-auto"
-              src="/public/Illustration (2).png"
+              src="/Illustration (2).png"
               alt=""
             />
           </div>
@@ -86,7 +86,7 @@
           <div class="col-lg-5 mb-5">
             <img
               class="w-100 img_h_250 d-block mx-auto"
-              src="/public/2-4.jpg"
+              src="/2-4.jpg"
               alt=""
             />
           </div>
@@ -108,7 +108,7 @@ export default {
 </script>
 <style>
 .bg_aboutUs {
-  background-image: url(/public/2-1.jpg);
+  background-image: url(/2-1.jpg);
   height: 400px;
   background-size: cover;
   @media (max-width: 767px) {

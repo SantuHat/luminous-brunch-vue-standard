@@ -28,7 +28,7 @@
 												@click.prevent="previousPage"
                       >
                         <span class="visually-hidden">Previous</span>
-                        <img src="/public/Vector.png" alt="" />
+                        <img src="/Vector.png" alt="" />
                       </a>
                     </li>
                     <li class="arrow-right" id="next">
@@ -42,7 +42,7 @@
 												@click.prevent="nextPage"
                       >
                         <span class="visually-hidden">Next</span>
-                        <img src="/public/Vector-right.png" alt="" />
+                        <img src="/Vector-right.png" alt="" />
                       </a>
                     </li>
                   </ul>

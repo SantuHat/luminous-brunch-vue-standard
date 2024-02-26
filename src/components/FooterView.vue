@@ -4,7 +4,7 @@
   <div class="container">
     <div class="d-flex justify-content-around footer">
       <div class="d-flex align-items-center">
-        <img class="mx-auto" src="/public/Logo-sm.png" alt="" />
+        <img class="mx-auto" src="/Logo-sm.png" alt="" />
       </div>
       <div class="footer-box">
         <ul class="d-flex ps-0">
@@ -17,13 +17,13 @@
       <div class="footer-icon d-flex align-items-center">
         <ul class="d-flex ps-0">
           <li>
-            <a href="#"><img src="/public/Facebook.png" alt="#" /></a>
+            <img src="/Facebook.png" alt="#" />
           </li>
           <li>
-            <a href="#"><img src="/public/Instagram.png" alt="#" /></a>
+            <img src="/Instagram.png" alt="#" />
           </li>
           <li>
-            <a href="#"><img src="/public/Line.png" alt="#" /></a>
+            <img src="/Line.png" alt="#" />
           </li>
         </ul>
       </div>
@@ -33,21 +33,21 @@
         <ul class="d-flex ps-0">
           <li class="me-3">
             <img
-              src="/public/Email.png"
+              src="/Email.png"
               alt=""
               style="margin-right: 0.5rem"
             />lumminous@gmail.com
           </li>
           <li class="me-3">
             <img
-              src="/public/Phone.png"
+              src="/Phone.png"
               alt=""
               style="margin-right: 0.5rem"
             />(02)6765-0768
           </li>
           <li class="me-3">
             <img
-              src="/public/Access time.png"
+              src="/Access time.png"
               alt=""
               style="margin-right: 0.5rem"
             />Business Hour 8:30~15:00

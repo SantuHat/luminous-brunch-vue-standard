@@ -7,7 +7,7 @@
 <div class="news-desktop">
     <div class="list">
         <div class="img-wrapper d-flex justify-content-center">
-        <img class="news-pic" src="/public/newsPic4.jpg" alt="" />
+        <img class="news-pic" src="/newsPic4.jpg" alt="" />
         <h3 class="news-content">
             <a href="3-1_newsContent.html">
             "每日精選美味套餐優惠"
@@ -22,7 +22,7 @@
         <div class="d-flex justify-content-center">
             <div class="card" style="width: 20%">
             <img
-                src="/public/newsPic2.jpg"
+                src="/newsPic2.jpg"
                 class="main-card-img"
                 alt="..."
                 height="300px"
@@ -54,7 +54,7 @@
 
             <div class="card" style="width: 20%">
             <img
-                src="/public/newsPic3.jpg"
+                src="/newsPic3.jpg"
                 class="main-card-img"
                 alt="..."
                 height="300px"

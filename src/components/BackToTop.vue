@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-dupe-keys -->
 <template>
     <a id="toTOP" class="d-block" ref="toTOP" @click="scrollToTop" v-show="showBackToTopButton"
-      ><img src="/public/Back to top-lg.png" alt="backToTopBtn"
+      ><img src="/Back to top-lg.png" alt="backToTopBtn"
     /></a>
 </template>
 <script>
