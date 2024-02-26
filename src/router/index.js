@@ -37,6 +37,11 @@ const routes = [
         component: () => import('../views/UserLogin.vue')
       },
       {
+        path: 'userregister',
+        name: 'userregister',
+        component: () => import('../views/UserRegister.vue')
+      },
+      {
         path: 'menuview',
         name: 'MenuView',
         component: () => import('../views/MenuView.vue'),

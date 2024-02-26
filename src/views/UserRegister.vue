@@ -1,0 +1,132 @@
+<template>
+ <div class="login-bg">
+        <img src="/offerService.png" alt="#" />
+      </div>
+      <div class="container d-flex justify-content-center">
+        <form class="login-body-bg row justify-content-center">
+          <div class="login-body">
+            <h1 class="h3 mb-3 font-weight-normal text-center text-light">
+              新用戶註冊
+            </h1>
+            <div class="mb-2">
+              <label for="inputEmail" class="sr-only text-light"
+                >電子郵件</label
+              >
+              <input
+                type="email"
+                id="inputEmail"
+                class="form-control w-100"
+                placeholder="請輸入電子郵件"
+                required
+                autofocus
+              />
+              <p class="text-danger" data-message="Email">必填</p>
+            </div>
+            <div class="mb-2">
+              <label for="inputPassword" class="sr-only text-light">密碼</label>
+              <input
+                type="password"
+                id="inputPassword"
+                class="form-control w-100"
+                placeholder="請輸入密碼"
+                required
+              />
+              <p class="text-danger" data-message="password">
+                必填
+                6到20個字元之間的密碼，包含一個數字、一個大寫字母和一個小寫字母
+              </p>
+            </div>
+            <div class="mb-2">
+              <label for="checkPassword" class="sr-only text-light"
+                >確認密碼</label
+              >
+              <input
+                type="password"
+                id="checkPassword"
+                class="form-control w-100"
+                placeholder="確認輸入密碼"
+                required
+              />
+              <p class="text-danger" data-message="checkpassword">必填</p>
+            </div>
+            <div class="mb-2">
+              <label for="inputPassword" class="sr-only text-light"
+                >用戶姓名</label
+              >
+              <input
+                type="name"
+                id="inputName"
+                class="form-control w-100"
+                placeholder="請選擇用戶姓名"
+                required
+              />
+            </div>
+            <div class="mb-2">
+              <label for="inputPassword" class="sr-only text-light">電話</label>
+              <input
+                type="phone"
+                id="inputPhone"
+                class="form-control w-100"
+                placeholder="請輸入電話"
+                required
+              />
+              <p class="text-danger" data-message="phone">必填</p>
+            </div>
+            <div class="d-flex">
+              <div class="form-check pe-3">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault1"
+                />
+                <label
+                  class="form-check-label text-light"
+                  for="flexRadioDefault1"
+                >
+                  男
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault2"
+                  checked
+                />
+                <label
+                  class="form-check-label text-light"
+                  for="flexRadioDefault2"
+                >
+                  女
+                </label>
+              </div>
+            </div>
+            <div class="text-center mt-4">
+              <button
+                class="btn btn-lg btn-blue btn-block w-100"
+                type="submit"
+                id="signup"
+              >
+                註冊
+              </button>
+              <span class="alertMessage text-yellow-100"></span>
+            </div>
+            <div class="form-check mt-4">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckDefault"
+              />
+              <label class="form-check-label text-light" for="flexCheckDefault">
+                <p>
+                  註冊即表示同意"Luminous Brunch"的使用條款及細則以及隱私權政策
+                </p>
+              </label>
+            </div>
+          </div>
+        </form>
+      </div>
+</template>
