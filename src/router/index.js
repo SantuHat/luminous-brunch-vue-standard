@@ -24,7 +24,7 @@ const routes = [
       {
         path: 'newsmain',
         name: 'newsMain',
-        component: () => import('../views/newsMain.vue')
+        component: () => import('../views/NewsMain.vue')
       },
       {
         path: 'usercart',
