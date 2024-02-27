@@ -49,7 +49,7 @@
                 </div>
               </div>
             </div>
-            <div class="carousel-item d-flex" id="course-section" ref="courseSection">
+            <div class="carousel-item d-flex" id="course-section" ref="courseSection" style="max-width: 1000px;">
 						</div>
           </div>
           <div class="d-flex justify-content-center booking pb-10">
@@ -100,7 +100,7 @@ export default {
       this.Guest
         .filter((item, index) => this.currentPage === index || this.currentPage + 1 === index)
         .forEach(i => {
-          str += `<div class="card me-12">
+          str += `<div class="card me-6">
             <ul class="d-flex">
               <li><img src="${i.img}" alt="#" class="coad-img"></li>
               <li><div class="card-name">${i.title}</div></li>
