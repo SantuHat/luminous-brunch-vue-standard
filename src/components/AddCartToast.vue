@@ -26,7 +26,7 @@
     </div>
 </div>
 </template>
-<script type="module">
+<script>
 import { Toast } from 'bootstrap'
 export default {
   props: ['productTemp'],

@@ -38,10 +38,10 @@
               將陽光融入每一口滋味
             </h1>
           </div>
-          <a
-            href="5-1_booking.html"
+          <RouterLink
+            to="/menuview/menulist?category=salad"
             class="btn_reserve align-self-sm-center py-3 px-9 py-md-4 px-md-11 btn_reserve_center"
-            >立即訂位</a
+            >瀏覽餐點</RouterLink
           >
         </div>
       </div>
@@ -58,7 +58,7 @@
         <!-- <img src="/scrollDesktop.png" alt="" /> -->
         <div class="d-flex justify-content-center mb-7 dynamic-effect">
           <p class="font-Caveat">Luminous</p>
-          <p class="font-NotoSerif">&emsp;想提供您...</p>
+          <p class="font-NotoSerif">&emsp想提供您...</p>
         </div>
         <ul class="offer-desktop ps-0">
           <li class="d-flex flex-column mb-3">
@@ -222,7 +222,8 @@
     <!-- 菜單區塊 start -->
     <!-- 做成元件引入 -->
     <RouterLink to="/menuview/menulist?category=salad">菜單瀏覽</RouterLink>
-    <!-- 菜單區塊 end -->
+    <IndexSwiper />
+    <!-- swiper+菜單輪播測試 pc -->
     <!-- 顧客評論 start-->
     <GuestReviews></GuestReviews>
     <!-- 顧客頻論 end -->
@@ -236,12 +237,14 @@ import HeaderView from '@/components/HeaderView.vue'
 import FooterView from '@/components/FooterView.vue'
 import GuestReviews from '@/components/GuestReviews.vue'
 import BackToTop from '@/components/BackToTop.vue'
+import IndexSwiper from '@/components/IndexSwiper.vue'
 export default {
   components: {
     HeaderView,
     FooterView,
     GuestReviews,
-    BackToTop
+    BackToTop,
+    IndexSwiper
   }
 }
 </script>

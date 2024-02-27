@@ -20,14 +20,15 @@
 </div>
 <!-- 菜單渲染畫面 -->
   <RouterView ></RouterView>
+  <FooterView></FooterView>
 </template>
 <script>
 // import MenuList from '@/components/MenuList.vue'
-
+import FooterView from '@/components/FooterView.vue'
 export default {
-  // components: {
-  //   MenuList
-  // }
+  components: {
+    FooterView
+  },
   data () {
     return {
       categoryTitleList: [

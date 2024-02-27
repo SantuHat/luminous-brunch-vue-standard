@@ -1,3 +1,6 @@
+a{
+  text-decoration-line: none;
+}
 // 字型
 .font-NotoSans {
   font-family: 'Noto Sans TC';
@@ -10,44 +13,6 @@
 }
 .font-OpenSans {
   font-family: 'Open Sans';
-}
-//swiper (測試用)
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-:root {
-  --swiper-theme-color: #e28763;
-}
-.swiper-pagination {
-  position: static;
-  margin: 0 auto;
-}
-.swiper-pagination-bullet {
-  width: 36px;
-  height: 8px;
-  border-radius: 100px;
-}
-.swiper-pagination-bullet-active-main {
-  width: 56px;
-  border-radius: 100px;
 }
 // .nav.sticky {
 //   position: fixed;
@@ -165,6 +130,7 @@
   }
 }
 .menu-title-bg-brunch {
+  text-decoration-line: none;
   top: 75%;
   left: 25%;
   @include pad() {
@@ -174,6 +140,7 @@
   }
 }
 .menu-title-bg-news {
+  text-decoration-line: none;
   top: 25%;
   right: 5%;
   // @include pad() {

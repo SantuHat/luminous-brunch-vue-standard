@@ -59,6 +59,11 @@ const routes = [
         component: () => import('../views/MenuDetail.vue')
       },
       {
+        path: 'NewMenuItems',
+        name: 'NewMenuItems',
+        component: () => import('../views/NewMenuItems.vue')
+      },
+      {
         path: '/dashboard',
         // name: 'about',
         component: () => import('../dashboard/DashBoard.vue'),

@@ -27,15 +27,26 @@
                 <div class="d-flex justify-content-between mb-3">
                     <p>數量</p>
                     <div class="numberCal">
-                        <button class="btn" type="button" @click="qty--">-</button>
-                        <span class="ms-3 me-3 fw-bold">{{ qty }}</span>
-                        <button class="btn" type="button" @click="qty++">+</button>
+                        <button class="btn" type="button" @click="editQty--"
+                          :disabled="editQty==1"
+                        >-</button>
+                        <span class="ms-3 me-3 fw-bold">{{ editQty }}</span>
+                        <button class="btn" type="button" @click="editQty++">+</button>
                     </div>
                 </div>
                 <div class="d-grid gap-2 mb-3">
-                    <button class="btn btn-primary py-3" type="button"
-                      @click.prevent="addCart(product.id, product)"
-                      >加入購物車</button>
+                  <button class="btn btn-primary py-3 d-flex justify-content-center align-items-center text-center" type="button"
+                    :disabled="product.id === status?.addCartLoading"
+                    @click.prevent="addCart(product.id, product, editQty)"
+                    >
+                    <div
+                        class="spinner-border text-secondary me-4" role="status"
+                        v-if="product.id === status?.addCartLoading"
+                    >
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                    加入購物車
+                  </button>
                 </div>
                 <div class="mx-auto d-flex">
                     <button type="button" class="btn mx-auto d-flex">
@@ -77,10 +88,13 @@
   </div>
 </div>
 <!-- <AddCartToast ref="AddCartToast"></AddCartToast> -->
+<FooterView></FooterView>
 </template>
 <script>
 import { RouterLink } from 'vue-router'
-
+import { mapState, mapActions } from 'pinia'
+import FooterView from '@/components/FooterView.vue'
+import cartStore from '@/stores/cartStore'
 // import AddCartToast from '../components/AddCartToast.vue'
 const { VITE_API, VITE_PATH } = import.meta.env
 export default {
@@ -88,8 +102,8 @@ export default {
   data () {
     return {
       product: {},
+      editQty: 1,
       categoryTitle: [],
-      qty: 1,
       categoryTitleList: [
         {
           name: '沙拉',
@@ -119,7 +133,6 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$route)
     // 判斷當前的$route參數
     const { id } = this.$route.params
     this.$http.get(`${VITE_API}api/${VITE_PATH}/product/${id}`)
@@ -134,30 +147,16 @@ export default {
       })
   },
   methods: {
-    addCart (id, item) {
-      console.log(id)
-      const url = `${VITE_API}/api/${VITE_PATH}/cart`
-      const postData = {
-        data: {
-          product_id: id,
-          qty: this.qty
-        }
-      }
-      this.$http.post(url, postData)
-        .then((res) => {
-          console.log(res)
-          this.$refs.AddCartToast.show()
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    },
+    ...mapActions(cartStore, ['addCart']),
     matchCategory () {
       this.categoryTitle = this.categoryTitleList.filter((item) => {
         return item.query === this.product.category
       })
     }
   },
-  components: { RouterLink }
+  computed: {
+    ...mapState(cartStore, ['status', 'qty'])
+  },
+  components: { RouterLink, FooterView }
 }
 </script>

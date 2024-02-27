@@ -26,9 +26,16 @@
                   <div class="d-grid">
                     <button
                       @click.prevent="addCart(item.id, item)"
-                      class="btn btn-outline-primary py-3"
+                      class="btn btn-outline-primary py-3 d-flex justify-content-center align-items-center text-center"
                       type="button"
+                      :disabled="item.id === status?.addCartLoading"
                     >
+                      <div
+                        class="spinner-border text-secondary me-4" role="status"
+                        v-if="item.id === status?.addCartLoading"
+                      >
+                        <span class="visually-hidden">Loading...</span>
+                      </div>
                       加入購物車
                     </button>
                   </div>
@@ -40,10 +47,14 @@
 </div>
 <AddCartToast ref="addCartToast" :productTemp="productTemp" @deleteCart="delCart"></AddCartToast>
 </template>
-<script >
+<script>
 import axios from 'axios'
-import AddCartToast from '../components/AddCartToast.vue'
+import { mapActions, mapState } from 'pinia'
+import AddCartToast from '@/components/AddCartToast.vue'
+import cartStore from '@/stores/cartStore.js'
+
 const { VITE_API, VITE_PATH } = import.meta.env
+
 export default {
   // props: ['categoryTitle'],
   components: {
@@ -67,7 +78,11 @@ export default {
       deep: true
     }
   },
+  computed: {
+    ...mapState(cartStore, ['carts', 'status'])
+  },
   methods: {
+    ...mapActions(cartStore, ['addCart', 'delCart']),
     login () {
     // 先登入
       this.$http.post(`${this.hexUrl}/admin/signin`, {
@@ -104,43 +119,44 @@ export default {
       axios.get(`${VITE_API}/api/${VITE_PATH}/products?category=${this.$route.query.category}`)
         .then((Response) => {
           this.apiData = Response.data.products
+          console.log(this.carts)
           console.log(Response)
         })
         .catch((err) => {
           console.log(err)
         })
-    },
-    // 加入購物車的涵式
-    addCart (id, item) {
-      console.log(id)
-      this.productTemp = item
-      const url = `${VITE_API}/api/${VITE_PATH}/cart`
-      const postData = {
-        data: {
-          product_id: id,
-          qty: 1
-        }
-      }
-      this.$http.post(url, postData)
-        .then((res) => {
-          console.log(res)
-          console.log(res.data.data)
-          this.cartProductId = res.data.data.id
-          this.$refs.addCartToast.show()
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    },
-    delCart (id) {
-      const { VITE_API, VITE_PATH } = import.meta.env
-      this.$http.delete(`${VITE_API}api/${VITE_PATH}/cart/${this.cartProductId}`)
-        .then((res) => {
-          console.log(res.data)
-          alert('刪除成功！')
-          this.getProducts()
-        })
     }
+    // 加入購物車的涵式
+    // addCart (id, item) {
+    //   console.log(id)
+    //   this.productTemp = item
+    //   const url = `${VITE_API}/api/${VITE_PATH}/cart`
+    //   const postData = {
+    //     data: {
+    //       product_id: id,
+    //       qty: 1
+    //     }
+    //   }
+    //   this.$http.post(url, postData)
+    //     .then((res) => {
+    //       console.log(res)
+    //       console.log(res.data.data)
+    //       this.cartProductId = res.data.data.id
+    //       this.$refs.addCartToast.show()
+    //     })
+    //     .catch((err) => {
+    //       console.log(err)
+    //     })
+    // },
+    // delCart (id) {
+    //   const { VITE_API, VITE_PATH } = import.meta.env
+    //   this.$http.delete(`${VITE_API}api/${VITE_PATH}/cart/${this.cartProductId}`)
+    //     .then((res) => {
+    //       console.log(res.data)
+    //       alert('刪除成功！')
+    //       this.getProducts()
+    //     })
+    // }
   }
 }
 </script >
