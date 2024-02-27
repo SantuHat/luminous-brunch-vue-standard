@@ -3,7 +3,7 @@
         <img src="/offerService.png" alt="#" />
       </div>
       <div class="container d-flex justify-content-center">
-        <form class="login-body-bg row justify-content-center">
+        <form class="login-body-bg row justify-content-center" >
           <div class="login-body">
             <h1 class="h3 mb-3 font-weight-normal text-center text-light">
               新用戶註冊
@@ -19,8 +19,9 @@
                 placeholder="請輸入電子郵件"
                 required
                 autofocus
+                v-model="obj.email"
               />
-              <p class="text-danger" data-message="Email">必填</p>
+              <!-- <p class="text-danger" data-message="Email">必填</p> -->
             </div>
             <div class="mb-2">
               <label for="inputPassword" class="sr-only text-light">密碼</label>
@@ -30,11 +31,12 @@
                 class="form-control w-100"
                 placeholder="請輸入密碼"
                 required
+                v-model="obj.password"
               />
-              <p class="text-danger" data-message="password">
+              <!-- <p class="text-danger" data-message="password">
                 必填
                 6到20個字元之間的密碼，包含一個數字、一個大寫字母和一個小寫字母
-              </p>
+              </p> -->
             </div>
             <div class="mb-2">
               <label for="checkPassword" class="sr-only text-light"
@@ -46,8 +48,9 @@
                 class="form-control w-100"
                 placeholder="確認輸入密碼"
                 required
+                v-model="obj.checkPassword"
               />
-              <p class="text-danger" data-message="checkpassword">必填</p>
+              <!-- <p class="text-danger" data-message="checkpassword">必填</p> -->
             </div>
             <div class="mb-2">
               <label for="inputPassword" class="sr-only text-light"
@@ -59,6 +62,7 @@
                 class="form-control w-100"
                 placeholder="請選擇用戶姓名"
                 required
+                v-model="obj.name"
               />
             </div>
             <div class="mb-2">
@@ -69,8 +73,9 @@
                 class="form-control w-100"
                 placeholder="請輸入電話"
                 required
+                v-model="obj.phone"
               />
-              <p class="text-danger" data-message="phone">必填</p>
+              <!-- <p class="text-danger" data-message="phone">必填</p> -->
             </div>
             <div class="d-flex">
               <div class="form-check pe-3">
@@ -108,6 +113,7 @@
                 class="btn btn-lg btn-blue btn-block w-100"
                 type="submit"
                 id="signup"
+                @click.prevent="register"
               >
                 註冊
               </button>
@@ -130,3 +136,82 @@
         </form>
       </div>
 </template>
+<script>
+export default {
+  data () {
+    return {
+      obj: {}
+    }
+  },
+  methods: {
+    register () {
+      const api = 'https://demo-q3dk.onrender.com/signup'
+      this.$http.post(api, this.obj)
+        .then((res) => {
+          if (res.status === 201) {
+            this.$router.push('/userlogin')
+          }
+        })
+        .catch((err) => {
+          alert(`${err.message} 註冊失敗`)
+        })
+    }
+  },
+  mounted () {
+    // this.register()
+  }
+}
+</script>
+<style>
+.login-bg img {
+  position: relative;
+  background-size: cover;
+  display: block;
+  height: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  z-index: -1;
+}
+@media (max-width: 992px) {
+  .login-bg {
+    position: relative;
+    display: block;
+  }
+}
+
+.login-body-bg {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-height: 515px;
+  padding: 20px 0 30px;
+  width: 30%;
+}
+@media (max-width: 992px) {
+  .login-body-bg {
+    width: 100%;
+  }
+}
+
+.login-body-bg {
+  position: absolute;
+  top: 300px;
+}
+@media (max-width: 992px) {
+  .login-body-bg {
+    position: absolute;
+    top: 200px;
+    width: 100%;
+  }
+}
+
+#pageChange:hover {
+  border-bottom: 3px solid #EC6933;
+  height: 30px;
+}
+</style>

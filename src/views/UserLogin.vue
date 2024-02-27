@@ -19,6 +19,7 @@
                 placeholder="Email address"
                 required
                 autofocus
+                v-model="obj.email"
               />
             </div>
             <div class="mb-2">
@@ -31,6 +32,7 @@
                 class="form-control w-100"
                 placeholder="Password"
                 required
+                v-model="obj.password"
               />
             </div>
             <div class="text-center mt-4">
@@ -77,8 +79,8 @@ export default {
     UserLogin () {
       const api = 'https://demo-q3dk.onrender.com/login'
       this.$http.post(api, this.obj)
-        .then((res) => {
-          console.log(res)
+        .then(() => {
+          this.$router.push('/index')
         })
     }
   }
