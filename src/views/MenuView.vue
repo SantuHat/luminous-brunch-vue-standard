@@ -82,7 +82,11 @@ export default {
   methods: {
     changeColor (title) {
       this.nowLink = title
-      console.log(this.nowLink, title)
+    }
+  },
+  watch: {
+    '$route.query.category' (value) {
+      this.nowLink = value
     }
   }
 }
