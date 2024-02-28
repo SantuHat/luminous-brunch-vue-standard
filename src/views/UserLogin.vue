@@ -80,7 +80,12 @@ export default {
       const api = 'https://demo-q3dk.onrender.com/login'
       this.$http.post(api, this.obj)
         .then(() => {
+          localStorage.setItem('isLogin', true)
           this.$router.push('/index')
+        })
+        .catch(() => {
+          alert('登入失敗')
+          localStorage.setItem('isLogin', false)
         })
     }
   }
