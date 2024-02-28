@@ -21,7 +21,7 @@
                 autofocus
                 v-model="obj.email"
               />
-              <!-- <p class="text-danger" data-message="Email">必填</p> -->
+              <p class="text-danger" data-message="Email" ref="email">必填</p>
             </div>
             <div class="mb-2">
               <label for="inputPassword" class="sr-only text-light">密碼</label>
@@ -33,10 +33,10 @@
                 required
                 v-model="obj.password"
               />
-              <!-- <p class="text-danger" data-message="password">
+              <p class="text-danger" data-message="password" ref="password">
                 必填
                 6到20個字元之間的密碼，包含一個數字、一個大寫字母和一個小寫字母
-              </p> -->
+              </p>
             </div>
             <div class="mb-2">
               <label for="checkPassword" class="sr-only text-light"
@@ -50,7 +50,7 @@
                 required
                 v-model="obj.checkPassword"
               />
-              <!-- <p class="text-danger" data-message="checkpassword">必填</p> -->
+              <p class="text-danger" data-message="checkpassword" ref="checkPassword">必填</p>
             </div>
             <div class="mb-2">
               <label for="inputPassword" class="sr-only text-light"
@@ -64,6 +64,7 @@
                 required
                 v-model="obj.name"
               />
+              <p class="text-danger" data-message="phone" ref="phone">必填</p>
             </div>
             <div class="mb-2">
               <label for="inputPassword" class="sr-only text-light">電話</label>
@@ -75,7 +76,7 @@
                 required
                 v-model="obj.phone"
               />
-              <!-- <p class="text-danger" data-message="phone">必填</p> -->
+              <p class="text-danger" data-message="phone" ref="phone">必填</p>
             </div>
             <div class="d-flex">
               <div class="form-check pe-3">
@@ -140,7 +141,44 @@
 export default {
   data () {
     return {
-      obj: {}
+      obj: {
+        email: '',
+        password: '',
+        checkPassword: '',
+        name: '',
+        phone: ''
+      }
+    }
+  },
+  watch: {
+    'obj.phone': function (n) {
+      if (/^[09]{2}\d{8}$/.test(n)) {
+        this.$refs.phone.innerHTML = ''
+      } else {
+        this.$refs.phone.innerHTML = '<p class="text-danger" data-message="phone">請填寫正確格式</p>'
+      }
+    },
+    'obj.email': function (n) {
+      if (/^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/.test(n)) {
+        this.$refs.email.innerHTML = ''
+      } else {
+        this.$refs.email.innerHTML = '<p class="text-danger" data-message="phone">請填寫e-mail格式</p>'
+      }
+    },
+    'obj.password': function (n) {
+      const passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/
+      if (n.match(passw)) {
+        this.$refs.password.innerHTML = ''
+      } else {
+        this.$refs.password.innerHTML = '<p class="text-danger" data-message="phone">請填寫6到20個字元之間的密碼，包含一個數字、一個大寫字母和一個小寫字母</p>'
+      }
+    },
+    'obj.checkPassword': function () {
+      if (this.obj.checkPassword === this.obj.password) {
+        this.$refs.checkPassword.innerHTML = '<p class="text-danger" data-message="phone"></p>'
+      } else {
+        this.$refs.checkPassword.innerHTML = '<p class="text-danger" data-message="phone">請與密碼相符</p>'
+      }
     }
   },
   methods: {
@@ -155,6 +193,14 @@ export default {
         .catch((err) => {
           alert(`${err.message} 註冊失敗`)
         })
+    },
+    CheckPassword (password) {
+      const passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/
+      if (password.match(passw)) {
+        return true
+      } else {
+        return false
+      }
     }
   },
   mounted () {
