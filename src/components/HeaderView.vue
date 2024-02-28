@@ -53,12 +53,7 @@
             </a>
           </li>
         </RouterLink>
-        <RouterLink to="/userlogin">
-          <li class="memberLogin">
-            <a class="py-4 py-lg-3 px-5 fw-500 d-block" href="#">會員註冊/登入</a>
-          </li>
-        </RouterLink>
-        <li class="memberCenterItem">
+        <li v-if="isLogin" class="memberCenterItem">
           <a @click="dropdownMemberCenter" class="selectMemberCenter py-4 px-5 fw-500 position-relative d-block border-bottom-1 d-flex justify-content-between"
             href="javascript:;">會員中心<span class="material-symbols-outlined align-bottom">
               arrow_drop_down
@@ -72,10 +67,13 @@
               <a class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
                 href="6-1-1-2_reservation-info.html">查看訂位資訊</a>
             </li>
-            <li>
-              <a class="logOutBtn py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500" href="index.html">登出</a>
+            <li @click="logOut">
+              <RouterLink class="logOutBtn py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500" to="/index">登出</RouterLink>
             </li>
           </ul>
+        </li>
+        <li v-else class="memberLogin">
+          <RouterLink to="/userlogin" class="py-4 py-lg-3 px-5 fw-500 d-block">會員註冊/登入</RouterLink>
         </li>
       </ul>
       <a class="hamberMenu d-lg-none" href="#">
@@ -100,7 +98,8 @@ export default {
   data () {
     return {
       isActive: false,
-      isMemberActive: false
+      isMemberActive: false,
+      isLogin: false
     }
   },
   methods: {
@@ -110,10 +109,21 @@ export default {
     },
     dropdownMemberCenter () {
       this.isMemberActive = !this.isMemberActive
+    },
+    logOut () {
+      localStorage.setItem('isLogin', false)
+      this.isLogin = false
+      alert('已登出')
     }
   },
   computed: {
     ...mapState(counterStore, ['count'])
+  },
+  mounted () {
+    const isLogin = localStorage.getItem('isLogin')
+    // console.log(isLogin, 'localSto')
+    this.isLogin = isLogin === 'true'
+    // console.log(this.isLogin)
   },
   components: { RouterLink }
 }
