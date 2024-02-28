@@ -1,4 +1,5 @@
 <template>
+<HeaderView />
 <div class="py-6">
   <div class="container">
       <div class="row m-3 pb-6 border-bottom">
@@ -87,18 +88,20 @@
     </div>
   </div>
 </div>
-<!-- <AddCartToast ref="AddCartToast"></AddCartToast> -->
+<AddCartToast ref="addCartToast" ></AddCartToast>
+
 <FooterView></FooterView>
 </template>
 <script>
-import { RouterLink } from 'vue-router'
 import { mapState, mapActions } from 'pinia'
+import HeaderView from '@/components/HeaderView.vue'
+import AddCartToast from '@/components/AddCartToast.vue'
 import FooterView from '@/components/FooterView.vue'
 import cartStore from '@/stores/cartStore'
 // import AddCartToast from '../components/AddCartToast.vue'
 const { VITE_API, VITE_PATH } = import.meta.env
 export default {
-  // components: { AddCartToast },
+  components: { AddCartToast, FooterView, HeaderView },
   data () {
     return {
       product: {},
@@ -147,7 +150,7 @@ export default {
       })
   },
   methods: {
-    ...mapActions(cartStore, ['addCart']),
+    ...mapActions(cartStore, ['addCart', 'setCartUpdate']),
     matchCategory () {
       this.categoryTitle = this.categoryTitleList.filter((item) => {
         return item.query === this.product.category
@@ -155,8 +158,15 @@ export default {
     }
   },
   computed: {
-    ...mapState(cartStore, ['status', 'qty'])
+    ...mapState(cartStore, ['status', 'qty', 'cartUpdated'])
   },
-  components: { RouterLink, FooterView }
+  watch: {
+    cartUpdated () {
+      // 監聽store裡面加入購物車的方法，觸發的時候會同時更新這個變數的狀態，所以可以監聽值的變化，
+      // 在這邊打開吐司元件，開啟後再把這個狀態透過事件改成false
+      this.$refs.addCartToast.show()
+      this.setCartUpdate()
+    }
+  }
 }
 </script>

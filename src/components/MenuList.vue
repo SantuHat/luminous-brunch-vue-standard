@@ -1,48 +1,41 @@
 <template>
 <!-- 餐點菜單 -->
-<div class="bg-pink py-6">
-        <div class="container">
-          <div class="menu-container row flex-wrap">
-            <!-- JS渲染菜單品項 -->
-            <!-- <add-Cart-Toast ref="addCartToast"></add-Cart-Toast> -->
-            <!-- <meal-card></meal-card> -->
-          <div
-            v-for=" item in this.apiData " :key="item.id"
-            class="col-lg-4 mb-6"
-          >
-              <div class="card-menu">
-                  <div class="card-img object-fit">
-                    <RouterLink :to="`/menuDetail/${item.id}`">
-                      <img :src="item.imageUrl" alt="" class="menu-img" title="點擊可以查看餐點詳細資訊">
-                    </RouterLink>
-                  </div>
-                  <div class="text-primary d-flex flex-column justify-content-between p-4">
-                      <h6 class="text-center mb-3">{{item.title}}</h6>
-                      <div class="d-flex justify-content-center">
-                        <h6 class="text-danger fw-bold">${{item.price}}NT</h6>
-                        <del class="ms-3" v-if="item.origin_price">${{item.origin_price}}</del>
-                      </div>
-                  </div>
-                  <div class="d-grid">
-                    <button
-                      @click.prevent="addCart(item.id, item)"
-                      class="btn btn-outline-primary py-3 d-flex justify-content-center align-items-center text-center"
-                      type="button"
-                      :disabled="item.id === status?.addCartLoading"
-                    >
-                      <div
-                        class="spinner-border text-secondary me-4" role="status"
-                        v-if="item.id === status?.addCartLoading"
-                      >
-                        <span class="visually-hidden">Loading...</span>
-                      </div>
-                      加入購物車
-                    </button>
-                  </div>
-              </div>
+        <!-- JS渲染菜單品項 -->
+        <!-- <add-Cart-Toast ref="addCartToast"></add-Cart-Toast> -->
+        <!-- <meal-card></meal-card> -->
+<div
+  v-for=" item in this.apiData " :key="item.id"
+  class="col-lg-4 mb-6"
+>
+  <div class="card-menu">
+      <div class="card-img object-fit">
+        <RouterLink :to="`/menuDetail/${item.id}`">
+          <img :src="item.imageUrl" alt="" class="menu-img" title="點擊可以查看餐點詳細資訊">
+        </RouterLink>
+      </div>
+      <div class="text-primary d-flex flex-column justify-content-between p-4">
+          <h6 class="text-center mb-3">{{item.title}}</h6>
+          <div class="d-flex justify-content-center">
+            <h6 class="text-danger fw-bold">${{item.price}}NT</h6>
+            <del class="ms-3" v-if="item.origin_price">${{item.origin_price}}</del>
           </div>
-
-    </div>
+      </div>
+      <div class="d-grid">
+        <button
+          @click.prevent="addCart(item.id, item, 1)"
+          class="btn btn-outline-primary py-3 d-flex justify-content-center align-items-center text-center"
+          type="button"
+          :disabled="item.id === status?.addCartLoading"
+        >
+          <div
+            class="spinner-border text-secondary me-4" role="status"
+            v-if="item.id === status?.addCartLoading"
+          >
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          加入購物車
+        </button>
+      </div>
   </div>
 </div>
 <AddCartToast ref="addCartToast" :productTemp="productTemp" @deleteCart="delCart"></AddCartToast>
@@ -76,13 +69,17 @@ export default {
         this.getProducts()
       },
       deep: true
+    },
+    cartUpdated () {
+      this.$refs.addCartToast.show()
+      this.setCartUpdate()
     }
   },
   computed: {
-    ...mapState(cartStore, ['carts', 'status'])
+    ...mapState(cartStore, ['carts', 'status', 'cartUpdated'])
   },
   methods: {
-    ...mapActions(cartStore, ['addCart', 'delCart']),
+    ...mapActions(cartStore, ['addCart', 'delCart', 'setCartUpdate']),
     login () {
     // 先登入
       this.$http.post(`${this.hexUrl}/admin/signin`, {

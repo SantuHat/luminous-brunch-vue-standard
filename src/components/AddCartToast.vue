@@ -12,12 +12,12 @@
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
       <div class="toast-body d-flex align-item-center justify-content-between">
-        <img :src="productTemp.imageUrl"  class="rounded me-2 toast-img" alt="...">
+        <img :src="cart.product?.imageUrl"  class="rounded me-2 toast-img" alt="...">
         <div class="d-flex flex-column justify-content-center">
-            <p class="fs-5">{{ productTemp.title }} </p>
-            <p>$ {{ productTemp.price }}</p>
+            <p class="fs-5">{{ cart.product?.title }} </p>
+            <p>$ {{ cart.product?.price }}</p>
         </div>
-        <button type="button" class="btn btn-primary" @click="deleteCart(productTemp)">
+        <button type="button" class="btn btn-primary" @click="delCart(cart.id)">
             <span class="material-symbols-outlined">
                 delete
             </span>
@@ -28,13 +28,18 @@
 </template>
 <script>
 import { Toast } from 'bootstrap'
+import { mapState, mapActions } from 'pinia'
+import cartStore from '@/stores/cartStore'
 export default {
-  props: ['productTemp'],
+  // 資料從pinia來，這邊的變數叫cart
   data () {
     return {
       addCartToast: null,
       product: {}
     }
+  },
+  computed: {
+    ...mapState(cartStore, ['cart'])
   },
   mounted () {
     this.addCartToast = new Toast(this.$refs.addCartToast)
@@ -42,12 +47,12 @@ export default {
   methods: {
     show () {
       this.addCartToast.show()
-      console.log('hi Toast成功囉', this.productTemp)
     },
-    deleteCart (id) {
-      this.$emit('deleteCart', id)
-      console.log(id)
-    }
+    // deleteCart (id) {
+    //   this.$emit('deleteCart', id)
+    //   console.log(id)s
+    // },
+    ...mapActions(cartStore, ['delCart', 'setCartUpdate'])
   }
 }
 </script>

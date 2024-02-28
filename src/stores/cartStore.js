@@ -9,13 +9,17 @@ export default defineStore('cartStore', {
     cart: {}, // 最新加入的購物車品項
     status: {
       addCartLoading: ''
-    }
+    },
+    // 記錄購物車是否更新
+    cartUpdated: false
   }),
   actions: {
     // 加入購物車的涵式
     addCart (id, item, qty = 1) {
-      this.cart = item
+      // 餐點id
       this.status.addCartLoading = id
+      // 整個餐點的資訊
+      this.cart = item
       const url = `${VITE_API}/api/${VITE_PATH}/cart`
       const postData = {
         data: {
@@ -26,11 +30,11 @@ export default defineStore('cartStore', {
       axios.post(url, postData)
         .then((res) => {
           console.log('Pinia', res.data.data)
-          console.log(this)
           this.status.addCartLoading = ''
-          this.cart = res.data.data
           // 將目前加入的餐點資訊存在cart
-          // this.$refs.addCartToast.show()
+          this.cart = res.data.data
+          // 更新加入購物車的狀態，讓元件可以開啟吐司
+          this.cartUpdated = true
         })
         .catch((err) => {
           console.log(err)
@@ -38,11 +42,11 @@ export default defineStore('cartStore', {
     },
     delCart (id) {
       const { VITE_API, VITE_PATH } = import.meta.env
-      axios.delete(`${VITE_API}api/${VITE_PATH}/cart/${this.cartProductId}`)
+      axios.delete(`${VITE_API}api/${VITE_PATH}/cart/${id}`)
         .then((res) => {
           console.log(res.data)
           alert('刪除成功！')
-          this.getProducts()
+          this.getCarts()
         })
     },
     getCarts () {
@@ -57,6 +61,10 @@ export default defineStore('cartStore', {
         .catch((err) => {
           console.log(err)
         })
+    },
+    setCartUpdate () {
+      this.cartUpdated = false
+      console.log('加入購物車狀態更新囉')
     }
   }
 })
