@@ -88,6 +88,9 @@ export default {
     '$route.query.category' (value) {
       this.nowLink = value
     }
+  },
+  mounted () {
+    this.nowLink = this.$route.query.category
   }
 }
 </script>
