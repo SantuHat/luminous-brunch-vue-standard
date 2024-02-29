@@ -48,10 +48,6 @@ export default {
     show () {
       this.addCartToast.show()
     },
-    // deleteCart (id) {
-    //   this.$emit('deleteCart', id)
-    //   console.log(id)s
-    // },
     ...mapActions(cartStore, ['delCart', 'setCartUpdate'])
   }
 }

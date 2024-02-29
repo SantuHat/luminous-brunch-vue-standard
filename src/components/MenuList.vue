@@ -1,8 +1,5 @@
 <template>
 <!-- 餐點菜單 -->
-        <!-- JS渲染菜單品項 -->
-        <!-- <add-Cart-Toast ref="addCartToast"></add-Cart-Toast> -->
-        <!-- <meal-card></meal-card> -->
 <div
   v-for=" item in this.apiData " :key="item.id"
   class="col-lg-4 mb-6"

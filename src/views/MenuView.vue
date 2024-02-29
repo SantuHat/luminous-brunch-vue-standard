@@ -75,7 +75,7 @@ export default {
         }
       ],
       nowLink: null,
-      activeColor: '#e28763',
+      activeColor: '#B58A78',
       defaultColor: '#461B09'
     }
   },
