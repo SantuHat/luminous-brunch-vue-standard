@@ -1,8 +1,9 @@
 <template>
 <div class="login-bg">
-        <img src="/offerService.png" alt="#" />
-      </div>
-      <div class="container d-flex justify-content-center mb-5">
+  <LoadingView :active="isLoading" />
+  <img src="/offerService.png" alt="#" />
+</div>
+<div class="container d-flex justify-content-center mb-5">
         <form class="login-body-bg row justify-content-center">
           <div class="login-body">
             <h1 class="h3 mb-3 font-weight-normal text-center text-light">
@@ -72,18 +73,22 @@ export default {
       obj: {
         email: '',
         password: ''
-      }
+      },
+      isLoading: false
     }
   },
   methods: {
     UserLogin () {
       const api = 'https://demo-q3dk.onrender.com/login'
+      this.isLoading = true
       this.$http.post(api, this.obj)
         .then(() => {
+          this.isLoading = false
           localStorage.setItem('isLogin', true)
           this.$router.push('/index')
         })
         .catch(() => {
+          this.isLoading = false
           alert('登入失敗')
           localStorage.setItem('isLogin', false)
         })

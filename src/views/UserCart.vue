@@ -1,6 +1,7 @@
 <template>
 <HeaderView/>
 <div class="container mb-11">
+  <LoadingView :active="isLoading" />
   <div class="step-indicator mx-auto mt-5">
     <div class="step active" id="step1"><span class="fs-4">確認訂單</span></div>
     <div class="line"></div>
@@ -104,32 +105,38 @@ export default {
     return {
       carts: [],
       final_total: 0,
-      step: 1
+      step: 1,
+      isLoading: false
     }
   },
   methods: {
     getCarts () {
       const url = `${VITE_API}/api/${VITE_PATH}/cart`
+      this.isLoading = true
       this.$http.get(url)
         .then((res) => {
           const { carts, total } = res.data.data
           this.carts = carts
           this.final_total = total
-        // console.log(carts, total)
+          // console.log(carts, total)
+          this.isLoading = false
         })
         .catch((err) => {
           console.log(err)
+          this.isLoading = false
         })
     },
     delCart (id) {
       const url = `${VITE_API}/api/${VITE_PATH}/cart/${id}`
+      this.isLoading = true
       this.$http.delete(url)
         .then(() => {
-          alert('已刪除該品項')
+          this.isLoading = false
           this.getCarts()
         })
         .catch((err) => {
           console.log(err)
+          this.isLoading = false
         })
     },
     nextStep (val) {

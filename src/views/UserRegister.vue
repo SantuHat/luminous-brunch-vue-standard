@@ -139,6 +139,7 @@
           </div>
         </form>
       </div>
+      <LoadingView :active="isLoading" />
 </template>
 <script>
 export default {
@@ -149,10 +150,16 @@ export default {
         password: '',
         checkPassword: '',
         name: '',
+<<<<<<< HEAD
         phone: '',
         gender: '',
         Terms: false
       }
+=======
+        phone: ''
+      },
+      isLoading: false
+>>>>>>> 1f28a9c5b3ca69ad35d25c96dd75f18f73082dfc
     }
   },
   watch: {
@@ -189,13 +196,16 @@ export default {
   methods: {
     register () {
       const api = 'https://demo-q3dk.onrender.com/signup'
+      this.isLoading = true
       this.$http.post(api, this.obj)
         .then((res) => {
           if (res.status === 201) {
+            this.isLoading = false
             this.$router.push('/userlogin')
           }
         })
         .catch((err) => {
+          this.isLoading = false
           alert(`${err.message} 註冊失敗`)
         })
     },
