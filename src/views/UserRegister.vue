@@ -85,6 +85,7 @@
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
+                  v-model="obj.gender"
                 />
                 <label
                   class="form-check-label text-light"
@@ -100,6 +101,7 @@
                   name="flexRadioDefault"
                   id="flexRadioDefault2"
                   checked
+                  v-model="obj.gender"
                 />
                 <label
                   class="form-check-label text-light"
@@ -126,6 +128,7 @@
                 type="checkbox"
                 value=""
                 id="flexCheckDefault"
+                v-model="obj.Terms"
               />
               <label class="form-check-label text-light" for="flexCheckDefault">
                 <p>
@@ -146,7 +149,9 @@ export default {
         password: '',
         checkPassword: '',
         name: '',
-        phone: ''
+        phone: '',
+        gender: '',
+        Terms: false
       }
     }
   },
@@ -175,7 +180,7 @@ export default {
     },
     'obj.checkPassword': function () {
       if (this.obj.checkPassword === this.obj.password) {
-        this.$refs.checkPassword.innerHTML = '<p class="text-danger" data-message="phone"></p>'
+        this.$refs.checkPassword.innerHTML = ''
       } else {
         this.$refs.checkPassword.innerHTML = '<p class="text-danger" data-message="phone">請與密碼相符</p>'
       }
