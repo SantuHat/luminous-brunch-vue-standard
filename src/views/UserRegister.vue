@@ -151,6 +151,7 @@ export default {
         checkPassword: '',
         name: '',
 <<<<<<< HEAD
+<<<<<<< HEAD
         phone: '',
         gender: '',
         Terms: false
@@ -160,6 +161,11 @@ export default {
       },
       isLoading: false
 >>>>>>> 1f28a9c5b3ca69ad35d25c96dd75f18f73082dfc
+=======
+        phone: ''
+      },
+      isLoading: false
+>>>>>>> 60e5cd57e1a31d98e4e8ec8611385c7461ccdce6
     }
   },
   watch: {
