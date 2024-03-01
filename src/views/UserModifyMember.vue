@@ -1,8 +1,5 @@
 <template>
-<<<<<<< HEAD
   <h1>修改會員資料</h1>
-</template>
-=======
   <LoadingView :active="isLoading" />
   <HeaderView/>
   <h4 class="text-center my-5">修改會員資料</h4>
@@ -24,7 +21,7 @@
 </template>
 
 <script>
-import HeaderView from '../components/HeaderView.vue'
+import HeaderView from '@/components/HeaderView.vue'
 
 export default {
   components: {
@@ -38,4 +35,3 @@ export default {
   box-shadow: 1px 1px 3px #8B8B8B;
 }
 </style>
->>>>>>> 60e5cd57e1a31d98e4e8ec8611385c7461ccdce6

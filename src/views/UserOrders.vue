@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import HeaderView from '../components/HeaderView.vue'
+import HeaderView from '@/components/HeaderView.vue'
 
 const { VITE_API, VITE_PATH } = import.meta.env
 
