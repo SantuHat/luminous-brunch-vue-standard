@@ -1,5 +1,6 @@
 <template>
 <!-- 餐點菜單 -->
+<LoadingView :active="isLoading" />
 <div
   v-for=" item in this.apiData " :key="item.id"
   class="col-lg-4 mb-6"
@@ -53,8 +54,9 @@ export default {
   data () {
     return {
       apiData: {},
-      productTemp: {}
+      productTemp: {},
       // 用來刪除最新一筆的購物車訂單id
+      isLoading: false
     }
   },
   mounted () {
@@ -110,14 +112,17 @@ export default {
     getProducts (category = '') {
       // const category = this.$route.query.category
       console.log(category)
+      this.isLoading = true
       axios.get(`${VITE_API}/api/${VITE_PATH}/products?category=${this.$route.query.category}`)
         .then((Response) => {
           this.apiData = Response.data.products
           console.log(this.carts)
           console.log(Response)
+          this.isLoading = false
         })
         .catch((err) => {
           console.log(err)
+          this.isLoading = false
         })
     }
     // 加入購物車的涵式
