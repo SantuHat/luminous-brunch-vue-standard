@@ -69,8 +69,25 @@ const routes = [
         component: () => import('../views/BrunchSpecialsView.vue')
       },
       {
+        path: 'modifymember',
+        component: () => import('../views/UserModifyMember.vue')
+      },
+      {
+        path: 'userorders',
+        component: () => import('../views/UserOrders.vue')
+      },
+      {
+        path: 'usercoupons',
+        component: () => import('../views/UserCoupons.vue')
+      },
+      {
+        path: 'usercollection',
+        component: () => import('../views/UserCollection.vue')
+      },
+
+      // 後台
+      {
         path: '/dashboard',
-        // name: 'about',
         component: () => import('../dashboard/DashBoard.vue'),
         children: [
           {

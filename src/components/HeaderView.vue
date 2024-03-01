@@ -60,12 +60,20 @@
             </span></a>
           <ul class="dropdownMemberCenter position_absolute_lg list-unstyled ps-0" :class="{'active': isMemberActive}">
             <li>
-              <a class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
-                href="6-1-1-1_modify-member-info.html">修改會員資料</a>
+              <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+                to="/modifymember">修改會員資料</RouterLink>
             </li>
             <li>
-              <a class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
-                href="6-1-1-2_reservation-info.html">查看訂位資訊</a>
+              <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+                to="/userorders">查看訂單資訊</RouterLink>
+            </li>
+            <li>
+              <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+                to="/usercoupons">查詢優惠券</RouterLink>
+            </li>
+            <li>
+              <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+                to="/usercollection">查看我的收藏</RouterLink>
             </li>
             <li @click="logOut">
               <RouterLink class="logOutBtn py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500" to="/index">登出</RouterLink>
