@@ -8,16 +8,18 @@
 export default {
   data () {
     return {
-      showBackToTopButton: ''
+      BackToTopButton: ''
     }
   },
+  mounted () {
+    window.addEventListener('scroll', this.showBackToTopButton)
+  },
   methods: {
-    // eslint-disable-next-line vue/no-dupe-keys
     showBackToTopButton () {
-      if (window.this.$refs.toTOP > 20) {
-        this.showBackToTopButton = true
+      if (this.$refs.toTOP.offsetTop > 20) {
+        this.BackToTopButton = true
       } else {
-        this.showBackToTopButton = false
+        this.BackToTopButton = false
       }
     },
     scrollToTop () {
