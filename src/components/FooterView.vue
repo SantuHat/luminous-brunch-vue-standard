@@ -66,76 +66,73 @@
 </footer>
 </template>
 <style>
-.d-flex{
-  list-style:none;
-};
- /* img{
-   @media (max-width:992px) {
-     margin: auto;
-   }
- } */
-.footer{
-  @media (max-width:992px) {
+.d-flex {
+  list-style: none;
+}
+
+@media (max-width: 992px) {
+  .footer {
     flex-direction: column;
   }
 }
 
 .footer-box ul {
-    margin: 2rem;
-    text-decoration: none;
-      @media (max-width:992px) {
-        flex-direction: column;
-        align-items: center;
-      }
+  margin: 2rem;
+  text-decoration: none;
 }
-.footer-box li{
-    margin: 1.5rem;
+@media (max-width: 992px) {
+  .footer-box ul {
+    flex-direction: column;
+    align-items: center;
+  }
 }
-.footer-box a{
-      text-decoration: none;
-      color: black;
+.footer-box li {
+  margin: 1.5rem;
 }
-.footer-box a:hover{
-        color: #8b8b8b
-      }
+.footer-box li a {
+  text-decoration: none;
+  color: black;
+}
+.footer-box li a:hover {
+  color: #8b8b8b;
+}
 
-.footer-icon{
-  @media (max-width:992px) {
+@media (max-width: 992px) {
+  .footer-icon {
     margin: auto;
   }
 }
-.footer-icon ul li{
+
+.footer-icon ul li {
   margin: 1.5rem;
-};
-
-.Info ul{
-    @media (max-width:992px) {
-      flex-direction: column;
-      align-items: center;
-    }
-  };
-
-.Info li{
-    @media (max-width:992px) {
-      margin-right: 0;
-      margin-bottom:1rem;
-    }
 }
-   /* img{ */
-     /* margin-right: 5px; */
-   /* } */
-.border{
+
+@media (max-width: 992px) {
+  .Info ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 992px) {
+  .Info li {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+.border {
   border: 1px #c1c1c1 solid;
-};
-.Copyright p{
-    margin-top: 1rem;
-    color: #c1c1c1;
-    font-size: 12px;
+}
+
+.Copyright p {
+  margin-top: 1rem;
+  color: #c1c1c1;
+  font-size: 12px;
+}
+@media (max-width: 992px) {
+  .Copyright ul {
+    flex-direction: column;
+    align-items: center;
   }
-.Copyright ul{
-      @media (max-width:992px) {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
+}
 </style>

@@ -1,7 +1,7 @@
 <template>
 <main>
     <HeaderView/>
-  <div class="bgimage mb-9">
+  <div class="bgimage mb-9" :style="bgStyle">
       <div class="filter"></div>
       <h3>最新消息/優惠</h3>
   </div>
@@ -130,9 +130,23 @@
 import HeaderView from '@/components/HeaderView.vue'
 import FooterView from '@/components/FooterView.vue'
 export default {
+  data () {
+    return {
+      bgStyle: {
+        // 初始樣式，畫面從左至右移入
+        transition: 'all 2s ease',
+        transform: 'translateX(-100%)'
+      }
+    }
+  },
   components: {
     HeaderView,
     FooterView
+  },
+  mounted () {
+    setTimeout(() => {
+      this.bgStyle.transform = 'translateX(0%)' // 將transform設置為0，使元素從左至右
+    }, 500)
   }
 }
 </script>
@@ -142,7 +156,6 @@ export default {
   background-image: url("https://images.unsplash.com/photo-1543353071-873f17a7a088?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
   background-position: center;
-  transition: all 2s ease;
   position: relative;
   z-index: 0;
   display: flex;
