@@ -10,7 +10,7 @@
         <ul class="d-flex ps-0">
           <li><router-link to="/newsmain">關於我們</router-link></li>
           <li><router-link to="/newsmain">最新消息/優惠</router-link></li>
-          <li><router-link to="/menuview">線上訂餐</router-link></li>
+          <li><router-link to="/menuview/menulist?category=salad">線上訂餐</router-link></li>
           <li><router-link to="/userlogin">會員註冊/登入</router-link></li>
         </ul>
       </div>
