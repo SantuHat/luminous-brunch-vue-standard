@@ -29,18 +29,22 @@ const routes = [
       },
       {
         path: 'newscontent',
+        name: 'newscontent',
         component: () => import('../views/NewsContent.vue')
       },
       {
         path: 'newscontent2',
+        name: 'newscontent2',
         component: () => import('../views/NewsContent2.vue')
       },
       {
         path: 'newscontent3',
+        name: 'newscontent3',
         component: () => import('../views/NewsContent3.vue')
       },
       {
         path: 'newscontent4',
+        name: 'newscontent4',
         component: () => import('../views/NewsContent4.vue')
       },
       {

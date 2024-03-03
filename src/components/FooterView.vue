@@ -8,10 +8,10 @@
       </div>
       <div class="footer-box">
         <ul class="d-flex ps-0">
-          <li><a href="#">關於我們</a></li>
-          <li><a href="3_newsMain.html">最新消息/優惠</a></li>
-          <li><a href="5-1_booking.html">線上訂位</a></li>
-          <li><a href="login.html">會員註冊/登入</a></li>
+          <li><router-link to="/newsmain">關於我們</router-link></li>
+          <li><router-link to="/newsmain">最新消息/優惠</router-link></li>
+          <li><router-link to="/menuview/menulist?category=salad">線上訂餐</router-link></li>
+          <li><router-link to="/userlogin">會員註冊/登入</router-link></li>
         </ul>
       </div>
       <div class="footer-icon d-flex align-items-center">
