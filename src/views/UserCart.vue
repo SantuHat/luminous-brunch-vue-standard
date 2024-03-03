@@ -1,5 +1,4 @@
 <template>
-<HeaderView/>
 <div class="container mb-11">
   <LoadingView :active="isLoading" />
   <div class="step-indicator mx-auto mt-5">
@@ -90,14 +89,13 @@
   <a v-if="step === 2" href="javascript:;" class="btn_reserve py-3 px-9 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="nextStep(3)">送出訂單</a>
 
   <div class="d-flex">
-    <RouterLink @click="scrollTo" to="/index" v-if="step === 3" class="btn_reserve py-3 px-5 py-md-4 px-md-11 mx-auto mt-10 mb-8">回首頁</RouterLink>
+    <RouterLink @click="scrollTo" to="/" v-if="step === 3" class="btn_reserve py-3 px-5 py-md-4 px-md-11 mx-auto mt-10 mb-8">回首頁</RouterLink>
     <RouterLink to="/userorders" v-if="step === 3" class="btn_reserve py-3 px-5 py-md-4 px-md-11 mx-auto mt-10 mb-8">查看我的所有訂單</RouterLink>
   </div>
 </div>
 </template>
 
 <script>
-import HeaderView from '@/components/HeaderView.vue'
 
 const { VITE_API, VITE_PATH } = import.meta.env
 export default {
@@ -149,9 +147,6 @@ export default {
   },
   mounted () {
     this.getCarts()
-  },
-  components: {
-    HeaderView
   }
 }
 </script>

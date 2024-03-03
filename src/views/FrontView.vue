@@ -1,19 +1,19 @@
 <template>
     <div class="home">
-      <h1>Hello, This is front Page.</h1>
-      <RouterLink to="/index">Index</RouterLink> |
-      <RouterLink to="/login">dashboard</RouterLink>
-      <hr>
+      <RouterLink to="/">Index</RouterLink> |
+      <RouterLink to="/dashboard">dashboard</RouterLink>
+      <HeaderView/>
       <RouterView />
     </div>
 </template>
 
 <script>
-// import HelloWorld from '@/components/HelloWorld.vue'
+import HeaderView from '../components/HeaderView.vue'
 
 export default {
-//   components: {
-//   }
+  components: {
+    HeaderView
+  }
 }
 </script>
 

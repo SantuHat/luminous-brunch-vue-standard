@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <HeaderView />
     <!-- banner start -->
     <section class="position-relative">
       <div
@@ -233,14 +232,12 @@
 </template>
 
 <script>
-import HeaderView from '@/components/HeaderView.vue'
 import FooterView from '@/components/FooterView.vue'
 import GuestReviews from '@/components/GuestReviews.vue'
 import BackToTop from '@/components/BackToTop.vue'
 import IndexSwiper from '@/components/IndexSwiper.vue'
 export default {
   components: {
-    HeaderView,
     FooterView,
     GuestReviews,
     BackToTop,

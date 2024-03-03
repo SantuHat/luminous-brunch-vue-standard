@@ -1,6 +1,5 @@
 <template>
   <LoadingView :active="isLoading" />
-  <HeaderView/>
   <div class="container">
     <h2 class="text-center mb-5">訂單資訊</h2>
     <table class="border border-gray box-shadow-gray-300 mx-auto w-100">
@@ -39,7 +38,6 @@
 </template>
 
 <script>
-import HeaderView from '@/components/HeaderView.vue'
 
 const { VITE_API, VITE_PATH } = import.meta.env
 
@@ -67,9 +65,6 @@ export default {
   },
   mounted () {
     this.getUserOrders()
-  },
-  components: {
-    HeaderView
   }
 }
 </script>

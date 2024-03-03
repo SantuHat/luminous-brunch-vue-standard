@@ -85,7 +85,7 @@ export default {
         .then(() => {
           this.isLoading = false
           localStorage.setItem('isLogin', true)
-          this.$router.push('/index')
+          this.$router.push('/')
         })
         .catch(() => {
           this.isLoading = false

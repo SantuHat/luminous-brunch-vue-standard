@@ -1,6 +1,5 @@
 <template>
 <main>
-    <HeaderView/>
   <div class="bgimage mb-9" :style="bgStyle">
       <div class="filter"></div>
       <h3>最新消息/優惠</h3>
@@ -134,7 +133,6 @@
 <FooterView/>
 </template>
 <script>
-import HeaderView from '@/components/HeaderView.vue'
 import FooterView from '@/components/FooterView.vue'
 export default {
   data () {
@@ -147,7 +145,6 @@ export default {
     }
   },
   components: {
-    HeaderView,
     FooterView
   },
   mounted () {

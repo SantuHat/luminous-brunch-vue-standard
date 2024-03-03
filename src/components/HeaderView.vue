@@ -2,7 +2,7 @@
   <header class="position-relative bg-light">
   <nav class="nav">
     <div class="container-lg d-flex justify-content-between align-items-center py-5">
-      <RouterLink to="/index">
+      <RouterLink to="/">
         <img class="d-none d-md-block" src="/Logo-lg.png" alt="Logo-lg" />
         <img class="d-md-none" src="/Logo-sm.png" alt="Logo-sm" />
       </RouterLink>
@@ -100,7 +100,7 @@
                 to="/usercollection">查看我的收藏</RouterLink>
             </li>
             <li @click="logOut">
-              <RouterLink class="logOutBtn py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500" to="/index">登出</RouterLink>
+              <RouterLink class="logOutBtn py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500" to="/">登出</RouterLink>
             </li>
           </ul>
         </li>
@@ -134,7 +134,7 @@ export default {
     return {
       isActive: false,
       isMemberActive: false,
-      isLogin: false,
+      isLogin: JSON.parse(localStorage.getItem('isLogin')) || false,
       cartFrame: '',
       carts: []
     }
@@ -194,11 +194,6 @@ export default {
     // console.log('this.$refs.cartFrame', this.$refs.cartFrame)
     this.cartFrame = new Dropdown(this.$refs.cartFrame)
     // console.log(' this.cartFrame', this.cartFrame)
-  },
-  watch: {
-    isLogin (val) {
-      console.log('val', val)
-    }
   },
   components: { RouterLink }
 }

@@ -1,5 +1,4 @@
 <template>
-<HeaderView/>
 <div class="py-6">
       <div class="container">
         <h1  class="display-1 text-center text-primary fw-bolder font-Caveat mb-auto">| MENU |</h1>
@@ -39,12 +38,10 @@
   <FooterView></FooterView>
 </template>
 <script>
-import HeaderView from '@/components/HeaderView.vue'
 import FooterView from '@/components/FooterView.vue'
 export default {
   components: {
-    FooterView,
-    HeaderView
+    FooterView
   },
   data () {
     return {

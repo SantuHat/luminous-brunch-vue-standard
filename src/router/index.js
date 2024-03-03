@@ -1,13 +1,14 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
+  // 前台
   {
     path: '/',
     name: 'Front',
     component: () => import('../views/FrontView.vue'),
     children: [
       {
-        path: 'index',
+        path: '',
         name: 'Index',
         component: () => import('../views/HomeView.vue')
       },
@@ -99,39 +100,33 @@ const routes = [
       {
         path: 'usercollection',
         component: () => import('../views/UserCollection.vue')
-      },
-
-      // 後台
-      {
-        path: '/dashboard',
-        component: () => import('../dashboard/DashBoard.vue'),
-        children: [
-          {
-            path: 'products',
-            component: () => import('../dashboard/ProductsView.vue')
-          },
-          {
-            path: 'order',
-            component: () => import('../dashboard/OrderView.vue')
-          },
-          {
-            path: 'coupon',
-            component: () => import('../dashboard/CouponView.vue')
-          }
-        ]
-      },
-      {
-        path: '/login',
-        // name: 'about',
-        component: () => import('../dashboard/LoginView.vue')
       }
     ]
+  },
+  // 後台
+  {
+    path: '/dashboard',
+    component: () => import('../dashboard/DashBoard.vue'),
+    children: [
+      {
+        path: 'products',
+        component: () => import('../dashboard/ProductsView.vue')
+      },
+      {
+        path: 'order',
+        component: () => import('../dashboard/OrderView.vue')
+      },
+      {
+        path: 'coupon',
+        component: () => import('../dashboard/CouponView.vue')
+      }
+    ]
+  },
+  {
+    path: '/login',
+    // name: 'about',
+    component: () => import('../dashboard/LoginView.vue')
   }
-  // {
-  //   path: '/dashboard',
-  //   name: 'Dashboard',
-  //   component: () => import('../views/dashboard/DashboardView.vue')
-  // }
 ]
 
 const router = createRouter({
