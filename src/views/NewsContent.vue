@@ -16,7 +16,7 @@
             </div>
             <br /><br />
             <div class="d-flex justify-content-center news-content-pic">
-              <img src="/restaurant.jpg" width="70%" />
+              <img src="/restaurant.jpg" width="70%" :style="byStyle"/>
             </div>
             <div class="news-text lh-lg d-flex justify-content-center">
               <p>
@@ -30,8 +30,21 @@
 <script>
 import NewSidebar from '../components/NewSidebar.vue'
 export default {
+  data () {
+    return {
+      byStyle: {
+        transition: 'all 2s ease',
+        opacity: '0'
+      }
+    }
+  },
   components: {
     NewSidebar
+  },
+  mounted () {
+    setTimeout(() => {
+      this.byStyle.opacity = '1'
+    }, 300)
   }
 }
 </script>

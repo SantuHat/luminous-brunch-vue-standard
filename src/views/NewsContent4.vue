@@ -2,7 +2,7 @@
       <div class="container bg-pink font-color-gray-400">
         <div class="row mt-8 mb-8">
           <div class="col-4">
-            <NewSidebar/>
+          <NewSidebar/>
           </div>
           <div class="col-8">
             <div class="font-NotoSerif mb-5">
@@ -16,7 +16,7 @@
             </div>
             <br /><br />
             <div class="d-flex justify-content-center news-content-pic">
-              <img src="/christmas.jpg" width="70%" />
+              <img src="/christmas.jpg" width="70%" :style="byStyle"/>
             </div>
             <div class="news-text lh-base d-flex justify-content-center">
               <p>
@@ -33,8 +33,21 @@
 <script>
 import NewSidebar from '../components/NewSidebar.vue'
 export default {
+  data () {
+    return {
+      byStyle: {
+        transition: 'all 2s ease',
+        opacity: '0'
+      }
+    }
+  },
   components: {
     NewSidebar
+  },
+  mounted () {
+    setTimeout(() => {
+      this.byStyle.opacity = '1'
+    }, 300)
   }
 }
 </script>
