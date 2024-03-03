@@ -27,6 +27,22 @@ const routes = [
         component: () => import('../views/NewsMain.vue')
       },
       {
+        path: 'newscontent',
+        component: () => import('../views/NewsContent.vue')
+      },
+      {
+        path: 'newscontent2',
+        component: () => import('../views/NewsContent2.vue')
+      },
+      {
+        path: 'newscontent3',
+        component: () => import('../views/NewsContent3.vue')
+      },
+      {
+        path: 'newscontent4',
+        component: () => import('../views/NewsContent4.vue')
+      },
+      {
         path: 'usercart',
         name: 'usercart',
         component: () => import('../views/UserCart.vue')

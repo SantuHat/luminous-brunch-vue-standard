@@ -10,15 +10,14 @@
           <div class="img-wrapper d-flex justify-content-center">
           <img class="news-pic" src="/newsPic4.jpg" alt="" />
           <h3 class="news-content">
-              <a href="3-1_newsContent.html">
+              <router-link to="/newscontent">
               "每日精選美味套餐優惠"
               <p class="fs-4 d-flex justify-content-center">
-                  <br /><br />活動期間:2023/10/10-2023/12/15
+                <br/>活動期間:2024/01/10-2024/12/15
               </p>
-              </a>
+              </router-link>
           </h3>
           </div>
-
           <div style="width: 100%" class="mb-10">
           <div class="d-flex justify-content-center">
               <div class="card" style="width: 20%">
@@ -30,10 +29,10 @@
               />
               <div class="card-body card-content">
                   <h5 class="card-title">刷卡支付享95折優惠</h5>
-                  <p class="card-text">活動期間:2023/10/10-2023/12/31</p>
-                  <a href="3-1_newsContent2.html" class="btn btn-primary"
-                  >了解更多</a
-                  >
+                  <p class="card-text">活動期間:2024/01/10-2024/12/15</p>
+                  <router-link to="/newscontent2" class="btn btn-primary">
+                  了解更多
+                  </router-link>
               </div>
               </div>
 
@@ -46,10 +45,10 @@
               />
               <div class="card-body card-content">
                   <h5 class="card-title">外帶早餐經典組合享9折優惠</h5>
-                  <p class="card-text">活動期間:2023/10/10-2024/3/31</p>
-                  <a href="3-1_newsContent3.html" class="btn btn-primary"
-                  >了解更多</a
-                  >
+                  <p class="card-text">活動期間:2024/01/10-2024/12/15</p>
+                  <router-link to="/newscontent3" class="btn btn-primary">
+                  了解更多
+                  </router-link>
               </div>
               </div>
 
@@ -62,10 +61,10 @@
               />
               <div class="card-body card-content">
                   <h5 class="card-title">歡慶冬季耶誕 特色餐點新上市</h5>
-                  <p class="card-text">活動期間:2023/10/10-2023/12/24</p>
-                  <a href="3-1_newsContent4.html" class="btn btn-primary"
-                  >了解更多</a
-                  >
+                  <p class="card-text">活動期間:2024/11/10-2024/12/24</p>
+                  <router-link to="/newscontent4" class="btn btn-primary">
+                  了解更多
+                  </router-link>
               </div>
               </div>
           </div>
@@ -81,8 +80,10 @@
           />
           <div class="card-body">
           <h5 class="card-title">每日精選美味套餐優惠</h5>
-          <p class="card-text">活動期間:2023/10/10-2023/12/15</p>
-          <a href="3-1_newsContent.html" class="btn btn-primary">了解更多</a>
+          <p class="card-text">活動期間:2024/01/10-2024/12/15</p>
+          <router-link to="/newscontent" class="btn btn-primary">
+          了解更多
+          </router-link>
           </div>
       </div>
       <div class="card">
@@ -93,8 +94,10 @@
           />
           <div class="card-body">
           <h5 class="card-title">刷卡支付享95折優惠</h5>
-          <p class="card-text">活動期間:2023/10/10-2023/12/31</p>
-          <a href="3-1_newsContent2.html" class="btn btn-primary">了解更多</a>
+          <p class="card-text">活動期間:2024/01/10-2024/12/15</p>
+          <router-link to="/newscontent2" class="btn btn-primary">
+          了解更多
+          </router-link>
           </div>
       </div>
       <div class="card">
@@ -105,8 +108,10 @@
           />
           <div class="card-body">
           <h5 class="card-title">外帶早餐經典組合享9折優惠</h5>
-          <p class="card-text">活動期間:2023/10/10-2024/3/31</p>
-          <a href="3-1_newsContent3.html" class="btn btn-primary">了解更多</a>
+          <p class="card-text">活動期間:2024/01/10-2024/12/15</p>
+          <router-link to="/newscontent3" class="btn btn-primary">
+          了解更多
+          </router-link>
           </div>
       </div>
       <div class="card">
@@ -117,8 +122,10 @@
           />
           <div class="card-body">
           <h5 class="card-title">歡慶冬季耶誕 特色餐點新上市</h5>
-          <p class="card-text">活動期間:2023/10/10-2023/12/24</p>
-          <a href="3-1_newsContent4.html" class="btn btn-primary">了解更多</a>
+          <p class="card-text">活動期間:2024/11/10-2024/12/24</p>
+          <router-link to="/newscontent4" class="btn btn-primary">
+          了解更多
+          </router-link>
           </div>
       </div>
   </div>
