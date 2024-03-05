@@ -81,9 +81,7 @@
               <span class="cartFinalTotal py-3 px-5 mt-3 d-block fw-bold">
                 總計 NT$ {{ cartTotal }}
               </span>
-              <RouterLink to="/usercart">
-                <button type="button" class="checkoutBtn position-absolute btn btn-primary py-3 px-5 mt-3">前往結帳</button>
-              </RouterLink>
+                <button @click="goChecking" type="button" class="checkoutBtn position-absolute btn btn-primary py-3 px-5 mt-3">前往結帳</button>
             </div>
           </div>
 
@@ -136,6 +134,7 @@ import { mapActions, mapState } from 'pinia'
 import { RouterLink } from 'vue-router'
 import { Dropdown } from 'bootstrap'
 import cartStore from '../stores/cartStore.js'
+import loginStore from '../stores/loginStore'
 
 export default {
   name: 'HeaderView',
@@ -143,12 +142,12 @@ export default {
     return {
       isActive: false,
       isMemberActive: false,
-      isLogin: JSON.parse(localStorage.getItem('isLogin')) || false,
       cartFrame: ''
     }
   },
   methods: {
     ...mapActions(cartStore, ['getCarts', 'delCart']),
+    ...mapActions(loginStore, ['setLogin', 'getLogin']),
     dropdownMenu () {
       this.isActive = !this.isActive
     },
@@ -156,21 +155,22 @@ export default {
       this.isMemberActive = !this.isMemberActive
     },
     logOut () {
-      localStorage.setItem('isLogin', false)
-      this.isLogin = false
-      console.log(this.isLogin)
+      this.setLogin(false)
       alert('已登出')
+    },
+    goChecking () {
+      this.$router.push(this.isLogin ? '/usercart' : '/userlogin')
     }
   },
   computed: {
-    ...mapState(cartStore, ['cartData', 'cartTotal'])
+    ...mapState(cartStore, ['cartData', 'cartTotal']),
+    ...mapState(loginStore, ['isLogin'])
   },
   created () {
     this.getCarts()
   },
   mounted () {
-    const isLogin = localStorage.getItem('isLogin')
-    this.isLogin = isLogin === 'true'
+    this.getLogin()
     // console.log('this.$refs.cartFrame', this.$refs.cartFrame)
     this.cartFrame = new Dropdown(this.$refs.cartFrame)
     // console.log(' this.cartFrame', this.cartFrame)

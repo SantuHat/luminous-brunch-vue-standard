@@ -67,6 +67,9 @@
       </div>
 </template>
 <script>
+import { mapActions } from 'pinia'
+import loginStore from '../stores/loginStore'
+
 export default {
   data () {
     return {
@@ -78,19 +81,20 @@ export default {
     }
   },
   methods: {
+    ...mapActions(loginStore, ['setLogin']),
     UserLogin () {
       const api = 'https://demo-q3dk.onrender.com/login'
       this.isLoading = true
       this.$http.post(api, this.obj)
         .then(() => {
           this.isLoading = false
-          localStorage.setItem('isLogin', true)
           this.$router.push('/')
+          this.setLogin(true)
         })
         .catch(() => {
           this.isLoading = false
           alert('登入失敗')
-          localStorage.setItem('isLogin', false)
+          this.setLogin(false)
         })
     }
   }
