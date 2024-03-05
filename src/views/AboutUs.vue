@@ -1,5 +1,5 @@
 <template>
-<HeaderView/>
+
 <section
       class="bg_aboutUs d-flex justify-content-center align-items-center"
     >
@@ -99,12 +99,10 @@
 <FooterView/>
 </template>
 <script>
-import HeaderView from '@/components/HeaderView.vue'
 import FooterView from '@/components/FooterView.vue'
 
 export default {
   components: {
-    HeaderView,
     FooterView
   },
   methods: {

@@ -1,5 +1,4 @@
 <template>
-<HeaderView/>
 <div class="container mb-11">
   <LoadingView :active="isLoading" />
   <div class="step-indicator mx-auto mt-5">
@@ -44,7 +43,7 @@
           <th class="text-center">{{ item.total }}</th>
           <th>
             <button v-if="step === 1" @click="delCart(item.id)" type="button" class="btn btn-primary">
-              <span class="material-symbols-outlined">
+              <span class="material-symbols-outlined pt-1">
                 delete
               </span>
             </button>
@@ -90,14 +89,13 @@
   <a v-if="step === 2" href="javascript:;" class="btn_reserve py-3 px-9 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="nextStep(3)">送出訂單</a>
 
   <div class="d-flex">
-    <RouterLink to="/index" v-if="step === 3" class="btn_reserve py-3 px-5 py-md-4 px-md-11 mx-auto mt-10 mb-8">回首頁</RouterLink>
+    <RouterLink @click="scrollTo" to="/" v-if="step === 3" class="btn_reserve py-3 px-5 py-md-4 px-md-11 mx-auto mt-10 mb-8">回首頁</RouterLink>
     <RouterLink to="/userorders" v-if="step === 3" class="btn_reserve py-3 px-5 py-md-4 px-md-11 mx-auto mt-10 mb-8">查看我的所有訂單</RouterLink>
   </div>
 </div>
 </template>
 
 <script>
-import HeaderView from '@/components/HeaderView.vue'
 
 const { VITE_API, VITE_PATH } = import.meta.env
 export default {
@@ -141,13 +139,14 @@ export default {
     },
     nextStep (val) {
       this.step = val
+      window.scrollTo(0, 0)
+    },
+    scrollTo () {
+      window.scrollTo(0, 0)
     }
   },
   mounted () {
     this.getCarts()
-  },
-  components: {
-    HeaderView
   }
 }
 </script>
@@ -156,12 +155,15 @@ export default {
 .time-picker {
   width: 49%;
 }
+
 .form-text {
   display: flex;
 }
+
 .act-btn {
   font-size: 3vmin;
 }
+
 .step-indicator {
   display: flex;
   justify-content: space-between;
@@ -169,36 +171,36 @@ export default {
   position: relative;
   align-items: center;
   height: 10vmin;
-  .line {
-    height: 2px;
-    width: 48%;
-    background-color: #693b28;
-  }
-  .step {
-    width: 5vmin;
-    height: 5vmin;
-    background-color: #f4e9e2;
-    color: #8b8b8b;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    flex-direction: column;
-    span {
-      width: 21vmin;
-      height: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      margin-top: 12vh;
-    }
-  }
-  .step.active {
-    background-color: #693b28;
-    color: #343434;
-  }
+}
+.step-indicator .line {
+  height: 2px;
+  width: 48%;
+  background-color: #693b28;
+}
+.step-indicator .step {
+  width: 5vmin;
+  height: 5vmin;
+  background-color: #f4e9e2;
+  color: #8b8b8b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-direction: column;
+}
+.step-indicator .step span {
+  width: 21vmin;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-top: 12vh;
+}
+.step-indicator .step.active {
+  background-color: #693b28;
+  color: #343434;
 }
 
 .confirm-text {
@@ -207,31 +209,37 @@ export default {
   align-items: center;
   font-size: 5vmin;
 }
+
 .form-content-confirm {
   display: flex;
   flex-direction: column;
   font-size: 5vmin;
-  .booking-Contents {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 }
+.form-content-confirm .booking-Contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .form-btn {
   width: 8vw;
 }
+
 .form-btn-group {
   display: flex;
   justify-content: space-evenly;
 }
+
 .js-tbody {
   right: 5%;
   top: 1%;
   font-weight: bold;
 }
+
 .box-shadow-gray-300 {
   box-shadow: 1px 1px 3px #8B8B8B;
 }
+
 .overflow-x {
   overflow-x: auto;
 }

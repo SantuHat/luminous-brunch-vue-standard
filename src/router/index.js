@@ -1,13 +1,14 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
+  // 前台
   {
     path: '/',
     name: 'Front',
     component: () => import('../views/FrontView.vue'),
     children: [
       {
-        path: 'index',
+        path: '',
         name: 'Index',
         component: () => import('../views/HomeView.vue')
       },
@@ -25,6 +26,26 @@ const routes = [
         path: 'newsmain',
         name: 'newsMain',
         component: () => import('../views/NewsMain.vue')
+      },
+      {
+        path: 'newscontent',
+        name: 'newscontent',
+        component: () => import('../views/NewsContent.vue')
+      },
+      {
+        path: 'newscontent2',
+        name: 'newscontent2',
+        component: () => import('../views/NewsContent2.vue')
+      },
+      {
+        path: 'newscontent3',
+        name: 'newscontent3',
+        component: () => import('../views/NewsContent3.vue')
+      },
+      {
+        path: 'newscontent4',
+        name: 'newscontent4',
+        component: () => import('../views/NewsContent4.vue')
       },
       {
         path: 'usercart',
@@ -83,39 +104,33 @@ const routes = [
       {
         path: 'usercollection',
         component: () => import('../views/UserCollection.vue')
-      },
-
-      // 後台
-      {
-        path: '/dashboard',
-        component: () => import('../dashboard/DashBoard.vue'),
-        children: [
-          {
-            path: 'products',
-            component: () => import('../dashboard/ProductsView.vue')
-          },
-          {
-            path: 'order',
-            component: () => import('../dashboard/OrderView.vue')
-          },
-          {
-            path: 'coupon',
-            component: () => import('../dashboard/CouponView.vue')
-          }
-        ]
-      },
-      {
-        path: '/login',
-        // name: 'about',
-        component: () => import('../dashboard/LoginView.vue')
       }
     ]
+  },
+  // 後台
+  {
+    path: '/dashboard',
+    component: () => import('../dashboard/DashBoard.vue'),
+    children: [
+      {
+        path: 'products',
+        component: () => import('../dashboard/ProductsView.vue')
+      },
+      {
+        path: 'order',
+        component: () => import('../dashboard/OrderView.vue')
+      },
+      {
+        path: 'coupon',
+        component: () => import('../dashboard/CouponView.vue')
+      }
+    ]
+  },
+  {
+    path: '/login',
+    // name: 'about',
+    component: () => import('../dashboard/LoginView.vue')
   }
-  // {
-  //   path: '/dashboard',
-  //   name: 'Dashboard',
-  //   component: () => import('../views/dashboard/DashboardView.vue')
-  // }
 ]
 
 const router = createRouter({

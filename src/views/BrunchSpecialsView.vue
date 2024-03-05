@@ -1,5 +1,4 @@
 <template>
-<HeaderView/>
 <div class="py-6">
 <div class="container">
 <h1
@@ -273,12 +272,10 @@ class="d-flex justify-content-between align-items-center mb-6 mb-lg-0"
 <FooterView />
 </template>
 <script>
-import HeaderView from '@/components/HeaderView.vue'
 import FooterView from '@/components/FooterView.vue'
 export default {
   components: {
-    FooterView,
-    HeaderView
+    FooterView
   }
 }
 </script>

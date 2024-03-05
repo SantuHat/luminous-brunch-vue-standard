@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <HeaderView />
     <!-- banner start -->
     <section class="position-relative">
       <div
@@ -105,6 +104,7 @@
       <div
         class="bg-pink news-height"
       >
+<<<<<<< HEAD
         <div class="container  news-height position-relative  d-flex align-items-center justify-content-center"
          >
           <div class="newsPic position-absolute ">
@@ -131,6 +131,57 @@
                 <div style="margin-bottom: 60px">
                   <a href="3-1_newsContent3.html">○ 外帶早餐享9折優惠</a>
                 </div>
+=======
+        <div class="newsPic">
+          <div>
+            <img src="/news.png" alt="" />
+            <div class="position-absolute top-0 start-0">
+              <img src="/star2.png" alt="" />
+            </div>
+            <div class="position-absolute bottom-0 end-0">
+              <img src="/star.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="box news-list-desktop">
+          <div class="news_list font-NotoSerif text-yellow-300">
+            <p class="text-primary text-news">最新消息</p>
+            <div class="paragraph">
+              <div style="margin-bottom: 35px">
+                <RouterLink to="/newscontent">○ 每日精選美味套餐優惠</RouterLink>
+              </div>
+              <div style="margin-bottom: 35px">
+                <RouterLink to="/newscontent2">○ 刷卡支付享95折優惠</RouterLink>
+              </div>
+              <div style="margin-bottom: 60px">
+                <RouterLink to="/newscontent3" style="">○ 外帶早餐享9折優惠</RouterLink>
+              </div>
+            </div>
+          </div>
+          <div class="link">
+            <router-link to="/newsmain"
+            style="
+                float: right;
+                color: #4a4a4a;
+                margin-top: 15px;
+                font: NotoSerif;
+              ">看更多
+            </router-link>
+          </div>
+        </div>
+        <div class="box news-list-mobile">
+          <div class="news_list font-NotoSerif text-yellow-300">
+            <p class="text-primary text-news">最新消息</p>
+            <div class="paragraph">
+              <div style="margin-bottom: 35px">
+                <RouterLink to="/newscontent">○ 每日精選美味套餐優惠</RouterLink>
+              </div>
+              <div style="margin-bottom: 35px">
+                <RouterLink to="/newscontent2">○ 刷卡支付享95折優惠</RouterLink>
+              </div>
+              <div style="margin-bottom: 60px">
+                <RouterLink to="/newscontent3" style="">○ 外帶早餐享9折優惠</RouterLink>
+>>>>>>> 631bb4e7223849a282d9a9cfc83b4e7aed002ae3
               </div>
               <div class="link position-absolute end-0 top-100">
               <RouterLink
@@ -242,7 +293,6 @@
 </template>
 
 <script>
-import HeaderView from '@/components/HeaderView.vue'
 import FooterView from '@/components/FooterView.vue'
 import GuestReviews from '@/components/GuestReviews.vue'
 import BackToTop from '@/components/BackToTop.vue'
@@ -250,7 +300,6 @@ import IndexSwiper from '@/components/IndexSwiper.vue'
 import { RouterLink } from 'vue-router'
 export default {
   components: {
-    HeaderView,
     FooterView,
     GuestReviews,
     BackToTop,

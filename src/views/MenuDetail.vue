@@ -1,5 +1,4 @@
 <template>
-<HeaderView />
 <div class="py-6">
   <div class="container">
     <div class="row py-7 border-bottom">
@@ -11,7 +10,7 @@
         <div class="d-flex flex-column justify-content-between">
           <nav>
               <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><RouterLink to="/index">首頁</RouterLink></li>
+                  <li class="breadcrumb-item"><RouterLink to="/">首頁</RouterLink></li>
                   <li class="breadcrumb-item">
                     <RouterLink :to="`/menuview/menulist?category=${product.category}`">
                       {{ categoryTitle[0]?.name }}系列
@@ -80,7 +79,6 @@
 </template>
 <script>
 import { mapState, mapActions } from 'pinia'
-import HeaderView from '@/components/HeaderView.vue'
 import AddCartToast from '@/components/AddCartToast.vue'
 import FooterView from '@/components/FooterView.vue'
 import MealDetailSwiper from '@/components/MealDetailSwiper.vue'
@@ -88,7 +86,7 @@ import cartStore from '@/stores/cartStore'
 // import AddCartToast from '../components/AddCartToast.vue'
 const { VITE_API, VITE_PATH } = import.meta.env
 export default {
-  components: { AddCartToast, FooterView, HeaderView, MealDetailSwiper },
+  components: { AddCartToast, FooterView, MealDetailSwiper },
   data () {
     return {
       product: {},

@@ -1,7 +1,6 @@
 <template>
   <h1>修改會員資料</h1>
   <LoadingView :active="isLoading" />
-  <HeaderView/>
   <h4 class="text-center my-5">修改會員資料</h4>
     <div class="col-8 col-md-5 col-lg-3 border border-gray box-shadow-gray-300 mx-auto">
       <form id="modifyMemberForm" class="pt-5 px-3">
@@ -21,12 +20,8 @@
 </template>
 
 <script>
-import HeaderView from '@/components/HeaderView.vue'
 
 export default {
-  components: {
-    HeaderView
-  }
 }
 </script>
 
