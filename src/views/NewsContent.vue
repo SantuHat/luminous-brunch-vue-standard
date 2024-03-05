@@ -6,10 +6,10 @@
           </div>
           <div class="col-8">
             <div class="font-NotoSerif mb-5 return-to-list">
-              <router-link to="/newsmain">
+              <RouterLink to="/newsmain">
                 <img src="/Keyboard arrow left.png"/>
                 返回列表
-              </router-link>
+              </RouterLink>
             </div>
             <div class="news-title font-Noto Serif TC">
               <p>每日精選美味套餐優惠</p>

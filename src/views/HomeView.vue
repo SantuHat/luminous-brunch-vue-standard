@@ -112,13 +112,13 @@
             <p class="text-primary text-news">最新消息</p>
             <div class="paragraph">
               <div style="margin-bottom: 35px">
-                <router-link to="/newscontent">○ 每日精選美味套餐優惠</router-link>
+                <RouterLink to="/newscontent">○ 每日精選美味套餐優惠</RouterLink>
               </div>
               <div style="margin-bottom: 35px">
-                <router-link to="/newscontent2">○ 刷卡支付享95折優惠</router-link>
+                <RouterLink to="/newscontent2">○ 刷卡支付享95折優惠</RouterLink>
               </div>
               <div style="margin-bottom: 60px">
-                <router-link to="/newscontent3" style="">○ 外帶早餐享9折優惠</router-link>
+                <RouterLink to="/newscontent3" style="">○ 外帶早餐享9折優惠</RouterLink>
               </div>
             </div>
           </div>
@@ -138,13 +138,13 @@
             <p class="text-primary text-news">最新消息</p>
             <div class="paragraph">
               <div style="margin-bottom: 35px">
-                <a href="3-1_newsContent.html">○ 每日精選美味套餐優惠</a>
+                <RouterLink to="/newscontent">○ 每日精選美味套餐優惠</RouterLink>
               </div>
               <div style="margin-bottom: 35px">
-                <a href="3-1_newsContent2.html">○ 刷卡支付享95折優惠</a>
+                <RouterLink to="/newscontent2">○ 刷卡支付享95折優惠</RouterLink>
               </div>
               <div style="margin-bottom: 60px">
-                <a href="3-1_newsContent3.html">○ 外帶早餐享9折優惠</a>
+                <RouterLink to="/newscontent3" style="">○ 外帶早餐享9折優惠</RouterLink>
               </div>
             </div>
           </div>

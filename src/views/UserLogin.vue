@@ -54,11 +54,11 @@
               </div>
               <div class="d-flex justify-content-center">
                 <p class="text-light pe-3">尚未成為用戶?</p>
-                <router-link
+                <RouterLink
                   to="/userregister"
                   class="text-decoration-none text-blue"
                   id="pageChange"
-                  >立即註冊</router-link
+                  >立即註冊</RouterLink
                 >
               </div>
             </div>

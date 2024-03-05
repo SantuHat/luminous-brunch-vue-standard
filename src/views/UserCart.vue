@@ -155,12 +155,15 @@ export default {
 .time-picker {
   width: 49%;
 }
+
 .form-text {
   display: flex;
 }
+
 .act-btn {
   font-size: 3vmin;
 }
+
 .step-indicator {
   display: flex;
   justify-content: space-between;
@@ -168,36 +171,36 @@ export default {
   position: relative;
   align-items: center;
   height: 10vmin;
-  .line {
-    height: 2px;
-    width: 48%;
-    background-color: #693b28;
-  }
-  .step {
-    width: 5vmin;
-    height: 5vmin;
-    background-color: #f4e9e2;
-    color: #8b8b8b;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    flex-direction: column;
-    span {
-      width: 21vmin;
-      height: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      margin-top: 12vh;
-    }
-  }
-  .step.active {
-    background-color: #693b28;
-    color: #343434;
-  }
+}
+.step-indicator .line {
+  height: 2px;
+  width: 48%;
+  background-color: #693b28;
+}
+.step-indicator .step {
+  width: 5vmin;
+  height: 5vmin;
+  background-color: #f4e9e2;
+  color: #8b8b8b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-direction: column;
+}
+.step-indicator .step span {
+  width: 21vmin;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-top: 12vh;
+}
+.step-indicator .step.active {
+  background-color: #693b28;
+  color: #343434;
 }
 
 .confirm-text {
@@ -206,31 +209,37 @@ export default {
   align-items: center;
   font-size: 5vmin;
 }
+
 .form-content-confirm {
   display: flex;
   flex-direction: column;
   font-size: 5vmin;
-  .booking-Contents {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 }
+.form-content-confirm .booking-Contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .form-btn {
   width: 8vw;
 }
+
 .form-btn-group {
   display: flex;
   justify-content: space-evenly;
 }
+
 .js-tbody {
   right: 5%;
   top: 1%;
   font-weight: bold;
 }
+
 .box-shadow-gray-300 {
   box-shadow: 1px 1px 3px #8B8B8B;
 }
+
 .overflow-x {
   overflow-x: auto;
 }
