@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/no-dupe-keys -->
 <template>
-    <a id="toTOP" class="d-block" ref="toTOP" @click="scrollToTop" v-show="showBackToTopButton"
+    <a id="toTOP" :style="style" ref="toTOP" @click="scrollToTop"
       ><img src="/Back to top-lg.png" alt="backToTopBtn"
     /></a>
 </template>
@@ -8,18 +8,20 @@
 export default {
   data () {
     return {
-      BackToTopButton: ''
+      style: {}
     }
   },
   mounted () {
     window.addEventListener('scroll', this.showBackToTopButton)
+    this.showBackToTopButton()
   },
   methods: {
     showBackToTopButton () {
-      if (this.$refs.toTOP.offsetTop > 20) {
-        this.BackToTopButton = true
+      if (window.scrollY > 20) {
+        this.style = { display: 'block', transition: 'all 2s ease' }
+        console.log(window.scrollY, this.style)
       } else {
-        this.BackToTopButton = false
+        this.style = { display: 'none' }
       }
     },
     scrollToTop () {
