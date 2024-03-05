@@ -1,4 +1,5 @@
-import { defineStore } from 'pinia' // vite引入方式，原本是const {defineStore}=Pinia
+import { defineStore } from 'pinia'
+// vite引入方式，原本是const { defineStore }=Pinia
 import axios from 'axios'
 const { VITE_API, VITE_PATH } = import.meta.env
 export default defineStore('cartStore', {
@@ -64,7 +65,7 @@ export default defineStore('cartStore', {
     },
     setCartUpdate () {
       this.cartUpdated = false
-      console.log('加入購物車狀態更新囉')
+      console.log('購物車狀態更新')
     },
     getProduct () {
       const { id } = this.$route.params

@@ -54,114 +54,125 @@
     <!-- banner end -->
     <!-- 提供服務-start -->
     <section class="section" id="section--1">
-      <h2 class="text-primary font-NotoSerif fw-bold text-center mb-11 mt-11">
+      <div class="container">
+        <h2 class="text-primary font-NotoSerif fw-bold text-center mt-11">
         <!-- <img src="/scrollDesktop.png" alt="" /> -->
         <div class="d-flex justify-content-center mb-7 dynamic-effect">
-          <p class="font-Caveat">Luminous</p>
-          <p class="font-NotoSerif">&emsp想提供您...</p>
+          <p class="font-Caveat me-3">Luminous</p>
+          <p class="font-NotoSerif">想提供您...</p>
         </div>
-        <ul class="offer-desktop ps-0">
-          <li class="d-flex flex-column mb-3">
-            <img src="/offerService3.png" alt="" />
-            <h5 class="text-yellow-300 font-NotoSerif">兼具營養及美味的餐點</h5>
-          </li>
-          <li class="d-flex flex-column mb-3">
-            <h5 class="text-yellow-300 font-NotoSerif">明亮寬敞的用餐環境</h5>
-            <img src="/offerService.png" alt="" />
-          </li>
-          <li class="d-flex flex-column mb-3">
-            <img src="/offerService2.png" alt="" />
-            <h5 class="text-yellow-300 font-NotoSerif">找回迎接生活的動力</h5>
-          </li>
-        </ul>
-        <ul class="offer-mobile ps-0">
-          <li class="d-flex flex-column mb-3">
-            <img src="/offerService3.png" alt="" />
-            <h5 class="text-yellow-300 font-NotoSerif">兼具營養及美味的餐點</h5>
-          </li>
-          <li class="d-flex flex-column mb-3">
-            <img src="/offerService.png" alt="" />
-            <h5 class="text-yellow-300 font-NotoSerif">明亮寬敞的用餐環境</h5>
-          </li>
-          <li class="d-flex flex-column mb-3">
-            <img src="/offerService2.png" alt="" />
-            <h5 class="text-yellow-300 font-NotoSerif">找回迎接生活的動力</h5>
-          </li>
-        </ul>
       </h2>
+        <ul class="row justify-content-center text-center ps-0 mb-11">
+          <div class="col-lg-4">
+            <li class="d-flex flex-column mb-3">
+            <img src="/offerService3.png" alt="" />
+            <h5 class="text-yellow-300 font-NotoSerif">兼具營養及美味的餐點</h5>
+          </li>
+          </div>
+          <div class="col-lg-4">
+            <li class="d-flex flex-column mb-3">
+            <h5 class="text-yellow-300 font-NotoSerif d-none d-lg-block">明亮寬敞的用餐環境</h5>
+            <img src="/offerService.png" alt="" />
+            <h5 class="text-yellow-300 font-NotoSerif d-lg-none">明亮寬敞的用餐環境</h5>
+          </li>
+          </div>
+          <div class="col-lg-4">
+            <li class="d-flex flex-column mb-3">
+            <img src="/offerService2.png" alt="" />
+            <h5 class="text-yellow-300 font-NotoSerif">找回迎接生活的動力</h5>
+          </li>
+          </div>
+        </ul>
+        <ul class="offer-mobile  text-center ps-0 d-none">
+          <li class="d-flex flex-column mb-3">
+            <img src="/offerService3.png" alt="" />
+            <h5 class="text-yellow-300 font-NotoSerif">兼具營養及美味的餐點</h5>
+          </li>
+          <li class="d-flex flex-column mb-3">
+            <img src="/offerService.png" alt="" />
+            <h5 class="text-yellow-300 font-NotoSerif">明亮寬敞的用餐環境</h5>
+          </li>
+          <li class="d-flex flex-column mb-3">
+            <img src="/offerService2.png" alt="" />
+            <h5 class="text-yellow-300 font-NotoSerif">找回迎接生活的動力</h5>
+          </li>
+        </ul>
+      </div>
     </section>
     <!-- 提供服務-end -->
     <!-- 最新消息-開始 -->
     <section class="section" id="section--2">
       <div
-        class="bg-pink d-flex align-items-center justify-content-center"
-        style="height: 903px"
+        class="bg-pink news-height"
       >
-        <div class="newsPic">
-          <div>
-            <img src="/news.png" alt="" />
-            <div class="position-absolute top-0 start-0">
-              <img src="/star2.png" alt="" />
-            </div>
-            <div class="position-absolute bottom-0 end-0">
-              <img src="/star.png" alt="" />
-            </div>
-          </div>
-        </div>
-        <div class="box news-list-desktop">
-          <div class="news_list font-NotoSerif text-yellow-300">
-            <p class="text-primary text-news">最新消息</p>
-            <div class="paragraph">
-              <div style="margin-bottom: 35px">
-                <a href="3-1_newsContent.html">○ 每日精選美味套餐優惠</a>
+        <div class="container  news-height position-relative  d-flex align-items-center justify-content-center"
+         >
+          <div class="newsPic position-absolute ">
+            <div class="position-relative">
+              <img src="/news.png" alt="" class="w-100"/>
+              <div class="position-absolute top-0 start-0">
+                <img class="star2" src="/star2.png" alt="" />
               </div>
-              <div style="margin-bottom: 35px">
-                <a href="3-1_newsContent2.html">○ 刷卡支付享95折優惠</a>
-              </div>
-              <div style="margin-bottom: 60px">
-                <a href="3-1_newsContent3.html">○ 外帶早餐享9折優惠</a>
+              <div class="position-absolute bottom-0 end-0 star-2">
+                <img class="star2" src="/star.png" alt="" />
               </div>
             </div>
           </div>
-          <div class="link">
-            <a
-              href="3_newsMain.html"
-              style="
-                float: right;
-                color: #4a4a4a;
-                margin-top: 15px;
-                font: NotoSerif;
-              "
-              >看更多 ></a
-            >
-          </div>
-        </div>
-        <div class="box news-list-mobile">
-          <div class="news_list font-NotoSerif text-yellow-300">
-            <p class="text-primary text-news">最新消息</p>
-            <div class="paragraph">
-              <div style="margin-bottom: 35px">
-                <a href="3-1_newsContent.html">○ 每日精選美味套餐優惠</a>
+          <div class="box news-list-desktop position-absolute">
+            <div class="news_list font-NotoSerif text-yellow-300 position-relative">
+              <p class="text-primary text-news">最新消息</p>
+              <div class="paragraph">
+                <div style="margin-bottom: 35px">
+                  <a href="3-1_newsContent.html">○ 每日精選美味套餐優惠</a>
+                </div>
+                <div style="margin-bottom: 35px">
+                  <a href="3-1_newsContent2.html">○ 刷卡支付享95折優惠</a>
+                </div>
+                <div style="margin-bottom: 60px">
+                  <a href="3-1_newsContent3.html">○ 外帶早餐享9折優惠</a>
+                </div>
               </div>
-              <div style="margin-bottom: 35px">
-                <a href="3-1_newsContent2.html">○ 刷卡支付享95折優惠</a>
-              </div>
-              <div style="margin-bottom: 60px">
-                <a href="3-1_newsContent3.html">○ 外帶早餐享9折優惠</a>
-              </div>
+              <div class="link position-absolute end-0 top-100">
+              <RouterLink
+                to="newsmain"
+                style="
+                  float: right;
+                  color: #4a4a4a;
+                  margin-top: 15px;
+                  font: NotoSerif;
+                "
+                >看更多 ></RouterLink
+              >
+            </div>
             </div>
           </div>
-          <div class="link">
-            <a
-              href="3_newsMain.html"
-              style="
-                float: right;
-                color: #4a4a4a;
-                margin-top: 15px;
-                font: NotoSerif;
-              "
-              >看更多 ></a
-            >
+          <div class="box news-list-mobile position-absolute">
+            <div class="news_list font-NotoSerif text-yellow-300 position-relative">
+              <p class="text-primary text-news">最新消息</p>
+              <div class="paragraph">
+                <div style="margin-bottom: 35px">
+                  <a href="3-1_newsContent.html">○ 每日精選美味套餐優惠</a>
+                </div>
+                <div style="margin-bottom: 35px">
+                  <a href="3-1_newsContent2.html">○ 刷卡支付享95折優惠</a>
+                </div>
+                <div style="margin-bottom: 60px">
+                  <a href="3-1_newsContent3.html">○ 外帶早餐享9折優惠</a>
+                </div>
+              </div>
+              <div class="link position-absolute end-0 top-100">
+              <a
+                href="3_newsMain.html"
+                style="
+                  float: right;
+                  color: #4a4a4a;
+                  margin-top: 15px;
+                  font: NotoSerif;
+                "
+                >看更多 ></a
+              >
+            </div>
+            </div>
           </div>
         </div>
       </div>
@@ -173,9 +184,8 @@
         <div class="d-flex flex-column justify-content-center">
           <h2
             class="text-primary font-NotoSerif fw-bold text-center mb-11"
-            data-aos="fade-right"
           >
-            簡單預約三步驟
+            簡單訂餐三步驟
           </h2>
           <div class="row align-items-center" >
             <div class="col-lg-4">
@@ -186,7 +196,7 @@
                   alt=""
                   class="mx-auto mb-7"
                 />
-                <p class="font-NotoSerif fs-4">1. 挑選時段</p>
+                <p class="font-NotoSerif fs-4">1. 挑選餐點</p>
               </div>
             </div>
             <div class="col-lg-4">
@@ -199,7 +209,7 @@
                   alt=""
                   class="mx-auto mb-7"
                 />
-                <p class="font-NotoSerif fs-4">2. 確認訂位</p>
+                <p class="font-NotoSerif fs-4">2. 確認品項</p>
               </div>
             </div>
             <div class="col-lg-4">
@@ -211,7 +221,7 @@
                   alt=""
                   class="mx-auto mb-7"
                 />
-                <p class="font-NotoSerif fs-4">3. 完成訂位</p>
+                <p class="font-NotoSerif fs-4">3. 完成訂單</p>
               </div>
             </div>
           </div>
@@ -221,7 +231,6 @@
     <!-- 預約三步驟 end -->
     <!-- 菜單區塊 start -->
     <!-- 做成元件引入 -->
-    <RouterLink to="/menuview/menulist?category=salad">菜單瀏覽</RouterLink>
     <IndexSwiper />
     <!-- swiper+菜單輪播測試 pc -->
     <!-- 顧客評論 start-->
@@ -238,13 +247,15 @@ import FooterView from '@/components/FooterView.vue'
 import GuestReviews from '@/components/GuestReviews.vue'
 import BackToTop from '@/components/BackToTop.vue'
 import IndexSwiper from '@/components/IndexSwiper.vue'
+import { RouterLink } from 'vue-router'
 export default {
   components: {
     HeaderView,
     FooterView,
     GuestReviews,
     BackToTop,
-    IndexSwiper
+    IndexSwiper,
+    RouterLink
   }
 }
 </script>

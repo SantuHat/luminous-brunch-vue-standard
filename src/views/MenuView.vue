@@ -5,7 +5,7 @@
         <h1  class="display-1 text-center text-primary fw-bolder font-Caveat mb-auto">| MENU |</h1>
       </div>
 </div>
-<div class="container">
+<div class="container d-none d-lg-block">
   <div class="py-6">
     <ul id="menuList" class="d-flex justify-content-around list-unstyled">
       <li v-for="item in categoryTitleList"
@@ -26,6 +26,7 @@
     </ul>
   </div>
 </div>
+
 <!-- 菜單渲染畫面 -->
 
 <div class="bg-pink py-6">

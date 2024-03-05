@@ -1,9 +1,5 @@
 <template>
 <div class="mealDetailSwiper">
-  <!-- :autoplay="{
-      delay: 2500,
-      disableOnInteraction: false
-      }" -->
     <swiper
       :autoplay="{
       delay: 2500,
@@ -22,7 +18,7 @@
         },
         '1024': {
           slidesPerView: 3,
-          spaceBetween: 50,
+          spaceBetween: 0,
         },
       }"
       :modules="modules"
@@ -31,7 +27,9 @@
       <swiper-slide>
         <div class="card-menu">
           <div class="card-img object-fit">
-            <RouterLink :to="`/menuDetail/-NpjHP1Y5mG3J8z6treK`">
+            <RouterLink :to="`/menuDetail/-NpjHP1Y5mG3J8z6treK`"
+              class="w-100"
+            >
               <img src="https://github.com/Jenny031054/Luminous-Brunch/blob/main/assets/images/menuImg/baconPasta.jpg?raw=true" alt="" class="menu-img" title="點擊可以查看餐點詳細資訊">
             </RouterLink>
           </div>
