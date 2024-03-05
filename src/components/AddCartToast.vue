@@ -43,7 +43,7 @@ export default {
 
 <style>
 .add_success {
-  font-size: 54px;
+  font-size: 48px;
   font-weight: bold;
   color: green;
 }

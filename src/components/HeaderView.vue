@@ -45,22 +45,30 @@
         </li>
         <!-- <RouterLink to="/usercart"> -->
           <!-- Bootstrap Dropdowns -->
-          <li @click="getCarts()" class="nav_item border-bottom-1" id="cartFrame" data-bs-toggle="dropdown" aria-expanded="false" ref="cartFrame">
-            <a class="py-4 py-lg-3 px-5 fw-bold d-block d-flex" href="javascript:;">
+          <li class="nav_item border-bottom-1 me-2" id="cartFrame" data-bs-toggle="dropdown" aria-expanded="false" ref="cartFrame">
+            <a class="py-lg-2 px-1 fw-bold d-block d-flex position-relative" href="javascript:;">
               <span class="material-symbols-outlined me-1">
                 shopping_cart
               </span>
-              <span>購物車</span>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
+                {{ cartData.length }}
+                <span class="visually-hidden">unread messages</span>
+              </span>
             </a>
           </li>
           <div class="dropdown-menu bg-pink" aria-labelledby="cartFrame"  @click.stop>
             <div class="dropdown-menu-content">
-              <ul v-for="(item) in carts" :key="item.id" class="list-unstyled">
-                <div class="dropdown-item" href="#">
+              <h5 v-if="!cartData.length" class="text-center py-3">購物車沒有任何品項~</h5>
+              <ul v-else v-for="(item) in cartData" :key="item.id" class="list-unstyled">
+                <div class="dropdown-item d-flex justify-content-between align-items-center" href="#">
                   <img :src="item.product.imageUrl"  class="rounded me-2 toast-img" alt="...">
+                    <span>
                       {{ item.product.title }}
-                      X {{ item.qty }}
-                      ${{ item.product.price }}
+                      × {{ item.qty }}
+                    </span>
+                    <span>
+                      ${{ item.total }}
+                    </span>
                   <button type="button" class="btn btn-primary" @click="delCart(item.id)">
                       <span class="material-symbols-outlined pt-1">
                           delete
@@ -69,9 +77,12 @@
                 </div>
               </ul>
             </div>
-            <div class="dropdown-menu-footer text-center">
+            <div class="dropdown-menu-footer text-center position-relative">
+              <span class="cartFinalTotal py-3 px-5 mt-3 d-block fw-bold">
+                總計 NT$ {{ cartTotal }}
+              </span>
               <RouterLink to="/usercart">
-                <button type="button" class="btn btn-primary py-3 px-5 mt-3">前往結帳</button>
+                <button type="button" class="checkoutBtn position-absolute btn btn-primary py-3 px-5 mt-3">前往結帳</button>
               </RouterLink>
             </div>
           </div>
@@ -122,11 +133,9 @@
 
 <script>
 import { mapActions, mapState } from 'pinia'
-import counterStore from '@/stores/counter'
 import { RouterLink } from 'vue-router'
 import { Dropdown } from 'bootstrap'
-
-const { VITE_API, VITE_PATH } = import.meta.env
+import cartStore from '../stores/cartStore.js'
 
 export default {
   name: 'HeaderView',
@@ -135,12 +144,11 @@ export default {
       isActive: false,
       isMemberActive: false,
       isLogin: JSON.parse(localStorage.getItem('isLogin')) || false,
-      cartFrame: '',
-      carts: []
+      cartFrame: ''
     }
   },
   methods: {
-    ...mapActions(counterStore, ['increment']),
+    ...mapActions(cartStore, ['getCarts', 'delCart']),
     dropdownMenu () {
       this.isActive = !this.isActive
     },
@@ -152,38 +160,10 @@ export default {
       this.isLogin = false
       console.log(this.isLogin)
       alert('已登出')
-    },
-    getCarts () {
-      const url = `${VITE_API}/api/${VITE_PATH}/cart`
-      this.isLoading = true
-      this.$http.get(url)
-        .then((res) => {
-          const { carts } = res.data.data
-          this.carts = carts
-          this.isLoading = false
-          console.log(carts)
-        })
-        .catch((err) => {
-          console.log(err)
-          this.isLoading = false
-        })
-    },
-    delCart (id) {
-      const url = `${VITE_API}/api/${VITE_PATH}/cart/${id}`
-      this.isLoading = true
-      this.$http.delete(url)
-        .then(() => {
-          this.isLoading = false
-          this.getCarts()
-        })
-        .catch((err) => {
-          console.log(err)
-          this.isLoading = false
-        })
     }
   },
   computed: {
-    ...mapState(counterStore, ['count'])
+    ...mapState(cartStore, ['cartData', 'cartTotal'])
   },
   created () {
     this.getCarts()
@@ -211,5 +191,13 @@ export default {
 }
 .dropdown-menu-content::-webkit-scrollbar {
   display: none;
+}
+.checkoutBtn {
+  bottom: 0%;
+  right: 2.5%;
+  font-weight: 700;
+}
+.cartFinalTotal {
+  font-size: 18px;
 }
 </style>

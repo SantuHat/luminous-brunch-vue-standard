@@ -65,6 +65,7 @@ export default defineStore('cartStore', {
     setCartUpdate () {
       this.cartUpdated = false
       console.log('加入購物車狀態更新囉')
+      this.getCarts()
     },
     getProduct () {
       const { id } = this.$route.params
@@ -78,6 +79,14 @@ export default defineStore('cartStore', {
         .catch((err) => {
           console.log(err)
         })
+    }
+  },
+  getters: {
+    cartData: ({ carts }) => {
+      return carts
+    },
+    cartTotal: ({ total }) => {
+      return total
     }
   }
 })
