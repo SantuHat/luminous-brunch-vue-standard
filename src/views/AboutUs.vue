@@ -99,7 +99,7 @@
 <FooterView/>
 </template>
 <script>
-import FooterView from '@/components/FooterView.vue'
+import FooterView from '../components/FooterView.vue'
 
 export default {
   components: {

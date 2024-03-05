@@ -1,12 +1,13 @@
 <template>
 <div class="py-6">
   <div class="container">
-    <div class="row mb-3 mt-3 pb-6 border-bottom">
-      <div class="col-lg-6">
+    <div class="row py-7 border-bottom">
+      <div class="col-lg-6 d-none d-lg-block">
           <img :src="product.imageUrl" alt=""
           class="menu-detail-img object-fit-cover">
       </div>
-      <div class="col-lg-6 d-flex flex-column justify-content-between">
+      <div class="col-lg-6">
+        <div class="d-flex flex-column justify-content-between">
           <nav>
               <ol class="breadcrumb">
                   <li class="breadcrumb-item"><RouterLink to="/">首頁</RouterLink></li>
@@ -21,8 +22,12 @@
               </ol>
           </nav>
           <div class="my-3">
-              <h2 class="text-primary fw-bolder  font-NotoSerif my-5">{{ product.title }}</h2>
-              <p class="mb-3">{{ product.description }}</p>
+              <h2 class="text-primary fw-bolder  font-NotoSerif my-4">{{ product.title }}</h2>
+              <div class="d-lg-none mb-4">
+                  <img :src="product.imageUrl" alt=""
+                  class="menu-detail-img object-fit-cover">
+              </div>
+              <p class="mb-4">{{ product.description }}</p>
               <p class="fw-bold fs-3">NT:$ {{ product.price }} </p>
               <div class="d-flex justify-content-between mb-3">
                   <p>數量</p>
@@ -55,20 +60,20 @@
                       </span>
                       <span class="ms-3">加入收藏清單</span>
                   </button>
-
               </div>
           </div>
+        </div>
       </div>
     </div>
     <!-- 近期瀏覽 -->
-    <div class="my-7">
+    <div class="py-7">
       <h2 class="text-center text-primary fw-bolder font-NotoSerif mb-7">熱門餐點</h2>
       <!-- Swiper -->
       <MealDetailSwiper/>
     </div>
   </div>
 </div>
-<AddCartToast ref="addCartToast" ></AddCartToast>
+<AddCartToast ref="addCartToast"></AddCartToast>
 
 <FooterView></FooterView>
 </template>

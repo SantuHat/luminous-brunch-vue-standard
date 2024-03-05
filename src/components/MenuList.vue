@@ -3,19 +3,20 @@
 <LoadingView :active="isLoading" />
 <div
   v-for=" item in this.apiData " :key="item.id"
-  class="col-lg-4 mb-6"
+  class="col-lg-4 col-6 mb-6"
 >
-  <div class="card-menu">
+  <div class="card-menu w-100 h-100 d-flex  flex-column justify-content-between text-center">
       <div class="card-img object-fit">
         <RouterLink :to="`/menuDetail/${item.id}`">
-          <img :src="item.imageUrl" alt="" class="menu-img" title="點擊可以查看餐點詳細資訊">
+          <img :src="item.imageUrl" alt="" class="object-fit-cover w-100" title="點擊可以查看餐點詳細資訊">
         </RouterLink>
       </div>
-      <div class="text-primary d-flex flex-column justify-content-between p-4">
-          <h6 class="text-center mb-3">{{item.title}}</h6>
-          <div class="d-flex justify-content-center">
-            <h6 class="text-danger fw-bold">${{item.price}}NT</h6>
-            <del class="ms-3" v-if="item.origin_price">${{item.origin_price}}</del>
+      <div class="text-primary d-flex flex-column
+      justify-content-center justify-content-lg-between p-lg-4 p-1">
+          <p class="text-center mb-3">{{item.title}}</p>
+          <div class="d-flex justify-content-center align-baseline ">
+            <p class="text-danger fw-bold">NT${{item.price}}</p>
+            <del class="ms-3" v-if="item.origin_price">{{item.origin_price}}</del>
           </div>
       </div>
       <div class="d-grid">
@@ -31,7 +32,10 @@
           >
             <span class="visually-hidden">Loading...</span>
           </div>
-          加入購物車
+          <span class="d-none d-lg-block">加入購物車</span>
+          <span        class="material-symbols-outlined me-1 d-lg-none">
+                shopping_cart
+          </span>
         </button>
       </div>
   </div>
