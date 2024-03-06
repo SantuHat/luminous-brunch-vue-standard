@@ -13,7 +13,7 @@
             <div
               class="col-md-2 d-flex align-items-center justify-content-center col-sm-12"
             >
-              <div class="text">
+              <div class="text m-b">
                 <h3>顧客評論</h3>
                 <div>
                   <ul class="d-flex justify-content-between">
@@ -53,9 +53,9 @@
 						</div>
           </div>
           <div class="d-flex justify-content-center booking pb-10">
-            <a type="button" class="btn btn-primary" href="5-1_booking.html"
-              >立即訂位</a
-            >
+          <RouterLink to="/menuview/menulist?category=salad" type="button" class="btn btn-primary">
+            立即訂餐
+          </RouterLink>
           </div>
         </div>
       </div>
@@ -100,7 +100,7 @@ export default {
       this.Guest
         .filter((item, index) => this.currentPage === index || this.currentPage + 1 === index)
         .forEach(i => {
-          str += `<div class="card me-6">
+          str += `<div class="card m-6">
             <ul class="d-flex">
               <li><img src="${i.img}" alt="#" class="coad-img"></li>
               <li><div class="card-name">${i.title}</div></li>
@@ -139,3 +139,80 @@ export default {
   }
 }
 </script>
+<style>
+@media (max-width: 992px) {
+  .carousel-item {
+    margin-right: 100%;
+  }
+}
+
+.bg {
+  background-color: #f4e9e2;
+}
+
+.text h3 {
+  color: #461b09;
+}
+@media (max-width: 992px) {
+  .m-b {
+    margin-bottom: 1rem;
+  }
+}
+.card {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: auto;
+}
+@media (max-width: 992px) {
+  .m-6 {
+    margin: 0.5rem !important
+  }
+}
+.cord-img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card ul {
+  margin-top: 10px;
+  padding-inline-start: none;
+  margin-bottom: 0;
+}
+.card ul li {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.card-body {
+  display: block;
+  padding: 0px 1rem 1rem 1rem;
+}
+
+.star-box {
+  margin-bottom: 10px;
+}
+
+.star {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: #f1a42e;
+  -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+          clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.col-md-2 ul {
+  padding-left: 0rem;
+}
+
+.booking button {
+  background-color: #693b28;
+  color: #fbfbfb;
+}
+.booking button:hover {
+  background-color: #b58a78;
+  color: #fbfbfb;
+}
+</style>
