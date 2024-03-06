@@ -65,13 +65,13 @@
     <tbody class="js-tbody">
       <tr>
         <th class="text-center p-5">
-          <input type="text" placeholder="姓名" class="bg-transparent py-2 text-center" :class="{'border-0': step === 3}" :disabled="step === 3">
+          <input v-model="userData.data.user.name" type="text" placeholder="姓名" class="bg-transparent py-2 text-center" :class="{'border-0': step === 3}" :disabled="step === 3">
         </th>
         <th class="text-center p-5">
-          <input type="text" placeholder="0911345678" class="bg-transparent py-2 text-center" :class="{'border-0': step === 3}" :disabled="step === 3">
+          <input v-model="userData.data.user.tel" type="text" placeholder="0911345678" class="bg-transparent py-2 text-center" :class="{'border-0': step === 3}" :disabled="step === 3">
         </th>
         <th class="text-center p-5">
-          <input type="text" placeholder="abc@gmail.com" class="bg-transparent py-2 text-center" :class="{'border-0': step === 3}" :disabled="step === 3">
+          <input v-model="userData.data.user.email" type="text" placeholder="abc@gmail.com" class="bg-transparent py-2 text-center" :class="{'border-0': step === 3}" :disabled="step === 3">
         </th>
       </tr>
     </tbody>
@@ -86,7 +86,7 @@
   </select>
 
   <a v-if="step === 1" href="javascript:;" class="btn_reserve py-3 px-9 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="nextStep(2)">下一步</a>
-  <a v-if="step === 2" href="javascript:;" class="btn_reserve py-3 px-9 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="nextStep(3)">送出訂單</a>
+  <a v-if="step === 2" href="javascript:;" class="btn_reserve py-3 px-9 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="handleOrderSubmit()">送出訂單</a>
 
   <div class="d-flex">
     <RouterLink @click="scrollTo" to="/" v-if="step === 3" class="btn_reserve py-3 px-5 py-md-4 px-md-11 mx-auto mt-10 mb-8">回首頁</RouterLink>
@@ -96,7 +96,9 @@
 </template>
 
 <script>
-
+import axios from 'axios'
+import { mapActions, mapState } from 'pinia'
+import orderStore from '../stores/orderStore'
 const { VITE_API, VITE_PATH } = import.meta.env
 export default {
   data () {
@@ -104,14 +106,25 @@ export default {
       carts: [],
       final_total: 0,
       step: 1,
-      isLoading: false
+      isLoading: false,
+      userData: {
+        data: {
+          user: {
+            name: '',
+            email: '',
+            tel: '',
+            address: '高雄市'
+          }
+        }
+      }
     }
   },
   methods: {
+    ...mapActions(orderStore, ['getOrders']),
     getCarts () {
       const url = `${VITE_API}/api/${VITE_PATH}/cart`
       this.isLoading = true
-      this.$http.get(url)
+      axios.get(url)
         .then((res) => {
           const { carts, total } = res.data.data
           this.carts = carts
@@ -127,7 +140,7 @@ export default {
     delCart (id) {
       const url = `${VITE_API}/api/${VITE_PATH}/cart/${id}`
       this.isLoading = true
-      this.$http.delete(url)
+      axios.delete(url)
         .then(() => {
           this.isLoading = false
           this.getCarts()
@@ -137,16 +150,34 @@ export default {
           this.isLoading = false
         })
     },
+    scrollTo () {
+      window.scrollTo(0, 0)
+    },
     nextStep (val) {
       this.step = val
       window.scrollTo(0, 0)
     },
-    scrollTo () {
-      window.scrollTo(0, 0)
+    postOrder () {
+      const url = `${VITE_API}/api/${VITE_PATH}/order`
+      axios.post(url, this.userData)
+        .then((res) => {
+          console.log(res)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
+    handleOrderSubmit () {
+      this.nextStep(3)
+      this.postOrder()
     }
+  },
+  computed: {
+    ...mapState(orderStore, ['userOrders'])
   },
   mounted () {
     this.getCarts()
+    this.getOrders()
   }
 }
 </script>

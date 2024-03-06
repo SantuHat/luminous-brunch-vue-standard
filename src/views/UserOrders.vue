@@ -14,17 +14,15 @@
         </tr>
       </thead>
       <tbody class="position-relative">
-        <tr>
-          <th width="12%">
-          </th>
-          <th>{{  }}</th>
-          <th class="text-center" >{{  }}</th>
+        <tr v-for="(item) in userOrders" :key="item.id">
+          <th colspan="2" class="text-center">{{ item.id }}</th>
+          <th class="text-center" >{{ new Date(item.create_at * 1000).toLocaleString() }}</th>
           <th class="text-center">
-            {{  }}
+            {{ item.is_paid }}
           </th>
           <th class="text-center">{{  }}</th>
-          <th class="text-center">{{  }}</th>
-          <th>
+          <th class="text-center">NT$ {{ item.total }}</th>
+          <th class="py-3">
             <button type="button" class="btn btn-primary">
               <span class="p-2">
                 取消訂單
@@ -38,33 +36,18 @@
 </template>
 
 <script>
-
-const { VITE_API, VITE_PATH } = import.meta.env
+import { mapState, mapActions } from 'pinia'
+import orderStore from '../stores/orderStore'
 
 export default {
-  data () {
-    return {
-      orders: [],
-      isLoading: false
-    }
-  },
   methods: {
-    getUserOrders () {
-      const api = `${VITE_API}/api/${VITE_PATH}/orders`
-      this.isLoading = true
-      this.$http.get(api)
-        .then((res) => {
-          this.isLoading = false
-          console.log(res.data)
-        })
-        .catch((err) => {
-          this.isLoading = false
-          console.log(err)
-        })
-    }
+    ...mapActions(orderStore, ['getOrders'])
+  },
+  computed: {
+    ...mapState(orderStore, ['userOrders', 'isLoading'])
   },
   mounted () {
-    this.getUserOrders()
+    this.getOrders()
   }
 }
 </script>
