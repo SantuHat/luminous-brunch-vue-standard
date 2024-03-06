@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
     <div class="mx-auto px-3 w-75 d-flex ">
-      <a class="navbar-brand bg-white rounded-pill" href="#"><img src="" alt=""></a>
+      <a class="navbar-brand bg-white rounded-pill" href="#"><img src="/Logo-sm.png" alt="Logo"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
