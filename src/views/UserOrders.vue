@@ -17,18 +17,18 @@
         <tr v-for="(item) in userOrders" :key="item.id">
           <th colspan="2" class="text-center">{{ item.id }}</th>
           <th class="text-center" >{{ new Date(item.create_at * 1000).toLocaleString() }}</th>
-          <th class="text-center">
+          <th class="text-center p-5">
             {{ item.is_paid }}
           </th>
           <th class="text-center">{{  }}</th>
           <th class="text-center">NT$ {{ item.total }}</th>
-          <th class="py-3">
+          <!-- <th class="py-4">
             <button type="button" class="btn btn-primary">
               <span class="p-2">
                 取消訂單
               </span>
             </button>
-          </th>
+          </th> -->
         </tr>
       </tbody>
     </table>

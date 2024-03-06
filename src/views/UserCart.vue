@@ -11,7 +11,7 @@
 </div>
 <!-- table -->
 <h2 v-if="step === 3" class="text-center mb-7">感謝您的訂餐，此筆訂單已成立!</h2>
-<h3 v-if="step === 3" class="text-center mb-7">訂單編號:</h3>
+<h3 v-if="step === 3" class="text-center mb-7">訂單編號: {{ orderId }}</h3>
 <h3 v-if="step === 2 || step === 3" class="mb-3 mt-12 text-center text-gray-400 font-NotoSerif">訂餐明細</h3>
 <div class="container mt-5 mb-9">
     <table class="border border-gray box-shadow-gray-300 mx-auto w-100">
@@ -26,8 +26,8 @@
         </tr>
       </thead>
       <tbody class="position-relative">
-        <div class="position-absolute js-tbody">{{ final_total }}</div>
-        <tr v-for="(item) in carts" :key="item.product_id">
+        <div class="position-absolute js-tbody">NT$ {{ finalTotal }}</div>
+        <tr v-for="(item) in cartList" :key="item.product_id">
           <th width="12%">
             <img
               :src="item.product.imageUrl"
@@ -99,12 +99,14 @@
 import axios from 'axios'
 import { mapActions, mapState } from 'pinia'
 import orderStore from '../stores/orderStore'
+import cartStore from '../stores/cartStore'
 const { VITE_API, VITE_PATH } = import.meta.env
 export default {
   data () {
     return {
-      carts: [],
-      final_total: 0,
+      cartList: [],
+      finalTotal: 0,
+      totalPrice: 0,
       step: 1,
       isLoading: false,
       userData: {
@@ -116,38 +118,24 @@ export default {
             address: '高雄市'
           }
         }
-      }
+      },
+      orderId: ''
     }
   },
   methods: {
     ...mapActions(orderStore, ['getOrders']),
-    getCarts () {
+    ...mapActions(cartStore, ['getCarts', 'delCart']),
+    getCartData () {
       const url = `${VITE_API}/api/${VITE_PATH}/cart`
-      this.isLoading = true
       axios.get(url)
         .then((res) => {
-          const { carts, total } = res.data.data
-          this.carts = carts
-          this.final_total = total
-          // console.log(carts, total)
-          this.isLoading = false
+          console.log(res.data)
+          this.cartList = res.data.data.carts
+          this.finalTotal = res.data.data.final_total
+          this.totalPrice = res.data.data.total
         })
         .catch((err) => {
           console.log(err)
-          this.isLoading = false
-        })
-    },
-    delCart (id) {
-      const url = `${VITE_API}/api/${VITE_PATH}/cart/${id}`
-      this.isLoading = true
-      axios.delete(url)
-        .then(() => {
-          this.isLoading = false
-          this.getCarts()
-        })
-        .catch((err) => {
-          console.log(err)
-          this.isLoading = false
         })
     },
     scrollTo () {
@@ -162,6 +150,8 @@ export default {
       axios.post(url, this.userData)
         .then((res) => {
           console.log(res)
+          this.orderId = res.data.orderId
+          this.getCarts()
         })
         .catch((err) => {
           console.log(err)
@@ -173,11 +163,13 @@ export default {
     }
   },
   computed: {
-    ...mapState(orderStore, ['userOrders'])
+    ...mapState(orderStore, ['userOrders']),
+    ...mapState(cartStore, ['carts', 'final_total'])
   },
   mounted () {
-    this.getCarts()
+    this.getCartData()
     this.getOrders()
+    this.getCarts()
   }
 }
 </script>
@@ -263,8 +255,9 @@ export default {
 
 .js-tbody {
   right: 5%;
-  top: 1%;
+  top: 15%;
   font-weight: bold;
+  font-size: 24px;
 }
 
 .box-shadow-gray-300 {

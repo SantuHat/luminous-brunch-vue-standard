@@ -56,8 +56,8 @@
               </span>
             </a>
           </li>
-          <div class="dropdown-menu bg-pink" aria-labelledby="cartFrame"  @click.stop>
-            <div class="dropdown-menu-content">
+          <div class="dropdown-menu bg-pink" aria-labelledby="cartFrame">
+            <div class="dropdown-menu-content" @click.stop>
               <h5 v-if="!cartData.length" class="text-center py-3">購物車沒有任何品項~</h5>
               <ul v-else v-for="(item) in cartData" :key="item.id" class="list-unstyled">
                 <div class="dropdown-item d-flex justify-content-between align-items-center" href="#">
@@ -81,7 +81,7 @@
               <span class="cartFinalTotal py-3 px-5 mt-3 d-block fw-bold">
                 總計 NT$ {{ cartTotal }}
               </span>
-                <button @click="goChecking" type="button" class="checkoutBtn position-absolute btn btn-primary py-3 px-5 mt-3">前往結帳</button>
+                <button :disabled="cartData.length === 0" @click="goChecking" type="button" class="checkoutBtn position-absolute btn btn-primary py-3 px-5 mt-3">前往結帳</button>
             </div>
           </div>
 
