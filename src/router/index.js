@@ -93,6 +93,11 @@ const routes = [
         component: () => import('../views/UserOrders.vue')
       },
       {
+        path: 'userorderveiw',
+        name: 'userOrderVeiw',
+        component: () => import('../views/UserOrderVeiw.vue')
+      },
+      {
         path: 'usercoupons',
         component: () => import('../views/UserCoupons.vue')
       },

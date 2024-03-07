@@ -69,7 +69,6 @@
 <script>
 import { mapActions } from 'pinia'
 import loginStore from '../stores/loginStore'
-import { RouterLink } from 'vue-router'
 
 export default {
   data () {

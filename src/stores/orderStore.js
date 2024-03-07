@@ -7,7 +7,9 @@ export default defineStore('orderStore', {
   state: () => ({
     userOrders: {},
     orderItem: {},
-    isLoading: true
+    isLoading: true,
+    orderTotal: 0,
+    userData: {}
   }),
   actions: {
     getOrders () {
@@ -28,6 +30,8 @@ export default defineStore('orderStore', {
         .then((res) => {
           console.log(res)
           this.orderItem = res.data.order.products
+          this.orderTotal = res.data.order.total
+          this.userData = res.data.order.user
           this.isLoading = false
         })
         .catch((err) => {

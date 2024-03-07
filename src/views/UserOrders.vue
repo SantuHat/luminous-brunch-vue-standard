@@ -1,6 +1,6 @@
 <template>
   <LoadingView :active="isLoading" />
-  <div class="container">
+  <div class="container mb-5">
     <h2 class="text-center my-5">訂單資訊</h2>
     <table class="border border-gray box-shadow-gray-300 mx-auto w-100">
       <thead class="bg-gray text-center">
@@ -15,10 +15,11 @@
       </thead>
       <tbody class="position-relative">
         <tr v-for="(item) in userOrders" :key="item.id">
-          <th colspan="2" class="text-center">{{ item.id }}</th>
+          <th colspan="2" class="text-center">
+            <RouterLink class="orderId_hover" :to="`/userorderveiw?orderId=${item.id}`">{{ item.id }}</RouterLink></th>
           <th class="text-center" >{{ new Date(item.create_at * 1000).toLocaleString() }}</th>
           <th class="text-center p-5">
-            {{ item.is_paid }}
+            {{ item.is_paid ? '已付款' : '未付款' }}
           </th>
           <th class="text-center">NT$ {{ item.total }}</th>
           <!-- <th class="text-center">{{  }}</th> -->
@@ -51,3 +52,12 @@ export default {
   }
 }
 </script>
+
+<style>
+.orderId_hover {
+  color: #EC6933;
+  &:hover {
+    color: #7e2a03;
+  }
+}
+</style>

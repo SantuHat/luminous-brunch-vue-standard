@@ -286,7 +286,7 @@ export default {
   right: 5%;
   top: 15%;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .box-shadow-gray-300 {
