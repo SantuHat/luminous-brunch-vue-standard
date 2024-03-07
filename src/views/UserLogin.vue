@@ -45,11 +45,11 @@
             </div>
             <div class="mt-3">
               <div class="text-center my-3">
-                <a
-                  href="password.html"
+                <RouterLink
+                  to="/userforgetpassword"
                   class="text-decoration-none text-blue"
                   id="pageChange"
-                  >忘記密碼</a
+                  >忘記密碼</RouterLink
                 >
               </div>
               <div class="d-flex justify-content-center">
@@ -69,6 +69,7 @@
 <script>
 import { mapActions } from 'pinia'
 import loginStore from '../stores/loginStore'
+import { RouterLink } from 'vue-router'
 
 export default {
   data () {

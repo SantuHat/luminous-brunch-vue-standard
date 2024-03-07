@@ -83,36 +83,6 @@ export default {
   },
   methods: {
     ...mapActions(cartStore, ['addCart', 'delCart', 'setCartUpdate']),
-    login () {
-    // 先登入
-      this.$http.post(`${this.hexUrl}/admin/signin`, {
-        username: 'luminous@gmail.com',
-        password: 'luminous'
-      })
-        .then((res) => {
-          console.log('登入的', res.data)
-          const { expired, token } = res.data
-          document.cookie = `myToken=${token};expires=${new Date(expired)}`
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    },
-    // 後驗證
-    adminCheck () {
-      const myToken = document.cookie.replace(
-        /(?:(?:^|.*;\s*)myToken\s*=\s*([^;]*).*$)|^.*$/,
-        '$1'
-      )
-      this.$http.defaults.headers.common.Authorization = myToken
-      this.$http.post(`${this.hexUrl}/api/user/check`)
-        .then((response) => {
-          console.log('驗證的', response.data)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    },
     getProducts (category = '') {
       // const category = this.$route.query.category
       console.log(category)

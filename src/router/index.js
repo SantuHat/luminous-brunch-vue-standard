@@ -13,11 +13,6 @@ const routes = [
         component: () => import('../views/HomeView.vue')
       },
       {
-        path: 'about',
-        name: 'About',
-        component: () => import('../views/AboutView.vue')
-      },
-      {
         path: 'aboutus',
         name: 'AboutUs',
         component: () => import('../views/AboutUs.vue')
@@ -104,6 +99,10 @@ const routes = [
       {
         path: 'usercollection',
         component: () => import('../views/UserCollection.vue')
+      },
+      {
+        path: 'userforgetpassword',
+        component: () => import('../views/UserForgetPassword.vue')
       }
     ]
   },

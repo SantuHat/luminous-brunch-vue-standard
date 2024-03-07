@@ -160,15 +160,15 @@
                 </div>
               </div>
               <div class="link position-absolute end-0 top-100">
-              <a
-                href="3_newsMain.html"
+              <RouterLink
+                to="newsmain"
                 style="
                   float: right;
                   color: #4a4a4a;
                   margin-top: 15px;
                   font: NotoSerif;
                 "
-                >看更多 ></a
+                >看更多 ></RouterLink
               >
             </div>
             </div>

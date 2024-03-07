@@ -40,11 +40,11 @@
     <p class="fs-3 font-Caveat text-light mt-1">Brunch Specials</p>
   </RouterLink>
   <RouterLink
-    to="/NewMenuItems"
+    to="/menuview/menulist?category=salad"
     class="menu-title-bg position-absolute translate-middle menu-title-bg-news"
   >
-    <h1 class="fs-1 font-NotoSerif text-light fw-bold">最 新 餐 點</h1>
-    <p class="fs-3 font-Caveat text-light mt-1">New Menu Items</p>
+    <p class="fs-3 font-Caveat text-light mt-1">Menu</p>
+    <h1 class="fs-1 font-NotoSerif text-light fw-bold">餐 點 菜 單</h1>
   </RouterLink>
 </div>
 </section>
