@@ -26,8 +26,8 @@
         </tr>
       </thead>
       <tbody class="position-relative">
-        <div class="position-absolute js-tbody">NT$ {{ finalTotal }}</div>
-        <tr v-for="(item) in cartList" :key="item.product_id">
+        <div class="position-absolute js-tbody">NT$ {{ final_total }}</div>
+        <tr v-for="(item) in carts" :key="item.product_id">
           <th width="12%">
             <img
               :src="item.product.imageUrl"
@@ -36,9 +36,9 @@
           <th>{{ item.product.title }}</th>
           <th class="text-center" >{{ item.product.price }}</th>
           <th class="text-center">
-            <button v-if="step === 1" class="btn" type="button">-</button>
+            <button v-if="step === 1" @click="item.qty--; putCart(item.id, item.qty)" class="btn fw-bold" type="button" :disabled="item.qty === 1">–</button>
             {{ item.qty }}
-            <button v-if="step === 1" class="btn" type="button">+</button>
+            <button v-if="step === 1" @click="item.qty++; putCart(item.id, item.qty)" class="btn fw-bold" type="button">+</button>
           </th>
           <th class="text-center">{{ item.total }}</th>
           <th>
@@ -104,8 +104,8 @@ const { VITE_API, VITE_PATH } = import.meta.env
 export default {
   data () {
     return {
-      cartList: [],
-      finalTotal: 0,
+      // cartList: [],
+      // finalTotal: 0,
       totalPrice: 0,
       step: 1,
       isLoading: false,
@@ -118,26 +118,25 @@ export default {
             address: '高雄市'
           }
         }
-      },
-      orderId: ''
+      }
     }
   },
   methods: {
     ...mapActions(orderStore, ['getOrders']),
-    ...mapActions(cartStore, ['getCarts', 'delCart']),
-    getCartData () {
-      const url = `${VITE_API}/api/${VITE_PATH}/cart`
-      axios.get(url)
-        .then((res) => {
-          console.log(res.data)
-          this.cartList = res.data.data.carts
-          this.finalTotal = res.data.data.final_total
-          this.totalPrice = res.data.data.total
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    },
+    ...mapActions(cartStore, ['getCarts', 'delCart', 'putCart']),
+    // getCartData () {
+    //   const url = `${VITE_API}/api/${VITE_PATH}/cart`
+    //   axios.get(url)
+    //     .then((res) => {
+    //       console.log(res.data)
+    //       this.cartList = res.data.data.carts
+    //       this.finalTotal = res.data.data.final_total
+    //       this.totalPrice = res.data.data.total
+    //     })
+    //     .catch((err) => {
+    //       console.log(err)
+    //     })
+    // },
     scrollTo () {
       window.scrollTo(0, 0)
     },
@@ -167,7 +166,7 @@ export default {
     ...mapState(cartStore, ['carts', 'final_total'])
   },
   mounted () {
-    this.getCartData()
+    // this.getCartData()
     this.getOrders()
     this.getCarts()
   }
@@ -266,5 +265,10 @@ export default {
 
 .overflow-x {
   overflow-x: auto;
+}
+
+/* 移除 disabled 按鈕的邊框 */
+button[disabled] {
+  border: 0;
 }
 </style>

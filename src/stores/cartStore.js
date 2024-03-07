@@ -80,6 +80,22 @@ export default defineStore('cartStore', {
         .catch((err) => {
           console.log(err)
         })
+    },
+    putCart (id, qty) {
+      const putData = {
+        data: {
+          product_id: id,
+          qty
+        }
+      }
+      axios.put(`${VITE_API}api/${VITE_PATH}/cart/${id}`, putData)
+        .then((res) => {
+          console.log(res.data)
+          this.getCarts()
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     }
   },
   getters: {

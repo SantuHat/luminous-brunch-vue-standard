@@ -34,7 +34,7 @@
                   <div class="numberCal">
                       <button class="btn" type="button" @click="editQty--"
                         :disabled="editQty==1"
-                      >-</button>
+                      >–</button>
                       <span class="ms-3 me-3 fw-bold">{{ editQty }}</span>
                       <button class="btn" type="button" @click="editQty++">+</button>
                   </div>
