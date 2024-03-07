@@ -6,6 +6,7 @@ const { VITE_API, VITE_PATH } = import.meta.env
 export default defineStore('orderStore', {
   state: () => ({
     userOrders: {},
+    orderItem: {},
     isLoading: true
   }),
   actions: {
@@ -25,7 +26,8 @@ export default defineStore('orderStore', {
       const url = `${VITE_API}api/${VITE_PATH}/order/${id}`
       axios.get(url)
         .then((res) => {
-          this.userOrders = res.data.orders
+          console.log(res)
+          this.orderItem = res.data.order.products
           this.isLoading = false
         })
         .catch((err) => {

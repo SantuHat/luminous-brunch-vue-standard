@@ -1,5 +1,5 @@
 <template>
-<LoadIng :active="isLoading"></LoadIng>
+<LoadingView :active="isLoading"></LoadingView>
 <div class="container-fluid">
   <div class="text-end me-3 mt-4 ">
       <button class="btn btn-primary" type="button" @click="openModal(true)">產品新增</button>

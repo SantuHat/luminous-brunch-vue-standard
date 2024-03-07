@@ -14,7 +14,7 @@
 <h3 v-if="step === 3" class="text-center mb-7">訂單編號: {{ orderId }}</h3>
 <h3 v-if="step === 2 || step === 3" class="mb-3 mt-12 text-center text-gray-400 font-NotoSerif">訂餐明細</h3>
 <div class="container mt-5 mb-9">
-    <table class="border border-gray box-shadow-gray-300 mx-auto w-100">
+    <table v-if="step === 1 || step === 2" class="border border-gray box-shadow-gray-300 mx-auto w-100">
       <thead class="bg-gray text-center">
         <tr>
           <th class="px-lg-6 py-lg-4" colspan="2">商品</th>
@@ -26,8 +26,8 @@
         </tr>
       </thead>
       <tbody class="position-relative">
-        <div class="position-absolute js-tbody">NT$ {{ finalTotal }}</div>
-        <tr v-for="(item) in cartList" :key="item.product_id">
+        <div class="position-absolute js-tbody">NT$ {{ final_total }}</div>
+        <tr v-for="(item) in carts" :key="item.product_id">
           <th width="12%">
             <img
               :src="item.product.imageUrl"
@@ -36,9 +36,48 @@
           <th>{{ item.product.title }}</th>
           <th class="text-center" >{{ item.product.price }}</th>
           <th class="text-center">
-            <button v-if="step === 1" class="btn" type="button">-</button>
+            <button v-if="step === 1" @click="item.qty--; putCart(item.id, item.qty)" class="btn fw-bold" type="button" :disabled="item.qty === 1">–</button>
             {{ item.qty }}
-            <button v-if="step === 1" class="btn" type="button">+</button>
+            <button v-if="step === 1" @click="item.qty++; putCart(item.id, item.qty)" class="btn fw-bold" type="button">+</button>
+          </th>
+          <th class="text-center">{{ item.total }}</th>
+          <th>
+            <button v-if="step === 1" @click="delCart(item.id)" type="button" class="btn btn-primary">
+              <span class="material-symbols-outlined pt-1">
+                delete
+              </span>
+            </button>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 完成訂單的訂餐明細 orderItem -->
+    <table v-if="step === 3" class="border border-gray box-shadow-gray-300 mx-auto w-100">
+      <thead class="bg-gray text-center">
+        <tr>
+          <th class="px-lg-6 py-lg-4" colspan="2">商品</th>
+          <th class="px-lg-6 py-lg-4">單價</th>
+          <th class="px-lg-6 py-lg-4">數量</th>
+          <th class="px-lg-6 py-lg-4">小計</th>
+          <th class="px-lg-6 py-lg-4"></th>
+          <th class="px-lg-6 py-lg-4">總金額</th>
+        </tr>
+      </thead>
+      <tbody class="position-relative">
+        <div class="position-absolute js-tbody">NT$ {{ orderTotal }}</div>
+        <tr v-for="(item) in orderItem" :key="item.id">
+          <th width="12%">
+            <img
+              :src="item.product.imageUrl"
+              class="me-2 toast-img" :alt="item.product.imageUrl">
+          </th>
+          <th>{{ item.product.title }}</th>
+          <th class="text-center" >{{ item.product.price }}</th>
+          <th class="text-center">
+            <button v-if="step === 1" @click="item.qty--; putCart(item.id, item.qty)" class="btn fw-bold" type="button" :disabled="item.qty === 1">–</button>
+            {{ item.qty }}
+            <button v-if="step === 1" @click="item.qty++; putCart(item.id, item.qty)" class="btn fw-bold" type="button">+</button>
           </th>
           <th class="text-center">{{ item.total }}</th>
           <th>
@@ -104,8 +143,8 @@ const { VITE_API, VITE_PATH } = import.meta.env
 export default {
   data () {
     return {
-      cartList: [],
-      finalTotal: 0,
+      // cartList: [],
+      // finalTotal: 0,
       totalPrice: 0,
       step: 1,
       isLoading: false,
@@ -119,25 +158,13 @@ export default {
           }
         }
       },
-      orderId: ''
+      orderId: '',
+      orderTotal: 0
     }
   },
   methods: {
-    ...mapActions(orderStore, ['getOrders']),
-    ...mapActions(cartStore, ['getCarts', 'delCart']),
-    getCartData () {
-      const url = `${VITE_API}/api/${VITE_PATH}/cart`
-      axios.get(url)
-        .then((res) => {
-          console.log(res.data)
-          this.cartList = res.data.data.carts
-          this.finalTotal = res.data.data.final_total
-          this.totalPrice = res.data.data.total
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    },
+    ...mapActions(orderStore, ['getOrders', 'getOrderItem']),
+    ...mapActions(cartStore, ['getCarts', 'delCart', 'putCart']),
     scrollTo () {
       window.scrollTo(0, 0)
     },
@@ -151,7 +178,9 @@ export default {
         .then((res) => {
           console.log(res)
           this.orderId = res.data.orderId
+          this.orderTotal = res.data.total
           this.getCarts()
+          this.getOrderItem(this.orderId)
         })
         .catch((err) => {
           console.log(err)
@@ -163,11 +192,11 @@ export default {
     }
   },
   computed: {
-    ...mapState(orderStore, ['userOrders']),
+    ...mapState(orderStore, ['userOrders', 'orderItem']),
     ...mapState(cartStore, ['carts', 'final_total'])
   },
   mounted () {
-    this.getCartData()
+    // this.getCartData()
     this.getOrders()
     this.getCarts()
   }
@@ -266,5 +295,10 @@ export default {
 
 .overflow-x {
   overflow-x: auto;
+}
+
+/* 移除 disabled 按鈕的邊框 */
+button[disabled] {
+  border: 0;
 }
 </style>

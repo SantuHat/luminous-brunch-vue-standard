@@ -1,7 +1,7 @@
 <!-- eslint-disable no-tabs -->
 <!-- eslint-disable vue/require-v-for-key -->
 <template>
-  <LoadIng :active="isLoading"></LoadIng>
+  <LoadingView :active="isLoading"></LoadingView>
 <div class="container-fluid">
 	<table class="table mt-4">
       <thead>

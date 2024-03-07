@@ -1,15 +1,15 @@
 <template>
   <LoadingView :active="isLoading" />
   <div class="container">
-    <h2 class="text-center mb-5">訂單資訊</h2>
+    <h2 class="text-center my-5">訂單資訊</h2>
     <table class="border border-gray box-shadow-gray-300 mx-auto w-100">
       <thead class="bg-gray text-center">
         <tr>
           <th class="px-lg-6 py-lg-4" colspan="2">訂單編號</th>
           <th class="px-lg-6 py-lg-4">訂單日期</th>
           <th class="px-lg-6 py-lg-4">付款狀態</th>
-          <th class="px-lg-6 py-lg-4">訂單狀態</th>
           <th class="px-lg-6 py-lg-4">訂單金額</th>
+          <!-- <th class="px-lg-6 py-lg-4">訂單狀態</th> -->
           <th class="px-lg-6 py-lg-4"></th>
         </tr>
       </thead>
@@ -20,8 +20,8 @@
           <th class="text-center p-5">
             {{ item.is_paid }}
           </th>
-          <th class="text-center">{{  }}</th>
           <th class="text-center">NT$ {{ item.total }}</th>
+          <!-- <th class="text-center">{{  }}</th> -->
           <!-- <th class="py-4">
             <button type="button" class="btn btn-primary">
               <span class="p-2">
