@@ -55,9 +55,10 @@ export default {
 
 <style>
 .orderId_hover {
-  color: #EC6933;
+  color: #7e2a03;
+  text-decoration: underline;
   &:hover {
-    color: #7e2a03;
+    color: #EC6933;
   }
 }
 </style>

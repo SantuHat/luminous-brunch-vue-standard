@@ -92,22 +92,22 @@
               arrow_drop_down
             </span></a>
           <ul class="dropdownMemberCenter position_absolute_lg list-unstyled ps-0" :class="{'active': isMemberActive}">
-            <li>
+            <!-- <li>
               <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
                 to="/modifymember">修改會員資料</RouterLink>
-            </li>
+            </li> -->
             <li>
               <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
                 to="/userorders">查看訂單資訊</RouterLink>
             </li>
-            <li>
+            <!-- <li>
               <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
                 to="/usercoupons">查詢優惠券</RouterLink>
             </li>
             <li>
               <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
                 to="/usercollection">查看我的收藏</RouterLink>
-            </li>
+            </li> -->
             <li @click="logOut">
               <RouterLink class="logOutBtn py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500" to="/">登出</RouterLink>
             </li>
