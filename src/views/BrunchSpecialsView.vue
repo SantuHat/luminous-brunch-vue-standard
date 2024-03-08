@@ -299,7 +299,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(cartStore, ['addCart', 'setCartUpdate', 'cartUpdated']),
+    ...mapActions(cartStore, ['addCart', 'setCartUpdate']),
     getProducts (category = '') {
       this.isLoading = true
       this.$http.get(`${VITE_API}/api/${VITE_PATH}/products/all`)
@@ -317,9 +317,9 @@ export default {
         })
     },
     filter (category) {
-      console.log(category)
+      const keywords = this.keyWords[category]
       this.specialsCombo[category] = this.apiData.filter((item) => {
-        return item.title === this.keyWords[category][0]
+        return keywords.some((keyword) => item.title === keyword)
       })
       console.log(this.specialsCombo)
     }
