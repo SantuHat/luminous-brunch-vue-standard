@@ -13,12 +13,14 @@
         <li class="nav_item border-bottom-1">
           <RouterLink to="/newsmain"><a class="py-4 py-lg-3 px-5 fw-bold d-block" href="#">最新消息/優惠</a></RouterLink>
         </li>
-        <li class="nav_item">
-          <a @click="dropdownMenu" class="py-4 px-5 fw-bold position-relative selectMenu d-block border-bottom-1 d-flex justify-content-between"
+        <li class="nav_item" id="orderFoodOnline" data-bs-toggle="dropdown" aria-expanded="false" ref="orderFoodOnline">
+          <a class="py-4 px-5 fw-bold position-relative selectMenu d-block border-bottom-1 d-flex justify-content-between"
             href="javascript:;">線上訂餐<span class="material-symbols-outlined align-bottom">
               arrow_drop_down
-            </span></a>
-          <ul class="dropdownMenu position_absolute_lg list-unstyled ps-0" :class="{'active': isActive}">
+            </span>
+          </a>
+        </li>
+        <ul class="dropdown-menu dropdownMenu list-unstyled ps-0 py-0" aria-labelledby="orderFoodOnline">
             <li>
               <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500" :to="`/menuview/menulist?category=salad`">沙拉系列</RouterLink>
             </li>
@@ -41,8 +43,7 @@
             <li>
               <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500" :to="`/menuview/menulist?category=drink`">飲品</RouterLink>
             </li>
-          </ul>
-        </li>
+        </ul>
         <!-- <RouterLink to="/usercart"> -->
           <!-- Bootstrap Dropdowns -->
           <li class="nav_item border-bottom-1 me-2" id="cartFrame" data-bs-toggle="dropdown" aria-expanded="false" ref="cartFrame">
@@ -56,7 +57,7 @@
               </span>
             </a>
           </li>
-          <div class="dropdown-menu bg-pink" aria-labelledby="cartFrame">
+          <div class="dropdown-menu dropdow_cart bg-pink py-0" aria-labelledby="cartFrame">
             <div class="dropdown-menu-content" @click.stop>
               <h5 v-if="!cartData.length" class="text-center py-3">購物車沒有任何品項~</h5>
               <ul v-else v-for="(item) in cartData" :key="item.id" class="list-unstyled">
@@ -77,45 +78,45 @@
                 </div>
               </ul>
             </div>
-            <div class="dropdown-menu-footer text-center position-relative">
+            <div class="dropdown-menu-footer text-center position-relative mb-2">
               <span class="cartFinalTotal py-3 px-5 mt-3 d-block fw-bold">
                 總計 NT$ {{ cartTotal }}
               </span>
                 <button :disabled="cartData.length === 0" @click="goChecking" type="button" class="checkoutBtn position-absolute btn btn-primary py-3 px-5 mt-3">前往結帳</button>
             </div>
           </div>
-
         <!-- </RouterLink> -->
-        <li v-if="isLogin" class="memberCenterItem">
-          <a @click="dropdownMemberCenter" class="selectMemberCenter py-4 px-5 fw-bold position-relative d-block border-bottom-1 d-flex justify-content-between"
-            href="javascript:;">會員中心<span class="material-symbols-outlined align-bottom">
-              arrow_drop_down
-            </span></a>
-          <ul class="dropdownMemberCenter position_absolute_lg list-unstyled ps-0" :class="{'active': isMemberActive}">
-            <!-- <li>
-              <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
-                to="/modifymember">修改會員資料</RouterLink>
-            </li> -->
-            <li>
-              <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
-                to="/userorders">查看訂單資訊</RouterLink>
-            </li>
-            <!-- <li>
-              <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
-                to="/usercoupons">查詢優惠券</RouterLink>
-            </li>
-            <li>
-              <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
-                to="/usercollection">查看我的收藏</RouterLink>
-            </li> -->
-            <li @click="logOut">
-              <RouterLink class="logOutBtn py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500" to="/">登出</RouterLink>
-            </li>
-          </ul>
+
+        <li v-if="isLogin" id="memberCenterItem" data-bs-toggle="dropdown" aria-expanded="false" ref="memberCenterItem">
+          <a class="py-4 px-5 fw-bold position-relative d-block border-bottom-1 d-flex justify-content-between"
+          href="javascript:;">會員中心<span class="material-symbols-outlined align-bottom">
+            arrow_drop_down
+          </span></a>
         </li>
         <li v-else class="memberLogin">
           <RouterLink to="/userlogin" class="py-4 py-lg-3 px-5 fw-bold d-block">會員註冊/登入</RouterLink>
         </li>
+        <ul v-if="isLogin" class="dropdown-menu dropdownMemberCenter list-unstyled ps-0 py-0" aria-labelledby="memberCenterItem">
+          <!-- <li>
+            <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+              to="/modifymember">修改會員資料</RouterLink>
+          </li> -->
+          <li>
+            <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+              to="/userorders">查看訂單資訊</RouterLink>
+          </li>
+          <!-- <li>
+            <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+              to="/usercoupons">查詢優惠券</RouterLink>
+          </li>
+          <li>
+            <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+              to="/usercollection">查看我的收藏</RouterLink>
+          </li> -->
+          <li @click="logOut">
+            <RouterLink class="logOutBtn py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500" to="/">登出</RouterLink>
+          </li>
+        </ul>
       </ul>
       <a class="hamberMenu d-lg-none" href="#">
         <span class="material-symbols-outlined"> menu </span>
@@ -140,20 +141,16 @@ export default {
   name: 'HeaderView',
   data () {
     return {
-      isActive: false,
       isMemberActive: false,
-      cartFrame: ''
+      cartFrame: '',
+      orderFoodOnline: '',
+      memberCenterItem: ''
     }
   },
   methods: {
     ...mapActions(cartStore, ['getCarts', 'delCart']),
     ...mapActions(loginStore, ['setLogin', 'getLogin']),
-    dropdownMenu () {
-      this.isActive = !this.isActive
-    },
-    dropdownMemberCenter () {
-      this.isMemberActive = !this.isMemberActive
-    },
+
     logOut () {
       this.setLogin(false)
       alert('已登出')
@@ -173,6 +170,7 @@ export default {
     this.getLogin()
     // console.log('this.$refs.cartFrame', this.$refs.cartFrame)
     this.cartFrame = new Dropdown(this.$refs.cartFrame)
+    // this.orderFoodOnline = new Dropdown(this.$refs.orderFoodOnline)
     // console.log(' this.cartFrame', this.cartFrame)
   },
   components: { RouterLink }
@@ -180,7 +178,7 @@ export default {
 </script>
 
 <style scoped>
-.dropdown-menu {
+.dropdow_cart {
   width: 100%;
   max-width: 500px;
   box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
