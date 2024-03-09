@@ -14,6 +14,7 @@ const DRIVE_LETTER_REGEX = /^[a-z]:/i
 export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? `/${process.env.REPOSITORY_NAME}/` : '/',
   plugins: [
+    path(),
     vue(),
     eslintPlugin({
       include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue']
