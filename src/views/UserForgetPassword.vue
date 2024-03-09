@@ -1,14 +1,14 @@
 <template>
     <div>
-        <div class="login-bg">
+        <!-- <div class="login-bg">
           <img src="/offerService.png" alt="#">
-        </div>
-        <div class="container d-flex justify-content-center">
-          <form class="login-body-bg row justify-content-center">
+        </div> -->
+        <div class="container d-flex justify-content-center login_min_h">
+          <form class="login-body-bg row justify-content-center px-4">
               <!-- 忘記密碼 -->
               <div class="login-body" :class="{ 'd-none': !isResetViewClose }">
-                  <h1 class="h3 mb-3 font-weight-normal text-center text-light">忘記密碼</h1>
-                <label for="inputEmail" class="sr-only text-light">電子郵件</label>
+                  <h1 class="h3 mb-3 font-weight-normal text-center text-primary">忘記密碼</h1>
+                <label for="inputEmail" class="sr-only mb-1 fw-bold">電子郵件</label>
                   <div class="mb-2 input-group">
                   <input
                     v-model="userEmail"
@@ -22,17 +22,17 @@
                   />
                   <button
                     @click="postValidateCode()"
-                    class="btn btn-outline-secondary btn-blue submitValidateEmail" type="button" id="button-addon2"
+                    class="btn btn-outline-secondary submitValidateEmail" type="button" id="button-addon2"
                     :disabled="isPost"
                   >
-                    <p class="text-light mb-0">
+                    <p class=" fw-bold mb-0">
                       {{ isPost ? '已發送': '發送驗證碼'}}</p>
                   </button>
                   </div>
                   <!-- 放錯誤訊息的區塊 -->
                   <p class="errorMessage"></p>
                 <div class="mb-2">
-                  <label for="validateCode" class="sr-only text-light">驗證碼</label>
+                  <label for="validateCode" class="sr-only mb-1 fw-bold">驗證碼</label>
                   <input
                     v-model="userValidateCode"
                     type="password"
@@ -48,16 +48,16 @@
                 <div class="text-center mt-4">
                   <button
                     @click.prevent="resetPassword()"
-                    class="btn btn-lg btn-blue btn-block w-100 submitValidateCode" type="button" id="submitValidateCodeBtn"
+                    class="btn btn-lg btn-primary btn-block w-100 submitValidateCode" type="button" id="submitValidateCodeBtn"
                   >確認
                   </button>
                 </div>
               </div>
               <!-- 重製密碼 -->
               <div class="login-body" :class="{ 'd-none': isResetViewClose }">
-                <h1 class="h3 mb-3 font-weight-normal text-center text-light">重置密碼</h1>
-                  <p class="text-light">密碼請輸入6-12碼，英文與數字混和</p>
-                    <label for="inputNewpassword" class="sr-only text-light">輸入新密碼</label>
+                <h1 class="h3 mb-3 font-weight-normal text-center ">重置密碼</h1>
+                  <p class="">密碼請輸入6-12碼，英文與數字混和</p>
+                    <label for="inputNewpassword" class="sr-only ">輸入新密碼</label>
                     <input
                       v-model="check.newPassword"
                       type="password"
@@ -68,7 +68,7 @@
                       required
                       autofocus
                     />
-                    <label for="checkPassword" class="sr-only text-light">再次輸入新密碼</label>
+                    <label for="checkPassword" class="sr-only ">再次輸入新密碼</label>
                     <input
                       v-model="check.checkPassword"
                       type="password"
@@ -84,7 +84,7 @@
                     <div class="text-center mt-4">
                       <button
                         @click.prevent="patchNewPassword()"
-                        class="btn btn-lg btn-blue btn-block w-100"
+                        class="btn btn-lg btn-primary btn-block w-100"
                         type="button"
                         id="confrimNewPasswordBtn"
                       >
@@ -94,8 +94,8 @@
               </div>
               <div class="mt-3" :class="{ 'd-none': !isResetViewClose }">
                 <div class="d-flex justify-content-center">
-                  <p class=" text-light pe-3">尚未成為用戶?</p>
-                  <RouterLink to="/userlogin" id="pageChange" class="text-decoration-none text-blue">立即註冊</RouterLink>
+                  <p class="pe-3">尚未成為用戶?</p>
+                  <RouterLink to="/userregister" id="pageChange" class="text-decoration-none text-primary fw-bold">立即註冊</RouterLink>
                 </div>
               </div>
           </form>
@@ -184,23 +184,26 @@ export default {
   max-width: 100%;
   z-index: -1;
 }
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
   .login-bg {
     position: relative;
     display: block;
   }
-}
+} */
 
 .login-body-bg {
-  background-color: rgba(0, 0, 0, 0.75);
+  /* background-color: rgba(0, 0, 0, 0.75); */
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
   border-radius: 4px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  margin: 0;
+  margin: 50px auto;
   min-height: 515px;
   padding: 20px 0 30px;
-  width: 30%;
+  width: 100%;
+  max-width: 400px;
+  height: 50%;
 }
 @media (max-width: 992px) {
   .login-body-bg {
@@ -208,7 +211,7 @@ export default {
   }
 }
 
-.login-body-bg {
+/* .login-body-bg {
   position: absolute;
   top: 300px;
 }
@@ -218,5 +221,9 @@ export default {
     top: 200px;
     width: 100%;
   }
+} */
+.login_min_h {
+  min-height: calc(100vh - 112px);
+  align-items: center;
 }
 </style>

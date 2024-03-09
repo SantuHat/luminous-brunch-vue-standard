@@ -1,15 +1,15 @@
 <template>
  <div class="login-bg">
-        <img src="/offerService.png" alt="#" />
+        <!-- <img src="/basil-tomato.png" alt="#" /> -->
       </div>
       <div class="container d-flex justify-content-center">
-        <form class="login-body-bg row justify-content-center" >
+        <form class="login-body-bg row justify-content-center px-4">
           <div class="login-body">
-            <h1 class="h3 mb-3 font-weight-normal text-center text-light">
+            <h1 class="h3 my-3 font-weight-normal text-center text-primary">
               新用戶註冊
             </h1>
             <div class="mb-2">
-              <label for="inputEmail" class="sr-only text-light"
+              <label for="inputEmail" class="sr-only mb-1 fw-bold"
                 >電子郵件</label
               >
               <input
@@ -24,7 +24,7 @@
               <p class="text-danger" data-message="Email" ref="email">必填</p>
             </div>
             <div class="mb-2">
-              <label for="inputPassword" class="sr-only text-light">密碼</label>
+              <label for="inputPassword" class="sr-only mb-1 fw-bold">密碼</label>
               <input
                 type="password"
                 id="inputPassword"
@@ -39,7 +39,7 @@
               </p>
             </div>
             <div class="mb-2">
-              <label for="checkPassword" class="sr-only text-light"
+              <label for="checkPassword" class="sr-only mb-1 fw-bold"
                 >確認密碼</label
               >
               <input
@@ -53,7 +53,7 @@
               <p class="text-danger" data-message="checkpassword" ref="checkPassword">必填</p>
             </div>
             <div class="mb-2">
-              <label for="inputPassword" class="sr-only text-light"
+              <label for="inputPassword" class="sr-only mb-1 fw-bold"
                 >用戶姓名</label
               >
               <input
@@ -67,7 +67,7 @@
               <p class="text-danger" data-message="phone" ref="phone">必填</p>
             </div>
             <div class="mb-2">
-              <label for="inputPassword" class="sr-only text-light">電話</label>
+              <label for="inputPassword" class="sr-only mb-1 fw-bold">電話</label>
               <input
                 type="phone"
                 id="inputPhone"
@@ -88,7 +88,7 @@
                   v-model="obj.gender"
                 />
                 <label
-                  class="form-check-label text-light"
+                  class="form-check-label text-primary"
                   for="flexRadioDefault1"
                 >
                   男
@@ -104,7 +104,7 @@
                   v-model="obj.gender"
                 />
                 <label
-                  class="form-check-label text-light"
+                  class="form-check-label text-primary"
                   for="flexRadioDefault2"
                 >
                   女
@@ -113,7 +113,7 @@
             </div>
             <div class="text-center mt-4">
               <button
-                class="btn btn-lg btn-blue btn-block w-100"
+                class="btn btn-lg btn-primary btn-block w-100"
                 type="submit"
                 id="signup"
                 @click.prevent="register"
@@ -130,7 +130,7 @@
                 id="flexCheckDefault"
                 v-model="obj.Terms"
               />
-              <label class="form-check-label text-light" for="flexCheckDefault">
+              <label class="form-check-label text-primary" for="flexCheckDefault">
                 <p>
                   註冊即表示同意"Luminous Brunch"的使用條款及細則以及隱私權政策
                 </p>
@@ -230,41 +230,42 @@ export default {
   max-width: 100%;
   z-index: -1;
 }
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
   .login-bg {
     position: relative;
     display: block;
   }
-}
+} */
 
 .login-body-bg {
-  background-color: rgba(0, 0, 0, 0.75);
+  /* background-color: rgba(0, 0, 0, 0.75); */
   border-radius: 4px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  margin: 0;
+  margin: 50px auto;
   min-height: 515px;
   padding: 20px 0 30px;
-  width: 30%;
+  width: 100%;
+  max-width: 400px;
 }
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
   .login-body-bg {
     width: 100%;
   }
-}
+} */
 
-.login-body-bg {
+/* .login-body-bg {
   position: absolute;
   top: 300px;
-}
-@media (max-width: 992px) {
+} */
+/* @media (max-width: 992px) {
   .login-body-bg {
     position: absolute;
     top: 200px;
     width: 100%;
   }
-}
+} */
 
 #pageChange:hover {
   border-bottom: 3px solid #EC6933;

@@ -1,5 +1,5 @@
 <template>
-  <header class="position-relative bg-light">
+  <header class="position-relative bg-light box_shadow_bottom">
   <nav class="nav">
     <div class="container-lg d-flex justify-content-between align-items-center py-5">
       <RouterLink to="/">
@@ -199,5 +199,8 @@ export default {
 }
 .cartFinalTotal {
   font-size: 18px;
+}
+.box_shadow_bottom {
+  box-shadow: 0 -1px 8px rgba(0,0,0,0.2), 0 -3px 4px rgba(0,0,0,0.14), 0 -3px 3px -2px rgba(0,0,0,0.12);
 }
 </style>

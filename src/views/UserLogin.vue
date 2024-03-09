@@ -1,12 +1,12 @@
 <template>
 <div class="login-bg">
-  <LoadingView :active="isLoading" />
-  <img src="/offerService.png" alt="#" />
+  <!-- <img src="/offerService.png" alt="#" /> -->
 </div>
-<div class="container d-flex justify-content-center mb-5">
-        <form class="login-body-bg row justify-content-center">
+<div class="container d-flex justify-content-center mb-5 login_min_h">
+  <LoadingView :active="isLoading" />
+        <form class="login-body-bg row justify-content-center px-4">
           <div class="login-body">
-            <h1 class="h3 mb-3 font-weight-normal text-center text-light">
+            <h1 class="h3 mb-3 font-weight-normal text-center text-primary">
               登入
             </h1>
             <div class="mb-2">
@@ -37,8 +37,8 @@
               />
             </div>
             <div class="text-center mt-4">
-              <form class="form-signin" @click.prevent="UserLogin">
-                <button class="btn btn-lg btn-block w-100 btn-blue" id="login" >
+              <form class="form-signin mb-4" @click.prevent="UserLogin">
+                <button class="btn btn-lg btn-block w-100 btn-primary" id="login" >
                   登入
                 </button>
               </form>
@@ -47,16 +47,16 @@
               <div class="text-center my-3">
                 <RouterLink
                   to="/userforgetpassword"
-                  class="text-decoration-none text-blue"
+                  class="text-decoration-none text-primary"
                   id="pageChange"
                   >忘記密碼</RouterLink
                 >
               </div>
               <div class="d-flex justify-content-center">
-                <p class="text-light pe-3">尚未成為用戶?</p>
+                <p class="pe-3">尚未成為用戶?</p>
                 <RouterLink
                   to="/userregister"
-                  class="text-decoration-none text-blue"
+                  class="text-decoration-none text-primary fw-bold"
                   id="pageChange"
                   >立即註冊</RouterLink
                 >
@@ -101,7 +101,7 @@ export default {
 }
 </script>
 <style>
- .login-bg img {
+.login-bg img {
   position: relative;
   background-size: cover;
   display: block;
@@ -112,23 +112,26 @@ export default {
   max-width: 100%;
   z-index: -1;
 }
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
   .login-bg {
     position: relative;
     display: block;
   }
-}
+} */
 
 .login-body-bg {
-  background-color: rgba(0, 0, 0, 0.75);
+  /* background-color: rgba(0, 0, 0, 0.75); */
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
   border-radius: 4px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  margin: 0;
+  margin: 50px auto;
   min-height: 515px;
   padding: 20px 0 30px;
-  width: 30%;
+  width: 100%;
+  max-width: 400px;
+  height: 50%;
 }
 @media (max-width: 992px) {
   .login-body-bg {
@@ -136,20 +139,24 @@ export default {
   }
 }
 
-.login-body-bg {
+/* .login-body-bg {
   position: absolute;
   top: 300px;
-}
-@media (max-width: 992px) {
+} */
+/* @media (max-width: 992px) {
   .login-body-bg {
     position: absolute;
     top: 200px;
     width: 100%;
   }
-}
+} */
 
 #pageChange:hover {
   border-bottom: 3px solid #EC6933;
   height: 30px;
+}
+.login_min_h {
+  min-height: calc(100vh - 112px);
+  align-items: center;
 }
 </style>
