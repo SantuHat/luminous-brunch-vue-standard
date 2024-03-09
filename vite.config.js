@@ -3,7 +3,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-// import path from 'path'
+import path from 'path'
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import eslintPlugin from 'vite-plugin-eslint'
