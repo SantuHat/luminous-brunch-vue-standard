@@ -102,7 +102,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 
 import 'swiper/css/pagination'
-import '@/assets/pages/_swiper.scss'
+import '@/assets/pages/swiper.scss'
 // import MenuList from './MenuList.vue'
 
 // import required modules

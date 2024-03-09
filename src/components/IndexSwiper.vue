@@ -126,7 +126,7 @@ import { Navigation, Autoplay, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import '@/assets/pages/_swiper.scss'
+import '@/assets/pages/swiper.scss'
 
 export default {
   data () {
