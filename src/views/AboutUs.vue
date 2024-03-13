@@ -24,7 +24,7 @@
           <div class="row justify-content-center align-items-center mb-5">
             <div class="col-lg-5 mb-4">
               <img
-                class="d-block mx-auto img_h_250"
+                class="w-100 d-block mx-auto img_h_250"
                 src="/2-2.jpg"
                 alt=""
               />

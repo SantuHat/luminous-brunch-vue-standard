@@ -10,7 +10,7 @@
           <th class="px-lg-6 py-lg-4">付款狀態</th>
           <th class="px-lg-6 py-lg-4">訂單金額</th>
           <!-- <th class="px-lg-6 py-lg-4">訂單狀態</th> -->
-          <th class="px-lg-6 py-lg-4"></th>
+          <!-- <th class="px-lg-6 py-lg-4"></th> -->
         </tr>
       </thead>
       <tbody class="position-relative">

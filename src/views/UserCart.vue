@@ -22,16 +22,14 @@
           <th class="px-lg-6 py-lg-4">數量</th>
           <th class="px-lg-6 py-lg-4">小計</th>
           <th class="px-lg-6 py-lg-4"></th>
-          <th class="px-lg-6 py-lg-4">總金額</th>
         </tr>
       </thead>
       <tbody class="position-relative">
-        <div class="position-absolute js-tbody">NT$ {{ final_total }}</div>
         <tr v-for="(item) in carts" :key="item.product_id">
           <th width="12%">
             <img
-              :src="item.product.imageUrl"
-              class="me-2 toast-img" :alt="item.product.imageUrl">
+            :src="item.product.imageUrl"
+            class="me-2 toast-img" :alt="item.product.imageUrl">
           </th>
           <th>{{ item.product.title }}</th>
           <th class="text-center" >{{ item.product.price }}</th>
@@ -40,7 +38,7 @@
             {{ item.qty }}
             <button v-if="step === 1" @click="item.qty++; putCart(item.id, item.qty)" class="btn fw-bold" type="button">+</button>
           </th>
-          <th class="text-center">{{ item.total }}</th>
+          <th class="text-center">NT$ {{ item.total }}</th>
           <th>
             <button v-if="step === 1" @click="delCart(item.id)" type="button" class="btn btn-primary">
               <span class="material-symbols-outlined pt-1">
@@ -48,6 +46,9 @@
               </span>
             </button>
           </th>
+        </tr>
+        <tr class="border-top border-gray">
+          <td class="p-5 text-center fw-bold" colspan="6">總金額NT$ {{ final_total }}</td>
         </tr>
       </tbody>
     </table>
@@ -60,12 +61,10 @@
           <th class="px-lg-6 py-lg-4">單價</th>
           <th class="px-lg-6 py-lg-4">數量</th>
           <th class="px-lg-6 py-lg-4">小計</th>
-          <th class="px-lg-6 py-lg-4"></th>
-          <th class="px-lg-6 py-lg-4">總金額</th>
+          <!-- <th class="px-lg-6 py-lg-4"></th> -->
         </tr>
       </thead>
       <tbody class="position-relative">
-        <div class="position-absolute js-tbody">NT$ {{ orderTotal }}</div>
         <tr v-for="(item) in orderItem" :key="item.id">
           <th width="12%">
             <img
@@ -79,14 +78,17 @@
             {{ item.qty }}
             <button v-if="step === 1" @click="item.qty++; putCart(item.id, item.qty)" class="btn fw-bold" type="button">+</button>
           </th>
-          <th class="text-center">{{ item.total }}</th>
-          <th>
+          <th class="text-center">NT$ {{ item.total }}</th>
+          <!-- <th>
             <button v-if="step === 1" @click="delCart(item.id)" type="button" class="btn btn-primary">
               <span class="material-symbols-outlined pt-1">
                 delete
               </span>
             </button>
-          </th>
+          </th> -->
+        </tr>
+        <tr class="border-top border-gray">
+          <td class="p-5 text-center fw-bold" colspan="6">總金額NT$ {{ orderTotal }}</td>
         </tr>
       </tbody>
     </table>

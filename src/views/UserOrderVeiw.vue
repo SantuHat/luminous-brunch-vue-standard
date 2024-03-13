@@ -11,11 +11,9 @@
           <th class="px-lg-6 py-lg-4">單價</th>
           <th class="px-lg-6 py-lg-4">數量</th>
           <th class="px-lg-6 py-lg-4">小計</th>
-          <th class="px-lg-6 py-lg-4">總金額</th>
         </tr>
       </thead>
       <tbody class="position-relative">
-        <div class="position-absolute js-tbody">NT$ {{ orderTotal }}</div>
         <tr v-for="(item) in orderItem" :key="item.id">
           <th width="12%">
             <img
@@ -27,7 +25,10 @@
           <th class="text-center">
             {{ item.qty }}
           </th>
-          <th class="text-center">{{ item.total }}</th>
+          <th class="text-center">NT$ {{ item.total }}</th>
+        </tr>
+        <tr class="border-top border-gray">
+          <td class="p-5 text-center fw-bold" colspan="6">總金額NT$ {{ orderTotal }}</td>
         </tr>
       </tbody>
     </table>
