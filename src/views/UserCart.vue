@@ -95,6 +95,7 @@
 
   <!-- 訂餐人資料 -->
   <h3 v-if="step === 2 || step === 3" class="mb-7 mt-10 text-center text-gray-400 font-NotoSerif">訂餐人資料</h3>
+  <div class="overflow-x">
   <table v-if="step === 2 || step === 3" class="border border-gray box-shadow-gray-300 mx-auto w-100">
     <thead class="bg-gray text-center">
       <tr>
@@ -103,20 +104,21 @@
         <th class="px-lg-6 py-lg-4">信箱</th>
       </tr>
     </thead>
-    <tbody class="js-tbody">
-      <tr>
-        <th class="text-center p-5">
-          <input v-model="userData.data.user.name" type="text" placeholder="姓名" class="bg-transparent py-2 text-center" :class="{'border-0': step === 3}" :disabled="step === 3">
-        </th>
-        <th class="text-center p-5">
-          <input v-model="userData.data.user.tel" type="text" placeholder="0911345678" class="bg-transparent py-2 text-center" :class="{'border-0': step === 3}" :disabled="step === 3">
-        </th>
-        <th class="text-center p-5">
-          <input v-model="userData.data.user.email" type="text" placeholder="abc@gmail.com" class="bg-transparent py-2 text-center" :class="{'border-0': step === 3}" :disabled="step === 3">
-        </th>
-      </tr>
-    </tbody>
-  </table>
+      <tbody class="js-tbody">
+        <tr>
+          <th class="text-center p-5">
+            <input v-model="userData.data.user.name" type="text" placeholder="姓名" class="bg-transparent py-2 text-center" :class="{'border-0': step === 3}" :disabled="step === 3">
+          </th>
+          <th class="text-center p-5">
+            <input v-model="userData.data.user.tel" type="text" placeholder="0911345678" class="bg-transparent py-2 text-center" :class="{'border-0': step === 3}" :disabled="step === 3">
+          </th>
+          <th class="text-center p-5">
+            <input v-model="userData.data.user.email" type="text" placeholder="abc@gmail.com" class="bg-transparent py-2 text-center" :class="{'border-0': step === 3}" :disabled="step === 3">
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <!-- 付款方式 -->
   <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 font-NotoSerif">付款方式</h3>
