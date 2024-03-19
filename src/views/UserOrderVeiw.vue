@@ -11,11 +11,9 @@
           <th class="px-lg-6 py-lg-4">單價</th>
           <th class="px-lg-6 py-lg-4">數量</th>
           <th class="px-lg-6 py-lg-4">小計</th>
-          <th class="px-lg-6 py-lg-4">總金額</th>
         </tr>
       </thead>
       <tbody class="position-relative">
-        <div class="position-absolute js-tbody">NT$ {{ orderTotal }}</div>
         <tr v-for="(item) in orderItem" :key="item.id">
           <th width="12%">
             <img
@@ -27,35 +25,40 @@
           <th class="text-center">
             {{ item.qty }}
           </th>
-          <th class="text-center">{{ item.total }}</th>
+          <th class="text-center">NT$ {{ item.total }}</th>
+        </tr>
+        <tr class="border-top border-gray">
+          <td class="p-5 text-center fw-bold" colspan="6">總金額NT$ {{ orderTotal }}</td>
         </tr>
       </tbody>
     </table>
 
   <!-- 訂餐人資料 -->
   <h3 class="mb-7 mt-10 text-center text-gray-400 font-NotoSerif">訂餐人資料</h3>
-  <table class="border border-gray box-shadow-gray-300 mx-auto w-100">
-    <thead class="bg-gray text-center">
-      <tr>
-        <th class="px-lg-6 py-lg-4">姓名</th>
-        <th class="px-lg-6 py-lg-4">手機號碼</th>
-        <th class="px-lg-6 py-lg-4">信箱</th>
-      </tr>
-    </thead>
-    <tbody class="js-tbody">
-      <tr>
-        <th class="text-center p-5">
-          <input v-model="userData.name" type="text" placeholder="姓名" class="bg-transparent py-2 text-center border-0" disabled>
-        </th>
-        <th class="text-center p-5">
-          <input v-model="userData.tel" type="text" placeholder="0911345678" class="bg-transparent py-2 text-center border-0" disabled>
-        </th>
-        <th class="text-center p-5">
-          <input v-model="userData.email" type="text" placeholder="abc@gmail.com" class="bg-transparent py-2 text-center border-0" disabled>
-        </th>
-      </tr>
-    </tbody>
-  </table>
+  <div class="overflow-x">
+    <table class="border border-gray box-shadow-gray-300 mx-auto w-100">
+      <thead class="bg-gray text-center">
+        <tr>
+          <th class="px-lg-6 py-lg-4">姓名</th>
+          <th class="px-lg-6 py-lg-4">手機號碼</th>
+          <th class="px-lg-6 py-lg-4">信箱</th>
+        </tr>
+      </thead>
+      <tbody class="js-tbody">
+        <tr>
+          <th class="text-center p-5">
+            <input v-model="userData.name" type="text" placeholder="姓名" class="bg-transparent py-2 text-center border-0" disabled>
+          </th>
+          <th class="text-center p-5">
+            <input v-model="userData.tel" type="text" placeholder="0911345678" class="bg-transparent py-2 text-center border-0" disabled>
+          </th>
+          <th class="text-center p-5">
+            <input v-model="userData.email" type="text" placeholder="abc@gmail.com" class="bg-transparent py-2 text-center border-0" disabled>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 </div>
 </template>

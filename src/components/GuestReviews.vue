@@ -140,6 +140,9 @@ export default {
 }
 </script>
 <style>
+.carousel-item {
+  margin-right: 0%;
+}
 @media (max-width: 992px) {
   .carousel-item {
     margin-right: 100%;

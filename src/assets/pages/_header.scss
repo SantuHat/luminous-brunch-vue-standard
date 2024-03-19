@@ -19,7 +19,7 @@
     color: $primary-100;
   }
 }
-.dropdownMenu, .dropdownMemberCenter {
+.dropdownMenu, .dropdownMemberCenter, .dropdownMenuRWD {
   // top: 80%;
   // width: inherit;
   // z-index: 12;
@@ -38,6 +38,11 @@
       color: $white;
     }
   }
+}
+.dropdownMenuRWD {
+  width: 100vh;
+  border-radius: 0px !important;
+  inset: 25px auto auto -1px !important;
 }
 // .dropdownMenu.active {
 //   max-height: 288px;

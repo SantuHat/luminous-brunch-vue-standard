@@ -118,12 +118,36 @@
           </li>
         </ul>
       </ul>
-      <a class="hamberMenu d-lg-none" href="#">
+      <a class="hamberMenu d-lg-none" href="javascript:;" id="orderFoodOnlineRWD" data-bs-toggle="dropdown" aria-expanded="false" ref="orderFoodOnlineRWD">
         <span class="material-symbols-outlined"> menu </span>
       </a>
-      <a class="closeIcon d-lg-none" href="#" style="display: none">
+      <a class="closeIcon d-lg-none" href="javascript:;" style="display: none">
         <span class="material-symbols-outlined"> close </span>
       </a>
+      <ul class="dropdown-menu dropdownMenu dropdownMenuRWD list-unstyled ps-0 py-0" aria-labelledby="orderFoodOnlineRWD">
+          <li>
+            <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500" :to="`/menuview/menulist?category=salad`">沙拉系列</RouterLink>
+          </li>
+          <li>
+            <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+            :to="`/menuview/menulist?category=burger`">漢堡系列</RouterLink>
+          </li>
+          <li>
+            <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+            :to="`/menuview/menulist?category=sandwich`">三明治系列</RouterLink>
+          </li>
+          <li>
+            <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+            :to="`/menuview/menulist?category=brunch`">早午餐拼盤</RouterLink>
+          </li>
+          <li>
+            <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+            :to="`/menuview/menulist?category=pasta`">義大利麵系列</RouterLink>
+          </li>
+          <li>
+            <RouterLink class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500" :to="`/menuview/menulist?category=drink`">飲品</RouterLink>
+          </li>
+      </ul>
     </div>
   </nav>
 </header>
