@@ -13,78 +13,74 @@ class="py-3 text-center text-primary fw-bolder font-NotoSerif mb-auto"
 <div class="d-none d-lg-block">
 <!-- 健康能量餐 -->
 <div class="bg-salad d-flex align-items-center py-7 mb-6 mb-lg-0">
-<div class="container d-none d-lg-block">
-<div class="row justify-content-end align-items-center">
-<div class="col-lg-5">
-  <div class="text-center py-6">
-      <h2 class="fw-bold font-NotoSerif mb-6">
-      | 健 人 高 蛋 白 推 薦 |
-      </h2>
-      <p class="fs-6">
-      我們提供多樣化的健康餐選擇，精選含有30g以上的蛋白質的熱門餐點，適合運動後需要快速補充營養的你
-      </p>
-      <div
-        v-for="item in specialsCombo.highProteinMeal" :key="item.id"
-      >
-      <div class="m-5 brunch-menu-bg">
-      <div class="d-flex justify-content-between w-100">
-          <h5 class="text-yellow-300 fw-bold font-NotoSerif">
-          {{ item.title }}
-          </h5>
-          <button
-            class="btn btn-yellow-300" type="button"
-            @click.prevent="addCart(item.id, item, 1)"
-          >
-          加入購物車
-          </button>
-      </div>
-      </div>
-      </div>
-  </div>
-</div>
-</div>
-</div>
-<!-- Mobile -->
-<div class="container d-lg-none">
-<div class="bg-opcity">
-<div class="col-lg-5">
-    <div class="">
+  <div class="container d-none d-lg-block">
+  <div class="row justify-content-end align-items-center">
+  <div class="col-lg-5">
     <div class="text-center py-6">
-        <h2 class="fs-4 fw-bold font-NotoSerif mb-6">
-        | 美 式 經 典 早 午 餐 |
+        <h2 class="fw-bold font-NotoSerif mb-6">
+        | 健 人 高 蛋 白 推 薦 |
         </h2>
         <p class="fs-6">
-        品味濃郁的經典美式風味,讓您在悠閒的早午時光中享受豐盛的美味饗宴
+        我們提供多樣化的健康餐選擇，精選含有30g以上的蛋白質的熱門餐點，適合運動後需要快速補充營養的你
         </p>
+        <div
+          v-for="item in specialsCombo.highProteinMeal" :key="item.id"
+        >
         <div class="m-5 brunch-menu-bg">
         <div class="d-flex justify-content-between w-100">
             <h5 class="text-yellow-300 fw-bold font-NotoSerif">
-            經典花生培根牛肉堡
+            {{ item.title }}
             </h5>
             <button
-            @click.prevent="addCart(item.id, item, 1)"
-            class="btn btn-yellow-300" type="button">
+              class="btn btn-yellow-300" type="button"
+              @click.prevent="addCart(item.id, item, 1)"
+            >
             加入購物車
             </button>
         </div>
         </div>
-        <div class="m-5 brunch-menu-bg">
-        <div class="d-flex justify-content-between w-100">
-            <h5 class="text-yellow-300 fw-bold font-NotoSerif">
-            香煎牛肉培根蛋吐司
-            </h5>
-            <button
-            @click.prevent="addCart(item.id, item, 1)"
-            class="btn btn-yellow-300" type="button">
-            加入購物車
-            </button>
-        </div>
         </div>
     </div>
+  </div>
+  </div>
+  </div>
+<!-- Mobile -->
+  <div class="container d-lg-none">
+    <div class="bg-opcity">
+      <div class="col-lg-5">
+        <div class="">
+          <div class="text-center py-6">
+            <h2 class="fs-4 fw-bold font-NotoSerif mb-6">
+              | 美 式 經 典 早 午 餐 |
+            </h2>
+            <p class="fs-6">
+              品味濃郁的經典美式風味,讓您在悠閒的早午時光中享受豐盛的美味饗宴
+            </p>
+            <div class="m-5 brunch-menu-bg">
+              <div class="d-flex justify-content-between w-100">
+                <h5 class="text-yellow-300 fw-bold font-NotoSerif">
+                  經典花生培根牛肉堡
+                </h5>
+                <button class="btn btn-yellow-300" type="button">
+                  加入購物車
+                </button>
+              </div>
+            </div>
+            <div class="m-5 brunch-menu-bg">
+              <div class="d-flex justify-content-between w-100">
+                <h5 class="text-yellow-300 fw-bold font-NotoSerif">
+                  香煎牛肉培根蛋吐司
+                </h5>
+                <button class="btn btn-yellow-300" type="button">
+                  加入購物車
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-</div>
-</div>
+  </div>
 </div>
 <!--END 健康能量餐 -->
 <!-- 美式經典早午餐 -->
