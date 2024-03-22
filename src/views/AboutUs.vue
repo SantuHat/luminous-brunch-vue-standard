@@ -26,7 +26,7 @@
               <img
                 class="w-100 d-block mx-auto img_h_250"
                 src="/2-2.jpg"
-                alt=""
+                alt="我們的理念"
               />
             </div>
             <div class="col-lg-5">
@@ -47,7 +47,7 @@
               <img
                 class="w-100 img_h_250 d-block mx-auto"
                 src="/2-3.jpg"
-                alt=""
+                alt="我們的理念"
               />
             </div>
           </div>
@@ -65,7 +65,7 @@
               <img
                 class="d-block mx-auto"
                 src="/Illustration (2).png"
-                alt=""
+                alt="即時訂餐"
               />
             </div>
             <div class="col-lg-5">
@@ -88,7 +88,7 @@
               <img
                 class="w-100 img_h_250 d-block mx-auto"
                 src="/2-4.jpg"
-                alt=""
+                alt="多元菜單"
               />
             </div>
           </div>

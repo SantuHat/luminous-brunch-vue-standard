@@ -7,7 +7,7 @@
   <div class="news-desktop">
       <div class="list">
           <div class="img-wrapper d-flex justify-content-center">
-          <img class="news-pic" src="/newsPic4.jpg" alt="" />
+          <img class="news-pic" src="/newsPic4.jpg" alt="每日精選美味套餐" />
           <h3 class="news-content">
               <RouterLink to="/newscontent">
               "每日精選美味套餐優惠"
@@ -23,7 +23,7 @@
                   <img
                   src="/newsPic2.jpg"
                   class="main-card-img"
-                  alt="..."
+                  alt="刷卡支付享95折"
                   height="300px"/>
                 <div class="card-body card-content">
                     <h5 class="card-title">刷卡支付享95折優惠</h5>
@@ -38,7 +38,7 @@
               <img
                   src="https://images.unsplash.com/photo-1627309302198-09a50ae1b209?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   class="main-card-img"
-                  alt="..."
+                  alt="外帶早餐經典組合"
                   height="300px"
               />
               <div class="card-body card-content">
@@ -54,7 +54,7 @@
               <img
                   src="/newsPic3.jpg"
                   class="main-card-img"
-                  alt="..."
+                  alt="歡慶冬季耶誕"
                   height="300px"
               />
               <div class="card-body card-content">
@@ -74,7 +74,7 @@
           <img
           src="https://images.unsplash.com/photo-1493770348161-369560ae357d?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           class="card-img-top"
-          alt="..."
+          alt="每日精選美味套餐"
           />
           <div class="card-body">
           <h5 class="card-title">每日精選美味套餐優惠</h5>
@@ -88,7 +88,7 @@
           <img
           src="https://images.unsplash.com/photo-1475090169767-40ed8d18f67d?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           class="card-img-top"
-          alt="..."
+          alt="刷卡支付享95折"
           />
           <div class="card-body">
           <h5 class="card-title">刷卡支付享95折優惠</h5>
@@ -102,7 +102,7 @@
           <img
           src="https://images.unsplash.com/photo-1627309302198-09a50ae1b209?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           class="card-img-top"
-          alt="..."
+          alt="外帶早餐經典組合"
           />
           <div class="card-body">
           <h5 class="card-title">外帶早餐經典組合享9折優惠</h5>
@@ -116,7 +116,7 @@
           <img
           src="https://images.unsplash.com/photo-1565895405137-3ca0cc5088c8?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           class="card-img-top"
-          alt="..."
+          alt="歡慶冬季耶誕"
           />
           <div class="card-body">
           <h5 class="card-title">歡慶冬季耶誕 特色餐點新上市</h5>

@@ -7,7 +7,7 @@
           <div class="col-8">
             <div class="font-NotoSerif mb-5">
                 <RouterLink to="/newsmain">
-                <img src="/Keyboard arrow left.png"/>
+                <img src="/Keyboard arrow left.png" alt="返回列表"/>
                 返回列表
               </RouterLink>
             </div>
@@ -16,7 +16,7 @@
             </div>
             <br /><br />
             <div class="d-flex justify-content-center news-content-pic">
-              <img src="/celebrate.jpg" width="70%" :style="byStyle"/>
+              <img src="/celebrate.jpg" width="70%" :style="byStyle" alt="刷卡支付享95折"/>
             </div>
             <div class="news-text lh-base d-flex justify-content-center">
               <p>
