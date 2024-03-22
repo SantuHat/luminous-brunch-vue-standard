@@ -1,4 +1,3 @@
-<!-- eslint-disable no-tabs -->
 <template>
 	<NavBar></NavBar>
 	<div class="container">

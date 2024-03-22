@@ -1,5 +1,3 @@
-<!-- eslint-disable no-tabs -->
-<!-- eslint-disable vue/require-v-for-key -->
 <template>
   <LoadingView :active="isLoading"></LoadingView>
 <div class="container-fluid">

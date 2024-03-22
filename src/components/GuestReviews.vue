@@ -1,8 +1,5 @@
-<!-- eslint-disable vue/valid-v-for -->
-<!-- eslint-disable no-mixed-spaces-and-tabs -->
-<!-- eslint-disable no-tabs -->
 <template>
-<section class="section" id="section--5">
+    <section class="section" id="section--5">
       <div class="bg h-100">
         <div class="container">
           <div

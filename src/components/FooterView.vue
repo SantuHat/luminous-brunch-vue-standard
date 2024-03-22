@@ -1,4 +1,3 @@
-<!-- eslint-disable no-tabs -->
 <template>
 <footer class="py-4 border-top bg-pink">
   <div class="container">
