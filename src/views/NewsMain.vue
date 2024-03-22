@@ -17,25 +17,24 @@
               </RouterLink>
           </h3>
           </div>
-          <div style="width: 100%" class="mb-10">
+          <div style="width: 100%" class="mb-10 mt-5">
           <div class="d-flex justify-content-center">
-              <div class="card" style="width: 20%">
-              <img
+              <div class="card me-5" style="width: 20%">
+                  <img
                   src="/newsPic2.jpg"
                   class="main-card-img"
                   alt="..."
-                  height="300px"
-              />
-              <div class="card-body card-content">
-                  <h5 class="card-title">刷卡支付享95折優惠</h5>
-                  <p class="card-text">活動期間:2024/01/10-2024/12/15</p>
-                  <RouterLink to="/newscontent2" class="btn btn-primary">
-                  了解更多
-                  </RouterLink>
-              </div>
+                  height="300px"/>
+                <div class="card-body card-content">
+                    <h5 class="card-title">刷卡支付享95折優惠</h5>
+                    <p class="card-text">活動期間:2024/01/10-2024/12/15</p>
+                    <RouterLink to="/newscontent2" class="btn btn-primary">
+                    了解更多
+                    </RouterLink>
+                </div>
               </div>
 
-              <div class="card" style="width: 20%">
+              <div class="card me-5" style="width: 20%">
               <img
                   src="https://images.unsplash.com/photo-1627309302198-09a50ae1b209?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   class="main-card-img"
@@ -51,7 +50,7 @@
               </div>
               </div>
 
-              <div class="card" style="width: 20%">
+              <div class="card " style="width: 20%">
               <img
                   src="/newsPic3.jpg"
                   class="main-card-img"
@@ -193,14 +192,14 @@ main .news-desktop .list .img-wrapper {
   width: 100%;
 }
 main .news-desktop .list .img-wrapper .news-pic {
-  max-width: 30%;
+  max-width: 32%;
   background-position: center;
   -o-object-fit: cover;
      object-fit: cover;
 }
 main .news-desktop .list .img-wrapper .news-content {
   justify-content: center;
-  width: 30%;
+  width: 32%;
   align-items: center;
   display: flex;
   background: #f4e9e2;

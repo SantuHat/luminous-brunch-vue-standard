@@ -30,7 +30,7 @@ export default defineStore('cartStore', {
       }
       axios.post(url, postData)
         .then((res) => {
-          console.log('Pinia', res.data.data)
+          // console.log('Pinia', res.data.data)
           this.status.addCartLoading = ''
           // 將目前加入的餐點資訊存在cart
           this.cart = res.data.data
@@ -45,7 +45,7 @@ export default defineStore('cartStore', {
       const { VITE_API, VITE_PATH } = import.meta.env
       axios.delete(`${VITE_API}api/${VITE_PATH}/cart/${id}`)
         .then((res) => {
-          console.log(res.data)
+          // console.log(res.data)
           alert('刪除成功！')
           this.getCarts()
         })
@@ -54,7 +54,7 @@ export default defineStore('cartStore', {
       const url = `${VITE_API}/api/${VITE_PATH}/cart`
       axios.get(url)
         .then((res) => {
-          console.log(res.data)
+          // console.log(res.data)
           this.carts = res.data.data.carts
           this.final_total = res.data.data.final_total
           this.total = res.data.data.total
@@ -65,14 +65,14 @@ export default defineStore('cartStore', {
     },
     setCartUpdate () {
       this.cartUpdated = false
-      console.log('購物車狀態更新')
+      // console.log('購物車狀態更新')
       this.getCarts()
     },
     getProduct () {
       const { id } = this.$route.params
       this.$http.get(`${VITE_API}api/${VITE_PATH}/product/${id}`)
         .then((res) => {
-          console.log(res)
+          // console.log(res)
           this.product = res.data.product
           // 找出目前分類的中文渲染畫面
           this.matchCategory()
@@ -90,7 +90,7 @@ export default defineStore('cartStore', {
       }
       axios.put(`${VITE_API}api/${VITE_PATH}/cart/${id}`, putData)
         .then((res) => {
-          console.log(res.data)
+          // console.log(res.data)
           this.getCarts()
         })
         .catch((err) => {
