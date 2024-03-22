@@ -50,6 +50,7 @@
 <DelModal :item="tempOrder" ref="delModal" @del-item="dleOrder"></DelModal>
 <PaginationView :pagination="orderPage" @emit-pages="getOrder"></PaginationView>
 </template>
+
 <script>
 import OrderModal from '../components/backComponents/OrderModal.vue'
 import DelModal from '../components/backComponents/DelModal.vue'

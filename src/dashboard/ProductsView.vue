@@ -43,6 +43,7 @@
   <PaginationView :pagination="pages" @emit-pages="getProducts"></PaginationView>
 </div>
 </template>
+
 <script>
 import ProductModal from '../components/backComponents/ProductsModal.vue'
 import DelModal from '../components/backComponents/DelModal.vue'

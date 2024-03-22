@@ -28,6 +28,7 @@
 		</div>
 	</div>
 </template>
+
 <script>
 import NavBar from '../components/backComponents/NavBar.vue'
 export default {
