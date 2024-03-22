@@ -1,5 +1,4 @@
 <template>
-
 <section
       class="bg_aboutUs d-flex justify-content-center align-items-center"
     >
@@ -95,9 +94,9 @@
         </div>
       </section>
     </section>
-
 <FooterView/>
 </template>
+
 <script>
 import FooterView from '../components/FooterView.vue'
 
@@ -127,8 +126,8 @@ export default {
     window.addEventListener('scroll', this.handleScroll)
   }
 }
-
 </script>
+
 <style>
  .element {
   opacity: 0;

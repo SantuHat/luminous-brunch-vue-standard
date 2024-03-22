@@ -42,6 +42,7 @@
 </div>
 <AddCartToast ref="addCartToast" :productTemp="productTemp" @deleteCart="delCart"></AddCartToast>
 </template>
+
 <script>
 import axios from 'axios'
 import { mapActions, mapState } from 'pinia'

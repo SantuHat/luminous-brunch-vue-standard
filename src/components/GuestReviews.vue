@@ -61,6 +61,7 @@
       </div>
     </section>
 </template>
+
 <script>
 export default {
   data () {
@@ -139,6 +140,7 @@ export default {
   }
 }
 </script>
+
 <style>
 .carousel-item {
   margin-right: 0%;

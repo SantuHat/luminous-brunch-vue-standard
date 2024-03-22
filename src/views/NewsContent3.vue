@@ -29,6 +29,7 @@
         </div>
       </div>
 </template>
+
 <script>
 import NewSidebar from '../components/NewSidebar.vue'
 export default {

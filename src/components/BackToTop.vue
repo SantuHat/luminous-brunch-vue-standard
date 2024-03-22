@@ -4,6 +4,7 @@
       ><img src="/Back to top-lg.png" alt="backToTopBtn"
     /></a>
 </template>
+
 <script>
 export default {
   data () {

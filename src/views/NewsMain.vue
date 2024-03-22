@@ -131,6 +131,7 @@
 
 <FooterView/>
 </template>
+
 <script>
 import FooterView from '@/components/FooterView.vue'
 export default {
@@ -153,6 +154,7 @@ export default {
   }
 }
 </script>
+
 <style>
     main .bgimage {
   min-height: 70vh;

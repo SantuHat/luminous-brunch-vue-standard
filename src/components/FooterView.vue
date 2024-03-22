@@ -65,6 +65,7 @@
   </div>
 </footer>
 </template>
+
 <style>
 .d-flex {
   list-style: none;

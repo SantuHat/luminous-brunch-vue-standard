@@ -102,6 +102,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import Modal from 'bootstrap/js/dist/modal'
 const { VITE_API, VITE_PATH } = import.meta.env
