@@ -117,7 +117,7 @@ export default {
       if (rect.top < windowHeight && rect.bottom >= 0 && rect.left < windowWidth && rect.right >= 0) {
         element.style.opacity = 1
         // 確保滾動事件只觸發一次
-        // window.removeEventListener('scroll', this.handleScroll)
+        window.removeEventListener('scroll', this.handleScroll)
       } else {
         element.style.opacity = 0
       }
