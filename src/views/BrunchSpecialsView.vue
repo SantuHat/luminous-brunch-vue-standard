@@ -407,6 +407,7 @@ justify-content-center justify-content-lg-between p-lg-4 p-1">
 
 <FooterView />
 </template>
+
 <script>
 import FooterView from '@/components/FooterView.vue'
 
@@ -453,7 +454,6 @@ export default {
       this.$http.get(`${VITE_API}/api/${VITE_PATH}/products/all`)
         .then((Response) => {
           this.apiData = Object.values(Response.data.products)
-          console.log(this.apiData)
           Object.keys(this.specialsCombo).forEach((item) => {
             this.filter(item)
           })
@@ -469,7 +469,6 @@ export default {
       this.specialsCombo[category] = this.apiData.filter((item) => {
         return keywords.some((keyword) => item.title === keyword)
       })
-      console.log(this.specialsCombo)
     }
   },
   computed: {
@@ -477,6 +476,7 @@ export default {
   }
 }
 </script>
+
 <style>
 .bg-menu {
   background-image: url(index-menu-1.jpg);

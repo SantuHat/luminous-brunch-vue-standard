@@ -125,7 +125,6 @@ export default {
     const { id } = this.$route.params
     this.$http.get(`${VITE_API}api/${VITE_PATH}/product/${id}`)
       .then((res) => {
-        console.log(res)
         this.product = res.data.product
         // 找出目前分類的中文渲染畫面
         this.matchCategory()
@@ -145,7 +144,6 @@ export default {
       const { id } = this.$route.params
       this.$http.get(`${VITE_API}api/${VITE_PATH}/product/${id}`)
         .then((res) => {
-          console.log(res)
           this.product = res.data.product
           // 找出目前分類的中文渲染畫面
           this.matchCategory()
