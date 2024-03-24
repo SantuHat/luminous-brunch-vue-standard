@@ -1,14 +1,14 @@
 <template>
       <div class="container bg-pink font-color-gray-400">
         <div class="row mt-8 mb-8">
-          <div class="col-4">
+          <div class="col-3">
           <NewSidebar/>
           </div>
           <div class="col-8">
-            <div class="font-NotoSerif mb-5">
-                <RouterLink to="/newsmain">
-                <img src="/Keyboard arrow left.png"/>
-                返回列表
+            <div class="font-NotoSerif mb-5 d-flex align-items-center">
+              <RouterLink to="/newsmain" class="d-flex align-items-center mt-4">
+                <img src="/Keyboard arrow left.png" alt="返回列表"/>
+                <span>返回列表</span>
               </RouterLink>
             </div>
             <div class="news-title">
@@ -16,7 +16,7 @@
             </div>
             <br /><br />
             <div class="d-flex justify-content-center news-content-pic">
-              <img src="/celebrate.jpg" width="70%" :style="byStyle"/>
+              <img src="/celebrate.jpg" width="70%" :style="byStyle" alt="刷卡支付享95折"/>
             </div>
             <div class="news-text lh-base d-flex justify-content-center">
               <p>
@@ -28,6 +28,7 @@
         </div>
       </div>
 </template>
+
 <script>
 import NewSidebar from '../components/NewSidebar.vue'
 export default {

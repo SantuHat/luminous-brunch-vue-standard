@@ -28,5 +28,6 @@ module.exports = {
     'vue'
   ],
   rules: {
+    'no-tabs': 'off'
   }
 }

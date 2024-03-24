@@ -14,6 +14,7 @@
     </div>
 </div>
 </template>
+
 <script>
 import { Toast } from 'bootstrap'
 import { mapState, mapActions } from 'pinia'

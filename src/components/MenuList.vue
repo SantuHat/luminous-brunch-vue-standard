@@ -5,11 +5,11 @@
   v-for=" item in this.apiData " :key="item.id"
   class="col-lg-4 col-6 mb-6"
 >
-  <div class="card-menu w-100 h-100 d-flex  flex-column justify-content-between text-center">
+  <RouterLink
+    :to="`/menuDetail/${item.id}`"
+    class="card-menu w-100 h-100 d-flex  flex-column justify-content-between text-center">
       <div class="card-img object-fit">
-        <RouterLink :to="`/menuDetail/${item.id}`">
           <img :src="item.imageUrl" alt="" class="object-fit-cover w-100" title="點擊可以查看餐點詳細資訊">
-        </RouterLink>
       </div>
       <div class="text-primary d-flex flex-column
       justify-content-center justify-content-lg-between p-lg-4 p-1">
@@ -38,7 +38,7 @@
           </span>
         </button>
       </div>
-  </div>
+  </RouterLink>
 </div>
 <AddCartToast ref="addCartToast" :productTemp="productTemp" @deleteCart="delCart"></AddCartToast>
 </template>

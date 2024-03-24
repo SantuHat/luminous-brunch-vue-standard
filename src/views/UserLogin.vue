@@ -66,6 +66,7 @@
         </form>
       </div>
 </template>
+
 <script>
 import { mapActions } from 'pinia'
 import loginStore from '../stores/loginStore'
@@ -100,6 +101,7 @@ export default {
   }
 }
 </script>
+
 <style>
 .login-bg img {
   position: relative;

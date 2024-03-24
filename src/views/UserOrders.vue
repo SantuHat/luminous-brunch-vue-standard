@@ -59,9 +59,9 @@ export default {
 .orderId_hover {
   color: #7e2a03;
   text-decoration: underline;
-  &:hover {
-    color: #EC6933;
-  }
+}
+.orderId_hover:hover {
+  color: #EC6933;
 }
 .overflow-x {
   overflow-x: auto;

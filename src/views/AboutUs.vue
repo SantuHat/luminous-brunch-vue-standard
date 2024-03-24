@@ -1,5 +1,4 @@
 <template>
-
 <section
       class="bg_aboutUs d-flex justify-content-center align-items-center"
     >
@@ -26,7 +25,7 @@
               <img
                 class="w-100 d-block mx-auto img_h_250"
                 src="/2-2.jpg"
-                alt=""
+                alt="我們的理念"
               />
             </div>
             <div class="col-lg-5">
@@ -47,7 +46,7 @@
               <img
                 class="w-100 img_h_250 d-block mx-auto"
                 src="/2-3.jpg"
-                alt=""
+                alt="我們的理念"
               />
             </div>
           </div>
@@ -65,7 +64,7 @@
               <img
                 class="d-block mx-auto"
                 src="/Illustration (2).png"
-                alt=""
+                alt="即時訂餐"
               />
             </div>
             <div class="col-lg-5">
@@ -88,16 +87,16 @@
               <img
                 class="w-100 img_h_250 d-block mx-auto"
                 src="/2-4.jpg"
-                alt=""
+                alt="多元菜單"
               />
             </div>
           </div>
         </div>
       </section>
     </section>
-
 <FooterView/>
 </template>
+
 <script>
 import FooterView from '../components/FooterView.vue'
 
@@ -117,7 +116,7 @@ export default {
       if (rect.top < windowHeight && rect.bottom >= 0 && rect.left < windowWidth && rect.right >= 0) {
         element.style.opacity = 1
         // 確保滾動事件只觸發一次
-        // window.removeEventListener('scroll', this.handleScroll)
+        window.removeEventListener('scroll', this.handleScroll)
       } else {
         element.style.opacity = 0
       }
@@ -127,8 +126,8 @@ export default {
     window.addEventListener('scroll', this.handleScroll)
   }
 }
-
 </script>
+
 <style>
  .element {
   opacity: 0;

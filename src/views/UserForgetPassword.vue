@@ -22,7 +22,7 @@
                   />
                   <button
                     @click="postValidateCode()"
-                    class="btn btn-outline-secondary submitValidateEmail" type="button" id="button-addon2"
+                    class="btn btn-outline-primary submitValidateEmail" type="button" id="button-addon2"
                     :disabled="isPost"
                   >
                     <p class=" fw-bold mb-0">
@@ -102,6 +102,7 @@
         </div>
     </div>
 </template>
+
 <script>
 export default {
   data () {
@@ -129,8 +130,6 @@ export default {
       // 取得所有使用者的帳號
       this.$http.get('https://demo-q3dk.onrender.com/users')
         .then((res) => {
-          console.log(res.data)
-          console.log(this.userEmail, res.data[0])
           this.isPost = true
           this.usersData = res.data
           this.searchUserId()
@@ -142,9 +141,7 @@ export default {
     searchUserId () {
       this.usersData.forEach((item) => {
         if (this.userEmail === item.email) {
-          console.log()
           this.userId = item.id
-          console.log('找到了', this.userId)
         } else {
           console.log('此信箱尚無會員資料，請先註冊帳號')
         }
@@ -158,7 +155,6 @@ export default {
         }
       )
         .then((res) => {
-          console.log(res)
           alert('修改成功')
           this.$router.push('/userlogin')
         })
@@ -172,6 +168,7 @@ export default {
   }
 }
 </script>
+
 <style>
  .login-bg img {
   position: relative;

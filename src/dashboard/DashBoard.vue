@@ -3,6 +3,7 @@
     <ToastMessages></ToastMessages>
     <RouterView />
 </template>
+
 <script>
 import NavBar from '../components/backComponents/NavBar.vue'
 import emitter from '../methods/emitter'

@@ -32,11 +32,11 @@
               <div class="d-flex justify-content-between mb-3">
                   <p>數量</p>
                   <div class="numberCal">
-                      <button class="btn" type="button" @click="editQty--"
+                      <button class="btn btn-primary" type="button" @click="editQty--"
                         :disabled="editQty==1"
                       >–</button>
                       <span class="ms-3 me-3 fw-bold">{{ editQty }}</span>
-                      <button class="btn" type="button" @click="editQty++">+</button>
+                      <button class="btn btn-primary" type="button" @click="editQty++">+</button>
                   </div>
               </div>
               <div class="d-grid gap-2 mb-3">
@@ -53,14 +53,15 @@
                   加入購物車
                 </button>
               </div>
-              <div class="mx-auto d-flex">
+              <!-- 收藏清單按鈕 -->
+              <!-- <div class="mx-auto d-flex">
                   <button type="button" class="btn mx-auto d-flex">
                       <span class="material-symbols-outlined material-symbols-outlined-fill">
                           favorite
                       </span>
                       <span class="ms-3">加入收藏清單</span>
                   </button>
-              </div>
+              </div> -->
           </div>
         </div>
       </div>

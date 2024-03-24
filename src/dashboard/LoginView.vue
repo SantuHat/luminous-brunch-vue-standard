@@ -1,4 +1,3 @@
-<!-- eslint-disable no-tabs -->
 <template>
 	<NavBar></NavBar>
 	<div class="container">
@@ -28,6 +27,7 @@
 		</div>
 	</div>
 </template>
+
 <script>
 import NavBar from '../components/backComponents/NavBar.vue'
 export default {

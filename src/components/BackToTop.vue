@@ -1,9 +1,9 @@
-<!-- eslint-disable vue/no-dupe-keys -->
 <template>
     <a id="toTOP" :style="style" ref="toTOP" @click="scrollToTop"
       ><img src="/Back to top-lg.png" alt="backToTopBtn"
     /></a>
 </template>
+
 <script>
 export default {
   data () {

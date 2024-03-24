@@ -119,6 +119,7 @@
     <!-- swiper+菜單輪播測試 mobile 結束 -->
 </section>
 </template>
+
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation, Autoplay, Pagination } from 'swiper/modules'
@@ -126,7 +127,6 @@ import { Navigation, Autoplay, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import '@/assets/pages/swiper.scss'
 
 export default {
   data () {
@@ -143,6 +143,7 @@ export default {
   }
 }
 </script>
+
 <style>
 </style>
 <!-- :autoplay="{
