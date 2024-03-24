@@ -8,6 +8,10 @@ const routes = [
     component: () => import('../views/FrontView.vue'),
     children: [
       {
+        path: '*',
+        redirect: '/'
+      },
+      {
         path: '',
         name: 'Index',
         component: () => import('../views/HomeView.vue')
