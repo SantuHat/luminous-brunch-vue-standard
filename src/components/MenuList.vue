@@ -5,11 +5,11 @@
   v-for=" item in this.apiData " :key="item.id"
   class="col-lg-4 col-6 mb-6"
 >
-  <div class="card-menu w-100 h-100 d-flex  flex-column justify-content-between text-center">
+  <RouterLink
+    :to="`/menuDetail/${item.id}`"
+    class="card-menu w-100 h-100 d-flex  flex-column justify-content-between text-center">
       <div class="card-img object-fit">
-        <RouterLink :to="`/menuDetail/${item.id}`">
           <img :src="item.imageUrl" alt="" class="object-fit-cover w-100" title="點擊可以查看餐點詳細資訊">
-        </RouterLink>
       </div>
       <div class="text-primary d-flex flex-column
       justify-content-center justify-content-lg-between p-lg-4 p-1">
@@ -38,7 +38,7 @@
           </span>
         </button>
       </div>
-  </div>
+  </RouterLink>
 </div>
 <AddCartToast ref="addCartToast" :productTemp="productTemp" @deleteCart="delCart"></AddCartToast>
 </template>
@@ -86,13 +86,10 @@ export default {
     ...mapActions(cartStore, ['addCart', 'delCart', 'setCartUpdate']),
     getProducts (category = '') {
       // const category = this.$route.query.category
-      console.log(category)
       this.isLoading = true
       axios.get(`${VITE_API}/api/${VITE_PATH}/products?category=${this.$route.query.category}`)
         .then((Response) => {
           this.apiData = Response.data.products
-          console.log(this.carts)
-          console.log(Response)
           this.isLoading = false
         })
         .catch((err) => {
@@ -100,37 +97,6 @@ export default {
           this.isLoading = false
         })
     }
-    // 加入購物車的涵式
-    // addCart (id, item) {
-    //   console.log(id)
-    //   this.productTemp = item
-    //   const url = `${VITE_API}/api/${VITE_PATH}/cart`
-    //   const postData = {
-    //     data: {
-    //       product_id: id,
-    //       qty: 1
-    //     }
-    //   }
-    //   this.$http.post(url, postData)
-    //     .then((res) => {
-    //       console.log(res)
-    //       console.log(res.data.data)
-    //       this.cartProductId = res.data.data.id
-    //       this.$refs.addCartToast.show()
-    //     })
-    //     .catch((err) => {
-    //       console.log(err)
-    //     })
-    // },
-    // delCart (id) {
-    //   const { VITE_API, VITE_PATH } = import.meta.env
-    //   this.$http.delete(`${VITE_API}api/${VITE_PATH}/cart/${this.cartProductId}`)
-    //     .then((res) => {
-    //       console.log(res.data)
-    //       alert('刪除成功！')
-    //       this.getProducts()
-    //     })
-    // }
   }
 }
 </script >

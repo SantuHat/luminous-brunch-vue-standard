@@ -1,6 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
+  // {
+  //   path: '*',
+  //   redirect: '/'
+  // },
   // 前台
   {
     path: '/',

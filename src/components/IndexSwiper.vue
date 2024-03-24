@@ -1,5 +1,5 @@
 <template>
-  <!-- 菜單輪播測試 Swiper PC-->
+<!-- 菜單輪播測試 Swiper PC-->
 <section class="section" id="section-4">
 <div class="indexSwiper position-relative d-none d-lg-block mb-11">
   <div class="menu-border"></div>
@@ -48,9 +48,9 @@
   </RouterLink>
 </div>
 </section>
-  <!-- swiper PC+ 結束 -->
+<!-- swiper PC+ 結束 -->
 
-  <!-- swiper+菜單輪播測試 Mobile -->
+<!-- swiper+菜單輪播測試 Mobile -->
 <section>
     <!-- Swiper -->
   <div class="indexSwiper position-relative d-lg-none mb-7">
@@ -107,13 +107,13 @@
         <h5 class="fs-5 font-Caveat text-light mt-1">Brunch Specials</h5>
       </RouterLink>
       <RouterLink
-        to="/NewMenuItems"
+        to="/menuview/menulist?category=salad"
         class="menu-title-bg position-absolute translate-middle menu-title-bg-news"
       >
         <h3 class="fs-3 fs-md-1 font-NotoSerif text-light fw-bold">
-          最 新 餐 點
+          餐 點 菜 單
         </h3>
-        <h5 class="fs-5 font-Caveat text-light mt-1">New Menu Items</h5>
+        <h5 class="fs-5 font-Caveat text-light mt-1">Menu</h5>
       </RouterLink>
   </div>
     <!-- swiper+菜單輪播測試 mobile 結束 -->
@@ -127,7 +127,6 @@ import { Navigation, Autoplay, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import '@/assets/pages/swiper.scss'
 
 export default {
   data () {
