@@ -1,8 +1,8 @@
 <template>
 <main>
-  <div class="bgimage mb-9" :style="bgStyle">
+  <div class="bgimage mb-9 position" :style="bgStyle">
       <div class="filter"></div>
-      <h3>最新消息/優惠</h3>
+      <div class="absolute"><h3>最新消息/優惠</h3></div>
   </div>
   <div class="news-desktop">
       <div class="list">
@@ -181,6 +181,17 @@ main .bgimage h3 {
   font-family: "Noto Serif TC", 'san-serif';
   color: #461b09;
 }
+@media(max-width: 992px){
+.position{
+  position: absolute;
+}
+@media(max-width: 992px) {
+  .absolute{
+    position: absolute;
+    right: 55px;
+  }
+}
+}
 main .bgimage .new-1 {
   width: 70%;
 }
@@ -243,6 +254,9 @@ main .news-desktop .card-content .card-img-size {
   }
   .news-mobile .card {
     width: 80vw;
+    margin-bottom: 30px;
+    border-block: 2px block;
+    box-shadow: 1px 3px 5px;
   }
 }
 
