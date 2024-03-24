@@ -6,9 +6,9 @@
           </div>
           <div class="col-8">
             <div class="font-NotoSerif mb-5">
-                <RouterLink to="/newsmain">
+                <RouterLink to="/newsmain" class="d-flex">
                 <img src="/Keyboard arrow left.png" alt="返回列表"/>
-                返回列表
+                <div>返回列表</div>
               </RouterLink>
             </div>
             <div class="news-title">
