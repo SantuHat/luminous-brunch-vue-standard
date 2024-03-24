@@ -62,9 +62,9 @@
           <div class="row justify-content-center align-items-center mb-9 py-7">
             <div class="col-lg-5 mb-5">
               <img
-                class="d-block mx-auto"
-                src="/Illustration (2).png"
-                alt="即時訂餐"
+              class="mx-auto d-block w-100 img_h_250"
+                src="/public/christin-hume-mfB1B1s4sMc-unsplash.jpg"
+                alt="即時訂餐class="
               />
             </div>
             <div class="col-lg-5">
