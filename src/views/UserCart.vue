@@ -61,7 +61,6 @@
           <th class="px-lg-6 py-lg-4">單價</th>
           <th class="px-lg-6 py-lg-4">數量</th>
           <th class="px-lg-6 py-lg-4">小計</th>
-          <!-- <th class="px-lg-6 py-lg-4"></th> -->
         </tr>
       </thead>
       <tbody class="position-relative">
@@ -79,13 +78,6 @@
             <button v-if="step === 1" @click="item.qty++; putCart(item.id, item.qty)" class="btn fw-bold" type="button">+</button>
           </th>
           <th class="text-center">NT$ {{ item.total }}</th>
-          <!-- <th>
-            <button v-if="step === 1" @click="delCart(item.id)" type="button" class="btn btn-primary">
-              <span class="material-symbols-outlined pt-1">
-                delete
-              </span>
-            </button>
-          </th> -->
         </tr>
         <tr class="border-top border-gray">
           <td class="p-5 text-center fw-bold" colspan="6">總金額NT$ {{ orderTotal }}</td>
@@ -110,10 +102,10 @@
             <input v-model="userData.data.user.name" type="text" placeholder="姓名" class="bg-transparent py-2 text-center" :class="{'border-0': step === 3}" :disabled="step === 3">
           </th>
           <th class="text-center p-5">
-            <input v-model="userData.data.user.tel" type="text" placeholder="0911345678" class="bg-transparent py-2 text-center" :class="{'border-0': step === 3}" :disabled="step === 3">
+              <input v-model="userData.data.user.tel" type="text" placeholder="0911345678" class="bg-transparent py-2 text-center" :class="{'border-0': step === 3}" :disabled="step === 3">
           </th>
           <th class="text-center p-5">
-            <input v-model="userData.data.user.email" type="text" placeholder="abc@gmail.com" class="bg-transparent py-2 text-center" :class="{'border-0': step === 3}" :disabled="step === 3">
+              <input v-model="userData.data.user.email" type="text" placeholder="abc@gmail.com" class="bg-transparent py-2 text-center" :class="{'border-0': step === 3}" :disabled="step === 3">
           </th>
         </tr>
       </tbody>
@@ -147,8 +139,6 @@ const { VITE_API, VITE_PATH } = import.meta.env
 export default {
   data () {
     return {
-      // cartList: [],
-      // finalTotal: 0,
       totalPrice: 0,
       step: 1,
       isLoading: false,
@@ -200,7 +190,6 @@ export default {
     ...mapState(cartStore, ['carts', 'final_total'])
   },
   mounted () {
-    // this.getCartData()
     this.getOrders()
     this.getCarts()
   }

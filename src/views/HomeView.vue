@@ -28,14 +28,14 @@
               src="/index-banner-comma.png"
               alt="comma"
             />
-            <h1
+            <p
               class="fs-5 fs-md-2 py-3 px-5 py-md-7 px-md-9 font-NotoSerif fw-bold text-primary"
             >
               隨時隨地預約，<br
                 class="d-lg-none"
               />即刻享受我們精心準備的歐式早午餐饗宴。<br />
               將陽光融入每一口滋味
-            </h1>
+            </p>
           </div>
           <RouterLink
             to="/menuview/menulist?category=salad"
