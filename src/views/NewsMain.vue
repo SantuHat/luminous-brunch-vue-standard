@@ -178,7 +178,7 @@ main .bgimage .filter {
 }
 main .bgimage h3 {
   font-size: 3rem;
-  font-family: "Noto Serif TC";
+  font-family: "Noto Serif TC", 'san-serif';
   color: #461b09;
 }
 main .bgimage .new-1 {
@@ -208,7 +208,7 @@ main .news-desktop .list .img-wrapper .news-content {
   padding-right: 3rem;
   padding-left: 3rem;
   margin-bottom: 0px;
-  font-family: "Noto Serif TC";
+  font-family: "Noto Serif TC", 'san-serif';
   color: #693b28;
 }
 main .news-desktop .main-card-img {
@@ -217,7 +217,7 @@ main .news-desktop .main-card-img {
 main .news-desktop .card-content {
   flex-wrap: wrap;
   text-align: center;
-  font-family: "Noto Serif TC";
+  font-family: "Noto Serif TC", 'san-serif';
 }
 main .news-desktop .card-content .card-img-size {
   -o-object-fit: cover;

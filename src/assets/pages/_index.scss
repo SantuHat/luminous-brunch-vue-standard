@@ -1,15 +1,15 @@
 // 字型
 .font-NotoSans {
-  font-family: 'Noto Sans TC';
+  font-family: 'Noto Sans TC', 'san-serif';
 }
 .font-NotoSerif {
-  font-family: 'Noto Serif TC';
+  font-family: 'Noto Serif TC', 'san-serif';
 }
 .font-Caveat {
-  font-family: 'Caveat';
+  font-family: 'Caveat', 'san-serif';
 }
 .font-OpenSans {
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', 'san-serif';
 }
 // .nav.sticky {
 //   position: fixed;
@@ -65,7 +65,7 @@
 .btn_reserve {
   display: block;
   color: $light;
-  font-family: 'Noto Serif TC';
+  font-family: 'Noto Serif TC', 'san-serif';
   background-color: $primary-200;
   border: 1px solid $light;
   max-width: 274px;
