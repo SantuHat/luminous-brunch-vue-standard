@@ -12,7 +12,6 @@ export default defineStore('loginStore', {
     getLogin () {
       const isLogin = localStorage.getItem('isLogin')
       this.isLogin = isLogin === 'true'
-      // console.log('this.isLogin', this.isLogin)
     }
   }
 })

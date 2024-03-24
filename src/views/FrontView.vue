@@ -1,7 +1,5 @@
 <template>
     <div class="home">
-      <!-- <RouterLink to="/">Index</RouterLink> | -->
-      <!-- <RouterLink to="/dashboard">dashboard</RouterLink> -->
       <HeaderView/>
       <RouterView />
     </div>

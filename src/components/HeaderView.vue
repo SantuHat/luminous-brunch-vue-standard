@@ -3,8 +3,10 @@
   <nav class="nav">
     <div class="container-lg d-flex justify-content-between align-items-center py-5">
       <RouterLink to="/">
-        <img class="d-none d-md-block" src="/Logo-lg.png" alt="Logo-lg" />
-        <img class="d-md-none" src="/Logo-sm.png" alt="Logo-sm" />
+        <h1 class="mb-0">
+          <img class="d-none d-md-block" src="/Logo-lg.png" alt="Logo-lg" />
+          <img class="d-md-none" src="/Logo-sm.png" alt="Logo-sm" />
+        </h1>
       </RouterLink>
       <ul class="list-unstyled d-lg-flex mb-0 align-items-center dropdownNavbar bg-light">
         <li class="nav_item border-bottom-1">
@@ -62,7 +64,7 @@
               <h5 v-if="!cartData.length" class="text-center py-3">購物車沒有任何品項~</h5>
               <ul v-else v-for="(item) in cartData" :key="item.id" class="list-unstyled">
                 <div class="dropdown-item d-flex justify-content-between align-items-center" href="#">
-                  <img :src="item.product.imageUrl"  class="rounded me-2 toast-img" alt="...">
+                  <img :src="item.product.imageUrl"  class="rounded me-2 toast-img" alt="product-img">
                     <span>
                       {{ item.product.title }}
                       × {{ item.qty }}
@@ -192,10 +194,7 @@ export default {
   },
   mounted () {
     this.getLogin()
-    // console.log('this.$refs.cartFrame', this.$refs.cartFrame)
     this.cartFrame = new Dropdown(this.$refs.cartFrame)
-    // this.orderFoodOnline = new Dropdown(this.$refs.orderFoodOnline)
-    // console.log(' this.cartFrame', this.cartFrame)
   },
   components: { RouterLink }
 }
