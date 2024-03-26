@@ -156,17 +156,26 @@
                 <div
                   class="dropdown-menu-footer text-center position-relative mb-2"
                 >
+                <template v-if="cartData.length > 0">
                   <span class="cartFinalTotal py-3 px-5 mt-3 d-block fw-bold">
                     總計 NT$ {{ cartTotal }}
                   </span>
                   <button
-                    :disabled="cartData.length === 0"
                     @click="goChecking"
                     type="button"
                     class="checkoutBtn position-absolute btn btn-primary py-3 px-5 mt-3"
                   >
                     前往結帳
                   </button>
+                </template>
+                <RouterLink v-else :to="`/menuview/menulist?category=salad`">
+                  <button
+                    type="button"
+                    class="checkoutBtn btn btn-primary py-3 px-5"
+                  >
+                    前往點餐
+                  </button>
+                </RouterLink>
                 </div>
               </div>
             </li>
@@ -265,10 +274,13 @@ export default {
 <style scoped>
 .dropdow_cart {
   /* width: 100%; */
-  max-width: 500px;
+  min-width: 400px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   &.dropdown-menu{
     left: -200px;
+  }
+  @media (max-width: 992px) {
+    min-width: 100%;
   }
 }
 .dropdown-menu-content {

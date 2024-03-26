@@ -2,11 +2,11 @@
 <div class="container mb-11">
   <LoadingView :active="isLoading" />
   <div class="step-indicator mx-auto mt-5">
-    <div class="step active" id="step1"><span class="fs-4">確認訂單</span></div>
+    <div class="step active" id="step1"><span>確認訂單</span></div>
     <div class="line"></div>
-    <div class="step" :class="{'active': step === 2 || step === 3}" id="step2"><span class="fs-4">填寫資料</span></div>
+    <div class="step" :class="{'active': step === 2 || step === 3}" id="step2"><span>填寫資料</span></div>
     <div class="line"></div>
-    <div class="step" :class="{'active': step === 3}" id="step3"><span class="fs-4">完成訂單</span></div>
+    <div class="step" :class="{'active': step === 3}" id="step3"><span>完成訂單</span></div>
   </div>
 </div>
 <!-- table -->
