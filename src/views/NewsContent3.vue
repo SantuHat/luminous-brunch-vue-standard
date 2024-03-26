@@ -1,7 +1,7 @@
 <template>
       <div class="container bg-pink font-color-gray-400">
         <div class="row mt-8 mb-8">
-          <div class="col-4">
+          <div class="col-3 me-10">
           <NewSidebar/>
           </div>
           <div class="col-8">
