@@ -144,7 +144,15 @@ export default {
 }
 @media (max-width: 992px) {
   .carousel-item {
-    margin-right: 100%;
+    margin-right: 10px;
+    align-items: center;
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+  }
+  .carousel-item > div {
+    flex: 0 0 auto;
+    width: 100%;
+
   }
 }
 
