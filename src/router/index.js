@@ -31,9 +31,16 @@ const routes = [
         component: () => import('../views/NewsMain.vue')
       },
       {
-        path: 'newscontent',
-        name: 'newscontent',
-        component: () => import('../views/NewsContent.vue')
+        path: 'newsContainer',
+        component: () => import('../views/newsContainer.vue'),
+        children: [
+          {
+            path: 'newsContent/:id',
+            components: {
+              articleView: () => import('../views/newsContent.vue')
+            }
+          }
+        ]
       },
       {
         path: 'newscontent2',
@@ -135,6 +142,10 @@ const routes = [
       {
         path: 'coupon',
         component: () => import('../dashboard/CouponView.vue')
+      },
+      {
+        path: 'articles',
+        component: () => import('../dashboard/ArticlesViews.vue')
       }
     ]
   },

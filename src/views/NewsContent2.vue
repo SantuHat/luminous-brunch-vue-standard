@@ -31,9 +31,12 @@
 
 <script>
 import NewSidebar from '../components/NewSidebar.vue'
+const { VITE_API, VITE_PATH } = import.meta.env
+
 export default {
   data () {
     return {
+      articles: [],
       byStyle: {
         transition: 'all 2s ease',
         opacity: '0'
@@ -47,6 +50,20 @@ export default {
     setTimeout(() => {
       this.byStyle.opacity = '1'
     }, 300)
+    this.getArticles()
+  },
+  methods: {
+    getArticles () {
+      const url = `${VITE_API}api/${VITE_PATH}/articles`
+      this.$http.get(url)
+        .then((res) => {
+          this.articles = res.data.articles
+          console.log(this.articles)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
   }
 }
 </script>

@@ -1,0 +1,15 @@
+//流程
+後台:
+1.先登入驗證才可用
+2.getArticles()、postArticles文章()、deleteArticles、putArticles、openModal()、delModal()
+【template】
+(Modal division)
+*    0.建立$refs 綁BS5 modal初始化 
+*    1.v-model 各個API欄位 (data建立一個article物件來裝)
+    2.確認Btn 串接API，post資料
+    3.圖片上傳
+    (Admin Articles View)
+    1.v-for getArticles
+    2.編輯Btn -> 開啟modal
+    3.刪除Btn -> 開啟delmodal
+    前台:看見文章get 
