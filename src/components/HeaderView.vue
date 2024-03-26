@@ -1,11 +1,11 @@
 <template>
   <header class="bg-light box_shadow_bottom sticky-top">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary py-3">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary pb-0">
       <div class="container-fluid d-flex justify-content-between p-lg-3 px-0">
         <RouterLink to="/">
           <h1 class="mb-0">
             <img class="d-none d-md-block" src="/Logo-lg.png" alt="Logo-lg" />
-            <img class="d-md-none" src="/Logo-sm.png" alt="Logo-sm" />
+            <img class="d-md-none smLogo" src="/Logo-sm.png" alt="Logo-sm" />
           </h1>
         </RouterLink>
         <button
@@ -21,7 +21,7 @@
         </button>
         <div class="collapse navbar-collapse flex-lg-grow-0" id="navbar-meun">
           <ul
-            class="navbar-nav mb-2 mb-lg-0 align-items-lg-center"
+            class="navbar-nav mb-lg-0 align-items-lg-center"
           >
             <li class="nav_item border-bottom-1">
               <RouterLink to="/aboutus"
@@ -40,8 +40,6 @@
             <li
               class="nav_item dropdown"
               id="orderFoodOnline"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
               ref="orderFoodOnline"
             >
               <a
@@ -101,14 +99,15 @@
               class="nav_item border-bottom-1 dropdown" ref="cartFrame"
             >
               <a
-                class="py-lg-2 px-1 fw-bold d-block d-flex nav-link dropdown-toggle dropdown-toggle-cart" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                class="py-4 px-5 fw-bold fw-bold d-block d-flex nav-link dropdown-toggle dropdown-toggle-cart" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                 href="javascript:;"
               >
-                <span class="material-symbols-outlined pe-0 px-5">
-                  shopping_cart
+                <span class="me-1">
+                  購物車
                 </span>
                 <span
-                  class=" badge rounded-pill bg-secondary"
+                  v-if="cartData.length > 0"
+                  class="badge rounded-pill bg-secondary"
                 >
                   {{ cartData.length }}
                   <span class="visually-hidden">unread messages</span>
@@ -129,7 +128,7 @@
                     class="list-unstyled"
                   >
                     <div
-                      class="dropdown-item d-flex justify-content-between align-items-center"
+                      class="dropdown-item px-1 d-flex justify-content-between align-items-center"
                       href="#"
                     >
                       <img
@@ -174,18 +173,35 @@
 
             <li
               v-if="isLogin"
+              class="dropdown"
               id="memberCenterItem"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
               ref="memberCenterItem"
             >
               <a
-                class="py-4 px-5 fw-bold position-relative d-block border-bottom-1 d-flex justify-content-between"
+                class="py-4 px-5 fw-bold d-block border-bottom-1 d-flex justify-content-between"
                 href="javascript:;"
-                >會員中心<span class="material-symbols-outlined align-bottom">
-                  arrow_drop_down
-                </span></a
+                data-bs-toggle="dropdown"
               >
+                會員中心<span class="material-symbols-outlined align-bottom">arrow_drop_down</span>
+              </a>
+              <ul
+                v-if="isLogin"
+                class="dropdown-menu dropdownMemberCenter list-unstyled ps-0 py-0"
+                aria-labelledby="memberCenterItem"
+              >
+                <li>
+                  <RouterLink
+                    class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+                    to="/userorders"
+                    >查看訂單資訊</RouterLink>
+                </li>
+                <li @click="logOut">
+                  <RouterLink
+                    class="logOutBtn py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+                    to="/"
+                    >登出</RouterLink>
+                </li>
+              </ul>
             </li>
             <li v-else class="memberLogin">
               <RouterLink
@@ -194,26 +210,6 @@
                 >會員註冊/登入</RouterLink
               >
             </li>
-            <ul
-              v-if="isLogin"
-              class="dropdown-menu dropdownMemberCenter list-unstyled ps-0 py-0"
-              aria-labelledby="memberCenterItem"
-            >
-              <li>
-                <RouterLink
-                  class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
-                  to="/userorders"
-                  >查看訂單資訊</RouterLink
-                >
-              </li>
-              <li @click="logOut">
-                <RouterLink
-                  class="logOutBtn py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
-                  to="/"
-                  >登出</RouterLink
-                >
-              </li>
-            </ul>
           </ul>
         </div>
       </div>
@@ -296,5 +292,18 @@ export default {
 }
 .dropdown-toggle-cart::after {
   display: none;
+}
+.navbar-toggler {
+  border: none;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+.dropdownMemberCenter {
+  left: -20px;
+}
+.smLogo {
+  /* height: 50px; */
+  padding: 0 8px 8px 8px;
 }
 </style>
