@@ -7,8 +7,8 @@
           <form class="login-body-bg row justify-content-center px-4">
               <!-- 忘記密碼 -->
               <div class="login-body" :class="{ 'd-none': !isResetViewClose }">
-                  <h1 class="h3 mb-3 font-weight-normal text-center text-primary">忘記密碼</h1>
-                <label for="inputEmail" class="sr-only mb-1 fw-bold">電子郵件</label>
+                  <h1 class="h3 mb-3 font-weight-normal text-center text-primary">忘記密碼btn-primary</h1>
+                <label for="inputEmail" class="sr-only mb-1 fw-bold">電子郵件secondary</label>
                   <div class="mb-2 input-group">
                   <input
                     v-model="userEmail"
@@ -22,7 +22,7 @@
                   />
                   <button
                     @click="postValidateCode()"
-                    class="btn btn-outline-secondary submitValidateEmail" type="button" id="button-addon2"
+                    class="btn btn-outline-primary submitValidateEmail" type="button" id="button-addon2"
                     :disabled="isPost"
                   >
                     <p class=" fw-bold mb-0">

@@ -7,7 +7,7 @@
       >
         <div class="container-fluid">
           <img
-            class="logoText d-none d-md-block mt-md-9"
+            class="logoText d-none d-md-block mt-md-9 "
             src="/index-banner-logoText.png"
             alt="logoText"
           />
@@ -233,7 +233,7 @@
     <IndexSwiper />
     <!-- swiper+菜單輪播測試 pc -->
     <!-- 顧客評論 start-->
-    <GuestReviews></GuestReviews>
+    <GuestReviews/>
     <!-- 顧客頻論 end -->
     <BackToTop/>
     <FooterView/>
