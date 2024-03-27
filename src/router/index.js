@@ -147,4 +147,12 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+  const element = document.querySelector('#navbar-meun.show')
+  if (element) {
+    element.classList.remove('show')
+  }
+  next()
+})
+
 export default router
