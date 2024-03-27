@@ -117,65 +117,58 @@
                 class="dropdown-menu dropdow_cart bg-pink py-0"
                 aria-labelledby="cartFrame"
               >
-                <div class="dropdown-menu-content" @click.stop>
-                  <h5 v-if="!cartData.length" class="text-center py-3">
-                    購物車沒有任何品項~
-                  </h5>
-                  <ul
-                    v-else
-                    v-for="item in cartData"
-                    :key="item.id"
-                    class="list-unstyled"
-                  >
-                    <div
-                      class="dropdown-item px-1 d-flex justify-content-between align-items-center"
-                      href="#"
-                    >
-                      <img
-                        :src="item.product.imageUrl"
-                        class="rounded toast-img"
-                        alt="product-img"
-                      />
-                      <span>
-                        {{ item.product.title }}
-                        × {{ item.qty }}
-                      </span>
-                      <span> ${{ item.total }} </span>
-                      <button
-                        type="button"
-                        class="btn btn-primary"
-                        @click="delCart(item.id)"
-                      >
-                        <span class="material-symbols-outlined pt-1">
-                          delete
-                        </span>
-                      </button>
-                    </div>
-                  </ul>
+                <div class="empty-data text-center" v-if="cartData.length === 0">
+                  <UserCartEmptyData></UserCartEmptyData>
                 </div>
-                <div
-                  class="dropdown-menu-footer text-center position-relative mb-2"
-                >
-                <template v-if="cartData.length > 0">
-                  <span class="cartFinalTotal py-3 px-5 mt-3 d-block fw-bold">
-                    總計 NT$ {{ cartTotal }}
-                  </span>
-                  <button
-                    @click="goChecking"
-                    type="button"
-                    class="checkoutBtn position-absolute btn btn-primary py-3 px-5 mt-3"
+                <div class="dropdown-menu-wrap" v-else>
+                  <div class="dropdown-menu-content" @click.stop>
+                    <ul
+                      v-for="item in cartData"
+                      :key="item.id"
+                      class="list-unstyled"
+                    >
+                      <div
+                        class="dropdown-item px-1 d-flex justify-content-between align-items-center"
+                        href="#"
+                      >
+                        <img
+                          :src="item.product.imageUrl"
+                          class="rounded toast-img"
+                          alt="product-img"
+                        />
+                        <span>
+                          {{ item.product.title }}
+                          × {{ item.qty }}
+                        </span>
+                        <span> ${{ item.total }} </span>
+                        <button
+                          type="button"
+                          class="btn btn-primary"
+                          @click="delCart(item.id)"
+                        >
+                          <span class="material-symbols-outlined pt-1">
+                            delete
+                          </span>
+                        </button>
+                      </div>
+                    </ul>
+                  </div>
+                  <div
+                    class="dropdown-menu-footer text-center position-relative mb-2"
                   >
-                    前往結帳
-                  </button>
-                </template>
-                <RouterLink v-else :to="`/menuview/menulist?category=salad`">
-                  <button
-                    type="button"
-                    class="checkoutBtn btn btn-primary py-3 px-5"
-                  >
-                    前往點餐
-                  </button>
-                </RouterLink>
+                  <template v-if="cartData.length > 0">
+                    <span class="cartFinalTotal py-3 px-5 mt-3 d-block fw-bold">
+                      總計 NT$ {{ cartTotal }}
+                    </span>
+                    <button
+                      @click="goChecking"
+                      type="button"
+                      class="checkoutBtn position-absolute btn btn-primary py-3 px-5 mt-3"
+                    >
+                      前往結帳
+                    </button>
+                  </template>
+                  </div>
                 </div>
               </div>
             </li>
@@ -233,6 +226,7 @@ import { RouterLink } from 'vue-router'
 import { Dropdown } from 'bootstrap'
 import cartStore from '../stores/cartStore.js'
 import loginStore from '../stores/loginStore'
+import UserCartEmptyData from '../components/UserCartEmptyData.vue'
 
 export default {
   name: 'HeaderView',
@@ -267,7 +261,7 @@ export default {
     this.getLogin()
     this.cartFrame = new Dropdown(this.$refs.cartFrame)
   },
-  components: { RouterLink }
+  components: { RouterLink, UserCartEmptyData }
 }
 </script>
 

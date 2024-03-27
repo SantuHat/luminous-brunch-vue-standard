@@ -13,7 +13,8 @@ export default defineStore('cartStore', {
     },
     // 記錄購物車是否更新
     cartUpdated: false,
-    isAreaLoading: false
+    isAreaLoading: false,
+    isLoading: false
   }),
   actions: {
     // 加入購物車的涵式
@@ -44,10 +45,10 @@ export default defineStore('cartStore', {
     async delCart (id) {
       const { VITE_API, VITE_PATH } = import.meta.env
       try {
-        this.isAreaLoading = true
+        if (this.carts.length > 1) this.isAreaLoading = true
         await axios.delete(`${VITE_API}api/${VITE_PATH}/cart/${id}`)
-          .then((res) => {
-            alert('刪除成功！')
+          .catch(() => {
+            alert('刪除失敗')
           })
         this.getCarts()
         await new Promise(resolve => setTimeout(resolve, 300)) // 等待500毫秒
@@ -57,17 +58,24 @@ export default defineStore('cartStore', {
         this.isAreaLoading = false
       }
     },
-    getCarts () {
-      const url = `${VITE_API}/api/${VITE_PATH}/cart`
-      axios.get(url)
-        .then((res) => {
-          this.carts = res.data.data.carts
-          this.final_total = res.data.data.final_total
-          this.total = res.data.data.total
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+    async getCarts () {
+      if (!this.isAreaLoading || this.carts.length === 0) this.isLoading = true
+      try {
+        const url = `${VITE_API}/api/${VITE_PATH}/cart`
+        await axios.get(url)
+          .then((res) => {
+            this.carts = res.data.data.carts
+            this.final_total = res.data.data.final_total
+            this.total = res.data.data.total
+          }).catch((err) => {
+            console.log(err)
+          })
+        await new Promise(resolve => setTimeout(resolve, 300))
+        this.isLoading = false
+      } catch (err) {
+        console.log(err)
+        this.isLoading = false
+      }
     },
     setCartUpdate () {
       this.cartUpdated = false
@@ -102,6 +110,9 @@ export default defineStore('cartStore', {
         console.log(err)
         this.isAreaLoading = false
       }
+    },
+    setIsLoading (val) {
+      this.isLoading = val
     }
   },
   getters: {

@@ -1,5 +1,6 @@
 <template>
 <div class="container mb-11">
+  <LoadingView :active="isLoading" />
   <div class="step-indicator mx-auto mt-5">
     <div class="step active" id="step1"><span>確認訂單</span></div>
     <div class="line"></div>
@@ -12,8 +13,11 @@
 <h2 v-if="step === 3" class="text-center mb-7">感謝您的訂餐，此筆訂單已成立!</h2>
 <h3 v-if="step === 3" class="text-center mb-7">訂單編號: {{ orderId }}</h3>
 <h3 v-if="step === 2 || step === 3" class="mb-3 mt-12 text-center text-gray-400 font-NotoSerif">訂餐明細</h3>
-<div class="container mt-5 mb-9">
-  <div class="area-loading">
+<div class="container mt-5 mb-9" v-if="carts.length ===0 && step === 1">
+  <UserCartEmptyData></UserCartEmptyData>
+</div>
+<div class="container mt-5 mb-9" v-else>
+    <div class="area-loading">
       <div class="area-loading-wrap" v-if="isAreaLoading">
         <LoadingSpinner></LoadingSpinner>
       </div>
@@ -150,7 +154,10 @@
   </select>
 
   <a v-if="step === 1" href="javascript:;" class="btn_reserve py-3 px-9 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="nextStep(2)">下一步</a>
-  <a v-if="step === 2" href="javascript:;" class="btn_reserve py-3 px-9 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="handleOrderSubmit()">送出訂單</a>
+  <div v-if="step === 2" class="btn-box d-flex">
+    <a href="javascript:;" class="btn_reserve py-3 px-9 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="nextStep(1)">上一步</a>
+    <a class="btn_reserve py-3 px-9 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="handleOrderSubmit()">送出訂單</a>
+  </div>
 
   <div class="d-flex">
     <RouterLink @click="scrollTo" to="/" v-if="step === 3" class="btn_reserve py-3 px-5 py-md-4 px-md-11 mx-auto mt-10 mb-8">回首頁</RouterLink>
@@ -165,6 +172,8 @@ import { mapActions, mapState } from 'pinia'
 import orderStore from '../stores/orderStore'
 import cartStore from '../stores/cartStore'
 import LoadingSpinner from '../components/LoadingSpinner.vue'
+import UserCartEmptyData from '../components/UserCartEmptyData.vue'
+
 const { VITE_API, VITE_PATH } = import.meta.env
 export default {
   data () {
@@ -187,13 +196,15 @@ export default {
   },
   methods: {
     ...mapActions(orderStore, ['getOrders', 'getOrderItem']),
-    ...mapActions(cartStore, ['getCarts', 'delCart', 'putCart']),
+    ...mapActions(cartStore, ['getCarts', 'delCart', 'putCart', 'setIsLoading']),
     scrollTo () {
       window.scrollTo(0, 0)
     },
     nextStep (val) {
+      this.setIsLoading(true)
       this.step = val
       window.scrollTo(0, 0)
+      setTimeout(() => { this.setIsLoading(false) }, 500)
     },
     postOrder () {
       const url = `${VITE_API}/api/${VITE_PATH}/order`
@@ -216,14 +227,15 @@ export default {
   },
   computed: {
     ...mapState(orderStore, ['userOrders', 'orderItem']),
-    ...mapState(cartStore, ['carts', 'final_total', 'isAreaLoading'])
+    ...mapState(cartStore, ['carts', 'final_total', 'isAreaLoading', 'isLoading'])
   },
   mounted () {
     this.getOrders()
     this.getCarts()
   },
   components: {
-    LoadingSpinner
+    LoadingSpinner,
+    UserCartEmptyData
   }
 }
 </script>
