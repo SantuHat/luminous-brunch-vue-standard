@@ -2,8 +2,8 @@
 import './assets/all.scss'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/css/index.css'
+import VueLoadingOverlay from './components/LoadingView.vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
@@ -15,7 +15,7 @@ const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-app.component('LoadingView', Loading)
+app.component('LoadingView', VueLoadingOverlay)
 app.config.globalProperties.$filters = {
   date,
   currency

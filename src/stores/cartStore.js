@@ -12,7 +12,8 @@ export default defineStore('cartStore', {
       addCartLoading: ''
     },
     // 記錄購物車是否更新
-    cartUpdated: false
+    cartUpdated: false,
+    isAreaLoading: false
   }),
   actions: {
     // 加入購物車的涵式
@@ -40,13 +41,21 @@ export default defineStore('cartStore', {
           console.log(err)
         })
     },
-    delCart (id) {
+    async delCart (id) {
       const { VITE_API, VITE_PATH } = import.meta.env
-      axios.delete(`${VITE_API}api/${VITE_PATH}/cart/${id}`)
-        .then((res) => {
-          alert('刪除成功！')
-          this.getCarts()
-        })
+      try {
+        this.isAreaLoading = true
+        await axios.delete(`${VITE_API}api/${VITE_PATH}/cart/${id}`)
+          .then((res) => {
+            alert('刪除成功！')
+          })
+        this.getCarts()
+        await new Promise(resolve => setTimeout(resolve, 300)) // 等待500毫秒
+        this.isAreaLoading = false
+      } catch (err) {
+        console.log(err)
+        this.isAreaLoading = false
+      }
     },
     getCarts () {
       const url = `${VITE_API}/api/${VITE_PATH}/cart`
@@ -76,20 +85,23 @@ export default defineStore('cartStore', {
           console.log(err)
         })
     },
-    putCart (id, qty) {
-      const putData = {
-        data: {
-          product_id: id,
-          qty
+    async putCart (id, qty) {
+      try {
+        this.isAreaLoading = true
+        const putData = {
+          data: {
+            product_id: id,
+            qty
+          }
         }
+        await axios.put(`${VITE_API}api/${VITE_PATH}/cart/${id}`, putData)
+        this.getCarts()
+        await new Promise(resolve => setTimeout(resolve, 300))
+        this.isAreaLoading = false
+      } catch (err) {
+        console.log(err)
+        this.isAreaLoading = false
       }
-      axios.put(`${VITE_API}api/${VITE_PATH}/cart/${id}`, putData)
-        .then((res) => {
-          this.getCarts()
-        })
-        .catch((err) => {
-          console.log(err)
-        })
     }
   },
   getters: {
