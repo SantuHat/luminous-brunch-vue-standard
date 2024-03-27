@@ -96,53 +96,62 @@
   <!-- 訂餐人資料 -->
   <h3 v-if="step === 2 || step === 3" class="mb-7 mt-10 text-center text-gray-400 font-NotoSerif">訂餐人資料</h3>
   <div class="container border border-gray box-shadow-gray-300 ">
-    <div v-if="step === 2 || step === 3" class="row">
+    <VForm v-if="step === 2 || step === 3" class="row" v-slot="{ errors }" @submit="handleOrderSubmit()">
       <div class="col-md-4 mb-2">
-        <label for="orderName" class="sr-only text-primary py-3"
+        <label for="name" class="sr-only text-primary py-3"
           >姓名</label
         >
-        <input
+        <VField
           type="text"
-          id="orderName"
+          id="name"
+          name="姓名"
           class="form-control w-100"
+          :class="{ 'is-invalid': errors['姓名'] }"
           placeholder="請輸入姓名"
-          required
+          rules="required"
           autofocus
           v-model="userData.data.user.name"
           :disabled="step === 3"
-        />
+        ></VField>
+        <ErrorMessage name="姓名" class="invalid-feedback"></ErrorMessage>
       </div>
       <div class="col-md-4 mb-2">
         <label for="orderTel" class="sr-only text-primary py-3"
           >電話</label
         >
-        <input
+        <VField
           type="text"
           id="orderTel"
+          name="電話"
           class="form-control"
+          :class="{ 'is-invalid': errors['電話'] }"
           placeholder="請輸入電話"
-          required
+          rules="numeric|min:10|max:10"
           autofocus
           v-model="userData.data.user.tel"
           :disabled="step === 3"
-        />
+        ></VField>
+        <ErrorMessage name="電話" class="invalid-feedback"></ErrorMessage>
       </div>
       <div class="col-md-4 mb-3">
         <label for="orderEmail" class="sr-only text-primary py-3"
           >信箱</label
         >
-        <input
+        <VField
           type="email"
-          id="orderEmail"
+          name="email"
+          id="email"
           class="form-control"
+          :class="{ 'is-invalid': errors['email'] }"
           placeholder="abc@gmail.com"
-          required
+          rules="email|required"
           autofocus
           v-model="userData.data.user.email"
           :disabled="step === 3"
-        />
+        ></VField>
+        <ErrorMessage name="email" class="invalid-feedback"></ErrorMessage>
       </div>
-    </div>
+    </VForm>
   </div>
 
   <!-- 付款方式 -->
