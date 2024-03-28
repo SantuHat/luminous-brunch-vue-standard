@@ -27,14 +27,23 @@ const routes = [
         component: () => import('../views/NewsMain.vue')
       },
       {
+        path: 'newscontainer',
+        name: 'newscontainer',
+        component: () => import('../views/NewsContainer.vue'),
+        children: [
+          {
+            path: 'newsarticle/:id',
+            name: 'newsarticle',
+            components: {
+              newsarticle: () => import('../views/NewsContent2.vue')
+            }
+          }
+        ]
+      },
+      {
         path: 'newscontent',
         name: 'newscontent',
         component: () => import('../views/NewsContent.vue')
-      },
-      {
-        path: 'newscontent2',
-        name: 'newscontent2',
-        component: () => import('../views/NewsContent2.vue')
       },
       {
         path: 'newscontent3',
@@ -127,6 +136,10 @@ const routes = [
       {
         path: 'order',
         component: () => import('../dashboard/OrderView.vue')
+      },
+      {
+        path: 'article',
+        component: () => import('../dashboard/ArticlesViews.vue')
       },
       {
         path: 'coupon',

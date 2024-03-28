@@ -130,8 +130,6 @@ export default {
       // 取得所有使用者的帳號
       this.$http.get('https://demo-q3dk.onrender.com/users')
         .then((res) => {
-          console.log(res.data)
-          console.log(this.userEmail, res.data[0])
           this.isPost = true
           this.usersData = res.data
           this.searchUserId()
@@ -143,9 +141,7 @@ export default {
     searchUserId () {
       this.usersData.forEach((item) => {
         if (this.userEmail === item.email) {
-          console.log()
           this.userId = item.id
-          console.log('找到了', this.userId)
         } else {
           console.log('此信箱尚無會員資料，請先註冊帳號')
         }
@@ -159,7 +155,6 @@ export default {
         }
       )
         .then((res) => {
-          console.log(res)
           alert('修改成功')
           this.$router.push('/userlogin')
         })
