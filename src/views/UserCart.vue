@@ -9,10 +9,11 @@
     <div class="step" :class="{'active': step === 3}" id="step3"><span>完成訂單</span></div>
   </div>
 </div>
-<!-- table -->
-<h2 v-if="step === 3" class="text-center mb-7">感謝您的訂餐，此筆訂單已成立!</h2>
-<h3 v-if="step === 3" class="text-center mb-7">訂單編號: {{ orderId }}</h3>
-<h3 v-if="step === 2 || step === 3" class="mb-3 mt-12 text-center text-gray-400 font-NotoSerif">訂餐明細</h3>
+
+<h2 v-if="step === 3" class="text-center mb-7 orderResult">感謝您的訂餐</h2>
+<h2 v-if="step === 3" class="text-center mb-7 orderResult">此筆訂單已成立!</h2>
+<h3 v-if="step === 3" class="text-center mb-7 orderResult">訂單編號: {{ orderId }}</h3>
+<h3 v-if="step === 2 || step === 3" class="mb-3 mt-12 text-center text-gray-400 ">訂餐明細</h3>
 <div class="container mt-5 mb-9" v-if="carts.length ===0 && step === 1">
   <UserCartEmptyData></UserCartEmptyData>
 </div>
@@ -31,7 +32,7 @@
             <th class="px-lg-6 py-lg-4"></th>
           </tr>
         </thead>
-        <tbody class="position-relative" :class="{invisible: isAreaLoading}">
+        <tbody :class="{invisible: isAreaLoading}">
           <tr v-for="(item) in carts" :key="item.product_id">
             <th width="12%">
               <img
@@ -71,7 +72,7 @@
           <th class="px-lg-6 py-lg-4">小計</th>
         </tr>
       </thead>
-      <tbody class="position-relative">
+      <tbody>
         <tr v-for="(item) in orderItem" :key="item.id">
           <th width="12%">
             <img
@@ -93,80 +94,81 @@
       </tbody>
     </table>
 
+    <!-- 付款方式 -->
+    <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 ">付款方式</h3>
+    <select v-if="step === 2 || step === 3" name="" id="" class="bg-transparent p-2 mx-auto d-block rounded" :disabled="step === 3">
+      <option value="請選擇">請選擇</option>
+      <option value="到店取餐付款">到店取餐付款</option>
+      <option value="信用卡">信用卡</option>
+    </select>
   <!-- 訂餐人資料 -->
-  <h3 v-if="step === 2 || step === 3" class="mb-7 mt-10 text-center text-gray-400 font-NotoSerif">訂餐人資料</h3>
-  <div class="container border border-gray box-shadow-gray-300 ">
-    <VForm v-if="step === 2 || step === 3" class="row" v-slot="{ errors }" @submit="handleOrderSubmit()">
-      <div class="col-md-4 mb-2">
-        <label for="name" class="sr-only text-primary py-3"
-          >姓名</label
-        >
-        <VField
-          type="text"
-          id="name"
-          name="姓名"
-          class="form-control w-100"
-          :class="{ 'is-invalid': errors['姓名'] }"
-          placeholder="請輸入姓名"
-          rules="required"
-          autofocus
-          v-model="userData.data.user.name"
-          :disabled="step === 3"
-        ></VField>
-        <ErrorMessage name="姓名" class="invalid-feedback"></ErrorMessage>
+  <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 ">訂餐人資料</h3>
+  <div class="container">
+    <VForm v-if="step === 2 || step === 3" v-slot="{ errors }" @submit="handleOrderSubmit()">
+      <div class="row border border-gray box-shadow-gray-300">
+        <div class="col-md-4 mb-2">
+          <label for="name" class="sr-only text-primary py-3"
+            >姓名</label
+          >
+          <VField
+            type="text"
+            id="name"
+            name="姓名"
+            class="form-control w-100"
+            :class="{ 'is-invalid': errors['姓名'] }"
+            placeholder="請輸入姓名"
+            rules="required"
+            autofocus
+            v-model="userData.data.user.name"
+            :disabled="step === 3"
+          ></VField>
+          <ErrorMessage name="姓名" class="invalid-feedback"></ErrorMessage>
+        </div>
+        <div class="col-md-4 mb-2">
+          <label for="orderTel" class="sr-only text-primary py-3"
+            >電話</label
+          >
+          <VField
+            type="text"
+            id="orderTel"
+            name="電話"
+            class="form-control"
+            :class="{ 'is-invalid': errors['電話'] }"
+            placeholder="請輸入電話"
+            rules="required|numeric|min:10|max:10"
+            autofocus
+            v-model="userData.data.user.tel"
+            :disabled="step === 3"
+          ></VField>
+          <ErrorMessage name="電話" class="invalid-feedback"></ErrorMessage>
+        </div>
+        <div class="col-md-4 mb-4">
+          <label for="orderEmail" class="sr-only text-primary py-3"
+            >信箱</label
+          >
+          <VField
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            :class="{ 'is-invalid': errors['email'] }"
+            placeholder="abc@gmail.com"
+            rules="email|required"
+            autofocus
+            v-model="userData.data.user.email"
+            :disabled="step === 3"
+          ></VField>
+          <ErrorMessage name="email" class="invalid-feedback"></ErrorMessage>
+        </div>
       </div>
-      <div class="col-md-4 mb-2">
-        <label for="orderTel" class="sr-only text-primary py-3"
-          >電話</label
-        >
-        <VField
-          type="text"
-          id="orderTel"
-          name="電話"
-          class="form-control"
-          :class="{ 'is-invalid': errors['電話'] }"
-          placeholder="請輸入電話"
-          rules="numeric|min:10|max:10"
-          autofocus
-          v-model="userData.data.user.tel"
-          :disabled="step === 3"
-        ></VField>
-        <ErrorMessage name="電話" class="invalid-feedback"></ErrorMessage>
-      </div>
-      <div class="col-md-4 mb-3">
-        <label for="orderEmail" class="sr-only text-primary py-3"
-          >信箱</label
-        >
-        <VField
-          type="email"
-          name="email"
-          id="email"
-          class="form-control"
-          :class="{ 'is-invalid': errors['email'] }"
-          placeholder="abc@gmail.com"
-          rules="email|required"
-          autofocus
-          v-model="userData.data.user.email"
-          :disabled="step === 3"
-        ></VField>
-        <ErrorMessage name="email" class="invalid-feedback"></ErrorMessage>
+      <div v-if="step === 2" class="btn-box d-flex">
+        <a href="javascript:;" class="btn_reserve py-3 px-6 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="nextStep(1)">上一步</a>
+        <button class="btn_reserve py-3 px-6 py-md-4 px-md-11 mx-auto mt-10 mb-8">送出訂單</button>
       </div>
     </VForm>
   </div>
 
-  <!-- 付款方式 -->
-  <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 font-NotoSerif">付款方式</h3>
-  <select v-if="step === 2 || step === 3" name="" id="" class="bg-transparent p-2 mx-auto d-block rounded" :disabled="step === 3">
-    <option value="請選擇">請選擇</option>
-    <option value="到店取餐付款">到店取餐付款</option>
-    <option value="信用卡">信用卡</option>
-  </select>
-
   <a v-if="step === 1" href="javascript:;" class="btn_reserve py-3 px-9 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="nextStep(2)">下一步</a>
-  <div v-if="step === 2" class="btn-box d-flex">
-    <a href="javascript:;" class="btn_reserve py-3 px-9 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="nextStep(1)">上一步</a>
-    <a class="btn_reserve py-3 px-9 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="handleOrderSubmit()">送出訂單</a>
-  </div>
 
   <div class="d-flex">
     <RouterLink @click="scrollTo" to="/" v-if="step === 3" class="btn_reserve py-3 px-5 py-md-4 px-md-11 mx-auto mt-10 mb-8">回首頁</RouterLink>
@@ -356,5 +358,13 @@ button[disabled] {
 .delBtn {
   font-size: 16px;
   padding: 4px;
+}
+.form-control:disabled {
+  background-color:inherit
+}
+.orderResult {
+  @media(max-width: 992px){
+    font-size: 20px;
+  }
 }
 </style>
