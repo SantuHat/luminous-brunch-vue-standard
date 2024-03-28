@@ -17,7 +17,7 @@
             <router-link to="/dashboard/coupon" class="nav-link text-white">優惠券</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/dashboard/articles" class="nav-link text-white">文章</router-link>
+            <router-link to="/dashboard/article" class="nav-link text-white">文章</router-link>
           </li>
           <li class="nav-item">
             <a href="#" @click.prevent="logout" class="nav-link text-white">登出</a>

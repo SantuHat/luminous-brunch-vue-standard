@@ -1,5 +1,5 @@
 <template>
-  <!-- <LoadIng :active="isLoading"></LoadIng> -->
+<LoadingView :active="isLoading"></LoadingView>
 <div class="container-fluid">
     <div class="text-end me-3 mt-4">
       <button class="btn btn-primary" type="button" @click="openModal(true)">新增文章</button>
@@ -43,13 +43,14 @@
   </table>
 </div>
 <delModal
+  ref="delModal"
   :item="article"
-  :tempArticle="article"
+  @del-item="delArticle"
 ></delModal>
 <ArticleModal
   ref="ArticleModal"
   :tempArticle="article"
-  :status="isNew"
+  @update-article="updateArticle"
 >
 </ArticleModal>
 </template>
@@ -67,7 +68,7 @@ export default {
     return {
       articles: [],
       article: {},
-      isNew: '',
+      isNew: false,
       isLoading: false
     }
   },
@@ -78,30 +79,64 @@ export default {
   },
   methods: {
     getArticles () {
+      this.isLoading = true
       this.$http.get(`${VITE_API}api/${VITE_PATH}/admin/articles`)
         .then((res) => {
           console.log(res)
           this.articles = res.data.articles
+          this.isLoading = false
           console.log(this.articles)
         })
         .catch((err) => {
           console.log(err)
         })
     },
-    openDelModal (item) {
-      const url = `${VITE_API}api/${VITE_PATH}/admin/product/${item.id}`
+    updateArticle (editArticle) {
+      this.editArticle.create_at = new Date().getTime()
+      const url = `${VITE_API}api/${VITE_PATH}/admin/article`
+      const postData = { data: editArticle }
+      if (this.isNew) {
+        this.$http.post(url, postData)
+          .then((res) => {
+            this.$refs.ArticleModal.hideModal()
+            alert(res.data.message)
+            this.getArticles()
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      } else {
+        console.log(this.editArticle)
+        this.$http.put(`${url}/${this.editArticle.id}`, postData)
+          .then((res) => {
+            console.log(res)
+            this.$refs.ArticleModal.hideModal()
+            this.getArticles()
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      }
+    },
+    delArticle () {
+      const url = `${VITE_API}api/${VITE_PATH}/admin/article/${this.article.id}`
       this.$http.delete(url)
-        .then(() => {
-          this.getProducts()
-          const delComponent = this.$refs.delModal
-          delComponent.hideModal()
+        .then((res) => {
+          console.log(res)
+          this.$refs.delModal.hideModal()
+          this.getArticles()
         })
+    },
+    openDelModal (item) {
+      this.article = { ...item }
+      this.$refs.delModal.showModal()
     },
     openModal (isNew, item) {
       if (isNew) {
         this.article = {}
       } else {
         this.article = { ...item }
+        console.log(this.article)
       }
       this.isNew = isNew
       this.$refs.ArticleModal.showModal()

@@ -1,10 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
-  // {
-  //   path: '*',
-  //   redirect: '/'
-  // },
   // 前台
   {
     path: '/',
@@ -31,21 +27,23 @@ const routes = [
         component: () => import('../views/NewsMain.vue')
       },
       {
-        path: 'newsContainer',
-        component: () => import('../views/newsContainer.vue'),
+        path: 'newscontainer',
+        name: 'newscontainer',
+        component: () => import('../views/NewsContainer.vue'),
         children: [
           {
-            path: 'newsContent/:id',
+            path: 'newsarticle/:id',
+            name: 'newsarticle',
             components: {
-              articleView: () => import('../views/newsContent.vue')
+              newsarticle: () => import('../views/NewsContent2.vue')
             }
           }
         ]
       },
       {
-        path: 'newscontent2',
-        name: 'newscontent2',
-        component: () => import('../views/NewsContent2.vue')
+        path: 'newscontent',
+        name: 'newscontent',
+        component: () => import('../views/NewsContent.vue')
       },
       {
         path: 'newscontent3',
@@ -140,12 +138,12 @@ const routes = [
         component: () => import('../dashboard/OrderView.vue')
       },
       {
-        path: 'coupon',
-        component: () => import('../dashboard/CouponView.vue')
+        path: 'article',
+        component: () => import('../dashboard/ArticlesViews.vue')
       },
       {
-        path: 'articles',
-        component: () => import('../dashboard/ArticlesViews.vue')
+        path: 'coupon',
+        component: () => import('../dashboard/CouponView.vue')
       }
     ]
   },
