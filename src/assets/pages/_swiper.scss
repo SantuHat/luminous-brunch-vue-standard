@@ -33,7 +33,7 @@
         padding: 24px 48px;
         line-height: 120%;
         overflow: hidden;
-        z-index: 4000;
+        z-index: 1000;
         &:hover {
           background: rgba(3, 0, 0, 0.5);
           backdrop-filter: blur(2px);
@@ -66,7 +66,7 @@
         position: absolute;
         width: 97%;
         height: 90%;
-        z-index: 4000;
+        z-index: 1000;
         top: 2.5%;
         bottom: 2.5%;
         left: 2%;
