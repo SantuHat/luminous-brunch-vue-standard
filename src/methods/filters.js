@@ -7,3 +7,8 @@ export function date (time) {
   const localDate = new Date(time * 1000)
   return localDate.toLocaleDateString()
 }
+
+export function mounted (index) {
+  const localDate = new Date(index / 1000)
+  return localDate.toLocaleDateString()
+}
