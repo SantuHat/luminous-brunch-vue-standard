@@ -82,10 +82,9 @@ export default {
       this.isLoading = true
       this.$http.get(`${VITE_API}api/${VITE_PATH}/admin/articles`)
         .then((res) => {
-          console.log(res)
+          // console.log(res)
           this.articles = res.data.articles
           this.isLoading = false
-          console.log(this.articles)
         })
         .catch((err) => {
           console.log(err)
@@ -106,10 +105,9 @@ export default {
             console.log(err)
           })
       } else {
-        console.log(this.editArticle)
         this.$http.put(`${url}/${this.editArticle.id}`, postData)
           .then((res) => {
-            console.log(res)
+            // console.log(res)
             this.$refs.ArticleModal.hideModal()
             this.getArticles()
           })
@@ -122,7 +120,7 @@ export default {
       const url = `${VITE_API}api/${VITE_PATH}/admin/article/${this.article.id}`
       this.$http.delete(url)
         .then((res) => {
-          console.log(res)
+          // console.log(res)
           this.$refs.delModal.hideModal()
           this.getArticles()
         })
@@ -136,7 +134,6 @@ export default {
         this.article = {}
       } else {
         this.article = { ...item }
-        console.log(this.article)
       }
       this.isNew = isNew
       this.$refs.ArticleModal.showModal()

@@ -79,7 +79,7 @@
           <div class="card-body">
           <h5 class="card-title">每日精選美味套餐優惠</h5>
           <p class="card-text">活動期間:2024/01/10-2024/12/15</p>
-          <RouterLink to="/newscontent" class="btn btn-primary">
+          <RouterLink to="/newscontainer/newsarticle/page" class="btn btn-primary">
           了解更多
           </RouterLink>
           </div>
@@ -93,7 +93,7 @@
           <div class="card-body">
           <h5 class="card-title">刷卡支付享95折優惠</h5>
           <p class="card-text">活動期間:2024/01/10-2024/12/15</p>
-          <RouterLink to="/newscontent2" class="btn btn-primary">
+          <RouterLink to="/newscontainer/newsarticle/page" class="btn btn-primary">
           了解更多
           </RouterLink>
           </div>
@@ -107,7 +107,7 @@
           <div class="card-body">
           <h5 class="card-title">外帶早餐經典組合享9折優惠</h5>
           <p class="card-text">活動期間:2024/01/10-2024/12/15</p>
-          <RouterLink to="/newscontent3" class="btn btn-primary">
+          <RouterLink to="/newscontainer/newsarticle/page" class="btn btn-primary">
           了解更多
           </RouterLink>
           </div>
@@ -121,7 +121,7 @@
           <div class="card-body">
           <h5 class="card-title">歡慶冬季耶誕 特色餐點新上市</h5>
           <p class="card-text">活動期間:2024/11/10-2024/12/24</p>
-          <RouterLink to="/newscontent4" class="btn btn-primary">
+          <RouterLink to="/newscontainer/newsarticle/page" class="btn btn-primary">
           了解更多
           </RouterLink>
           </div>

@@ -136,7 +136,6 @@ export default {
       this.articleModal.show()
     },
     hideModal () {
-      console.log('hide')
       this.articleModal.hide()
     }
   },

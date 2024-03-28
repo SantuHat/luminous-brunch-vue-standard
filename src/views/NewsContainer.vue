@@ -74,7 +74,6 @@ export default {
   methods: {
     getArticleId (item) {
       this.tempArticle = item
-      console.log(this.$route)
     },
     getArticles () {
       this.isLoading = true

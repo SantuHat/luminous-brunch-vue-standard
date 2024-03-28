@@ -139,16 +139,14 @@ export default {
       if (this.status) {
         this.$http.post(url, postData)
           .then((res) => {
-            console.log(res)
           })
           .catch((err) => {
             console.log(err)
           })
       } else {
-        console.log(this.editArticle)
         this.$http.put(`${url}/${this.editArticle.id}`, postData)
           .then((res) => {
-            console.log(res)
+            // console.log(res)
           })
           .catch((err) => {
             console.log(err)
