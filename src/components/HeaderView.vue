@@ -114,7 +114,7 @@
                 </span>
               </a>
               <div
-                class="dropdown-menu dropdow_cart bg-pink py-0"
+                class="dropdown-menu dropdow_cart bg-pink py-0 position"
                 aria-labelledby="cartFrame"
               >
                 <div class="empty-data text-center" v-if="cartData.length === 0">
@@ -274,6 +274,12 @@ export default {
 .dropdown-menu-content {
   height: 320px;
   overflow-y: auto;
+}
+.position{
+  position: fixed;
+  right: 10px;
+  top: auto;
+  left: auto;
 }
 .dropdown-menu-content::-webkit-scrollbar {
   display: none;
