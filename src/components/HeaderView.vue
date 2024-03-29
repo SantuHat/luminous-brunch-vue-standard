@@ -276,7 +276,7 @@ export default {
   overflow-y: auto;
 }
 .position{
-  position: fixed;
+  position: fixed!important;
   right: 10px;
   top: auto;
   left: auto;
