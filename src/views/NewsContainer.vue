@@ -93,48 +93,45 @@ export default {
 </script>
 
   <style>
-  .row {
-      .col-4 {
-        .list-group {
-          text-align: center;
-          font-family: 'Noto Serif TC', 'san-serif';
-          font-size: 3vmin;
-          .list-title {
-            font-weight: bold;
-            font-size: 4vmin;
-          }
-        }
-      }
-      .col-8 {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        flex-direction: column;
-        align-content: center;
-        .return-to-list {
-          font-size: 1vw;
-        }
-        .news-title {
-          border-radius: 1vw;
-          text-align: center;
-          font-family: 'Noto Serif TC', 'san-serif';
-          padding: 1vmin;
-          background-color: #fdf8f4;
-          font-weight: bold;
-          font-size: 4vmin;
-          padding-top: 1vh;
-          padding-bottom: 0vh;
-        }
-        .news-text {
-          margin: 1vh;
-          padding-top: 3vh;
-          font-family: 'Noto Serif TC', 'san-serif';
-          font-size: 16px;
-        }
-        .news-content-pic {
-          align-items: center;
-          object-fit: cover;
-        }
-      }
-    }
+.row .col-4 .list-group {
+  text-align: center;
+  font-family: "Noto Serif TC", "san-serif";
+  font-size: 3vmin;
+}
+.row .col-4 .list-group .list-title {
+  font-weight: bold;
+  font-size: 4vmin;
+}
+.row .col-8 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+}
+.row .col-8 .return-to-list {
+  font-size: 1vw;
+}
+.row .col-8 .news-title {
+  border-radius: 1vw;
+  text-align: center;
+  font-family: "Noto Serif TC", "san-serif";
+  padding: 1vmin;
+  background-color: #fdf8f4;
+  font-weight: bold;
+  font-size: 4vmin;
+  padding-top: 1vh;
+  padding-bottom: 0vh;
+}
+.row .col-8 .news-text {
+  margin: 1vh;
+  padding-top: 3vh;
+  font-family: "Noto Serif TC", "san-serif";
+  font-size: 16px;
+}
+.row .col-8 .news-content-pic {
+  align-items: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
   </style>

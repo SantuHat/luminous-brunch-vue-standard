@@ -32,9 +32,9 @@ export default {
   width: 60px;
   height: 60px;
   color: var(--bs-primary);
-  svg {
-    width: 100%;
-    height: 100%;
-  }
+}
+.cart-icon-box-wrap svg {
+  width: 100%;
+  height: 100%;
 }
 </style>
