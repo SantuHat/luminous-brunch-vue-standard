@@ -20,79 +20,10 @@
 <div class="container mt-5 mb-9" v-else>
     <div class="area-loading">
       <div class="area-loading-wrap" v-if="isAreaLoading">
-        <LoadingSpinner></LoadingSpinner>
+        <LoadingSpinner :scale="0.5"></LoadingSpinner>
       </div>
-      <table v-if="step === 1 || step === 2" class="border border-gray box-shadow-gray-300 mx-auto w-100">
-        <thead class="bg-gray text-center">
-          <tr>
-            <th class="px-lg-6 py-lg-4" colspan="2">商品</th>
-            <th class="px-lg-6 py-lg-4">單價</th>
-            <th class="px-lg-6 py-lg-4">數量</th>
-            <th class="px-lg-6 py-lg-4">小計</th>
-            <th class="px-lg-6 py-lg-4"></th>
-          </tr>
-        </thead>
-        <tbody :class="{invisible: isAreaLoading}">
-          <tr v-for="(item) in carts" :key="item.product_id">
-            <th width="12%">
-              <img
-              :src="item.product.imageUrl"
-              class="me-2 toast-img" :alt="item.product.imageUrl">
-            </th>
-            <th>{{ item.product.title }}</th>
-            <th class="text-center" >{{ item.product.price }}</th>
-            <th class="text-center">
-              <button v-if="step === 1" @click="item.qty--; putCart(item.id, item.qty)" class="btn fw-bold" type="button" :disabled="item.qty === 1">–</button>
-              {{ item.qty }}
-              <button v-if="step === 1" @click="item.qty++; putCart(item.id, item.qty)" class="btn fw-bold" type="button">+</button>
-            </th>
-            <th class="text-center">NT$ {{ item.total }}</th>
-            <th>
-              <button v-if="step === 1" @click="delCart(item.id)" type="button" class="btn btn-primary">
-                <span class="material-symbols-outlined pt-1">
-                  delete
-                </span>
-              </button>
-            </th>
-          </tr>
-          <tr :class="{'border-top border-gray': !isAreaLoading}">
-            <td class="p-5 text-center fw-bold" colspan="6">總金額NT$ {{ final_total }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <MealList :step="step" :class="{invisible: isAreaLoading}"></MealList>
     </div>
-
-    <!-- 完成訂單的訂餐明細 orderItem -->
-    <table v-if="step === 3" class="border border-gray box-shadow-gray-300 mx-auto w-100">
-      <thead class="bg-gray text-center">
-        <tr>
-          <th class="px-lg-6 py-lg-4" colspan="2">商品</th>
-          <th class="px-lg-6 py-lg-4">單價</th>
-          <th class="px-lg-6 py-lg-4">數量</th>
-          <th class="px-lg-6 py-lg-4">小計</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(item) in orderItem" :key="item.id">
-          <th width="12%">
-            <img
-              :src="item.product.imageUrl"
-              class="me-2 toast-img" :alt="item.product.imageUrl">
-          </th>
-          <th>{{ item.product.title }}</th>
-          <th class="text-center" >{{ item.product.price }}</th>
-          <th class="text-center">
-            <button v-if="step === 1" @click="item.qty--; putCart(item.id, item.qty)" class="btn fw-bold" type="button" :disabled="item.qty === 1">–</button>
-            {{ item.qty }}
-            <button v-if="step === 1" @click="item.qty++; putCart(item.id, item.qty)" class="btn fw-bold" type="button">+</button>
-          </th>
-          <th class="text-center">NT$ {{ item.total }}</th>
-        </tr>
-        <tr class="border-top border-gray">
-          <td class="p-5 text-center fw-bold" colspan="6">總金額NT$ {{ orderTotal }}</td>
-        </tr>
-      </tbody>
-    </table>
 
     <!-- 付款方式 -->
     <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 ">付款方式</h3>
@@ -105,7 +36,7 @@
   <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 ">訂餐人資料</h3>
   <div class="container">
     <VForm v-if="step === 2 || step === 3" v-slot="{ errors }" @submit="handleOrderSubmit()">
-      <div class="row border border-gray box-shadow-gray-300">
+      <div class="row order-data">
         <div class="col-md-4 mb-2">
           <label for="name" class="sr-only text-primary py-3"
             >姓名</label
@@ -184,6 +115,7 @@ import orderStore from '../stores/orderStore'
 import cartStore from '../stores/cartStore'
 import LoadingSpinner from '../components/LoadingSpinner.vue'
 import UserCartEmptyData from '../components/UserCartEmptyData.vue'
+import MealList from '../components/MealList.vue'
 
 const { VITE_API, VITE_PATH } = import.meta.env
 export default {
@@ -207,7 +139,7 @@ export default {
   },
   methods: {
     ...mapActions(orderStore, ['getOrders', 'getOrderItem']),
-    ...mapActions(cartStore, ['getCarts', 'delCart', 'putCart', 'setIsLoading']),
+    ...mapActions(cartStore, ['getCarts', 'setIsLoading']),
     scrollTo () {
       window.scrollTo(0, 0)
     },
@@ -237,8 +169,8 @@ export default {
     }
   },
   computed: {
-    ...mapState(orderStore, ['userOrders', 'orderItem']),
-    ...mapState(cartStore, ['carts', 'final_total', 'isAreaLoading', 'isLoading'])
+    ...mapState(orderStore, ['userOrders']),
+    ...mapState(cartStore, ['carts', 'isAreaLoading', 'isLoading'])
   },
   mounted () {
     this.getOrders()
@@ -246,7 +178,8 @@ export default {
   },
   components: {
     LoadingSpinner,
-    UserCartEmptyData
+    UserCartEmptyData,
+    MealList
   }
 }
 </script>
@@ -337,8 +270,8 @@ export default {
   font-size: 20px;
 }
 
-.box-shadow-gray-300 {
-  box-shadow: 1px 1px 3px #8B8B8B;
+.order-data {
+  border: 2px solid var(--bs-gray);
 }
 
 .overflow-x {

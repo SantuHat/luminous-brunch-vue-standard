@@ -277,7 +277,7 @@ export default {
 }
 .position{
   position: fixed!important;
-  right: 10px;
+  right: 0px;
   top: auto;
   left: auto;
 }
