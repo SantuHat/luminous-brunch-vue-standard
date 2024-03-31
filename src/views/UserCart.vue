@@ -13,7 +13,7 @@
 <h2 v-if="step === 3" class="text-center mb-7 orderResult">感謝您的訂餐</h2>
 <h2 v-if="step === 3" class="text-center mb-7 orderResult">此筆訂單已成立!</h2>
 <h3 v-if="step === 3" class="text-center mb-7 orderResult">訂單編號: {{ orderId }}</h3>
-<h3 v-if="step === 2 || step === 3" class="mb-3 mt-12 text-center text-gray-400 ">訂餐明細</h3>
+<h3 v-if="step === 2 || step === 3" class="mb-3 mt-12 text-center text-gray-400 orderResult">訂餐明細</h3>
 <div class="container mt-5 mb-9" v-if="carts.length ===0 && step === 1">
   <UserCartEmptyData></UserCartEmptyData>
 </div>
@@ -26,14 +26,14 @@
     </div>
 
     <!-- 付款方式 -->
-    <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 ">付款方式</h3>
+    <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 orderResult">付款方式</h3>
     <select v-if="step === 2 || step === 3" name="" id="" class="bg-transparent p-2 mx-auto d-block rounded" :disabled="step === 3">
       <option value="請選擇">請選擇</option>
       <option value="到店取餐付款">到店取餐付款</option>
       <option value="信用卡">信用卡</option>
     </select>
   <!-- 訂餐人資料 -->
-  <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 ">訂餐人資料</h3>
+  <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 orderResult">訂餐人資料</h3>
   <div class="container">
     <VForm v-if="step === 2 || step === 3" v-slot="{ errors }" @submit="handleOrderSubmit()">
       <div class="row order-data">
@@ -102,7 +102,7 @@
   <a v-if="step === 1" href="javascript:;" class="btn_reserve py-3 px-9 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="nextStep(2)">下一步</a>
 
   <div class="d-flex">
-    <RouterLink @click="scrollTo" to="/" v-if="step === 3" class="btn_reserve py-3 px-5 py-md-4 px-md-11 mx-auto mt-10 mb-8">回首頁</RouterLink>
+    <RouterLink @click="scrollTo" :to="`/menuview/menulist?category=salad`" v-if="step === 3" class="btn_reserve py-3 px-5 py-md-4 px-md-11 mx-auto mt-10 mb-8">繼續購物</RouterLink>
     <RouterLink to="/userorders" v-if="step === 3" class="btn_reserve py-3 px-5 py-md-4 px-md-11 mx-auto mt-10 mb-8">查看我的所有訂單</RouterLink>
   </div>
 </div>
@@ -295,6 +295,7 @@ button[disabled] {
   background-color:inherit
 }
 .orderResult {
+  font-size: 24px;
   @media(max-width: 992px){
     font-size: 20px;
   }
