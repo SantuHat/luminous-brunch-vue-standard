@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row py-7 border-bottom">
       <div class="col-lg-6 d-none d-lg-block">
-          <img :src="product.imageUrl" alt=""
+          <img :src="product.imageUrl" alt="餐點圖片"
           class="menu-detail-img object-fit-cover">
       </div>
       <div class="col-lg-6">
@@ -24,7 +24,7 @@
           <div class="my-3">
               <h2 class="text-primary fw-bolder  font-NotoSerif my-4">{{ product.title }}</h2>
               <div class="d-lg-none mb-4">
-                  <img :src="product.imageUrl" alt=""
+                  <img :src="product.imageUrl" alt="餐點圖片"
                   class="menu-detail-img object-fit-cover">
               </div>
               <p class="mb-4">{{ product.description }}</p>
