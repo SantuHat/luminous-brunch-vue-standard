@@ -69,7 +69,7 @@ class="py-3 text-center text-primary fw-bolder font-NotoSerif mb-auto"
           <div class="card-menu w-100 h-100 d-flex  flex-column justify-content-between text-center">
   <div class="card-img object-fit">
     <RouterLink :to="`/menuDetail/${item.id}`">
-      <img :src="item.imageUrl" alt="" class="object-fit-cover w-100" title="點擊可以查看餐點詳細資訊">
+      <img :src="item.imageUrl" alt="點擊可以查看餐點詳細資訊" class="object-fit-cover w-100" title="點擊可以查看餐點詳細資訊">
     </RouterLink>
   </div>
   <div class="text-primary d-flex flex-column
@@ -170,7 +170,7 @@ class="d-flex justify-content-between align-items-center"
           :to="`/menuDetail/${item.id}`"
           class="card-menu w-100 h-100 d-flex  flex-column justify-content-between text-center">
           <div class="card-img object-fit">
-            <img :src="item.imageUrl" alt="" class="object-fit-cover w-100" title="點擊可以查看餐點詳細資訊">
+            <img :src="item.imageUrl" alt="點擊可以查看餐點詳細資訊" class="object-fit-cover w-100" title="點擊可以查看餐點詳細資訊">
           </div>
           <div class="text-primary d-flex flex-column
           justify-content-center justify-content-lg-between p-lg-4 p-1">
@@ -264,7 +264,7 @@ class="d-flex justify-content-between align-items-center"
         <div class="card-menu w-100 h-100 d-flex  flex-column justify-content-between text-center">
 <div class="card-img object-fit">
   <RouterLink :to="`/menuDetail/${item.id}`">
-    <img :src="item.imageUrl" alt="" class="object-fit-cover w-100" title="點擊可以查看餐點詳細資訊">
+    <img :src="item.imageUrl" alt="點擊可以查看餐點詳細資訊" class="object-fit-cover w-100" title="點擊可以查看餐點詳細資訊">
   </RouterLink>
 </div>
 <div class="text-primary d-flex flex-column
@@ -364,7 +364,7 @@ class="d-flex justify-content-between align-items-center"
         <div class="card-menu w-100 h-100 d-flex  flex-column justify-content-between text-center">
       <div class="card-img object-fit">
         <RouterLink :to="`/menuDetail/${item.id}`">
-          <img :src="item.imageUrl" alt="" class="object-fit-cover w-100" title="點擊可以查看餐點詳細資訊">
+          <img :src="item.imageUrl" alt="點擊可以查看餐點詳細資訊" class="object-fit-cover w-100" title="點擊可以查看餐點詳細資訊">
         </RouterLink>
       </div>
 <div class="text-primary d-flex flex-column
@@ -460,7 +460,7 @@ export default {
           this.isLoading = false
         })
         .catch((err) => {
-          console.log(err)
+          alert(err)
           this.isLoading = false
         })
     },

@@ -26,7 +26,6 @@ export default {
       this.$http.post(url)
         .then(() => {
           // this.getData()
-          console.log('驗證成功')
         })
         .catch(() => {
           this.$router.push('/login')

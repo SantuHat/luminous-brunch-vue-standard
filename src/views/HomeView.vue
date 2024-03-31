@@ -64,35 +64,35 @@
         <ul class="row justify-content-center text-center ps-0 mb-11">
           <div class="col-lg-4">
             <li class="d-flex flex-column mb-3">
-            <img src="/offerService3.png" alt="" />
+            <img src="/offerService3.png" alt="兼具營養及美味的餐點" />
             <h5 class="text-yellow-300 font-NotoSerif">兼具營養及美味的餐點</h5>
           </li>
           </div>
           <div class="col-lg-4">
             <li class="d-flex flex-column mb-3">
             <h5 class="text-yellow-300 font-NotoSerif d-none d-lg-block">明亮寬敞的用餐環境</h5>
-            <img src="/offerService.png" alt="" />
+            <img src="/offerService.png" alt="明亮寬敞的用餐環境" />
             <h5 class="text-yellow-300 font-NotoSerif d-lg-none">明亮寬敞的用餐環境</h5>
           </li>
           </div>
           <div class="col-lg-4">
             <li class="d-flex flex-column mb-3">
-            <img src="/offerService2.png" alt="" />
+            <img src="/offerService2.png" alt="找回迎接生活的動力" />
             <h5 class="text-yellow-300 font-NotoSerif">找回迎接生活的動力</h5>
           </li>
           </div>
         </ul>
         <ul class="offer-mobile  text-center ps-0 d-none">
           <li class="d-flex flex-column mb-3">
-            <img src="/offerService3.png" alt="" />
+            <img src="/offerService3.png" alt="兼具營養及美味的餐點" />
             <h5 class="text-yellow-300 font-NotoSerif">兼具營養及美味的餐點</h5>
           </li>
           <li class="d-flex flex-column mb-3">
-            <img src="/offerService.png" alt="" />
+            <img src="/offerService.png" alt="明亮寬敞的用餐環境" />
             <h5 class="text-yellow-300 font-NotoSerif">明亮寬敞的用餐環境</h5>
           </li>
           <li class="d-flex flex-column mb-3">
-            <img src="/offerService2.png" alt="" />
+            <img src="/offerService2.png" alt="找回迎接生活的動力" />
             <h5 class="text-yellow-300 font-NotoSerif">找回迎接生活的動力</h5>
           </li>
         </ul>
@@ -108,12 +108,12 @@
          >
           <div class="newsPic position-absolute ">
             <div class="position-relative">
-              <img src="/news.png" alt="" class="w-100"/>
+              <img src="/news.png" alt="最新消息" class="w-100"/>
               <div class="position-absolute top-0 start-0">
-                <img class="star2" src="/star2.png" alt="" />
+                <img class="star2" src="/star2.png" alt="star2.png" />
               </div>
               <div class="position-absolute bottom-0 end-0 star-2">
-                <img class="star2" src="/star.png" alt="" />
+                <img class="star2" src="/star.png" alt="star.png" />
               </div>
             </div>
           </div>
@@ -192,7 +192,7 @@
                 <img
                   src="/Illustration.png"
                   width="187px"
-                  alt=""
+                  alt="1. 挑選餐點"
                   class="mx-auto mb-7"
                 />
                 <p class="font-NotoSerif fs-4">1. 挑選餐點</p>
@@ -205,7 +205,7 @@
                 <img
                   src="/Illustration (1).png"
                   width="187px"
-                  alt=""
+                  alt="2. 確認品項"
                   class="mx-auto mb-7"
                 />
                 <p class="font-NotoSerif fs-4">2. 確認品項</p>
@@ -217,7 +217,7 @@
                   src="/Illustration (2).png"
                   width="145px"
                   height="194px"
-                  alt=""
+                  alt="3. 完成訂單"
                   class="mx-auto mb-7"
                 />
                 <p class="font-NotoSerif fs-4">3. 完成訂單</p>

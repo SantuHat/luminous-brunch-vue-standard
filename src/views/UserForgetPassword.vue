@@ -135,7 +135,8 @@ export default {
           this.searchUserId()
         })
         .catch((err) => {
-          console.log(err)
+          // console.log(err)
+          alert(err)
         })
     },
     searchUserId () {
@@ -143,7 +144,7 @@ export default {
         if (this.userEmail === item.email) {
           this.userId = item.id
         } else {
-          console.log('此信箱尚無會員資料，請先註冊帳號')
+          // console.log('此信箱尚無會員資料，請先註冊帳號')
         }
       })
     },
@@ -159,7 +160,7 @@ export default {
           this.$router.push('/userlogin')
         })
         .catch((error) => {
-          console.log(error)
+          alert(error)
         })
     },
     resetPassword () {

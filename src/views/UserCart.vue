@@ -153,14 +153,13 @@ export default {
       const url = `${VITE_API}/api/${VITE_PATH}/order`
       axios.post(url, this.userData)
         .then((res) => {
-          console.log(res)
           this.orderId = res.data.orderId
           this.orderTotal = res.data.total
           this.getCarts()
           this.getOrderItem(this.orderId)
         })
         .catch((err) => {
-          console.log(err)
+          alert(err)
         })
     },
     handleOrderSubmit () {

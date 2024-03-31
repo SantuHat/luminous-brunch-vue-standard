@@ -115,80 +115,59 @@ export default {
   width: 100%;
   border: 2px solid var(--bs-gray);
 }
+
 .meals-content {
   padding-inline-start: 0;
   list-style-type: none;
-  .meals-item-header {
-    background-color: #693b28;
-    color: #fff;
-    padding: 10px;
-    margin: 10px 0;
-  }
-  .meals-item-main {
+}
+.meals-content .meals-item-header {
+  background-color: #693b28;
+  color: #fff;
+  padding: 10px;
+  margin: 10px 0;
+}
+.meals-content .meals-item-main {
   background-color: #f4e9e2;
-    padding: 10px;
-    margin: 10px 0;
-  }
+  padding: 10px;
+  margin: 10px 0;
 }
-.commodity-wrap {
-  .commodity-wrap-content {
-    display: flex;
-    align-items: center;
-    width: 47%;
-    .product-title {
-      width: 70%;
-    }
-    .product-price {
-      width: 30%;
-    }
-  }
-  .commodity-wrap-control {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 41%;
-  }
+
+.commodity-wrap .commodity-wrap-content {
+  display: flex;
+  align-items: center;
+  width: 47%;
 }
-.dropdown-menu {
-  .commodity-wrap-content {
-    flex-direction: column;
-    align-items: flex-start!important;
-    .product-title,.product-price {
-      width: 100%!important;
-    }
-  }
-  .commodity-wrap-control {
-    flex-direction: column;
-  }
-  .product-delete-btn {
-    button {
-      border: none;
-      --bs-btn-padding-x: 0;
-      --bs-btn-padding-y: 0;
-      background-color: transparent;
-      --bs-btn-color: var(--bs-primary);
-    }
-  }
+
+.commodity-wrap .commodity-wrap-content .product-title {
+  width: 70%;
 }
+.commodity-wrap .commodity-wrap-content .product-price {
+  width: 30%;
+}
+.commodity-wrap .commodity-wrap-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 41%;
+}
+
 @media (max-width: 767px) {
   .commodity-wrap-content {
     flex-direction: column;
-    align-items: flex-start!important;
-    .product-title,.product-price {
-      width: 100%!important;
-    }
+    align-items: flex-start !important;
+  }
+  .commodity-wrap-content .product-title, .commodity-wrap-content .product-price {
+    width: 100% !important;
   }
   .commodity-wrap-control {
     flex-direction: column;
   }
-  .product-delete-btn {
-    button {
-      border: none;
-      --bs-btn-padding-x: 0;
-      --bs-btn-padding-y: 0;
-      background-color: transparent;
-      --bs-btn-color: var(--bs-primary);
-    }
+  .product-delete-btn button {
+    border: none;
+    --bs-btn-padding-x: 0;
+    --bs-btn-padding-y: 0;
+    background-color: transparent;
+    --bs-btn-color: var(--bs-primary);
   }
 }
 </style>

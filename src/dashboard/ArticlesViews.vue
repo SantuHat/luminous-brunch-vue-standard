@@ -82,12 +82,11 @@ export default {
       this.isLoading = true
       this.$http.get(`${VITE_API}api/${VITE_PATH}/admin/articles`)
         .then((res) => {
-          // console.log(res)
           this.articles = res.data.articles
           this.isLoading = false
         })
         .catch((err) => {
-          console.log(err)
+          alert(err)
         })
     },
     updateArticle (editArticle) {
@@ -102,17 +101,16 @@ export default {
             this.getArticles()
           })
           .catch((err) => {
-            console.log(err)
+            alert(err)
           })
       } else {
         this.$http.put(`${url}/${this.editArticle.id}`, postData)
           .then((res) => {
-            // console.log(res)
             this.$refs.ArticleModal.hideModal()
             this.getArticles()
           })
           .catch((err) => {
-            console.log(err)
+            alert(err)
           })
       }
     },
@@ -120,7 +118,6 @@ export default {
       const url = `${VITE_API}api/${VITE_PATH}/admin/article/${this.article.id}`
       this.$http.delete(url)
         .then((res) => {
-          // console.log(res)
           this.$refs.delModal.hideModal()
           this.getArticles()
         })
