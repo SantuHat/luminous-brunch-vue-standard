@@ -32,20 +32,17 @@
           </div>
           <div class="commodity-wrap-control">
             <div class="product-qty">
-              <button v-if="step === 1" @click="item.qty--; putCart(item.id, item.qty)" class="btn fw-bold" type="button" :disabled="item.qty === 1">–</button>
-              <span v-if="step === 1">
-                {{ item.qty }}
+              <button v-if="step === 1 || step === null" @click="item.qty--; putCart(item.id, item.qty)" class="btn fw-bold" type="button" :disabled="item.qty === 1">–</button>
+              <span>
+                {{ `${step === 2 || step === 3 ? '×': ''}${item.qty}` }}
               </span>
-              <span v-if="step === 2 || step === 3">
-                × {{ item.qty }}
-              </span>
-              <button v-if="step === 1" @click="item.qty++; putCart(item.id, item.qty)" class="btn fw-bold" type="button">+</button>
+              <button v-if="step === 1 || step === null" @click="item.qty++; putCart(item.id, item.qty)" class="btn fw-bold" type="button">+</button>
             </div>
             <div class="product-subtotal">
               NT$ {{ item.total }}
             </div>
             <div class="product-delete-btn">
-              <button v-if="step === 1" @click="delCart(item.id)" type="button" class="btn btn-primary">
+              <button v-if="step === 1 || step === null" @click="delCart(item.id)" type="button" class="btn btn-primary">
               <span class="material-symbols-outlined px-2 px-md-0 pt-1">
                 delete
               </span>
@@ -56,7 +53,7 @@
 
       </li>
     </ul>
-    <div class="text-center pb-3">
+    <div class="text-center pb-3" v-if="step">
       <span class="fw-bold">總金額NT$ {{ total }}</span>
     </div>
   </div>
@@ -69,8 +66,16 @@ export default {
   name: 'MealList',
   props: {
     step: {
-      type: Number,
+      type: Number || null,
       default: 1
+    },
+    list: {
+      type: Array,
+      default () { return [] }
+    },
+    total: {
+      type: Number,
+      default: 0
     }
   },
   methods: {
@@ -82,24 +87,24 @@ export default {
   },
   data () {
     return {
-      list: [],
-      isLoading: false,
-      total: 0
+      // list: this.step === 3 ? this.orderItem : this.carts,
+      isLoading: false
+      // total: 0
     }
   },
   watch: {
     // 購物明細
     carts () {
       if (this.step === 1 || this.step === 2) {
-        this.list = this.carts
-        this.total = this.final_total
+        // this.list = this.carts
+        // this.total = this.final_total
       }
     },
     // 訂餐明細
     orderItem () {
       if (this.step === 3) {
-        this.list = this.orderItem
-        this.total = this.orderTotal
+        // this.list = this.orderItem
+        // this.total = this.orderTotal
       }
     }
   }
@@ -142,6 +147,27 @@ export default {
     align-items: center;
     justify-content: space-around;
     width: 41%;
+  }
+}
+.dropdown-menu {
+  .commodity-wrap-content {
+    flex-direction: column;
+    align-items: flex-start!important;
+    .product-title,.product-price {
+      width: 100%!important;
+    }
+  }
+  .commodity-wrap-control {
+    flex-direction: column;
+  }
+  .product-delete-btn {
+    button {
+      border: none;
+      --bs-btn-padding-x: 0;
+      --bs-btn-padding-y: 0;
+      background-color: transparent;
+      --bs-btn-color: var(--bs-primary);
+    }
   }
 }
 @media (max-width: 767px) {

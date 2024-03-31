@@ -96,6 +96,7 @@
               </ul>
             </li>
             <li
+              v-if="routerName !== 'usercart'"
               class="nav_item border-bottom-1 dropdown" ref="cartFrame"
             >
               <a
@@ -122,7 +123,8 @@
                 </div>
                 <div class="dropdown-menu-wrap" v-else>
                   <div class="dropdown-menu-content" @click.stop>
-                    <ul
+                      <MealList :step="null" :list="cartData"></MealList>
+                    <!-- <ul
                       v-for="item in cartData"
                       :key="item.id"
                       class="list-unstyled"
@@ -151,7 +153,7 @@
                           </span>
                         </button>
                       </div>
-                    </ul>
+                    </ul> -->
                   </div>
                   <div
                     class="dropdown-menu-footer text-center position-relative mb-2"
@@ -227,6 +229,7 @@ import { Dropdown } from 'bootstrap'
 import cartStore from '../stores/cartStore.js'
 import loginStore from '../stores/loginStore'
 import UserCartEmptyData from '../components/UserCartEmptyData.vue'
+import MealList from './MealList.vue'
 
 export default {
   name: 'HeaderView',
@@ -235,7 +238,8 @@ export default {
       isMemberActive: false,
       cartFrame: '',
       orderFoodOnline: '',
-      memberCenterItem: ''
+      memberCenterItem: '',
+      routerName: ''
     }
   },
   methods: {
@@ -261,7 +265,12 @@ export default {
     this.getLogin()
     this.cartFrame = new Dropdown(this.$refs.cartFrame)
   },
-  components: { RouterLink, UserCartEmptyData }
+  watch: {
+    $route () {
+      this.routerName = this.$route.name
+    }
+  },
+  components: { RouterLink, UserCartEmptyData, MealList }
 }
 </script>
 

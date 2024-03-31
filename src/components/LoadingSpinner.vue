@@ -1,6 +1,6 @@
 <template>
-  <div class="loadingio-spinner-spin-x56emwocbqb">
-    <div class="ldio-ljewonjwdn9">
+  <div class="loadingio-spinner-spin-x56emwocbqb"  :style="{'width': `${124 * scale}px`, 'height': `${124 * scale}px`}">
+    <div class="ldio-ljewonjwdn9" :style="{'transform':`translateZ(0) scale(${scale})`}">
       <div>
         <div></div>
       </div>
@@ -31,7 +31,13 @@
 </template>
 <script>
 export default {
-  name: 'LoadingSpinner'
+  name: 'LoadingSpinner',
+  props: {
+    scale: {
+      type: Number,
+      default: 1
+    }
+  }
 }
 </script>
 <style>
@@ -43,10 +49,10 @@ export default {
   background-color: var(--bs-body-bg);
   justify-content: center;
   flex-wrap: nowrap;
-}
-.area-loading .area-loading-wrap {
-  position: absolute;
-  z-index: 500;
+  .area-loading-wrap {
+    position: absolute;
+    z-index: 500;
+  }
 }
 
 .vl-overlay .vl-background {

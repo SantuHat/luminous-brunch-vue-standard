@@ -4,7 +4,7 @@
 <h3 class="mb-3 mt-12 text-center text-gray-400 font-NotoSerif">訂餐明細</h3>
 <div class="container mt-5 mb-9">
   <!-- 完成訂單的訂餐明細 orderItem -->
-  <MealList :step="3"></MealList>
+  <MealList :step="3" :list="orderItem" :total="orderTotal"></MealList>
 
   <!-- 訂餐人資料 -->
   <h3 class="mb-7 mt-10 text-center text-gray-400 font-NotoSerif">訂餐人資料</h3>
@@ -46,7 +46,7 @@ export default {
     ...mapActions(orderStore, ['getOrderItem'])
   },
   computed: {
-    ...mapState(orderStore, ['userOrders', 'userData'])
+    ...mapState(orderStore, ['userOrders', 'userData', 'orderItem', 'orderTotal'])
   },
   mounted () {
     this.getOrderItem(this.$route.query.orderId)

@@ -22,7 +22,7 @@
       <div class="area-loading-wrap" v-if="isAreaLoading">
         <LoadingSpinner :scale="0.5"></LoadingSpinner>
       </div>
-      <MealList :step="step" :class="{invisible: isAreaLoading}"></MealList>
+      <MealList :class="{invisible: isAreaLoading}" :step="step" :list="step === 3 ? orderItem : carts" :total="step === 3 ? orderTotal : final_total"></MealList>
     </div>
 
     <!-- 付款方式 -->
@@ -169,8 +169,8 @@ export default {
     }
   },
   computed: {
-    ...mapState(orderStore, ['userOrders']),
-    ...mapState(cartStore, ['carts', 'isAreaLoading', 'isLoading'])
+    ...mapState(orderStore, ['userOrders', 'orderItem', 'orderTotal']),
+    ...mapState(cartStore, ['carts', 'final_total', 'isAreaLoading', 'isLoading'])
   },
   mounted () {
     this.getOrders()
