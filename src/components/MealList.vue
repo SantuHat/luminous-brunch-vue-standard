@@ -32,11 +32,11 @@
           </div>
           <div class="commodity-wrap-control">
             <div class="product-qty">
-              <button v-if="step === 1 || step === null" @click="item.qty--; putCart(item.id, item.qty)" class="btn fw-bold" type="button" :disabled="item.qty === 1">–</button>
-              <span>
+              <button v-if="step === 1 || step === null" @click="item.qty--; putCart(item.id, item.qty)" class="btn btn-primary fw-bold" type="button" :disabled="item.qty === 1">–</button>
+              <span class="mx-3">
                 {{ `${step === 2 || step === 3 ? '×': ''}${item.qty}` }}
               </span>
-              <button v-if="step === 1 || step === null" @click="item.qty++; putCart(item.id, item.qty)" class="btn fw-bold" type="button">+</button>
+              <button v-if="step === 1 || step === null" @click="item.qty++; putCart(item.id, item.qty)" class="btn btn-primary fw-bold" type="button">+</button>
             </div>
             <div class="product-subtotal">
               NT$ {{ item.total }}
@@ -149,6 +149,25 @@ export default {
   align-items: center;
   justify-content: space-around;
   width: 41%;
+}
+.dropdown-menu {
+  .commodity-wrap-content {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+  .commodity-wrap-content .product-title, .commodity-wrap-content .product-price {
+    width: 100% !important;
+  }
+  .commodity-wrap-control {
+    flex-direction: column;
+  }
+  .product-delete-btn button {
+    border: none;
+    --bs-btn-padding-x: 0;
+    --bs-btn-padding-y: 0;
+    background-color: transparent;
+    --bs-btn-color: var(--bs-primary);
+  }
 }
 
 @media (max-width: 767px) {

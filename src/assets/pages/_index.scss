@@ -31,7 +31,8 @@
 // banner start
 .banner {
   background: url('/index-banner-bgImg.png') center;
-  min-height: 800px;
+  // min-height: 800px;
+  height: auto;
   background-size: cover;
 
   @media (max-width: 767px) {
@@ -84,7 +85,7 @@
 }
 .desktop_arrow {
   position: absolute;
-  bottom: -18%;
+  bottom: -22%;
   left: 50%;
   transform: translateX(-50%);
 }
