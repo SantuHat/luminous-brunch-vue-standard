@@ -54,6 +54,7 @@
                 <li>
                   <RouterLink
                     class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+                    :class="{'selected': this.category ==='salad'}"
                     :to="`/menuview/menulist?category=salad`"
                     >沙拉系列</RouterLink
                   >
@@ -61,6 +62,7 @@
                 <li>
                   <RouterLink
                     class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+                    :class="{'selected': this.category ==='burger'}"
                     :to="`/menuview/menulist?category=burger`"
                     >漢堡系列</RouterLink
                   >
@@ -68,6 +70,7 @@
                 <li>
                   <RouterLink
                     class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+                    :class="{'selected': this.category ==='sandwich'}"
                     :to="`/menuview/menulist?category=sandwich`"
                     >三明治系列</RouterLink
                   >
@@ -75,6 +78,7 @@
                 <li>
                   <RouterLink
                     class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+                    :class="{'selected': this.category ==='brunch'}"
                     :to="`/menuview/menulist?category=brunch`"
                     >早午餐拼盤</RouterLink
                   >
@@ -82,6 +86,7 @@
                 <li>
                   <RouterLink
                     class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+                    :class="{'selected': this.category ==='pasta'}"
                     :to="`/menuview/menulist?category=pasta`"
                     >義大利麵系列</RouterLink
                   >
@@ -89,6 +94,7 @@
                 <li>
                   <RouterLink
                     class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+                    :class="{'selected': this.category ==='drink'}"
                     :to="`/menuview/menulist?category=drink`"
                     >飲品</RouterLink
                   >
@@ -239,7 +245,8 @@ export default {
       cartFrame: '',
       orderFoodOnline: '',
       memberCenterItem: '',
-      routerName: ''
+      routerName: '',
+      category: ''
     }
   },
   methods: {
@@ -260,13 +267,15 @@ export default {
   },
   created () {
     this.getCarts()
+    this.category = this.$route.query.category
   },
   mounted () {
     this.getLogin()
     this.cartFrame = new Dropdown(this.$refs.cartFrame)
   },
   watch: {
-    $route () {
+    $route (to) {
+      this.category = to.query.category
       this.routerName = this.$route.name
     }
   },

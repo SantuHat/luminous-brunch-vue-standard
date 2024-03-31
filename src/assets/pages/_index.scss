@@ -31,21 +31,17 @@
 // banner start
 .banner {
   background: url('/index-banner-bgImg.png') center;
-  // min-height: 800px;
-  height: auto;
+  height: calc(100vh - 96px);
   background-size: cover;
-
+  
   @media (max-width: 767px) {
     background: url('/index-banner-bgImg-mobile.png') center;
-    min-height: 446px;
+    max-height: 518px;
     background-size: cover;
   }
   .logoText {
     max-width: 100%;
     height: 114px;
-    @media (min-width: 993px) {
-      // padding-left: 120px;
-    }
     object-fit: cover;
   }
   &-text {
@@ -85,7 +81,7 @@
 }
 .desktop_arrow {
   position: absolute;
-  bottom: -22%;
+  bottom: -16%;
   left: 50%;
   transform: translateX(-50%);
 }

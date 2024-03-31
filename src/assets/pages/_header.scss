@@ -37,6 +37,10 @@
       background-color: $primary-100;
       color: $white;
     }
+    &.selected {
+      background-color: #8c6250;
+      color: $white;
+    }
   }
 }
 .dropdownMenuRWD {
