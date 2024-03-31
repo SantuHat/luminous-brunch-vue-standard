@@ -92,8 +92,7 @@ export default {
           this.apiData = Response.data.products
           this.isLoading = false
         })
-        .catch((err) => {
-          console.log(err)
+        .catch(() => {
           this.isLoading = false
         })
     }

@@ -75,7 +75,6 @@ export default {
           this.isLoading = false
           this.products = res.data.products
           this.pages = res.data.pagination
-          console.log(res)
         })
     },
     updateProduct () {
@@ -124,7 +123,6 @@ export default {
         })
     },
     openModal (isNew, item) {
-      console.log(isNew, item)
       if (isNew) {
         this.temProduct = {}
       } else {
