@@ -1,14 +1,15 @@
 <template>
 <!-- table -->
-<h3 class="text-center my-7">訂單編號: {{ $route.query.orderId }}</h3>
-<h3 class="mb-3 mt-12 text-center text-gray-400 font-NotoSerif">訂餐明細</h3>
-<div class="container mt-5 mb-9">
+<h3 class="text-center mt-7 mb-2">訂單編號</h3>
+<h3 class="text-center mb-7">{{ $route.query.orderId }}</h3>
+<h3 class="mb-3 mt-12 text-center text-gray-400">訂餐明細</h3>
+<div class="container py-5">
   <!-- 完成訂單的訂餐明細 orderItem -->
   <MealList :step="3" :list="orderItem" :total="orderTotal"></MealList>
 
   <!-- 訂餐人資料 -->
-  <h3 class="mb-7 mt-10 text-center text-gray-400 font-NotoSerif">訂餐人資料</h3>
-  <div class="overflow-x">
+  <h3 class="mb-7 mt-10 text-center text-gray-400">訂餐人資料</h3>
+  <!-- <div class="overflow-x">
     <table class="border border-gray box-shadow-gray-300 mx-auto w-100">
       <thead class="bg-gray text-center">
         <tr>
@@ -31,7 +32,27 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </div> -->
+  <div class="row order-data mb-3">
+        <div class="col-md-4 mb-2">
+          <label for="name" class="sr-only text-primary py-3"
+            >姓名</label
+          >
+          <p>{{ userData.name }}</p>
+        </div>
+        <div class="col-md-4 mb-2">
+          <label for="orderTel" class="sr-only text-primary py-3"
+            >電話</label
+          >
+          <p>{{ userData.tel }}</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <label for="orderEmail" class="sr-only text-primary py-3"
+            >信箱</label
+          >
+          <p>{{ userData.email }}</p>
+        </div>
+      </div>
 
 </div>
 </template>
@@ -154,5 +175,10 @@ export default {
 /* 移除 disabled 按鈕的邊框 */
 button[disabled] {
   border: 0;
+}
+.order-data {
+  border: 2px solid var(--bs-gray);
+  margin-right: 0;
+  margin-left: 0;
 }
 </style>

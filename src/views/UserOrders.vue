@@ -1,8 +1,8 @@
 <template>
   <LoadingView :active="isLoading" />
-  <div class="container mb-5">
+  <div class="container py-5">
     <h2 class="text-center my-5">訂單資訊</h2>
-    <div class="overflow-x">
+    <!-- <div class="overflow-x">
       <table class="border border-gray box-shadow-gray-300 mx-auto w-100">
         <thead class="bg-gray text-center">
           <tr>
@@ -10,8 +10,6 @@
             <th class="px-lg-6 py-lg-4">訂單日期</th>
             <th class="px-lg-6 py-lg-4">付款狀態</th>
             <th class="px-lg-6 py-lg-4">訂單金額</th>
-            <!-- <th class="px-lg-6 py-lg-4">訂單狀態</th> -->
-            <!-- <th class="px-lg-6 py-lg-4"></th> -->
           </tr>
         </thead>
         <tbody class="position-relative">
@@ -23,17 +21,38 @@
               {{ item.is_paid ? '已付款' : '未付款' }}
             </th>
             <th class="text-center">NT$ {{ item.total }}</th>
-            <!-- <th class="text-center">{{  }}</th> -->
-            <!-- <th class="py-4">
-              <button type="button" class="btn btn-primary">
-                <span class="p-2">
-                  取消訂單
-                </span>
-              </button>
-            </th> -->
           </tr>
         </tbody>
       </table>
+    </div> -->
+
+    <div class="px-2">
+      <template v-for="(item) in userOrders" :key="item.id">
+        <div class="row text-center border border-2 border-gray mb-3">
+          <div class="col-lg-3 px-0">
+            <p class="py-1  p-lg-3 fw-bold mb-0">訂單編號</p>
+            <p class="py-lg-4">
+              <RouterLink class="orderId_hover" :to="`/userorderveiw?orderId=${item.id}`">{{ item.id }}</RouterLink>
+            </p>
+          </div>
+          <div class="col-lg-3 px-0">
+            <p class="py-1  p-lg-3 fw-bold mb-0">訂單日期</p>
+            <p class="py-lg-4">
+              {{ new Date(item.create_at * 1000).toLocaleString() }}
+            </p>
+          </div>
+          <div class="col-lg-3 px-0">
+            <p class="py-1  p-lg-3 fw-bold mb-0">付款狀態</p>
+            <p class="py-lg-4">
+              {{ item.is_paid ? '已付款' : '未付款' }}
+            </p>
+          </div>
+          <div class="col-lg-3 px-0">
+            <p class="py-1  p-lg-3 fw-bold mb-0">訂單金額</p>
+            <p class="py-lg-4">NT$ {{ item.total }}</p>
+          </div>
+        </div>
+      </template>
     </div>
   </div>
 </template>
@@ -63,10 +82,11 @@ export default {
 .orderId_hover:hover {
   color: #EC6933;
 }
-.overflow-x {
+/* .overflow-x {
   overflow-x: auto;
 }
 .overflow-x::-webkit-scrollbar {
   display: none;
-}
+} */
+
 </style>
