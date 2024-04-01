@@ -109,7 +109,7 @@
                 class="py-4 px-5 fw-bold fw-bold d-block d-flex nav-link dropdown-toggle dropdown-toggle-cart" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                 href="javascript:;"
               >
-                <span class="me-1">
+                <span class="me-1 text-primary">
                   購物車
                 </span>
                 <span

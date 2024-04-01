@@ -135,7 +135,6 @@ export default {
           this.searchUserId()
         })
         .catch((err) => {
-          // console.log(err)
           alert(err)
         })
     },
@@ -143,8 +142,6 @@ export default {
       this.usersData.forEach((item) => {
         if (this.userEmail === item.email) {
           this.userId = item.id
-        } else {
-          // console.log('此信箱尚無會員資料，請先註冊帳號')
         }
       })
     },

@@ -39,7 +39,7 @@ export default defineStore('cartStore', {
           this.cartUpdated = true
         })
         .catch((err) => {
-          console.log(err)
+          alert(err)
         })
     },
     async delCart (id) {
@@ -54,7 +54,7 @@ export default defineStore('cartStore', {
         await new Promise(resolve => setTimeout(resolve, 300)) // 等待500毫秒
         this.isAreaLoading = false
       } catch (err) {
-        console.log(err)
+        alert(err)
         this.isAreaLoading = false
       }
     },
@@ -68,12 +68,12 @@ export default defineStore('cartStore', {
             this.final_total = res.data.data.final_total
             this.total = res.data.data.total
           }).catch((err) => {
-            console.log(err)
+            alert(err)
           })
         await new Promise(resolve => setTimeout(resolve, 300))
         this.isLoading = false
       } catch (err) {
-        console.log(err)
+        alert(err)
         this.isLoading = false
       }
     },
@@ -90,7 +90,7 @@ export default defineStore('cartStore', {
           this.matchCategory()
         })
         .catch((err) => {
-          console.log(err)
+          alert(err)
         })
     },
     async putCart (id, qty) {
@@ -107,7 +107,6 @@ export default defineStore('cartStore', {
         await new Promise(resolve => setTimeout(resolve, 300))
         this.isAreaLoading = false
       } catch (err) {
-        console.log(err)
         this.isAreaLoading = false
       }
     },

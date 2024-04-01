@@ -58,7 +58,6 @@ export default {
       const url = `${VITE_API}api/${VITE_PATH}/article/-NtgZu4xdb6vTZpMSCqd`
       this.$http.get(url)
         .then((res) => {
-          // console.log(res.data)
         })
         .catch((err) => {
           alert(err)
