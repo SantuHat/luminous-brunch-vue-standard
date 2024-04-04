@@ -79,7 +79,6 @@ export default {
           this.isLoading = false
           this.orders = res.data.orders
           this.orderPage = res.data.pagination
-          console.log(res)
         })
     },
     closureModal () {
@@ -109,7 +108,6 @@ export default {
   mounted () {
     const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, '$1')
     this.$http.defaults.headers.common.Authorization = token
-    // console.log(this.orders)
     // this.OrderModal = new bootstrap.Modal(this.$refs.modal);
     // this.orderDel = new bootstrap.Modal(this.$refs.delProductModal);
     this.getOrder()

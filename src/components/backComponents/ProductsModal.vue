@@ -138,7 +138,6 @@ export default {
       const url = `${VITE_API}api/${VITE_PATH}/admin/upload`
       this.$http.post(url, formData)
         .then((res) => {
-          console.log(res.data)
           if (res.data.success) {
             this.temProduct.imageUrl = res.data.imageUrl
           }

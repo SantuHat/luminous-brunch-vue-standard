@@ -35,7 +35,6 @@ export default {
       const api = 'https://vue3-course-api.hexschool.io/v2/logout'
       this.$http.post(api)
         .then((res) => {
-          console.log(res)
           if (res.data.message) {
             this.$router.push('/login')
           }

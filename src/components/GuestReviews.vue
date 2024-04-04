@@ -25,7 +25,7 @@
 												@click.prevent="previousPage"
                       >
                         <span class="visually-hidden">Previous</span>
-                        <img src="/Vector.png" alt="" />
+                        <img src="/Vector.png" alt="上一頁" />
                       </a>
                     </li>
                     <li class="arrow-right" id="next">
@@ -39,7 +39,7 @@
 												@click.prevent="nextPage"
                       >
                         <span class="visually-hidden">Next</span>
-                        <img src="/Vector-right.png" alt="" />
+                        <img src="/Vector-right.png" alt="下一頁" />
                       </a>
                     </li>
                   </ul>
@@ -100,7 +100,7 @@ export default {
         .forEach(i => {
           str += `<div class="card m-6">
             <ul class="d-flex">
-              <li class=""coad-li><img src="${i.img}" alt="#" class="coad-img"></li>
+              <li class=""coad-li><img src="${i.img}" alt="顧客頭貼" class="coad-img"></li>
               <li class=""coad-li><div class="card-name">${i.title}</div></li>
             </ul>
             <div class="card-body">

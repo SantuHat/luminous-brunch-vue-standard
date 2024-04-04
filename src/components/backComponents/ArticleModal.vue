@@ -141,15 +141,14 @@ export default {
           .then((res) => {
           })
           .catch((err) => {
-            console.log(err)
+            alert(err)
           })
       } else {
         this.$http.put(`${url}/${this.editArticle.id}`, postData)
           .then((res) => {
-            // console.log(res)
           })
           .catch((err) => {
-            console.log(err)
+            alert(err)
           })
       }
     },

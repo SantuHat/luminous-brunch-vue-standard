@@ -54,6 +54,7 @@
                 <li>
                   <RouterLink
                     class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+                    :class="{'selected': this.category ==='salad'}"
                     :to="`/menuview/menulist?category=salad`"
                     >沙拉系列</RouterLink
                   >
@@ -61,6 +62,7 @@
                 <li>
                   <RouterLink
                     class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+                    :class="{'selected': this.category ==='burger'}"
                     :to="`/menuview/menulist?category=burger`"
                     >漢堡系列</RouterLink
                   >
@@ -68,6 +70,7 @@
                 <li>
                   <RouterLink
                     class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+                    :class="{'selected': this.category ==='sandwich'}"
                     :to="`/menuview/menulist?category=sandwich`"
                     >三明治系列</RouterLink
                   >
@@ -75,6 +78,7 @@
                 <li>
                   <RouterLink
                     class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+                    :class="{'selected': this.category ==='brunch'}"
                     :to="`/menuview/menulist?category=brunch`"
                     >早午餐拼盤</RouterLink
                   >
@@ -82,6 +86,7 @@
                 <li>
                   <RouterLink
                     class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+                    :class="{'selected': this.category ==='pasta'}"
                     :to="`/menuview/menulist?category=pasta`"
                     >義大利麵系列</RouterLink
                   >
@@ -89,6 +94,7 @@
                 <li>
                   <RouterLink
                     class="py-4 px-9 py-lg-3 px-lg-6 border-bottom-1 fw-500"
+                    :class="{'selected': this.category ==='drink'}"
                     :to="`/menuview/menulist?category=drink`"
                     >飲品</RouterLink
                   >
@@ -96,13 +102,14 @@
               </ul>
             </li>
             <li
+              v-if="routerName !== 'usercart'"
               class="nav_item border-bottom-1 dropdown" ref="cartFrame"
             >
               <a
                 class="py-4 px-5 fw-bold fw-bold d-block d-flex nav-link dropdown-toggle dropdown-toggle-cart" role="button" data-bs-toggle="dropdown" aria-expanded="false"
                 href="javascript:;"
               >
-                <span class="me-1">
+                <span class="me-1 text-primary">
                   購物車
                 </span>
                 <span
@@ -122,7 +129,8 @@
                 </div>
                 <div class="dropdown-menu-wrap" v-else>
                   <div class="dropdown-menu-content" @click.stop>
-                    <ul
+                      <MealList :step="null" :list="cartData"></MealList>
+                    <!-- <ul
                       v-for="item in cartData"
                       :key="item.id"
                       class="list-unstyled"
@@ -151,7 +159,7 @@
                           </span>
                         </button>
                       </div>
-                    </ul>
+                    </ul> -->
                   </div>
                   <div
                     class="dropdown-menu-footer text-center position-relative mb-2"
@@ -227,6 +235,7 @@ import { Dropdown } from 'bootstrap'
 import cartStore from '../stores/cartStore.js'
 import loginStore from '../stores/loginStore'
 import UserCartEmptyData from '../components/UserCartEmptyData.vue'
+import MealList from './MealList.vue'
 
 export default {
   name: 'HeaderView',
@@ -235,7 +244,9 @@ export default {
       isMemberActive: false,
       cartFrame: '',
       orderFoodOnline: '',
-      memberCenterItem: ''
+      memberCenterItem: '',
+      routerName: '',
+      category: ''
     }
   },
   methods: {
@@ -256,12 +267,19 @@ export default {
   },
   created () {
     this.getCarts()
+    this.category = this.$route.query.category
   },
   mounted () {
     this.getLogin()
     this.cartFrame = new Dropdown(this.$refs.cartFrame)
   },
-  components: { RouterLink, UserCartEmptyData }
+  watch: {
+    $route (to) {
+      this.category = to.query.category
+      this.routerName = this.$route.name
+    }
+  },
+  components: { RouterLink, UserCartEmptyData, MealList }
 }
 </script>
 
@@ -277,7 +295,7 @@ export default {
 }
 .position{
   position: fixed!important;
-  right: 10px;
+  right: 0px;
   top: auto;
   left: auto;
 }

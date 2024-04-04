@@ -74,11 +74,9 @@ export default {
           this.isLoading = false
           this.coupon = res.data.coupons
           this.couponPages = res.data.pagination
-          console.log(res)
         })
     },
     upCoupon () {
-      console.log(this.temCoupons)
       const hideModal = this.$refs.CouponModal
       // 新增
       let api = `${VITE_API}api/${VITE_PATH}/admin/coupon`
@@ -90,14 +88,12 @@ export default {
       }
       this.$http[method](api, { data: this.temCoupons })
         .then((res) => {
-          console.log(res)
           this.$httpMessageState(res, '新增優惠券')
           this.getCoupon()
           // this.hideModal();
           hideModal.hideModal()
           this.temProduct = {}
-        }).catch((err) => {
-          console.log(err)
+        }).catch(() => {
         })
     },
     dleProduct () {
@@ -110,7 +106,6 @@ export default {
         })
     },
     openModal (isNew, item) {
-      console.log(isNew, item)
       if (isNew) {
         this.temCoupons = { due_date: new Date().getTime() / 1000 }
       } else {

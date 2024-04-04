@@ -19,7 +19,6 @@ export default {
     showBackToTopButton () {
       if (window.scrollY > 20) {
         this.style = { display: 'block', transition: 'all 2s ease' }
-        // console.log(window.scrollY, this.style)
       } else {
         this.style = { display: 'none' }
       }

@@ -460,7 +460,7 @@ export default {
           this.isLoading = false
         })
         .catch((err) => {
-          console.log(err)
+          alert(err)
           this.isLoading = false
         })
     },

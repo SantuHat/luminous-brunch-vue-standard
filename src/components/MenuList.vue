@@ -9,7 +9,11 @@
     :to="`/menuDetail/${item.id}`"
     class="card-menu w-100 h-100 d-flex  flex-column justify-content-between text-center">
       <div class="card-img object-fit">
+<<<<<<< HEAD
           <img :src="item.imageUrl" alt="item.title" class="object-fit-cover w-100" title="點擊可以查看餐點詳細資訊" >
+=======
+          <img :src="item.imageUrl" alt="點擊可以查看餐點詳細資訊" class="object-fit-cover w-100" title="點擊可以查看餐點詳細資訊">
+>>>>>>> 50afa82de6b2d59eb980aa2758510b009e2c04cf
       </div>
       <div class="text-primary d-flex flex-column
       justify-content-center justify-content-lg-between p-lg-4 p-1">
@@ -92,8 +96,7 @@ export default {
           this.apiData = Response.data.products
           this.isLoading = false
         })
-        .catch((err) => {
-          console.log(err)
+        .catch(() => {
           this.isLoading = false
         })
     }

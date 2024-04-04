@@ -166,7 +166,7 @@ export default {
         this.matchCategory()
       })
       .catch((err) => {
-        console.log(err)
+        alert(err)
       })
   },
   methods: {
@@ -185,7 +185,7 @@ export default {
           this.matchCategory()
         })
         .catch((err) => {
-          console.log(err)
+          alert(err)
         })
     }
   },
