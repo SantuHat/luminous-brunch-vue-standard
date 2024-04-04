@@ -9,7 +9,7 @@
     :to="`/menuDetail/${item.id}`"
     class="card-menu w-100 h-100 d-flex  flex-column justify-content-between text-center">
       <div class="card-img object-fit">
-          <img :src="item.imageUrl" alt="" class="object-fit-cover w-100" title="點擊可以查看餐點詳細資訊">
+          <img :src="item.imageUrl" alt="item.title" class="object-fit-cover w-100" title="點擊可以查看餐點詳細資訊" >
       </div>
       <div class="text-primary d-flex flex-column
       justify-content-center justify-content-lg-between p-lg-4 p-1">

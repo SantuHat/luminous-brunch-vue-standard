@@ -31,7 +31,7 @@
                     v-model="editArticle.image"
                   >
                 </div>
-                <img class="img-fluid" :src="editArticle.image" alt="">
+                <img class="img-fluid" :src="editArticle.image" alt="新增的圖片">
               </div>
               <div class="mb-3">
                 <label for="customFile" class="form-label">或 上傳圖片

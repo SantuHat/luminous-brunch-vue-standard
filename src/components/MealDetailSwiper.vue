@@ -30,7 +30,7 @@
             <RouterLink :to="`/menuDetail/-NpjHP1Y5mG3J8z6treK`"
               class="w-100"
             >
-              <img src="https://github.com/Jenny031054/Luminous-Brunch/blob/main/assets/images/menuImg/baconPasta.jpg?raw=true" alt="" class="menu-img" title="點擊可以查看餐點詳細資訊">
+              <img src="https://github.com/Jenny031054/Luminous-Brunch/blob/main/assets/images/menuImg/baconPasta.jpg?raw=true" alt="松露奶油培根義大利麵" class="menu-img" title="點擊可以查看餐點詳細資訊">
             </RouterLink>
           </div>
           <div class="text-primary d-flex flex-column justify-content-between p-4">
@@ -46,7 +46,7 @@
         <div class="card-menu">
           <div class="card-img object-fit">
             <RouterLink :to="`/menuDetail/-NpjHbjBdGkG68fS1ZN9`">
-              <img src="https://images.unsplash.com/photo-1676037150606-ce6df635189e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="menu-img" title="點擊可以查看餐點詳細資訊">
+              <img src="https://images.unsplash.com/photo-1676037150606-ce6df635189e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="莓果奶酪法式蜂蜜吐司" class="menu-img" title="點擊可以查看餐點詳細資訊">
             </RouterLink>
           </div>
           <div class="text-primary d-flex flex-column justify-content-between p-4">
@@ -62,7 +62,7 @@
         <div class="card-menu">
           <div class="card-img object-fit">
             <RouterLink :to="`/menuDetail/-NpjGZ8uJRhBhOMNlqik`">
-              <img src="https://images.unsplash.com/photo-1607532941433-304659e8198a?q=80&w=1978&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="menu-img" title="點擊可以查看餐點詳細資訊">
+              <img src="https://images.unsplash.com/photo-1607532941433-304659e8198a?q=80&w=1978&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="香煎骰子牛沙拉" class="menu-img" title="點擊可以查看餐點詳細資訊">
             </RouterLink>
           </div>
           <div class="text-primary d-flex flex-column justify-content-between p-4">
@@ -78,7 +78,7 @@
         <div class="card-menu">
           <div class="card-img object-fit">
             <RouterLink :to="`/menuDetail/-NpjGifgW8yTHpszygJd`">
-              <img src="https://images.unsplash.com/photo-1601894087104-0c18bc34dbd6?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="menu-img" title="點擊可以查看餐點詳細資訊">
+              <img src="https://images.unsplash.com/photo-1601894087104-0c18bc34dbd6?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="培根起司太陽蛋漢堡" class="menu-img" title="點擊可以查看餐點詳細資訊">
             </RouterLink>
           </div>
           <div class="text-primary d-flex flex-column justify-content-between p-4">

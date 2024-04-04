@@ -23,13 +23,13 @@
     class="mySwiper"
   >
     <SwiperSlide>
-      <img src="/index-menu-1.jpg" alt="">
+      <img src="/index-menu-1.jpg" alt="首頁菜單輪播1">
     </SwiperSlide>
     <SwiperSlide>
-      <img src="/index-swiper2.jpg" alt="">
+      <img src="/index-swiper2.jpg" alt="首頁菜單輪播2">
     </SwiperSlide>
     <SwiperSlide>
-      <img src="/index-swiper3.jpg" alt="">
+      <img src="/index-swiper3.jpg" alt="首頁菜單輪播3">
     </SwiperSlide>
   </swiper>
   <RouterLink

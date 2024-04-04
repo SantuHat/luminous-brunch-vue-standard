@@ -1,90 +1,100 @@
 <template>
+  <LoadingView :active="isLoading" />
 <main>
   <div class="bgimage mb-9 position" :style="bgStyle">
       <div class="filter"></div>
-      <div class="absolute"><h3>最新消息/優惠</h3></div>
+      <div class="absolute "><h3 class="fw-bold">最新消息/優惠</h3></div>
   </div>
   <div class="news-desktop">
-      <div class="list">
-          <div class="img-wrapper d-flex justify-content-center">
-          <img class="news-pic" src="/newsPic4.jpg" alt="每日精選美味套餐" />
-          <h3 class="news-content">
-              <RouterLink to="/newscontainer/newsarticle/page">
-              "每日精選美味套餐優惠"
-              <p class="fs-4 d-flex justify-content-center">
+    <div class="list">
+      <RouterLink
+        to="/newscontainer/newsarticle/page" class="img-wrapper d-flex justify-content-center">
+        <img class="news-pic" src="/newsPic4.jpg" alt="每日精選套餐" />
+        <h4 class="news-content overflow-hidden position-relative ">
+            <div class="bagde-sale">
+            限時優惠
+            </div>
+              <div class="wrapper-title" >
+              每日精選套餐優惠
+              <p class="fs-6 d-flex justify-content-center">
                 <br/>活動期間:2024/01/10-2024/12/15
               </p>
-              </RouterLink>
-          </h3>
-          </div>
-          <div style="width: 100%" class="mb-10 mt-5">
-          <div class="d-flex justify-content-center">
-              <div class="card me-5" style="width: 20%">
-                  <img
-                  src="/newsPic2.jpg"
-                  class="main-card-img"
-                  alt="刷卡支付享95折"
-                  height="300px"/>
-                <div class="card-body card-content">
-                    <h5 class="card-title">刷卡支付享95折優惠</h5>
-                    <p class="card-text">活動期間:2024/01/10-2024/12/15</p>
-                    <RouterLink to="/newscontainer/newsarticle/page" class="btn btn-primary">
-                    了解更多
-                    </RouterLink>
-                </div>
               </div>
-
-              <div class="card me-5" style="width: 20%">
-              <img
-                  src="https://images.unsplash.com/photo-1627309302198-09a50ae1b209?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  class="main-card-img"
-                  alt="外帶早餐經典組合"
-                  height="300px"
-              />
-              <div class="card-body card-content">
-                  <h5 class="card-title">外帶早餐經典組合享9折優惠</h5>
-                  <p class="card-text">活動期間:2024/01/10-2024/12/15</p>
-                  <RouterLink to="/newscontainer/newsarticle/page" class="btn btn-primary">
+        </h4>
+      </RouterLink>
+      <div style="width: 100%" class="mb-10 mt-5">
+        <div class="d-flex justify-content-center">
+          <RouterLink  to="/newscontainer/newsarticle/page" class="card me-5" style="width: 20%">
+            <img
+              src="/newsPic2.jpg"
+              class="main-card-img"
+              alt="刷卡支付享95折"
+              height="300px"/>
+            <div class="card-body card-content">
+                <h5 class="card-title">刷卡支付享95折優惠</h5>
+                <p class="card-text ">活動期間:2024/01/10-2024/12/15</p>
+            </div>
+            <div class="card-footer border-0 bg-transparent">
+              <button type="button" class="btn btn-primary w-100">
+                了解更多
+              </button>
+            </div>
+          </RouterLink>
+          <RouterLink  to="/newscontainer/newsarticle/page" class="card me-5" style="width: 20%">
+            <img
+              src="https://images.unsplash.com/photo-1627309302198-09a50ae1b209?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="main-card-img"
+              alt="外帶早餐經典組合"
+              height="300px"
+            />
+            <div class="card-body card-content">
+              <h5 class="card-title">外帶早餐經典組合享9折優惠</h5>
+              <p class="card-text">活動期間:2024/01/10-2024/12/15</p>
+            </div>
+            <div class="card-footer border-0 bg-transparent">
+                <button type="button" class="btn btn-primary w-100">
                   了解更多
-                  </RouterLink>
-              </div>
-              </div>
-
-              <div class="card " style="width: 20%">
-              <img
-                  src="/newsPic3.jpg"
-                  class="main-card-img"
-                  alt="歡慶冬季耶誕"
-                  height="300px"
-              />
-              <div class="card-body card-content">
-                  <h5 class="card-title">歡慶冬季耶誕 特色餐點新上市</h5>
-                  <p class="card-text">活動期間:2024/11/10-2024/12/24</p>
-                  <RouterLink to="/newscontainer/newsarticle/page" class="btn btn-primary">
-                  了解更多
-                  </RouterLink>
-              </div>
-              </div>
-          </div>
-          </div>
+                </button>
+            </div>
+          </RouterLink>
+          <RouterLink to="/newscontainer/newsarticle/page" class="card" style="width: 20%">
+            <img
+                src="/newsPic3.jpg"
+                class="main-card-img"
+                alt="歡慶冬季耶誕"
+                height="300px"
+            />
+            <div class="card-body card-content">
+                <h5 class="card-title">歡慶冬季耶誕 特色餐點新上市</h5>
+                <p class="card-text">活動期間:2024/11/10-2024/12/24</p>
+            </div>
+            <div class="card-footer border-0 bg-transparent">
+              <button type="button" class="btn btn-primary w-100">
+                了解更多
+              </button>
+            </div>
+          </RouterLink>
+        </div>
+      </div>
       </div>
   </div>
+
   <div class="news-mobile">
-      <div class="card">
+      <RouterLink class="card" to="/newscontainer/newsarticle/page">
           <img
           src="https://images.unsplash.com/photo-1493770348161-369560ae357d?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           class="card-img-top"
           alt="每日精選美味套餐"
           />
           <div class="card-body">
-          <h5 class="card-title">每日精選美味套餐優惠</h5>
-          <p class="card-text">活動期間:2024/01/10-2024/12/15</p>
-          <RouterLink to="/newscontainer/newsarticle/page" class="btn btn-primary">
-          了解更多
-          </RouterLink>
+            <h5 class="card-title">每日精選美味套餐優惠</h5>
+            <p class="card-text">活動期間:2024/01/10-2024/12/15</p>
+            <button type="button" class="btn btn-primary  w-100">
+            了解更多
+            </button>
           </div>
-      </div>
-      <div class="card">
+      </RouterLink>
+      <RouterLink class="card" to="/newscontainer/newsarticle/page">
           <img
           src="https://images.unsplash.com/photo-1475090169767-40ed8d18f67d?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           class="card-img-top"
@@ -93,12 +103,12 @@
           <div class="card-body">
           <h5 class="card-title">刷卡支付享95折優惠</h5>
           <p class="card-text">活動期間:2024/01/10-2024/12/15</p>
-          <RouterLink to="/newscontainer/newsarticle/page" class="btn btn-primary">
-          了解更多
-          </RouterLink>
+          <button type="button" class="btn btn-primary  w-100">
+            了解更多
+            </button>
           </div>
-      </div>
-      <div class="card">
+      </RouterLink>
+      <RouterLink class="card" to="/newscontainer/newsarticle/page">
           <img
           src="https://images.unsplash.com/photo-1627309302198-09a50ae1b209?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           class="card-img-top"
@@ -107,12 +117,12 @@
           <div class="card-body">
           <h5 class="card-title">外帶早餐經典組合享9折優惠</h5>
           <p class="card-text">活動期間:2024/01/10-2024/12/15</p>
-          <RouterLink to="/newscontainer/newsarticle/page" class="btn btn-primary">
-          了解更多
-          </RouterLink>
+          <button type="button" class="btn btn-primary  w-100">
+            了解更多
+          </button>
           </div>
-      </div>
-      <div class="card">
+      </RouterLink>
+      <RouterLink class="card" to="/newscontainer/newsarticle/page">
           <img
           src="https://images.unsplash.com/photo-1565895405137-3ca0cc5088c8?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           class="card-img-top"
@@ -121,11 +131,11 @@
           <div class="card-body">
           <h5 class="card-title">歡慶冬季耶誕 特色餐點新上市</h5>
           <p class="card-text">活動期間:2024/11/10-2024/12/24</p>
-          <RouterLink to="/newscontainer/newsarticle/page" class="btn btn-primary">
-          了解更多
-          </RouterLink>
+          <button type="button" class="btn btn-primary  w-100">
+            了解更多
+          </button>
           </div>
-      </div>
+      </RouterLink>
   </div>
 </main>
 
@@ -141,14 +151,17 @@ export default {
         // 初始樣式，畫面從左至右移入
         transition: 'all 2s ease',
         transform: 'translateX(-100%)'
-      }
+      },
+      isLoading: false
     }
   },
   components: {
     FooterView
   },
   mounted () {
+    this.isLoading = true
     setTimeout(() => {
+      this.isLoading = false
       this.bgStyle.transform = 'translateX(0%)' // 將transform設置為0，使元素從左至右
     }, 500)
   }
@@ -221,10 +234,11 @@ main .news-desktop .list .img-wrapper .news-content {
   margin-bottom: 0px;
   font-family: "Noto Serif TC", 'san-serif';
   color: #693b28;
+  z-index: 1;
 }
-main .news-desktop .main-card-img {
-  height: 45vmin;
-}
+/* main .news-desktop .main-card-img {
+  /* height: 45vmin; */
+
 main .news-desktop .card-content {
   flex-wrap: wrap;
   text-align: center;
@@ -234,6 +248,30 @@ main .news-desktop .card-content .card-img-size {
   -o-object-fit: cover;
      object-fit: cover;
   background-size: cover;
+}
+.news-content.wrapper-title {
+  z-index: 1;
+}
+.card-body {
+  margin-top: 16px;
+}
+.bagde-sale {
+  position: absolute;
+    background-color: #B58A78;
+    color: white;
+    height: 120px;
+    width: 300px;
+    top: -25px;
+    right: -110px;
+    font-size: 16px;
+    text-align: center;
+    transform: rotate(45deg);
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    padding-bottom: 30px;
+    padding-top: 80px;
+    z-index: 0;
 }
 
 @media (max-width: 1399px) {
@@ -256,7 +294,6 @@ main .news-desktop .card-content .card-img-size {
     width: 80vw;
     margin-bottom: 30px;
     border-block: 2px block;
-    box-shadow: 1px 3px 5px;
   }
 }
 
