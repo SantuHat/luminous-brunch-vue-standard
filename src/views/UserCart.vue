@@ -27,11 +27,14 @@
 
     <!-- 付款方式 -->
     <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 orderResult">付款方式</h3>
-    <select v-if="step === 2 || step === 3" name="" id="" class="bg-transparent p-2 mx-auto d-block rounded" :disabled="step === 3">
-      <option value="請選擇">請選擇</option>
-      <option value="到店取餐付款">到店取餐付款</option>
-      <option value="信用卡">信用卡</option>
-    </select>
+    <div class="d-flex justify-content-center align-items-baseline ps-5">
+      <select v-if="step === 2 || step === 3" name="" id="" class="bg-transparent p-2  d-block rounded" :disabled="step === 3" v-model="obj.choose">
+        <option value="請選擇" :disabled="obj.choose">請選擇</option>
+        <option value="到店取餐付款" ref="到店取餐付款">到店取餐付款</option>
+        <option value="信用卡" ref="信用卡">信用卡</option>
+      </select>
+      <p class="text-danger ps-3" data-message="phone" ref="phone">*</p>
+    </div>
   <!-- 訂餐人資料 -->
   <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 orderResult">訂餐人資料</h3>
   <div class="container">
@@ -134,7 +137,17 @@ export default {
         }
       },
       orderId: '',
+      obj: { choose: '請選擇' },
       orderTotal: 0
+    }
+  },
+  watch: {
+    'obj.choose': function () {
+      if (this.$refs.到店取餐付款) {
+        this.$refs.phone.innerHTML = ''
+      } else if (this.$refs.信用卡) {
+        this.$refs.phone.innerHTML = ''
+      }
     }
   },
   methods: {
