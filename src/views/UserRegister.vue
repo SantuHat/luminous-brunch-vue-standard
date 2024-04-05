@@ -60,7 +60,7 @@
                 type="name"
                 id="inputName"
                 class="form-control w-100"
-                placeholder="請選擇用戶姓名"
+                placeholder="請輸入用戶姓名"
                 required
                 v-model="obj.name"
               />
