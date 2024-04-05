@@ -114,7 +114,7 @@
                 </span>
                 <span
                   v-if="cartData.length > 0"
-                  class="badge rounded-pill bg-secondary"
+                  class="badge rounded-pill bg-secondary d-flex align-items-center"
                 >
                   {{ cartData.length }}
                   <span class="visually-hidden">unread messages</span>

@@ -36,7 +36,7 @@
   <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 orderResult">訂餐人資料</h3>
   <div class="container">
     <VForm v-if="step === 2 || step === 3" v-slot="{ errors }" @submit="handleOrderSubmit()">
-      <div class="row order-data">
+      <div class="row order-data d-flex align-items-center" style="flex-direction: column">
         <div class="col-md-4 mb-2">
           <label for="name" class="sr-only text-primary py-3"
             >姓名</label
