@@ -3,12 +3,13 @@
 
   <div class="container font-color-gray-400">
     <div class="row mt-8 mb-8">
-      <div class="col-3 ">
-        <h4 class="text-center fw-bold font-NotoSerif list-title my-9 ">最新消息</h4>
+      <div class="col-md-3">
+        <h4 class="text-center fw-bold font-NotoSerif list-title my-9 d-md-none d-none">最新消息</h4>
+        <h3 class="text-center fw-bold font-NotoSerif list-title my-5 d-md-block ">最新消息</h3>
         <NewSidebar :articles="articles" :getArticleId="getArticleId" >
         </NewSidebar>
       </div>
-    <div class="col-9">
+    <div class="col-md-9">
       <div class="bg-pink px-4">
         <div class="font-NotoSerif mb-5 d-flex align-items-center">
           <!-- <RouterLink to="/newsmain" class="d-flex align-items-center mt-4 ms-0">
@@ -80,6 +81,9 @@ export default {
 </script>
 
   <style>
+body {
+  position:relative
+}
 .row .col-4 .list-group {
   text-align: center;
   font-family: "Noto Serif TC", "san-serif";
