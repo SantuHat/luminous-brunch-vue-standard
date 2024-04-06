@@ -10,10 +10,12 @@
   </div>
 </div>
 
-<h2 v-if="step === 3" class="text-center mb-7 orderResult">感謝您的訂餐</h2>
-<h2 v-if="step === 3" class="text-center mb-7 orderResult">此筆訂單已成立!</h2>
-<h3 v-if="step === 3" class="text-center mb-7 orderResult">訂單編號: {{ orderId }}</h3>
-<h3 v-if="step === 2 || step === 3" class="mb-3 mt-12 text-center text-gray-400 orderResult">訂餐明細</h3>
+<div class="frame" style="">
+  <h2 v-if="step === 3" class="text-center mb-7 mt-5 orderResult fw-bold">感謝您的訂餐</h2>
+  <h2 v-if="step === 3" class="text-center mb-7 orderResult fw-bold">此筆訂單已成立!</h2>
+  <h3 v-if="step === 3" class="text-center mb-7 orderResult fw-normal">訂單編號: {{ orderId }}</h3>
+</div>
+  <h3 v-if="step === 2 || step === 3" class="mb-3 mt-3 text-center text-gray-400 orderResult">訂餐明細</h3>
 <div class="container mt-5 mb-9" v-if="carts.length ===0 && step === 1">
   <UserCartEmptyData></UserCartEmptyData>
 </div>
@@ -33,7 +35,7 @@
         <option value="到店取餐付款" ref="到店取餐付款">到店取餐付款</option>
         <option value="信用卡" ref="信用卡">信用卡</option>
       </select>
-      <p class="text-danger ps-3" data-message="phone" ref="phone">*</p>
+      <p v-if="step === 2 || step === 3" class="text-danger ps-3" data-message="phone" ref="phone">*</p>
     </div>
   <!-- 訂餐人資料 -->
   <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 orderResult">訂餐人資料</h3>
@@ -311,6 +313,23 @@ button[disabled] {
   font-size: 24px;
   @media(max-width: 992px){
     font-size: 20px;
+  }
+}
+.frame {
+  border: 2px solid #EDE7DD;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+   width:50%;
+    position: relative;
+    left: 400px;
+}
+@media (max-width:992px){
+  .frame{
+    border: 2px solid #EDE7DD;
+    width:auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    position:relative;
+    left: 0px;
   }
 }
 </style>
