@@ -367,3 +367,16 @@
   border-radius: 5px;
   cursor: pointer;
 }
+@media (max-width: 576px){
+  #toTOP {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    bottom: 5px;
+    right: 5px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}

@@ -49,10 +49,10 @@ export default {
   background-color: var(--bs-body-bg);
   justify-content: center;
   flex-wrap: nowrap;
-  .area-loading-wrap {
-    position: absolute;
-    z-index: 500;
-  }
+}
+.area-loading .area-loading-wrap {
+  position: absolute;
+  z-index: 500;
 }
 
 .vl-overlay .vl-background {

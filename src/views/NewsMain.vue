@@ -3,24 +3,27 @@
 <main>
   <div class="bgimage mb-9 position" :style="bgStyle">
       <div class="filter"></div>
-      <div class="absolute "><h3 class="fw-bold">最新消息/優惠</h3></div>
+      <div class="absolute bg-opcity"><h3 class="fw-bold">最新消息/優惠</h3></div>
   </div>
   <div class="news-desktop">
     <div class="list">
       <RouterLink
         to="/newscontainer/newsarticle/page" class="img-wrapper d-flex justify-content-center">
         <img class="news-pic" src="/newsPic4.jpg" alt="每日精選套餐" />
-        <h4 class="news-content overflow-hidden position-relative ">
+        <h2 class="news-content overflow-hidden position-relative ">
             <div class="bagde-sale">
             限時優惠
             </div>
               <div class="wrapper-title" >
-              每日精選套餐優惠
+              <h3>每日精選套餐優惠</h3>
               <p class="fs-6 d-flex justify-content-center">
                 <br/>活動期間:2024/01/10-2024/12/15
               </p>
+              <button type="button" class="btn btn-primary w-100">
+                了解更多
+              </button>
               </div>
-        </h4>
+        </h2>
       </RouterLink>
       <div style="width: 100%" class="mb-10 mt-5">
         <div class="d-flex justify-content-center">
@@ -29,7 +32,7 @@
               src="/newsPic2.jpg"
               class="main-card-img"
               alt="刷卡支付享95折"
-              height="300px"/>
+              height="260px"/>
             <div class="card-body card-content">
                 <h5 class="card-title">刷卡支付享95折優惠</h5>
                 <p class="card-text ">活動期間:2024/01/10-2024/12/15</p>
@@ -45,7 +48,7 @@
               src="https://images.unsplash.com/photo-1627309302198-09a50ae1b209?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               class="main-card-img"
               alt="外帶早餐經典組合"
-              height="300px"
+              height="260px"
             />
             <div class="card-body card-content">
               <h5 class="card-title">外帶早餐經典組合享9折優惠</h5>
@@ -62,7 +65,7 @@
                 src="/newsPic3.jpg"
                 class="main-card-img"
                 alt="歡慶冬季耶誕"
-                height="300px"
+                height="260px"
             />
             <div class="card-body card-content">
                 <h5 class="card-title">歡慶冬季耶誕 特色餐點新上市</h5>
@@ -318,5 +321,16 @@ main .news-desktop .card-content .card-img-size {
     border-block: 2px block;
   }
 }
-
+.bg-opcity{
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(2px);
+    padding: 24px;
+}
+@media (max-width:1399px){
+  .bg-opcity{
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(2px);
+    padding: 15px;
+}
+}
 </style>

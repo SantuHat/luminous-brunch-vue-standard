@@ -150,24 +150,22 @@ export default {
   justify-content: space-around;
   width: 41%;
 }
-.dropdown-menu {
-  .commodity-wrap-content {
-    flex-direction: column;
-    align-items: flex-start !important;
-  }
-  .commodity-wrap-content .product-title, .commodity-wrap-content .product-price {
-    width: 100% !important;
-  }
-  .commodity-wrap-control {
-    flex-direction: column;
-  }
-  .product-delete-btn button {
-    border: none;
-    --bs-btn-padding-x: 0;
-    --bs-btn-padding-y: 0;
-    background-color: transparent;
-    --bs-btn-color: var(--bs-primary);
-  }
+.dropdown-menu .commodity-wrap-content {
+  flex-direction: column;
+  align-items: flex-start !important;
+}
+.dropdown-menu .commodity-wrap-content .product-title, .dropdown-menu .commodity-wrap-content .product-price {
+  width: 100% !important;
+}
+.dropdown-menu .commodity-wrap-control {
+  flex-direction: column;
+}
+.dropdown-menu .product-delete-btn button {
+  border: none;
+  --bs-btn-padding-x: 0;
+  --bs-btn-padding-y: 0;
+  background-color: transparent;
+  --bs-btn-color: var(--bs-primary);
 }
 
 @media (max-width: 767px) {

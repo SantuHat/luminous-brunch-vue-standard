@@ -3,7 +3,7 @@
       <div class="bg h-100">
         <div class="container">
           <div
-            class="row carousel slide py-11"
+            class="row carousel slide pt-11 pb-5"
             id="carouselExampleControls"
             data-bs-ride="carousel"
           >
@@ -148,6 +148,7 @@ export default {
     align-items: center;
     overflow-x: hidden;
     scroll-snap-type: x mandatory;
+    flex-shrink: inherit;
   }
   .carousel-item > div {
     flex: 0 0 auto;
