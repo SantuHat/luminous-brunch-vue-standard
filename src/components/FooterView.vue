@@ -35,14 +35,14 @@
               src="/Email.png"
               alt=""
               style="margin-right: 0.5rem"
-            />lumminous@gmail.com
+            /><a href="mailto:lumminous@gmail.com">lumminous@gmail.com</a>
           </li>
           <li class="me-3">
             <img
               src="/Phone.png"
               alt=""
               style="margin-right: 0.5rem"
-            />(02)6765-0768
+            /><a href="tel:(02)6765-0768">(02)6765-0768</a>
           </li>
           <li class="me-3">
             <img
