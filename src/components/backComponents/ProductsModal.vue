@@ -18,7 +18,7 @@
                   <input type="text" class="form-control"
                           placeholder="請輸入圖片連結" v-model="temProduct.imageUrl">
                 </div>
-                <img class="img-fluid" :src="temProduct.imageUrl" alt="">
+                <img class="img-fluid" :src="temProduct.imageUrl" alt="圖片連結">
               </div>
               <div class="mb-3">
                 <label for="customFile" class="form-label">或 上傳圖片

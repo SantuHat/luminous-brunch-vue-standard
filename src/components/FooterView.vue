@@ -3,7 +3,7 @@
   <div class="container">
     <div class="d-flex justify-content-around footer">
       <div class="d-flex align-items-center">
-        <img class="mx-auto" src="/Logo-sm.png" alt="" />
+        <img class="mx-auto" src="/Logo-sm.png" alt="Logo" />
       </div>
       <div class="footer-box">
         <ul class="d-flex ps-0">
@@ -16,13 +16,13 @@
       <div class="footer-icon d-flex align-items-center">
         <ul class="d-flex ps-0">
           <li>
-            <img src="/Facebook.png" alt="#" />
+            <img src="/Facebook.png" alt="Facebook" />
           </li>
           <li>
-            <img src="/Instagram.png" alt="#" />
+            <img src="/Instagram.png" alt="Instagram" />
           </li>
           <li>
-            <img src="/Line.png" alt="#" />
+            <img src="/Line.png" alt="Line" />
           </li>
         </ul>
       </div>
@@ -33,21 +33,21 @@
           <li class="me-3">
             <img
               src="/Email.png"
-              alt=""
+              alt="信箱"
               style="margin-right: 0.5rem"
             /><a href="mailto:lumminous@gmail.com">lumminous@gmail.com</a>
           </li>
           <li class="me-3">
             <img
               src="/Phone.png"
-              alt=""
+              alt="電話"
               style="margin-right: 0.5rem"
             /><a href="tel:(02)6765-0768">(02)6765-0768</a>
           </li>
           <li class="me-3">
             <img
               src="/Access time.png"
-              alt=""
+              alt="營業時間"
               style="margin-right: 0.5rem"
             />Business Hour 8:30~15:00
           </li>
