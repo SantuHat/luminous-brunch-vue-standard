@@ -128,6 +128,11 @@
                   <UserCartEmptyData></UserCartEmptyData>
                 </div>
                 <div class="dropdown-menu-wrap" v-else>
+                  <div class="text-end p-2">
+                      <span class="material-symbols-outlined cursor-pointer">
+                        close
+                      </span>
+                  </div>
                   <div class="dropdown-menu-content" @click.stop>
                       <MealList :step="null" :list="cartData"></MealList>
                     <!-- <ul
@@ -329,5 +334,24 @@ export default {
 .smLogo {
   /* height: 50px; */
   padding: 0 8px 8px 8px;
+}
+.cursor-pointer {
+  cursor: pointer
+}
+.dropdown-menu-footer {
+  @media (max-width:576px){
+    /* position: unset; */
+  }
+}
+@media (max-width:576px){
+  .dropdow_cart {
+    height: 100vh;
+    position: unset;
+    top: 0;
+  }
+  .dropdown-menu-content {
+    height: auto;
+    overflow-y: unset;
+  }
 }
 </style>
