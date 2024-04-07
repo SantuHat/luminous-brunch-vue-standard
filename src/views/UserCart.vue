@@ -29,19 +29,18 @@
 
     <!-- 付款方式 -->
     <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 orderResult">付款方式</h3>
-  <VForm v-if="step === 2 || step === 3" v-slot="{ errors }" @submit="handleOrderSubmit()">
+  <VForm v-if="step === 2 || step === 3" v-slot="{ errors }" @submit="handleOrderSubmit()" >
     <div class="col-md-4 mx-auto">
-      <VField v-if="step === 2 || step === 3" name="付款方式" id="name" class="bg-transparent p-2 form-control d-block rounded" :disabled="step === 3" v-model="obj.choose"
+      <VField v-if="step === 2 || step === 3" name="付款方式" id="付款方式" class="bg-transparent p-2 form-control d-block rounded" :disabled="step === 3"
       :class="{ 'is-invalid': errors['付款方式'] }"
-      rules="required|in:['請選擇', '到店取餐付款', '信用卡']"
+      rules="required"
       as="select"
       >
-        <option value="請選擇" >請選擇</option>
-        <option value="到店取餐付款" ref="到店取餐付款">到店取餐付款</option>
-        <option value="信用卡" ref="信用卡">信用卡</option>
+        <option value="" selected>請選擇</option>
+        <option value="到店取餐付款" >到店取餐付款</option>
+        <option value="信用卡" >信用卡</option>
       </VField>
       <ErrorMessage name="付款方式" class="invalid-feedback"></ErrorMessage>
-      <!-- <p v-if="step === 2 || step === 3" class="text-danger ps-3" data-message="phone" ref="phone">*</p> -->
     </div>
     <!-- 訂餐人資料 -->
     <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 orderResult">訂餐人資料</h3>
@@ -144,19 +143,19 @@ export default {
         }
       },
       orderId: '',
-      obj: { choose: '請選擇' },
+      // obj: { choose: '請選擇' },
       orderTotal: 0
     }
   },
-  watch: {
-    'obj.choose': function () {
-      if (this.$refs.到店取餐付款) {
-        this.$refs.phone.innerHTML = ''
-      } else if (this.$refs.信用卡) {
-        this.$refs.phone.innerHTML = ''
-      }
-    }
-  },
+  // watch: {
+  //   'obj.choose': function () {
+  //     if (this.$refs.到店取餐付款) {
+  //       this.$refs.phone.innerHTML = ''
+  //     } else if (this.$refs.信用卡) {
+  //       this.$refs.phone.innerHTML = ''
+  //     }
+  //   }
+  // },
   methods: {
     ...mapActions(orderStore, ['getOrders', 'getOrderItem']),
     ...mapActions(cartStore, ['getCarts', 'setIsLoading']),
