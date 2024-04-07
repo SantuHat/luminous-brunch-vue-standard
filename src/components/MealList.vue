@@ -29,24 +29,24 @@
             <div class="product-price commodity-wrap-content-item">
               NT$ {{ item.product.price }}
             </div>
-          </div>
-          <div class="commodity-wrap-control">
             <div class="product-qty">
               <button v-if="step === 1 || step === null" @click="item.qty--; putCart(item.id, item.qty)" class="btn btn-primary fw-bold" type="button" :disabled="item.qty === 1">–</button>
-              <span class="mx-3">
+              <span class="mx-2">
                 {{ `${step === 2 || step === 3 ? '×': ''}${item.qty}` }}
               </span>
               <button v-if="step === 1 || step === null" @click="item.qty++; putCart(item.id, item.qty)" class="btn btn-primary fw-bold" type="button">+</button>
             </div>
-            <div class="product-subtotal">
-              NT$ {{ item.total }}
-            </div>
+          </div>
+          <div class="commodity-wrap-control">
             <div class="product-delete-btn">
               <button v-if="step === 1 || step === null" @click="delCart(item.id)" type="button" class="btn btn-primary">
               <span class="material-symbols-outlined px-2 px-md-0 pt-1">
                 delete
               </span>
             </button>
+            </div>
+            <div class="product-subtotal">
+              <p class="mb-0">小計 NT$ {{ item.total }}</p>
             </div>
           </div>
         </div>
@@ -136,11 +136,12 @@ export default {
   display: flex;
   align-items: center;
   width: 47%;
+  justify-content: space-between;
 }
 
-.commodity-wrap .commodity-wrap-content .product-title {
+/* .commodity-wrap .commodity-wrap-content .product-title {
   width: 70%;
-}
+} */
 .commodity-wrap .commodity-wrap-content .product-price {
   width: 30%;
 }
@@ -153,6 +154,7 @@ export default {
 .dropdown-menu .commodity-wrap-content {
   flex-direction: column;
   align-items: flex-start !important;
+  justify-content: space-between;
 }
 .dropdown-menu .commodity-wrap-content .product-title, .dropdown-menu .commodity-wrap-content .product-price {
   width: 100% !important;

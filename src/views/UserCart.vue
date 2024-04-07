@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<div class="frame" style="">
+<div v-if="step === 3" class="frame" >
   <h2 v-if="step === 3" class="text-center mb-7 mt-5 orderResult fw-bold">感謝您的訂餐</h2>
   <h2 v-if="step === 3" class="text-center mb-7 orderResult fw-bold">此筆訂單已成立!</h2>
   <h3 v-if="step === 3" class="text-center mb-7 orderResult fw-normal">訂單編號: {{ orderId }}</h3>
@@ -29,18 +29,23 @@
 
     <!-- 付款方式 -->
     <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 orderResult">付款方式</h3>
-    <div class="d-flex justify-content-center align-items-baseline ps-5">
-      <select v-if="step === 2 || step === 3" name="" id="" class="bg-transparent p-2  d-block rounded" :disabled="step === 3" v-model="obj.choose">
-        <option value="請選擇" :disabled="obj.choose">請選擇</option>
+  <VForm v-if="step === 2 || step === 3" v-slot="{ errors }" @submit="handleOrderSubmit()">
+    <div class="col-md-4 mx-auto">
+      <VField v-if="step === 2 || step === 3" name="付款方式" id="name" class="bg-transparent p-2 form-control d-block rounded" :disabled="step === 3" v-model="obj.choose"
+      :class="{ 'is-invalid': errors['付款方式'] }"
+      rules="required|in:['請選擇', '到店取餐付款', '信用卡']"
+      as="select"
+      >
+        <option value="請選擇" >請選擇</option>
         <option value="到店取餐付款" ref="到店取餐付款">到店取餐付款</option>
         <option value="信用卡" ref="信用卡">信用卡</option>
-      </select>
-      <p v-if="step === 2 || step === 3" class="text-danger ps-3" data-message="phone" ref="phone">*</p>
+      </VField>
+      <ErrorMessage name="付款方式" class="invalid-feedback"></ErrorMessage>
+      <!-- <p v-if="step === 2 || step === 3" class="text-danger ps-3" data-message="phone" ref="phone">*</p> -->
     </div>
-  <!-- 訂餐人資料 -->
-  <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 orderResult">訂餐人資料</h3>
-  <div class="container">
-    <VForm v-if="step === 2 || step === 3" v-slot="{ errors }" @submit="handleOrderSubmit()">
+    <!-- 訂餐人資料 -->
+    <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 orderResult">訂餐人資料</h3>
+    <div class="container">
       <div class="row order-data d-flex align-items-center" style="flex-direction: column">
         <div class="col-md-4 mb-2">
           <label for="name" class="sr-only text-primary py-3"
@@ -101,8 +106,8 @@
         <a href="javascript:;" class="btn_reserve py-3 px-6 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="nextStep(1)">上一步</a>
         <button class="btn_reserve py-3 px-6 py-md-4 px-md-11 mx-auto mt-10 mb-8">送出訂單</button>
       </div>
-    </VForm>
-  </div>
+    </div>
+  </VForm>
 
   <a v-if="step === 1" href="javascript:;" class="btn_reserve py-3 px-9 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="nextStep(2)">下一步</a>
 
