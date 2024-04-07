@@ -5,8 +5,8 @@
     <div class="row mt-8 mb-8">
       <div class="col-md-3">
         <h4 class="text-center fw-bold font-NotoSerif list-title my-9 d-md-none d-none">最新消息</h4>
-        <h3 class="text-center fw-bold font-NotoSerif list-title my-5 d-md-block ">最新消息</h3>
-        <NewSidebar :articles="articles" :getArticleId="getArticleId" >
+        <!-- <h3 class="text-center fw-bold font-NotoSerif list-title my-5 d-md-block ">最新消息</h3> -->
+        <NewSidebar :articles="articles" @hideOffcanvas="getArticleId" >
         </NewSidebar>
       </div>
     <div class="col-md-9">
@@ -45,6 +45,7 @@ export default {
   components: { NewSidebar, FooterView },
   data () {
     return {
+      isLoading: false,
       articles: [],
       tempArticle: {},
       byStyle: {

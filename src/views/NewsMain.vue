@@ -173,7 +173,7 @@ export default {
 
 <style>
     main .bgimage {
-  min-height: 70vh;
+  min-height: 50vh;
   background-image: url("https://images.unsplash.com/photo-1543353071-873f17a7a088?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
   background-position: center;
@@ -186,14 +186,14 @@ export default {
 main .bgimage .filter {
   background-color: rgba(0, 0, 0, 0.2);
   width: 100%;
-  min-height: 70vh;
+  min-height: 50vh;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
 }
 main .bgimage h3 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-family: "Noto Serif TC", 'san-serif';
   color: #461b09;
 }

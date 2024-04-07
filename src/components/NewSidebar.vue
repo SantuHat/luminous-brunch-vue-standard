@@ -17,31 +17,14 @@
     </div>
   </div>
   <!-- 手機版 -->
-    <button class="btn btn-pink position-sticky end-100 newsBtn-mobile d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+    <button class="btn d-flex align-items-center position-sticky end-100 newsBtn-mobile d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+      文章列表
       <span class="material-symbols-outlined">
-      collections_bookmark
+      double_arrow
       </span>
     </button>
 
-<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title text-center fw-bold font-NotoSerif" id="offcanvasScrollingLabel">最新消息</h5>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <p>Try scrolling the rest of the page to see this option in action.</p>
-  </div>
-</div>
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasWithBackdropLabel">Offcanvas with backdrop</h5>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <p>.....</p>
-  </div>
-</div>
-<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+<div ref="articlesOffcanvas" class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">最新消息</h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -57,6 +40,7 @@
       :exact="true"
       @click="getArticleId(item)"
     >
+    <!-- @click="getArticleId(item)" -->
         {{ item.title }}
     </RouterLink>
     </div>
@@ -66,8 +50,25 @@
 </template>
 
 <script>
+import Offcanvas from 'bootstrap/js/dist/offcanvas'
+
 export default {
-  props: ['articles', 'getArticleId']
+  props: ['articles'],
+  // , 'getArticleId'
+  data () {
+    return {
+      articlesOffcanvas: ''
+    }
+  },
+  methods: {
+    getArticleId (item) {
+      this.$emit('hideOffcanvas', item)
+      this.articlesOffcanvas.hide()
+    }
+  },
+  mounted () {
+    this.articlesOffcanvas = new Offcanvas(this.$refs.articlesOffcanvas)
+  }
 }
 </script>
 
