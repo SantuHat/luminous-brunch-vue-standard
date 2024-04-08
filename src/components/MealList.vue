@@ -23,7 +23,7 @@
             class="me-2 toast-img" :alt="item.product.imageUrl">
           </div>
           <div class="commodity-wrap-content">
-            <div class="product-title commodity-wrap-content-item">
+            <div class="product-title commodity-wrap-content-item font-sans-serif">
               {{ item.product.title }}
             </div>
             <div class="product-price commodity-wrap-content-item">
@@ -46,7 +46,7 @@
             </button>
             </div>
             <div class="product-subtotal">
-              <p class="mb-0">小計 NT$ {{ item.total }}</p>
+              <p class="mb-0"><span class="font-sans-serif">小計</span> NT$ {{ item.total }}</p>
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@
       </li>
     </ul>
     <div class="text-center pb-3" v-if="step">
-      <span class="fw-bold">總金額NT$ {{ total }}</span>
+      <span class="fw-bold"><span class="font-sans-serif">總金額 NT</span>$ {{ total }}</span>
     </div>
   </div>
 </template>

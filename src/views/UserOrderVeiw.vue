@@ -1,14 +1,18 @@
 <template>
 <!-- table -->
-<h3 class="text-center mt-7 mb-2">訂單編號</h3>
-<h3 class="text-center mb-7">{{ $route.query.orderId }}</h3>
-<h3 class="mb-3 mt-12 text-center text-gray-400">訂餐明細</h3>
-<div class="container py-5">
+<div class="container my-7">
+  <div class="frame col-md-6 mx-auto">
+    <h3 class="text-center mt-7 mb-2 font-sans-serif fw-bold">訂單編號</h3>
+    <h4 class="text-center mb-7 font-sans-serif text-gray-300">{{ $route.query.orderId }}</h4>
+  </div>
+</div>
+<h3 class="mt-12 text-center text-gray-400 font-sans-serif fw-bold">訂餐明細</h3>
+<div class="container pt-2 pb-5">
   <!-- 完成訂單的訂餐明細 orderItem -->
   <MealList :step="3" :list="orderItem" :total="orderTotal"></MealList>
 
   <!-- 訂餐人資料 -->
-  <h3 class="mb-7 mt-10 text-center text-gray-400">訂餐人資料</h3>
+  <h3 class="mb-5 mt-10 text-center text-gray-400 font-sans-serif fw-bold">訂餐人資料</h3>
   <!-- <div class="overflow-x">
     <table class="border border-gray box-shadow-gray-300 mx-auto w-100">
       <thead class="bg-gray text-center">
@@ -33,26 +37,26 @@
       </tbody>
     </table>
   </div> -->
-  <div class="row order-data mb-3">
-        <div class="col-md-4 mb-2">
+    <div class="col-md-6 mx-auto order-data mb-3 font-sans-serif px-3">
+        <div class=" mb-2">
           <label for="name" class="sr-only text-primary py-3"
             >姓名</label
           >
           <p>{{ userData.name }}</p>
         </div>
-        <div class="col-md-4 mb-2">
+        <div class=" mb-2">
           <label for="orderTel" class="sr-only text-primary py-3"
             >電話</label
           >
           <p>{{ userData.tel }}</p>
         </div>
-        <div class="col-md-4 mb-4">
+        <div class=" mb-4">
           <label for="orderEmail" class="sr-only text-primary py-3"
             >信箱</label
           >
           <p>{{ userData.email }}</p>
         </div>
-      </div>
+    </div>
 
 </div>
 </template>
@@ -180,5 +184,9 @@ button[disabled] {
   border: 2px solid var(--bs-gray);
   margin-right: 0;
   margin-left: 0;
+}
+.frame {
+  border: 1px solid #EDE7DD;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 </style>

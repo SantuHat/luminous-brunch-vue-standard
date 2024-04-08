@@ -171,14 +171,14 @@
                   >
                   <template v-if="cartData.length > 0">
                     <span class="cartFinalTotal py-3 px-5 mt-3 d-block fw-bold">
-                      總計 NT$ {{ cartTotal }}
+                      <span class="font-sans-serif">總計</span> NT$ {{ cartTotal }}
                     </span>
                     <button
                       @click="goChecking"
                       type="button"
                       class="checkoutBtn position-absolute btn btn-primary py-3 px-5 mt-3"
                     >
-                      前往結帳
+                      <span class="font-sans-serif">前往結帳</span>
                     </button>
                   </template>
                   </div>

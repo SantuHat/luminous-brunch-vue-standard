@@ -29,7 +29,7 @@
               />
             </div>
             <div class="col-lg-5">
-              <p class="fs-md-5 font-NotoSans">
+              <p class="fs-md-5 font-sans-serif">
                 在現代忙碌的生活節奏中,讓人們能夠輕鬆地品味一份賞心悅目的早午餐。我們深知,擺盤精緻的美味餐點一直是人們的嚮往,然而,現實中忙碌的日程往往讓我們無法安心坐下來放鬆享受。於是,我們決定創建這個平台。
               </p>
             </div>
@@ -38,7 +38,7 @@
             class="row justify-content-center align-items-center flex-column-reverse flex-lg-row"
           >
             <div class="col-lg-5">
-              <p class="fs-md-5 font-NotoSans">
+              <p class="fs-md-5 font-sans-serif">
                 我們期許透過我們用心打理的每個細節,能為您帶來一份短暫但美好的早午餐時光。讓您在忙碌的生活中多一個選擇,用心照顧自己的每一天。
               </p>
             </div>
@@ -69,7 +69,7 @@
             </div>
             <div class="col-lg-5">
               <h4 class="mb-4 text-center">即時訂餐</h4>
-              <p class="fs-md-5 font-NotoSans">
+              <p class="fs-md-5 font-sans-serif">
                 我們提供一套方便快捷的線上訂餐服務,您可以隨時選擇適合您口味的餐點,此訂餐系統為您省去了在繁忙時段可能需要等待的困擾,讓您可以確保在您心情最好的時刻來品味我們精心準備的早午餐。
               </p>
             </div>
@@ -79,7 +79,7 @@
           >
             <div class="col-lg-5">
               <h4 class="mb-4 text-center">多元菜單</h4>
-              <p class="fs-md-5 font-NotoSans">
+              <p class="fs-md-5 font-sans-serif">
                 融合了歐式早午餐的美好與現代人的生活需求。我們不僅提供精心設計的菜單,包括沙拉系列、漢堡系列、三明治系列、早午餐拼盤、義大利麵系列以及多款精選飲品。
               </p>
             </div>

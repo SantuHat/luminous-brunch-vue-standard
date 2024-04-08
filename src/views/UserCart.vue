@@ -1,7 +1,7 @@
 <template>
 <div class="container mb-11">
   <LoadingView :active="isLoading" />
-  <div class="step-indicator mx-auto mt-5">
+  <div class="step-indicator mx-auto mt-5 font-sans-serif">
     <div class="step active" id="step1"><span>確認訂單</span></div>
     <div class="line"></div>
     <div class="step" :class="{'active': step === 2 || step === 3}" id="step2"><span>填寫資料</span></div>
@@ -15,7 +15,7 @@
   <h2 v-if="step === 3" class="text-center mb-7 orderResult fw-bold">此筆訂單已成立!</h2>
   <h3 v-if="step === 3" class="text-center mb-7 orderResult fw-bold text-gray-300 fs-6">訂單編號: {{ orderId }}</h3>
 </div>
-  <h3 v-if="step === 2 || step === 3" class="mb-3 mt-3 text-center text-gray-400 orderResult">訂餐明細</h3>
+  <h3 v-if="step === 2 || step === 3" class="mb-3 mt-3 text-center text-gray-400 orderResult font-sans-serif fw-bold">訂餐明細</h3>
 <div class="container mt-5 mb-9" v-if="carts.length ===0 && step === 1">
   <UserCartEmptyData></UserCartEmptyData>
 </div>
@@ -28,10 +28,10 @@
     </div>
 
     <!-- 付款方式 -->
-    <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 orderResult"><span v-if="step === 2" class="text-danger me-1 align-middle">*</span>付款方式</h3>
+    <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 orderResult font-sans-serif fw-bold"><span v-if="step === 2" class="text-danger me-1 align-middle">*</span>付款方式</h3>
   <VForm v-if="step === 2 || step === 3" v-slot="{ errors }" @submit="handleOrderSubmit()" >
     <div class="col-11 col-md-4 mx-auto">
-      <VField v-if="step === 2 || step === 3" name="付款方式" id="付款方式" class="bg-transparent p-2 form-control d-block rounded text-center" :disabled="step === 3"
+      <VField v-if="step === 2 || step === 3" name="付款方式" id="付款方式" class="bg-transparent p-2 form-control d-block rounded text-center font-sans-serif" :disabled="step === 3"
       :class="{ 'is-invalid': errors['付款方式'],'cursor-pointer': step === 2 }"
       rules="required"
       as="select"
@@ -43,9 +43,9 @@
       <ErrorMessage name="付款方式" class="invalid-feedback"></ErrorMessage>
     </div>
     <!-- 訂餐人資料 -->
-    <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 orderResult">訂餐人資料</h3>
+    <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 orderResult font-sans-serif fw-bold">訂餐人資料</h3>
     <div class="container">
-      <div class="row order-data d-flex align-items-center" style="flex-direction: column">
+      <div class="row order-data d-flex align-items-center font-sans-serif" style="flex-direction: column">
         <div class="col-md-4 mb-2">
           <label for="name" class="sr-only text-primary py-3"
             ><span v-if="step === 2" class="text-danger me-1 align-middle">*</span>姓名</label
@@ -84,7 +84,7 @@
         </div>
         <div class="col-md-4 mb-4">
           <label for="orderEmail" class="sr-only text-primary py-3"
-            ><span v-if="step === 2" class="text-danger me-1 align-middle">*</span>信箱</label
+            ><span v-if="step === 2" class="text-danger me-1 align-middle">*</span><span class="font-sans-serif"></span>信箱</label
           >
           <VField
             type="email"
@@ -102,13 +102,13 @@
         </div>
       </div>
       <div v-if="step === 2" class="btn-box d-flex">
-        <a href="javascript:;" class="btn_reserve py-3 px-6 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="nextStep(1)">上一步</a>
-        <button class="btn_reserve py-3 px-6 py-md-4 px-md-11 mx-auto mt-10 mb-8">送出訂單</button>
+        <a href="javascript:;" class="btn_reserve py-3 px-6 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="nextStep(1)"><span class="font-sans-serif">上一步</span></a>
+        <button class="btn_reserve py-3 px-6 py-md-4 px-md-11 mx-auto mt-10 mb-8"><span class="font-sans-serif">送出訂單</span></button>
       </div>
     </div>
   </VForm>
 
-  <a v-if="step === 1" href="javascript:;" class="btn_reserve py-3 px-9 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="nextStep(2)">下一步</a>
+  <a v-if="step === 1" href="javascript:;" class="btn_reserve py-3 px-9 py-md-4 px-md-11 mx-auto mt-10 mb-8" @click="nextStep(2)"><span class="font-sans-serif">下一步</span></a>
 
   <div class="d-flex">
     <RouterLink @click="scrollTo" :to="`/menuview/menulist?category=salad`" v-if="step === 3" class="btn_reserve py-3 px-5 py-md-4 px-md-11 mx-auto mt-10 mb-8">繼續購物</RouterLink>

@@ -101,7 +101,7 @@ export default {
           str += `<div class="card m-6">
             <ul class="d-flex">
               <li class=""coad-li><img src="${i.img}" alt="顧客頭貼" class="coad-img"></li>
-              <li class=""coad-li><div class="card-name">${i.title}</div></li>
+              <li class=""coad-li><div class="card-name font-sans-serif">${i.title}</div></li>
             </ul>
             <div class="card-body">
               <div class="star-box d-flex">
@@ -111,7 +111,7 @@ export default {
                 <div class="star"></div>
                 <div class="star"></div>
               </div>
-              <p>${i.content}<p>
+              <p class="font-sans-serif">${i.content}<p>
             </div>
           </div>`
         })

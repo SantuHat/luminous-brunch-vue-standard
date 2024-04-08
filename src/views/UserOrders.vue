@@ -1,7 +1,7 @@
 <template>
   <LoadingView :active="isLoading" />
   <div class="container py-5">
-    <h2 class="text-center my-5">訂單資訊</h2>
+    <h2 class="text-center my-5 font-sans-serif fw-bold">訂單資訊</h2>
     <!-- <div class="overflow-x">
       <table class="border border-gray box-shadow-gray-300 mx-auto w-100">
         <thead class="bg-gray text-center">
@@ -26,7 +26,7 @@
       </table>
     </div> -->
 
-    <div class="px-2">
+    <div class="px-2 font-sans-serif">
       <template v-for="(item) in userOrders" :key="item.id">
         <div class="row text-center border border-2 border-gray mb-3">
           <div class="col-lg-3 px-0">

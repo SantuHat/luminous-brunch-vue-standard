@@ -24,7 +24,7 @@
           <img :src="tempArticle.image" width="75%" :style="byStyle" :alt="tempArticle.title"/>
         </div>
         <div class="news-text lh-base d-flex justify-content-center w-75 mx-auto">
-          <p>
+          <p class="font-sans-serif">
             {{ tempArticle.description }}
           </p>
         </div>
