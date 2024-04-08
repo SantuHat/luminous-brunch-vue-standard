@@ -28,7 +28,7 @@
     </div>
 
     <!-- 付款方式 -->
-    <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 orderResult">付款方式</h3>
+    <h3 v-if="step === 2 || step === 3" class="mb-5 mt-10 text-center text-gray-400 orderResult"><span class="text-danger me-1 align-middle">*</span>付款方式</h3>
   <VForm v-if="step === 2 || step === 3" v-slot="{ errors }" @submit="handleOrderSubmit()" >
     <div class="col-11 col-md-4 mx-auto">
       <VField v-if="step === 2 || step === 3" name="付款方式" id="付款方式" class="bg-transparent p-2 form-control d-block rounded text-center cursor-pointer" :disabled="step === 3"
@@ -48,7 +48,7 @@
       <div class="row order-data d-flex align-items-center" style="flex-direction: column">
         <div class="col-md-4 mb-2">
           <label for="name" class="sr-only text-primary py-3"
-            >姓名</label
+            ><span class="text-danger me-1 align-middle">*</span>姓名</label
           >
           <VField
             type="text"
@@ -66,7 +66,7 @@
         </div>
         <div class="col-md-4 mb-2">
           <label for="orderTel" class="sr-only text-primary py-3"
-            >電話</label
+            ><span class="text-danger me-1 align-middle">*</span>電話</label
           >
           <VField
             type="text"
@@ -84,7 +84,7 @@
         </div>
         <div class="col-md-4 mb-4">
           <label for="orderEmail" class="sr-only text-primary py-3"
-            >信箱</label
+            ><span class="text-danger me-1 align-middle">*</span>信箱</label
           >
           <VField
             type="email"
