@@ -2,41 +2,17 @@
 <!-- table -->
 <div class="container my-7">
   <div class="frame col-md-6 mx-auto">
-    <h3 class="text-center mt-7 mb-2 font-sans-serif fw-bold">訂單編號</h3>
-    <h4 class="text-center mb-7 font-sans-serif text-gray-300">{{ $route.query.orderId }}</h4>
+    <h3 class="text-center mt-7 mb-4 font-sans-serif fw-bold fs-6">訂單編號</h3>
+    <h4 class="text-center mb-7 font-sans-serif text-gray-300 orderNum">{{ $route.query.orderId }}</h4>
   </div>
 </div>
-<h3 class="mt-12 text-center text-gray-400 font-sans-serif fw-bold">訂餐明細</h3>
+<h3 class="mt-12 text-center text-gray-400 font-sans-serif fw-bold fs-6">訂餐明細</h3>
 <div class="container pt-2 pb-5">
   <!-- 完成訂單的訂餐明細 orderItem -->
   <MealList :step="3" :list="orderItem" :total="orderTotal"></MealList>
 
   <!-- 訂餐人資料 -->
-  <h3 class="mb-5 mt-10 text-center text-gray-400 font-sans-serif fw-bold">訂餐人資料</h3>
-  <!-- <div class="overflow-x">
-    <table class="border border-gray box-shadow-gray-300 mx-auto w-100">
-      <thead class="bg-gray text-center">
-        <tr>
-          <th class="px-lg-6 py-lg-4">姓名</th>
-          <th class="px-lg-6 py-lg-4">手機號碼</th>
-          <th class="px-lg-6 py-lg-4">信箱</th>
-        </tr>
-      </thead>
-      <tbody class="js-tbody">
-        <tr>
-          <th class="text-center p-5">
-            <input v-model="userData.name" type="text" placeholder="姓名" class="bg-transparent py-2 text-center border-0" disabled>
-          </th>
-          <th class="text-center p-5">
-            <input v-model="userData.tel" type="text" placeholder="0911345678" class="bg-transparent py-2 text-center border-0" disabled>
-          </th>
-          <th class="text-center p-5">
-            <input v-model="userData.email" type="text" placeholder="abc@gmail.com" class="bg-transparent py-2 text-center border-0" disabled>
-          </th>
-        </tr>
-      </tbody>
-    </table>
-  </div> -->
+  <h3 class="mb-5 mt-10 text-center text-gray-400 font-sans-serif fw-bold fs-6">訂餐人資料</h3>
     <div class="col-md-6 mx-auto order-data mb-3 font-sans-serif px-3">
         <div class=" mb-2">
           <label for="name" class="sr-only text-primary py-3"
@@ -188,5 +164,13 @@ button[disabled] {
 .frame {
   border: 1px solid #EDE7DD;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+.orderNum {
+  font-size: 18px;
+}
+@media(max-width: 576px){
+  .orderNum {
+    font-size: 16px;
+  }
 }
 </style>

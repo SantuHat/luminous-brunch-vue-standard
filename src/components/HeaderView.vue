@@ -124,47 +124,15 @@
                 class="dropdown-menu dropdow_cart bg-pink py-0 position"
                 aria-labelledby="cartFrame"
               >
-                <div class="empty-data text-center" v-if="cartData.length === 0">
-                  <UserCartEmptyData></UserCartEmptyData>
+                <div class="text-end p-2">
+                  <span class="material-symbols-outlined cursor-pointer">
+                    close
+                  </span>
                 </div>
+                <UserCartEmptyData v-if="cartData.length === 0"></UserCartEmptyData>
                 <div class="dropdown-menu-wrap" v-else>
-                  <div class="text-end p-2">
-                      <span class="material-symbols-outlined cursor-pointer">
-                        close
-                      </span>
-                  </div>
                   <div class="dropdown-menu-content" @click.stop>
                       <MealList :step="null" :list="cartData"></MealList>
-                    <!-- <ul
-                      v-for="item in cartData"
-                      :key="item.id"
-                      class="list-unstyled"
-                    >
-                      <div
-                        class="dropdown-item px-1 d-flex justify-content-between align-items-center"
-                        href="#"
-                      >
-                        <img
-                          :src="item.product.imageUrl"
-                          class="rounded toast-img"
-                          alt="product-img"
-                        />
-                        <span>
-                          {{ item.product.title }}
-                          × {{ item.qty }}
-                        </span>
-                        <span> ${{ item.total }} </span>
-                        <button
-                          type="button"
-                          class="btn btn-primary"
-                          @click="delCart(item.id)"
-                        >
-                          <span class="material-symbols-outlined pt-1">
-                            delete
-                          </span>
-                        </button>
-                      </div>
-                    </ul> -->
                   </div>
                   <div
                     class="dropdown-menu-footer text-center position-relative mb-2"
@@ -289,6 +257,9 @@ export default {
 </script>
 
 <style scoped>
+.dropdown-menu {
+  margin-top: 0;
+}
 .dropdow_cart {
   width: 100%;
   max-width: 500px;
@@ -338,11 +309,7 @@ export default {
 .cursor-pointer {
   cursor: pointer
 }
-.dropdown-menu-footer {
-  @media (max-width:576px){
-    /* position: unset; */
-  }
-}
+
 @media (max-width:576px){
   .dropdow_cart {
     height: 100vh;
