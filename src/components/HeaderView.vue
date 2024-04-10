@@ -176,7 +176,7 @@
                     <button
                       @click="goChecking"
                       type="button"
-                      class="checkoutBtn position-absolute btn btn-primary py-3 px-5 mt-3"
+                      class="checkoutBtn position-absolute btn btn-primary py-2 px-3 py-md-3 px-md-5 "
                     >
                       <span class="font-sans-serif">前往結帳</span>
                     </button>
@@ -352,6 +352,9 @@ export default {
   .dropdown-menu-content {
     height: auto;
     overflow-y: unset;
+  }
+  .cartFinalTotal {
+    font-size: 16px;
   }
 }
 </style>

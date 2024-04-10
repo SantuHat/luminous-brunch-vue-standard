@@ -1,52 +1,42 @@
 <template>
   <div class="meals">
     <ul class="meals-content">
-      <!-- <li class="meals-item-header">
-        <div class="commodity-wrap d-flex">
-          <div class="commodity-wrap-img"></div>
-          <div class="commodity-wrap-content">
-            <div class="product-title commodity-wrap-content-item">商品</div>
-            <div class="product-price commodity-wrap-content-item">單價</div>
-          </div>
-          <div class="commodity-wrap-control">
-            <div class="product-qty">數量</div>
-            <div class="product-subtotal">小計</div>
-            <div class="product-delete-btn"></div>
-          </div>
-        </div>
-      </li> -->
       <li class="meals-item-main" v-for="(item) in list" :key="item.product_id">
         <div class="commodity-wrap d-flex">
-          <div class="commodity-wrap-img">
+          <div class="commodity-wrap-img me-md-2">
             <img
             :src="item.product.imageUrl"
-            class="me-2 toast-img" :alt="item.product.imageUrl">
+            class="toast-img" :alt="item.product.imageUrl">
           </div>
           <div class="commodity-wrap-content">
             <div class="product-title commodity-wrap-content-item font-sans-serif">
               {{ item.product.title }}
             </div>
-            <div class="product-price commodity-wrap-content-item">
-              NT$ {{ item.product.price }}
-            </div>
-            <div class="product-qty">
-              <button v-if="step === 1 || step === null" @click="item.qty--; putCart(item.id, item.qty)" class="btn btn-primary fw-bold" type="button" :disabled="item.qty === 1">–</button>
-              <span class="mx-2">
-                {{ `${step === 2 || step === 3 ? '×': ''}${item.qty}` }}
-              </span>
-              <button v-if="step === 1 || step === null" @click="item.qty++; putCart(item.id, item.qty)" class="btn btn-primary fw-bold" type="button">+</button>
+            <div class="product-group d-flex align-items-lg-center">
+
+              <div class="product-price commodity-wrap-content-item">
+                NT$ {{ item.product.price }}
+              </div>
+              <div class="product-qty">
+                <button v-if="step === 1 || step === null" @click="item.qty--; putCart(item.id, item.qty)" class="btn btn-primary fw-bold" type="button" :disabled="item.qty === 1">–</button>
+                <span class="mx-2 mealNum">
+                  {{ `${step === 2 || step === 3 ? '×': ''}${item.qty}` }}
+                </span>
+                <button v-if="step === 1 || step === null" @click="item.qty++; putCart(item.id, item.qty)" class="btn btn-primary fw-bold" type="button">+</button>
+              </div>
             </div>
           </div>
           <div class="commodity-wrap-control">
-            <div class="product-delete-btn">
-              <button v-if="step === 1 || step === null" @click="delCart(item.id)" type="button" class="btn btn-primary">
-              <span class="material-symbols-outlined px-2 px-md-0 pt-1">
+            <div class="product-delete-btn ms-auto">
+              <button v-if="step === 1 || step === null" @click="delCart(item.id)" type="button" class="btn btn-primary text-right">
+              <span class="material-symbols-outlined px-md-0 pt-1">
                 delete
               </span>
             </button>
             </div>
-            <div class="product-subtotal">
-              <p class="mb-0"><span class="font-sans-serif">小計</span> NT$ {{ item.total }}</p>
+            <div class="product-subtotal text-end ms-auto">
+              <span class="font-sans-serif d-inline-block me-md-1">小計</span>
+              <span class="d-inline-block">NT$ {{ item.total }}</span>
             </div>
           </div>
         </div>
@@ -54,7 +44,7 @@
       </li>
     </ul>
     <div class="text-center pb-3" v-if="step">
-      <span class="fw-bold"><span class="font-sans-serif">總金額 NT</span>$ {{ total }}</span>
+      <span class="fw-bold"><span class="font-sans-serif">總計 NT</span>$ {{ total }}</span>
     </div>
   </div>
 </template>
@@ -131,11 +121,14 @@ export default {
   padding: 10px;
   margin: 10px 0;
 }
+.commodity-wrap {
+  justify-content: space-between;
+}
 
 .commodity-wrap .commodity-wrap-content {
   display: flex;
   align-items: center;
-  width: 47%;
+  width: 60vw;
   justify-content: space-between;
 }
 
@@ -145,16 +138,20 @@ export default {
 .commodity-wrap .commodity-wrap-content .product-price {
   width: 30%;
 }
-.commodity-wrap .commodity-wrap-control {
+.commodity-wrap-control {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  width: 41%;
+  justify-content: space-between;
+  width: 31%;
+  flex-direction: row-reverse;
 }
 .dropdown-menu .commodity-wrap-content {
   flex-direction: column;
   align-items: flex-start !important;
   justify-content: space-between;
+}
+.dropdown-menu .commodity-wrap-img {
+  margin-right: 8px;
 }
 .dropdown-menu .commodity-wrap-content .product-title, .dropdown-menu .commodity-wrap-content .product-price {
   width: 100% !important;
@@ -169,17 +166,35 @@ export default {
   background-color: transparent;
   --bs-btn-color: var(--bs-primary);
 }
+.dropdown-menu .product-group {
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+.commodity-wrap-content .mealNum {
+  display: inline-block;
+  width: 18.3px;
+  text-align: center;
+}
+.product-group {
+  width: 50%;
+}
 
-@media (max-width: 767px) {
-  .commodity-wrap-content {
-    flex-direction: column;
-    align-items: flex-start !important;
+@media (max-width: 992px) {
+  .commodity-wrap .commodity-wrap-content {
+      flex-direction: column;
+      align-items: flex-start !important;
   }
   .commodity-wrap-content .product-title, .commodity-wrap-content .product-price {
     width: 100% !important;
   }
   .commodity-wrap-control {
     flex-direction: column;
+    width: 38%;
+  }
+  .commodity-wrap-img {
+    margin-right: 8px;
   }
   .product-delete-btn button {
     border: none;
@@ -187,6 +202,20 @@ export default {
     --bs-btn-padding-y: 0;
     background-color: transparent;
     --bs-btn-color: var(--bs-primary);
+  }
+  .product-group {
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+}
+@media (max-width: 768px) {
+  .commodity-wrap {
+    font-size: 14px;
+  }
+  .product-title {
+    margin-bottom: 8px;
   }
 }
 </style>
