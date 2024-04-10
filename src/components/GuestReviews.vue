@@ -99,9 +99,9 @@ export default {
         .filter((item, index) => this.currentPage === index || this.currentPage + 1 === index)
         .forEach(i => {
           str += `<div class="card m-6">
-            <ul class="d-flex">
-              <li class=""coad-li><img src="${i.img}" alt="顧客頭貼" class="coad-img"></li>
-              <li class=""coad-li><div class="card-name font-sans-serif">${i.title}</div></li>
+            <ul class="d-flex ps-1.5 me-0">
+              <li class=""coad-li style="margin-right:-20px"><img src="${i.img}" alt="顧客頭貼" class="coad-img"></li>
+              <li class=""coad-li><div class="card-name font-sans-serif" style="font-weight: 600">${i.title}</div></li>
             </ul>
             <div class="card-body">
               <div class="star-box d-flex">
