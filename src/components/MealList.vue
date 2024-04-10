@@ -12,14 +12,14 @@
             <div class="product-title commodity-wrap-content-item font-sans-serif">
               {{ item.product.title }}
             </div>
-            <div class="product-group d-flex align-items-lg-center">
+            <div class="product-group d-flex">
 
               <div class="product-price commodity-wrap-content-item">
                 NT$ {{ item.product.price }}
               </div>
               <div class="product-qty">
                 <button v-if="step === 1 || step === null" @click="item.qty--; putCart(item.id, item.qty)" class="btn btn-primary fw-bold" type="button" :disabled="item.qty === 1">–</button>
-                <span class="mx-2 mealNum">
+                <span class="mealNum" :class="{ 'mx-0': step === 2 || step === 3, 'mx-2': step === 1 }">
                   {{ `${step === 2 || step === 3 ? '×': ''}${item.qty}` }}
                 </span>
                 <button v-if="step === 1 || step === null" @click="item.qty++; putCart(item.id, item.qty)" class="btn btn-primary fw-bold" type="button">+</button>
@@ -29,7 +29,7 @@
           <div class="commodity-wrap-control">
             <div class="product-delete-btn ms-auto">
               <button v-if="step === 1 || step === null" @click="delCart(item.id)" type="button" class="btn btn-primary text-right">
-              <span class="material-symbols-outlined px-md-0 pt-1">
+              <span class="material-symbols-outlined pt-1 fs-6">
                 delete
               </span>
             </button>
@@ -145,10 +145,14 @@ export default {
   width: 31%;
   flex-direction: row-reverse;
 }
+.dropdown-menu .meals-content {
+  background-color: #fff;
+}
 .dropdown-menu .commodity-wrap-content {
   flex-direction: column;
   align-items: flex-start !important;
   justify-content: space-between;
+  width: 60vw;
 }
 .dropdown-menu .commodity-wrap-img {
   margin-right: 8px;
@@ -158,19 +162,21 @@ export default {
 }
 .dropdown-menu .commodity-wrap-control {
   flex-direction: column;
+  width: 60%;
 }
 .dropdown-menu .product-delete-btn button {
-  border: none;
-  --bs-btn-padding-x: 0;
-  --bs-btn-padding-y: 0;
-  background-color: transparent;
-  --bs-btn-color: var(--bs-primary);
+  /* border: none; */
+  --bs-btn-padding-x: 0.5rem;
+  --bs-btn-padding-y: 0.25rem;
+  /* background-color: transparent; */
+  /* --bs-btn-color: var(--bs-primary); */
 }
 .dropdown-menu .product-group {
   flex-direction: column;
   width: 100%;
   justify-content: space-between;
   flex-grow: 1;
+  align-items: flex-start
 }
 .commodity-wrap-content .mealNum {
   display: inline-block;
@@ -179,6 +185,10 @@ export default {
 }
 .product-group {
   width: 50%;
+}
+.dropdown-menu .mealNum {
+  margin-left: 8px;
+  margin-right: 8px;
 }
 
 @media (max-width: 992px) {
@@ -189,7 +199,7 @@ export default {
   .commodity-wrap-content .product-title, .commodity-wrap-content .product-price {
     width: 100% !important;
   }
-  .commodity-wrap-control {
+  .commodity-wrap-control,  .dropdown-menu .commodity-wrap-control {
     flex-direction: column;
     width: 38%;
   }
@@ -198,8 +208,8 @@ export default {
   }
   .product-delete-btn button {
     border: none;
-    --bs-btn-padding-x: 0;
-    --bs-btn-padding-y: 0;
+    --bs-btn-padding-x: 0.5rem;
+    --bs-btn-padding-y: 0.25rem;
     background-color: transparent;
     --bs-btn-color: var(--bs-primary);
   }
@@ -216,6 +226,14 @@ export default {
   }
   .product-title {
     margin-bottom: 8px;
+  }
+  .product-group {
+    align-items: flex-start;
+  }
+}
+@media (min-width: 992px) {
+  .product-group {
+    align-items: center;
   }
 }
 </style>
