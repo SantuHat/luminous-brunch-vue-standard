@@ -9,9 +9,9 @@
               新用戶註冊
             </h1>
             <div class="mb-2">
-              <label for="inputEmail" class="sr-only mb-1 fw-bold"
-                >電子郵件</label
-              >
+              <label for="inputEmail" class="sr-only mb-1 fw-bold d-flex align-items-center"
+                >電子郵件
+              <p class="text-danger mb-0 ps-2 mt-1" data-message="Email" ref="email">*</p></label>
               <input
                 type="email"
                 id="inputEmail"
@@ -21,7 +21,6 @@
                 autofocus
                 v-model="obj.email"
               />
-              <p class="text-danger" data-message="Email" ref="email">*</p>
             </div>
             <div class="mb-2">
               <label for="inputPassword" class="sr-only mb-1 fw-bold">密碼</label>
@@ -39,9 +38,10 @@
               </p>
             </div>
             <div class="mb-2">
-              <label for="checkPassword" class="sr-only mb-1 fw-bold"
-                >確認密碼</label
-              >
+              <label for="checkPassword" class="sr-only mb-1 fw-bold d-flex align-items-center"
+                >確認密碼
+                <p class="text-danger mb-0 ps-2 mt-1" data-message="checkpassword" ref="checkPassword">*</p>
+              </label>
               <input
                 type="password"
                 id="checkPassword"
@@ -50,12 +50,12 @@
                 required
                 v-model="obj.checkPassword"
               />
-              <p class="text-danger" data-message="checkpassword" ref="checkPassword">*</p>
             </div>
             <div class="mb-2">
-              <label for="inputPassword" class="sr-only mb-1 fw-bold"
-                >用戶姓名</label
-              >
+              <label for="inputPassword" class="sr-only mb-1 fw-bold d-flex align-items-center"
+                >用戶姓名
+                <p class="text-danger mb-0 ps-2 mt-1" data-message="phone" ref="name">*</p>
+              </label>
               <input
                 type="name"
                 id="inputName"
@@ -64,10 +64,11 @@
                 required
                 v-model="obj.name"
               />
-              <p class="text-danger" data-message="phone" ref="name">*</p>
             </div>
             <div class="mb-2">
-              <label for="inputPassword" class="sr-only mb-1 fw-bold">電話</label>
+              <label for="inputPassword" class="sr-only mb-1 fw-bold d-flex align-items-center">電話
+                <p class="text-danger mb-0 ps-2 mt-1" data-message="phone" ref="phone">*</p>
+              </label>
               <input
                 type="phone"
                 id="inputPhone"
@@ -76,7 +77,6 @@
                 required
                 v-model="obj.phone"
               />
-              <p class="text-danger" data-message="phone" ref="phone">*</p>
             </div>
             <div class="d-flex">
               <div class="form-check pe-3">

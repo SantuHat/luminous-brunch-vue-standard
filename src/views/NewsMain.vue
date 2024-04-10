@@ -286,8 +286,8 @@ main .news-desktop .card-content .card-img-size {
     color: white;
     height: 120px;
     width: 300px;
-    top: -25px;
-    right: -110px;
+    top: -30px;
+    right: -120px;
     font-size: 16px;
     text-align: center;
     transform: rotate(45deg);
