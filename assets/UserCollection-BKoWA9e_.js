@@ -1,1 +1,0 @@
-import{_ as t,r as s,o as a,c,d as r,F as i,b as e}from"./index-DBtjY0hd.js";const l={},_=e("h1",null,"查看我的收藏",-1),d=e("h1",null,"查看我的收藏",-1);function p(o,u,m,f,h,g){const n=s("LoadingView");return a(),c(i,null,[_,r(n,{active:o.isLoading},null,8,["active"]),d],64)}const $=t(l,[["render",p]]);export{$ as default};
