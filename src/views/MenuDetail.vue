@@ -7,7 +7,7 @@
           class="menu-detail-img object-fit-cover">
       </div>
       <div class="col-lg-6">
-        <div class="d-flex flex-column justify-content-between">
+        <div class="d-flex flex-column justify-content-between h-100">
           <nav>
               <ol class="breadcrumb">
                   <li class="breadcrumb-item"><RouterLink to="/">首頁</RouterLink></li>
@@ -21,7 +21,7 @@
                   </li>
               </ol>
           </nav>
-          <div class="my-3">
+          <div class="mt-3">
               <h2 class="text-primary fw-bolder  font-NotoSerif my-4">{{ product.title }}</h2>
               <div class="d-lg-none mb-4">
                   <img :src="product.imageUrl" alt="餐點圖片"
@@ -39,7 +39,7 @@
                       <button class="btn btn-primary" type="button" @click="editQty++">+</button>
                   </div>
               </div>
-              <div class="d-grid gap-2 mb-3">
+              <div class="d-grid gap-2">
                 <button class="btn btn-primary py-3 d-flex justify-content-center align-items-center text-center" type="button"
                   :disabled="product.id === status?.addCartLoading"
                   @click.prevent="addCart(product.id, product, editQty)"
