@@ -60,6 +60,13 @@ export default {
       articlesOffcanvas: ''
     }
   },
+  // watch: {
+  //   '$route.query': {
+  //     handler () {
+  //       this.getArticleId()
+  //     },
+  //     deep: true
+  //   }
   methods: {
     getArticleId (item) {
       this.$emit('hideOffcanvas', item)

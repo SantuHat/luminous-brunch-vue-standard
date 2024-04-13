@@ -58,8 +58,17 @@ export default {
     setTimeout(() => {
       this.byStyle.opacity = '1'
     }, 300)
+    this.initArticle()
     this.getArticles()
   },
+  // watch: {
+  //   '$route.query.id': {
+  //     handler () {
+  //       this.initArticle()
+  //     },
+  //     deep: true
+  //   }
+  // },
   methods: {
     getArticleId (item) {
       this.tempArticle = item
@@ -70,8 +79,22 @@ export default {
       this.$http.get(url)
         .then((res) => {
           this.articles = res.data.articles
-          this.getArticleId(this.articles[0])
+          this.initArticle()
           this.isLoading = false
+        })
+        .catch((err) => {
+          alert(err)
+        })
+    },
+    initArticle () {
+      const id = this.$route.params.id
+      console.log(this.$route.params.id)
+      const url = `${VITE_API}api/${VITE_PATH}/article/${id}`
+      this.$http.get(url)
+        .then((res) => {
+          console.log(res.data)
+          this.getArticleId(res.data.article)
+          // this.isLoading = false
         })
         .catch((err) => {
           alert(err)
