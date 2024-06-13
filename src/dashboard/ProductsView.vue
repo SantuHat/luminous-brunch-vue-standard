@@ -76,6 +76,9 @@ export default {
           this.products = res.data.products
           this.pages = res.data.pagination
         })
+        .catch((err) => {
+          console.log(err)
+        })
     },
     updateProduct () {
       const hidemodal = this.$refs.productModal
@@ -144,6 +147,7 @@ export default {
     this.$http.defaults.headers.common.Authorization = token
     //   this.myModal = new bootstrap.Modal(this.$refs.productModal);
     //   this.modalDel = new bootstrap.Modal(this.$refs.delProductModal);
+    this.check()
     this.getProducts()
   }
 }
